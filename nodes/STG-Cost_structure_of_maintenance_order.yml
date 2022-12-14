@@ -424,7 +424,7 @@ steps:
                 nodeName: PMCO
             join:
               joinCondition: "FROM {{ ref('RAW', 'PMCO') }} \"PMCO\" WHERE 1=1 AND\
-                \ MANDT in ('800') "
+                \ \"MANDT\" in ('800') "
             name: Cost_structure_of_maintenance_order
             noLinkRefs: []
       name: Cost_structure_of_maintenance_order

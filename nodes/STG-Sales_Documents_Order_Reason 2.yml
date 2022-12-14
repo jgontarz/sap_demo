@@ -1,11 +1,11 @@
 steps:
-  Sales_Division_Txt-200000067:
+  Sales_Documents_Order_Reason-200000070:
     operation:
       config: {}
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Organizational Unit: Sales Divisions: Texts'
+      description: 'Sales Documents: Order Reasons'
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -13,8 +13,8 @@ steps:
       metadata:
         columns:
           - columnReference:
-              columnCounter: 2000004928
-              stepCounter: "200000067"
+              columnCounter: 2000004949
+              stepCounter: "200000070"
             dataType: char(3)
             defaultValue: ""
             description: ""
@@ -22,51 +22,38 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001984
-                    stepCounter: "200000029"
+                  - columnCounter: 2000002005
+                    stepCounter: "200000032"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004929
-              stepCounter: "200000067"
+              columnCounter: 2000004950
+              stepCounter: "200000070"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Order_Reason_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002006
+                    stepCounter: "200000032"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004951
+              stepCounter: "200000070"
             dataType: char(1)
             defaultValue: ""
             description: ""
-            name: Language_Key_Id
+            name: Retro_Billing
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001985
-                    stepCounter: "200000029"
+                  - columnCounter: 2000002007
+                    stepCounter: "200000032"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004930
-              stepCounter: "200000067"
-            dataType: char(2)
-            defaultValue: ""
-            description: ""
-            name: Division_Id
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001986
-                    stepCounter: "200000029"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004931
-              stepCounter: "200000067"
-            dataType: char(20)
-            defaultValue: ""
-            description: ""
-            name: Name
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001987
-                    stepCounter: "200000029"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004932
-              stepCounter: "200000067"
+              columnCounter: 2000004952
+              stepCounter: "200000070"
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
@@ -74,12 +61,12 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001988
-                    stepCounter: "200000029"
+                  - columnCounter: 2000002008
+                    stepCounter: "200000032"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004933
-              stepCounter: "200000067"
+              columnCounter: 2000004953
+              stepCounter: "200000070"
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
@@ -87,8 +74,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001989
-                    stepCounter: "200000029"
+                  - columnCounter: 2000002009
+                    stepCounter: "200000032"
                 transform: ""
         sourceMapping:
           - aliases: {}
@@ -96,14 +83,14 @@ steps:
               customSQL: ""
             dependencies:
               - locationName: RAW
-                nodeName: TSPAT
+                nodeName: TVAU
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TSPAT') }} \"TSPAT\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
-            name: Sales_Division_Txt
+              joinCondition: "FROM {{ ref('RAW', 'TVAU') }} \"TVAU\" WHERE 1=1 AND\
+                \ MANDT in ('800') "
+            name: Sales_Documents_Order_Reason
             noLinkRefs: []
-      name: Sales_Division_Txt
+      name: Sales_Documents_Order_Reason
       overrideSQL: false
       sqlType: View
       type: sql
-    stepCounter: "200000067"
+    stepCounter: "200000070"

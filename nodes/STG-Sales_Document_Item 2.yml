@@ -3242,8 +3242,8 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002459
                     stepCounter: "200000037"
-                transform: case when VBAP."/XLSO/COURSE_BDA" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAP."/XLSO/COURSE_BDA") end
+                transform: case when VBAP./XLSO/COURSE_BDA in ('00000000', ' ') THEN
+                  NULL ELSE TO_DATE(VBAP./XLSO/COURSE_BDA) end
           - columnReference:
               columnCounter: 2000005404
               stepCounter: "200000075"
@@ -3256,8 +3256,8 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002460
                     stepCounter: "200000037"
-                transform: case when VBAP."/XLSO/COURSE_EDA" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAP."/XLSO/COURSE_EDA") end
+                transform: case when VBAP./XLSO/COURSE_EDA in ('00000000', ' ') THEN
+                  NULL ELSE TO_DATE(VBAP./XLSO/COURSE_EDA) end
           - columnReference:
               columnCounter: 2000005405
               stepCounter: "200000075"
@@ -5076,7 +5076,7 @@ steps:
                 nodeName: VBAP
             join:
               joinCondition: "FROM {{ ref('RAW', 'VBAP') }} \"VBAP\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+                \ MANDT in ('800') "
             name: Sales_Document_Item
             noLinkRefs: []
       name: Sales_Document_Item

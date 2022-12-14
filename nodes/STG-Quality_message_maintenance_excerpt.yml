@@ -661,7 +661,7 @@ steps:
                 nodeName: QMIH
             join:
               joinCondition: "FROM {{ ref('RAW', 'QMIH') }} \"QMIH\" WHERE 1=1 AND\
-                \ MANDT in ('800') "
+                \ \"MANDT\" in ('800') "
             name: Quality_message_maintenance_excerpt
             noLinkRefs: []
       name: Quality_message_maintenance_excerpt

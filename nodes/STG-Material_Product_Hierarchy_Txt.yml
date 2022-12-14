@@ -99,7 +99,7 @@ steps:
                 nodeName: T179T
             join:
               joinCondition: "FROM {{ ref('RAW', 'T179T') }} \"T179T\" WHERE 1=1 AND\
-                \ MANDT in ('800') "
+                \ \"MANDT\" in ('800') "
             name: Material_Product_Hierarchy_Txt
             noLinkRefs: []
       name: Material_Product_Hierarchy_Txt

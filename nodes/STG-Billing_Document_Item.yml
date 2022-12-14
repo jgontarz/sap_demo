@@ -3021,7 +3021,7 @@ steps:
                 nodeName: VBRP
             join:
               joinCondition: "FROM {{ ref('RAW', 'VBRP') }} \"VBRP\" WHERE 1=1 AND\
-                \ MANDT in ('800') "
+                \ \"MANDT\" in ('800') "
             name: Billing_Document_Item
             noLinkRefs: []
       name: Billing_Document_Item

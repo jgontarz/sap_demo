@@ -1659,8 +1659,8 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001441
                     stepCounter: "200000011"
-                transform: case when "/SAPSMOSS/ERDAT" in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(""/SAPSMOSS/ERDAT") end
+                transform: case when QMEL./SAPSMOSS/ERDAT in ('00000000', ' ') THEN
+                  NULL ELSE TO_DATE(QMEL./SAPSMOSS/ERDAT) end
           - columnReference:
               columnCounter: 2000004386
               stepCounter: "200000049"
@@ -1995,7 +1995,7 @@ steps:
                 nodeName: QMEL
             join:
               joinCondition: "FROM {{ ref('RAW', 'QMEL') }} \"QMEL\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800')  AND \"/SAPSMOSS/MANDT\" in ('800') "
+                \ MANDT in ('800')  AND /SAPSMOSS/MANDT in ('800') "
             name: Quality_Notification
             noLinkRefs: []
       name: Quality_Notification

@@ -1563,8 +1563,8 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002169
                     stepCounter: "200000036"
-                transform: case when VBAK."/XLSO/SO_VALD_FM" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAK"./XLSO/SO_VALD_FM") end
+                transform: case when VBAK./XLSO/SO_VALD_FM in ('00000000', ' ') THEN
+                  NULL ELSE TO_DATE(VBAK./XLSO/SO_VALD_FM) end
           - columnReference:
               columnCounter: 2000005114
               stepCounter: "200000074"
@@ -1577,8 +1577,8 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002170
                     stepCounter: "200000036"
-                transform: case when VBAK."/XLSO/SO_VALD_TO" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAK"./XLSO/SO_VALD_TO") end
+                transform: case when VBAK./XLSO/SO_VALD_TO in ('00000000', ' ') THEN
+                  NULL ELSE TO_DATE(VBAK./XLSO/SO_VALD_TO) end
           - columnReference:
               columnCounter: 2000005115
               stepCounter: "200000074"
@@ -2125,7 +2125,7 @@ steps:
                 nodeName: VBAK
             join:
               joinCondition: "FROM {{ ref('RAW', 'VBAK') }} \"VBAK\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+                \ MANDT in ('800') "
             name: Sales_Document_Header
             noLinkRefs: []
       name: Sales_Document_Header

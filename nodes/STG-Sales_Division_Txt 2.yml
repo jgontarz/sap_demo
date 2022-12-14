@@ -99,7 +99,7 @@ steps:
                 nodeName: TSPAT
             join:
               joinCondition: "FROM {{ ref('RAW', 'TSPAT') }} \"TSPAT\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+                \ MANDT in ('800') "
             name: Sales_Division_Txt
             noLinkRefs: []
       name: Sales_Division_Txt
