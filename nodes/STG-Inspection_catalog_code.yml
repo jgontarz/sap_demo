@@ -1,7 +1,9 @@
 steps:
   Inspection_catalog_code-200000053:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -89,8 +91,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001633
                     stepCounter: "200000015"
-                transform: case when QPCD.GUELTIGAB in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(QPCD.GUELTIGAB) end
+                transform: case when QPCD.GUELTIGAB in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPCD.GUELTIGAB) end
           - columnReference:
               columnCounter: 2000004578
               stepCounter: "200000053"
@@ -129,8 +130,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001636
                     stepCounter: "200000015"
-                transform: case when QPCD.E_DATUM in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QPCD.E_DATUM) end
+                transform: case when QPCD.E_DATUM in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPCD.E_DATUM) end
           - columnReference:
               columnCounter: 2000004581
               stepCounter: "200000053"
@@ -156,8 +156,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001638
                     stepCounter: "200000015"
-                transform: case when QPCD.A_DATUM in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QPCD.A_DATUM) end
+                transform: case when QPCD.A_DATUM in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPCD.A_DATUM) end
           - columnReference:
               columnCounter: 2000004583
               stepCounter: "200000053"
@@ -244,8 +243,7 @@ steps:
               - locationName: RAW
                 nodeName: QPCD
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QPCD') }} \"QPCD\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'QPCD') }} \"QPCD\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Inspection_catalog_code
             noLinkRefs: []
       name: Inspection_catalog_code

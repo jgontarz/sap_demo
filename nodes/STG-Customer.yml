@@ -1,7 +1,9 @@
 steps:
   Customer-200000043:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -375,8 +377,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000371
                     stepCounter: "200000005"
-                transform: case when KNA1.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(KNA1.ERDAT) end
+                transform: case when KNA1.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.ERDAT) end
           - columnReference:
               columnCounter: 2000003316
               stepCounter: "200000043"
@@ -1793,8 +1794,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000480
                     stepCounter: "200000005"
-                transform: case when KNA1.UPDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(KNA1.UPDAT) end
+                transform: case when KNA1.UPDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.UPDAT) end
           - columnReference:
               columnCounter: 2000003425
               stepCounter: "200000043"
@@ -1911,8 +1911,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000489
                     stepCounter: "200000005"
-                transform: case when KNA1.RGDATE in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(KNA1.RGDATE) end
+                transform: case when KNA1.RGDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.RGDATE) end
           - columnReference:
               columnCounter: 2000003434
               stepCounter: "200000043"
@@ -1951,8 +1950,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000492
                     stepCounter: "200000005"
-                transform: case when KNA1.RNEDATE in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(KNA1.RNEDATE) end
+                transform: case when KNA1.RNEDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.RNEDATE) end
           - columnReference:
               columnCounter: 2000003437
               stepCounter: "200000043"
@@ -2572,8 +2570,7 @@ steps:
               - locationName: RAW
                 nodeName: KNA1
             join:
-              joinCondition: "FROM {{ ref('RAW', 'KNA1') }} \"KNA1\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800')  AND \"/XLSO/CLIENT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'KNA1') }} \"KNA1\" WHERE 1=1 AND \"MANDT\" in ('800')  AND \"/XLSO/CLIENT\" in ('800') "
             name: Customer
             noLinkRefs: []
       name: Customer

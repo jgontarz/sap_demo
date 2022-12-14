@@ -1,7 +1,9 @@
 steps:
   Controlling_Area-200000065:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -644,8 +646,7 @@ steps:
               - locationName: RAW
                 nodeName: TKA01
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TKA01') }} \"TKA01\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'TKA01') }} \"TKA01\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Controlling_Area
             noLinkRefs: []
       name: Controlling_Area

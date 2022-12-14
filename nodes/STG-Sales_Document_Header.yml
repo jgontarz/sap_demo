@@ -1,11 +1,13 @@
 steps:
   Sales_Document_Header-200000074:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Sales Document: Header Data'
+      description: "Sales Document: Header Data"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -50,8 +52,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002054
                     stepCounter: "200000036"
-                transform: case when VBAK.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.ERDAT) end
+                transform: case when VBAK.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.ERDAT) end
           - columnReference:
               columnCounter: 2000004999
               stepCounter: "200000074"
@@ -90,8 +91,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002057
                     stepCounter: "200000036"
-                transform: case when VBAK.ANGDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.ANGDT) end
+                transform: case when VBAK.ANGDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.ANGDT) end
           - columnReference:
               columnCounter: 2000005002
               stepCounter: "200000074"
@@ -104,8 +104,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002058
                     stepCounter: "200000036"
-                transform: case when VBAK.BNDDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.BNDDT) end
+                transform: case when VBAK.BNDDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.BNDDT) end
           - columnReference:
               columnCounter: 2000005003
               stepCounter: "200000074"
@@ -118,8 +117,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002059
                     stepCounter: "200000036"
-                transform: case when VBAK.AUDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.AUDAT) end
+                transform: case when VBAK.AUDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.AUDAT) end
           - columnReference:
               columnCounter: 2000005004
               stepCounter: "200000074"
@@ -184,8 +182,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002064
                     stepCounter: "200000036"
-                transform: case when VBAK.GWLDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.GWLDT) end
+                transform: case when VBAK.GWLDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.GWLDT) end
           - columnReference:
               columnCounter: 2000005009
               stepCounter: "200000074"
@@ -354,8 +351,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002077
                     stepCounter: "200000036"
-                transform: case when VBAK.GUEBG in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.GUEBG) end
+                transform: case when VBAK.GUEBG in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.GUEBG) end
           - columnReference:
               columnCounter: 2000005022
               stepCounter: "200000074"
@@ -368,8 +364,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002078
                     stepCounter: "200000036"
-                transform: case when VBAK.GUEEN in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.GUEEN) end
+                transform: case when VBAK.GUEEN in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.GUEEN) end
           - columnReference:
               columnCounter: 2000005023
               stepCounter: "200000074"
@@ -395,8 +390,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002080
                     stepCounter: "200000036"
-                transform: case when VBAK.VDATU in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.VDATU) end
+                transform: case when VBAK.VDATU in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.VDATU) end
           - columnReference:
               columnCounter: 2000005025
               stepCounter: "200000074"
@@ -552,8 +546,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002092
                     stepCounter: "200000036"
-                transform: case when VBAK.BSTDK in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.BSTDK) end
+                transform: case when VBAK.BSTDK in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.BSTDK) end
           - columnReference:
               columnCounter: 2000005037
               stepCounter: "200000074"
@@ -631,8 +624,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002098
                     stepCounter: "200000036"
-                transform: case when VBAK.MAHDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.MAHDT) end
+                transform: case when VBAK.MAHDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.MAHDT) end
           - columnReference:
               columnCounter: 2000005043
               stepCounter: "200000074"
@@ -697,8 +689,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002103
                     stepCounter: "200000036"
-                transform: case when VBAK.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.AEDAT) end
+                transform: case when VBAK.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.AEDAT) end
           - columnReference:
               columnCounter: 2000005048
               stepCounter: "200000074"
@@ -906,8 +897,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002119
                     stepCounter: "200000036"
-                transform: case when VBAK.CMFRE in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.CMFRE) end
+                transform: case when VBAK.CMFRE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.CMFRE) end
           - columnReference:
               columnCounter: 2000005064
               stepCounter: "200000074"
@@ -920,8 +910,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002120
                     stepCounter: "200000036"
-                transform: case when VBAK.CMNUP in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.CMNUP) end
+                transform: case when VBAK.CMNUP in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.CMNUP) end
           - columnReference:
               columnCounter: 2000005065
               stepCounter: "200000074"
@@ -934,8 +923,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002121
                     stepCounter: "200000036"
-                transform: case when VBAK.CMNGV in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.CMNGV) end
+                transform: case when VBAK.CMNGV in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.CMNGV) end
           - columnReference:
               columnCounter: 2000005066
               stepCounter: "200000074"
@@ -1286,8 +1274,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002148
                     stepCounter: "200000036"
-                transform: case when VBAK.ABHOD in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.ABHOD) end
+                transform: case when VBAK.ABHOD in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.ABHOD) end
           - columnReference:
               columnCounter: 2000005093
               stepCounter: "200000074"
@@ -1404,8 +1391,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002157
                     stepCounter: "200000036"
-                transform: case when VBAK.DAT_FZAU in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAK.DAT_FZAU) end
+                transform: case when VBAK.DAT_FZAU in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.DAT_FZAU) end
           - columnReference:
               columnCounter: 2000005102
               stepCounter: "200000074"
@@ -1418,8 +1404,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002158
                     stepCounter: "200000036"
-                transform: case when VBAK.FMBDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAK.FMBDAT) end
+                transform: case when VBAK.FMBDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.FMBDAT) end
           - columnReference:
               columnCounter: 2000005103
               stepCounter: "200000074"
@@ -1549,8 +1534,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002168
                     stepCounter: "200000036"
-                transform: case when VBAK._DATAAGING in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAK._DATAAGING) end
+                transform: case when VBAK._DATAAGING in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK._DATAAGING) end
           - columnReference:
               columnCounter: 2000005113
               stepCounter: "200000074"
@@ -1563,8 +1547,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002169
                     stepCounter: "200000036"
-                transform: case when VBAK."/XLSO/SO_VALD_FM" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAK"./XLSO/SO_VALD_FM") end
+                transform: case when VBAK."/XLSO/SO_VALD_FM" in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK."/XLSO/SO_VALD_FM") end
           - columnReference:
               columnCounter: 2000005114
               stepCounter: "200000074"
@@ -1577,8 +1560,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002170
                     stepCounter: "200000036"
-                transform: case when VBAK."/XLSO/SO_VALD_TO" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAK"./XLSO/SO_VALD_TO") end
+                transform: case when VBAK."/XLSO/SO_VALD_TO" in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK."/XLSO/SO_VALD_TO") end
           - columnReference:
               columnCounter: 2000005115
               stepCounter: "200000074"
@@ -1643,8 +1625,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002175
                     stepCounter: "200000036"
-                transform: case when VBAK.PSM_BUDAT in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAK.PSM_BUDAT) end
+                transform: case when VBAK.PSM_BUDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.PSM_BUDAT) end
           - columnReference:
               columnCounter: 2000005120
               stepCounter: "200000074"
@@ -1787,8 +1768,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002186
                     stepCounter: "200000036"
-                transform: case when VBAK.FSH_CANDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAK.FSH_CANDATE) end
+                transform: case when VBAK.FSH_CANDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.FSH_CANDATE) end
           - columnReference:
               columnCounter: 2000005131
               stepCounter: "200000074"
@@ -1905,8 +1885,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002195
                     stepCounter: "200000036"
-                transform: case when VBAK.HB_EXPDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAK.HB_EXPDATE) end
+                transform: case when VBAK.HB_EXPDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.HB_EXPDATE) end
           - columnReference:
               columnCounter: 2000005140
               stepCounter: "200000074"
@@ -1919,8 +1898,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002196
                     stepCounter: "200000036"
-                transform: case when VBAK.HB_RESDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAK.HB_RESDATE) end
+                transform: case when VBAK.HB_RESDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.HB_RESDATE) end
           - columnReference:
               columnCounter: 2000005141
               stepCounter: "200000074"
@@ -2117,15 +2095,15 @@ steps:
                     stepCounter: "200000036"
                 transform: ""
         sourceMapping:
-          - aliases: {}
+          - aliases:
+              VBAK: "200000036"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW
                 nodeName: VBAK
             join:
-              joinCondition: "FROM {{ ref('RAW', 'VBAK') }} \"VBAK\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'VBAK') }} \"VBAK\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Sales_Document_Header
             noLinkRefs: []
       name: Sales_Document_Header

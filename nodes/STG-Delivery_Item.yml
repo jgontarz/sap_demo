@@ -1,11 +1,13 @@
 steps:
   Delivery_Item-200000045:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'SD document: Delivery: Item data'
+      description: "SD document: Delivery: Item data"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -102,8 +104,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000733
                     stepCounter: "200000007"
-                transform: case when LIPS.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIPS.ERDAT) end
+                transform: case when LIPS.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIPS.ERDAT) end
           - columnReference:
               columnCounter: 2000003678
               stepCounter: "200000045"
@@ -441,8 +442,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000759
                     stepCounter: "200000007"
-                transform: case when LIPS.MBDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIPS.MBDAT) end
+                transform: case when LIPS.MBDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIPS.MBDAT) end
           - columnReference:
               columnCounter: 2000003704
               stepCounter: "200000045"
@@ -1144,8 +1144,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000813
                     stepCounter: "200000007"
-                transform: case when LIPS.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIPS.AEDAT) end
+                transform: case when LIPS.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIPS.AEDAT) end
           - columnReference:
               columnCounter: 2000003758
               stepCounter: "200000045"
@@ -1977,8 +1976,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000877
                     stepCounter: "200000007"
-                transform: case when LIPS.STADAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIPS.STADAT) end
+                transform: case when LIPS.STADAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIPS.STADAT) end
           - columnReference:
               columnCounter: 2000003822
               stepCounter: "200000045"
@@ -2992,8 +2990,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000955
                     stepCounter: "200000007"
-                transform: case when LIPS.HSDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIPS.HSDAT) end
+                transform: case when LIPS.HSDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIPS.HSDAT) end
           - columnReference:
               columnCounter: 2000003900
               stepCounter: "200000045"
@@ -3006,8 +3003,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000956
                     stepCounter: "200000007"
-                transform: case when LIPS.VFDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIPS.VFDAT) end
+                transform: case when LIPS.VFDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIPS.VFDAT) end
           - columnReference:
               columnCounter: 2000003901
               stepCounter: "200000045"
@@ -4030,8 +4026,7 @@ steps:
               - locationName: RAW
                 nodeName: LIPS
             join:
-              joinCondition: "FROM {{ ref('RAW', 'LIPS') }} \"LIPS\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'LIPS') }} \"LIPS\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Delivery_Item
             noLinkRefs: []
       name: Delivery_Item

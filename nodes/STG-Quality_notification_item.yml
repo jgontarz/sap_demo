@@ -1,7 +1,9 @@
 steps:
   Quality_notification_item-200000050:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -76,8 +78,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001471
                     stepCounter: "200000012"
-                transform: case when QMFE.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMFE.ERDAT) end
+                transform: case when QMFE.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMFE.ERDAT) end
           - columnReference:
               columnCounter: 2000004416
               stepCounter: "200000050"
@@ -103,8 +104,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001473
                     stepCounter: "200000012"
-                transform: case when QMFE.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMFE.AEDAT) end
+                transform: case when QMFE.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMFE.AEDAT) end
           - columnReference:
               columnCounter: 2000004418
               stepCounter: "200000050"
@@ -789,8 +789,7 @@ steps:
               - locationName: RAW
                 nodeName: QMFE
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QMFE') }} \"QMFE\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'QMFE') }} \"QMFE\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Quality_notification_item
             noLinkRefs: []
       name: Quality_notification_item

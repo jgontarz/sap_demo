@@ -1,11 +1,13 @@
 steps:
   Sales_Division-200000066:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Organizational Unit: Sales Divisions'
+      description: "Organizational Unit: Sales Divisions"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -72,8 +74,7 @@ steps:
               - locationName: RAW
                 nodeName: TSPA
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TSPA') }} \"TSPA\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'TSPA') }} \"TSPA\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Sales_Division
             noLinkRefs: []
       name: Sales_Division

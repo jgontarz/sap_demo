@@ -1,11 +1,13 @@
 steps:
   Sales_Organization_Txt-200000073:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Organizational Unit: Sales Organizations: Texts'
+      description: "Organizational Unit: Sales Organizations: Texts"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -98,8 +100,7 @@ steps:
               - locationName: RAW
                 nodeName: TVKOT
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TVKOT') }} \"TVKOT\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'TVKOT') }} \"TVKOT\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Sales_Organization_Txt
             noLinkRefs: []
       name: Sales_Organization_Txt

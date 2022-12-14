@@ -1,7 +1,9 @@
 steps:
   Company-200000056:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -271,8 +273,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001689
                     stepCounter: "200000018"
-                transform: case when T001.FMHRDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(T001.FMHRDATE) end
+                transform: case when T001.FMHRDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(T001.FMHRDATE) end
           - columnReference:
               columnCounter: 2000004634
               stepCounter: "200000056"
@@ -1074,8 +1075,7 @@ steps:
               - locationName: RAW
                 nodeName: T001
             join:
-              joinCondition: "FROM {{ ref('RAW', 'T001') }} \"T001\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'T001') }} \"T001\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Company
             noLinkRefs: []
       name: Company

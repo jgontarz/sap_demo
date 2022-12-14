@@ -1,7 +1,9 @@
 steps:
   Country_Txt-200000059:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -150,8 +152,7 @@ steps:
               - locationName: RAW
                 nodeName: T005T
             join:
-              joinCondition: "FROM {{ ref('RAW', 'T005T') }} \"T005T\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'T005T') }} \"T005T\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Country_Txt
             noLinkRefs: []
       name: Country_Txt

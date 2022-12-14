@@ -1,7 +1,9 @@
 steps:
   Quality_notification_task-200000052:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -167,8 +169,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001586
                     stepCounter: "200000014"
-                transform: case when QMSM.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMSM.ERDAT) end
+                transform: case when QMSM.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.ERDAT) end
           - columnReference:
               columnCounter: 2000004531
               stepCounter: "200000052"
@@ -194,8 +195,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001588
                     stepCounter: "200000014"
-                transform: case when QMSM.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMSM.AEDAT) end
+                transform: case when QMSM.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.AEDAT) end
           - columnReference:
               columnCounter: 2000004533
               stepCounter: "200000052"
@@ -208,8 +208,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001589
                     stepCounter: "200000014"
-                transform: case when QMSM.PSTER in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMSM.PSTER) end
+                transform: case when QMSM.PSTER in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.PSTER) end
           - columnReference:
               columnCounter: 2000004534
               stepCounter: "200000052"
@@ -222,8 +221,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001590
                     stepCounter: "200000014"
-                transform: case when QMSM.PETER in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMSM.PETER) end
+                transform: case when QMSM.PETER in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.PETER) end
           - columnReference:
               columnCounter: 2000004535
               stepCounter: "200000052"
@@ -314,8 +312,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001597
                     stepCounter: "200000014"
-                transform: case when QMSM.ERLDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMSM.ERLDAT) end
+                transform: case when QMSM.ERLDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.ERLDAT) end
           - columnReference:
               columnCounter: 2000004542
               stepCounter: "200000052"
@@ -341,8 +338,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001599
                     stepCounter: "200000014"
-                transform: case when QMSM.WDVDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMSM.WDVDAT) end
+                transform: case when QMSM.WDVDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.WDVDAT) end
           - columnReference:
               columnCounter: 2000004544
               stepCounter: "200000052"
@@ -715,8 +711,7 @@ steps:
               - locationName: RAW
                 nodeName: QMSM
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QMSM') }} \"QMSM\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'QMSM') }} \"QMSM\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Quality_notification_task
             noLinkRefs: []
       name: Quality_notification_task

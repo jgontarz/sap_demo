@@ -1,11 +1,13 @@
 steps:
   Sales_Organization-200000072:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Organizational Unit: Sales Organizations'
+      description: "Organizational Unit: Sales Organizations"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -410,8 +412,7 @@ steps:
               - locationName: RAW
                 nodeName: TVKO
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TVKO') }} \"TVKO\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'TVKO') }} \"TVKO\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Sales_Organization
             noLinkRefs: []
       name: Sales_Organization

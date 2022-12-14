@@ -1,7 +1,9 @@
 steps:
   Quality_Notification-200000049:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -115,8 +117,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001323
                     stepCounter: "200000011"
-                transform: case when QMEL.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.ERDAT) end
+                transform: case when QMEL.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.ERDAT) end
           - columnReference:
               columnCounter: 2000004268
               stepCounter: "200000049"
@@ -142,8 +143,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001325
                     stepCounter: "200000011"
-                transform: case when QMEL.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.AEDAT) end
+                transform: case when QMEL.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.AEDAT) end
           - columnReference:
               columnCounter: 2000004270
               stepCounter: "200000049"
@@ -169,8 +169,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001327
                     stepCounter: "200000011"
-                transform: case when QMEL.QMDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.QMDAT) end
+                transform: case when QMEL.QMDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.QMDAT) end
           - columnReference:
               columnCounter: 2000004272
               stepCounter: "200000049"
@@ -196,8 +195,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001329
                     stepCounter: "200000011"
-                transform: case when QMEL.STRMN in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.STRMN) end
+                transform: case when QMEL.STRMN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.STRMN) end
           - columnReference:
               columnCounter: 2000004274
               stepCounter: "200000049"
@@ -223,8 +221,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001331
                     stepCounter: "200000011"
-                transform: case when QMEL.LTRMN in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.LTRMN) end
+                transform: case when QMEL.LTRMN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.LTRMN) end
           - columnReference:
               columnCounter: 2000004276
               stepCounter: "200000049"
@@ -458,8 +455,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001349
                     stepCounter: "200000011"
-                transform: case when QMEL.QMDAB in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.QMDAB) end
+                transform: case when QMEL.QMDAB in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.QMDAB) end
           - columnReference:
               columnCounter: 2000004294
               stepCounter: "200000049"
@@ -550,8 +546,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001356
                     stepCounter: "200000011"
-                transform: case when QMEL.BEZDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.BEZDT) end
+                transform: case when QMEL.BEZDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.BEZDT) end
           - columnReference:
               columnCounter: 2000004301
               stepCounter: "200000049"
@@ -629,8 +624,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001362
                     stepCounter: "200000011"
-                transform: case when QMEL.BSTDK in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.BSTDK) end
+                transform: case when QMEL.BSTDK in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.BSTDK) end
           - columnReference:
               columnCounter: 2000004307
               stepCounter: "200000049"
@@ -1202,8 +1196,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001406
                     stepCounter: "200000011"
-                transform: case when QMEL.RKDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.RKDAT) end
+                transform: case when QMEL.RKDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.RKDAT) end
           - columnReference:
               columnCounter: 2000004351
               stepCounter: "200000049"
@@ -1307,8 +1300,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001414
                     stepCounter: "200000011"
-                transform: case when QMEL.PRODDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMEL.PRODDAT) end
+                transform: case when QMEL.PRODDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMEL.PRODDAT) end
           - columnReference:
               columnCounter: 2000004359
               stepCounter: "200000049"
@@ -1659,8 +1651,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001441
                     stepCounter: "200000011"
-                transform: case when "/SAPSMOSS/ERDAT" in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(""/SAPSMOSS/ERDAT") end
+                transform: case when "/SAPSMOSS/ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("/SAPSMOSS/ERDAT") end
           - columnReference:
               columnCounter: 2000004386
               stepCounter: "200000049"
@@ -1994,8 +1985,7 @@ steps:
               - locationName: RAW
                 nodeName: QMEL
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QMEL') }} \"QMEL\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800')  AND \"/SAPSMOSS/MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'QMEL') }} \"QMEL\" WHERE 1=1 AND \"MANDT\" in ('800')  AND \"/SAPSMOSS/MANDT\" in ('800') "
             name: Quality_Notification
             noLinkRefs: []
       name: Quality_Notification

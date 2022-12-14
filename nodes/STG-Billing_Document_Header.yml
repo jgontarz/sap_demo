@@ -1,11 +1,13 @@
 steps:
   Billing_Document_Header-200000076:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Billing Document: Header Data'
+      description: "Billing Document: Header Data"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -167,8 +169,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002611
                     stepCounter: "200000038"
-                transform: case when VBRK.FKDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRK.FKDAT) end
+                transform: case when VBRK.FKDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.FKDAT) end
           - columnReference:
               columnCounter: 2000005556
               stepCounter: "200000076"
@@ -376,8 +377,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002627
                     stepCounter: "200000038"
-                transform: case when VBRK.VALDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRK.VALDT) end
+                transform: case when VBRK.VALDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.VALDT) end
           - columnReference:
               columnCounter: 2000005572
               stepCounter: "200000076"
@@ -663,8 +663,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002649
                     stepCounter: "200000038"
-                transform: case when VBRK.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRK.ERDAT) end
+                transform: case when VBRK.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.ERDAT) end
           - columnReference:
               columnCounter: 2000005594
               stepCounter: "200000076"
@@ -768,8 +767,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002657
                     stepCounter: "200000038"
-                transform: case when VBRK.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRK.AEDAT) end
+                transform: case when VBRK.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.AEDAT) end
           - columnReference:
               columnCounter: 2000005602
               stepCounter: "200000076"
@@ -821,8 +819,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002661
                     stepCounter: "200000038"
-                transform: case when VBRK.FKDAT_RL in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBRK.FKDAT_RL) end
+                transform: case when VBRK.FKDAT_RL in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.FKDAT_RL) end
           - columnReference:
               columnCounter: 2000005606
               stepCounter: "200000076"
@@ -1160,8 +1157,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002687
                     stepCounter: "200000038"
-                transform: case when VBRK.KURRF_DAT in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBRK.KURRF_DAT) end
+                transform: case when VBRK.KURRF_DAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.KURRF_DAT) end
           - columnReference:
               columnCounter: 2000005632
               stepCounter: "200000076"
@@ -1534,8 +1530,7 @@ steps:
               - locationName: RAW
                 nodeName: VBRK
             join:
-              joinCondition: "FROM {{ ref('RAW', 'VBRK') }} \"VBRK\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'VBRK') }} \"VBRK\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Billing_Document_Header
             noLinkRefs: []
       name: Billing_Document_Header

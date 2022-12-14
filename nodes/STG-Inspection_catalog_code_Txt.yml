@@ -1,7 +1,9 @@
 steps:
   Inspection_catalog_code_Txt-200000054:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -102,8 +104,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001651
                     stepCounter: "200000016"
-                transform: case when QPCT.GUELTIGAB in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(QPCT.GUELTIGAB) end
+                transform: case when QPCT.GUELTIGAB in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPCT.GUELTIGAB) end
           - columnReference:
               columnCounter: 2000004596
               stepCounter: "200000054"
@@ -190,8 +191,7 @@ steps:
               - locationName: RAW
                 nodeName: QPCT
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QPCT') }} \"QPCT\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'QPCT') }} \"QPCT\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Inspection_catalog_code_Txt
             noLinkRefs: []
       name: Inspection_catalog_code_Txt

@@ -1,7 +1,9 @@
 steps:
   Currency_Code-200000062:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -76,8 +78,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001910
                     stepCounter: "200000024"
-                transform: case when TCURC.GDATU in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(TCURC.GDATU) end
+                transform: case when TCURC.GDATU in ('00000000', ' ') THEN NULL ELSE TO_DATE(TCURC.GDATU) end
           - columnReference:
               columnCounter: 2000004855
               stepCounter: "200000062"
@@ -125,8 +126,7 @@ steps:
               - locationName: RAW
                 nodeName: TCURC
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TCURC') }} \"TCURC\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'TCURC') }} \"TCURC\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Currency_Code
             noLinkRefs: []
       name: Currency_Code

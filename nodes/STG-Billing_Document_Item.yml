@@ -1,11 +1,13 @@
 steps:
   Billing_Document_Item-200000077:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Billing Document: Item Data'
+      description: "Billing Document: Item Data"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -258,8 +260,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002734
                     stepCounter: "200000039"
-                transform: case when VBRP.PRSDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRP.PRSDT) end
+                transform: case when VBRP.PRSDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.PRSDT) end
           - columnReference:
               columnCounter: 2000005679
               stepCounter: "200000077"
@@ -272,8 +273,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002735
                     stepCounter: "200000039"
-                transform: case when VBRP.FBUDA in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRP.FBUDA) end
+                transform: case when VBRP.FBUDA in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.FBUDA) end
           - columnReference:
               columnCounter: 2000005680
               stepCounter: "200000077"
@@ -949,8 +949,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002787
                     stepCounter: "200000039"
-                transform: case when VBRP.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRP.ERDAT) end
+                transform: case when VBRP.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.ERDAT) end
           - columnReference:
               columnCounter: 2000005732
               stepCounter: "200000077"
@@ -1626,8 +1625,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002839
                     stepCounter: "200000039"
-                transform: case when VBRP.ABRBG in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRP.ABRBG) end
+                transform: case when VBRP.ABRBG in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.ABRBG) end
           - columnReference:
               columnCounter: 2000005784
               stepCounter: "200000077"
@@ -1679,8 +1677,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002843
                     stepCounter: "200000039"
-                transform: case when VBRP.STADAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBRP.STADAT) end
+                transform: case when VBRP.STADAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.STADAT) end
           - columnReference:
               columnCounter: 2000005788
               stepCounter: "200000077"
@@ -2044,8 +2041,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002871
                     stepCounter: "200000039"
-                transform: case when VBRP.KURSK_DAT in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBRP.KURSK_DAT) end
+                transform: case when VBRP.KURSK_DAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.KURSK_DAT) end
           - columnReference:
               columnCounter: 2000005816
               stepCounter: "200000077"
@@ -2175,8 +2171,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002881
                     stepCounter: "200000039"
-                transform: case when VBRP.J_1AIDATEP in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBRP.J_1AIDATEP) end
+                transform: case when VBRP.J_1AIDATEP in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.J_1AIDATEP) end
           - columnReference:
               columnCounter: 2000005826
               stepCounter: "200000077"
@@ -2527,8 +2522,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002908
                     stepCounter: "200000039"
-                transform: case when VBRP.KURRF_DAT_ORIG in ('00000000', ' ') THEN
-                  NULL ELSE TO_DATE(VBRP.KURRF_DAT_ORIG) end
+                transform: case when VBRP.KURRF_DAT_ORIG in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.KURRF_DAT_ORIG) end
           - columnReference:
               columnCounter: 2000005853
               stepCounter: "200000077"
@@ -2697,8 +2691,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002921
                     stepCounter: "200000039"
-                transform: case when VBRP.PEROP_BEG in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBRP.PEROP_BEG) end
+                transform: case when VBRP.PEROP_BEG in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.PEROP_BEG) end
           - columnReference:
               columnCounter: 2000005866
               stepCounter: "200000077"
@@ -2711,8 +2704,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002922
                     stepCounter: "200000039"
-                transform: case when VBRP.PEROP_END in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBRP.PEROP_END) end
+                transform: case when VBRP.PEROP_END in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRP.PEROP_END) end
           - columnReference:
               columnCounter: 2000005867
               stepCounter: "200000077"
@@ -3020,8 +3012,7 @@ steps:
               - locationName: RAW
                 nodeName: VBRP
             join:
-              joinCondition: "FROM {{ ref('RAW', 'VBRP') }} \"VBRP\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'VBRP') }} \"VBRP\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Billing_Document_Item
             noLinkRefs: []
       name: Billing_Document_Item

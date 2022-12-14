@@ -1,7 +1,9 @@
 steps:
   Quality_message_maintenance_excerpt-200000051:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -141,8 +143,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001535
                     stepCounter: "200000013"
-                transform: case when QMIH.AUSVN in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMIH.AUSVN) end
+                transform: case when QMIH.AUSVN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.AUSVN) end
           - columnReference:
               columnCounter: 2000004480
               stepCounter: "200000051"
@@ -155,8 +156,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001536
                     stepCounter: "200000013"
-                transform: case when QMIH.AUSBS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMIH.AUSBS) end
+                transform: case when QMIH.AUSBS in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.AUSBS) end
           - columnReference:
               columnCounter: 2000004481
               stepCounter: "200000051"
@@ -351,8 +351,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001551
                     stepCounter: "200000013"
-                transform: case when QMIH.DATAN in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(QMIH.DATAN) end
+                transform: case when QMIH.DATAN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.DATAN) end
           - columnReference:
               columnCounter: 2000004496
               stepCounter: "200000051"
@@ -660,8 +659,7 @@ steps:
               - locationName: RAW
                 nodeName: QMIH
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QMIH') }} \"QMIH\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'QMIH') }} \"QMIH\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Quality_message_maintenance_excerpt
             noLinkRefs: []
       name: Quality_message_maintenance_excerpt

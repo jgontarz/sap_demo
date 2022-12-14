@@ -1,7 +1,9 @@
 steps:
   Material-200000047:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -50,8 +52,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001044
                     stepCounter: "200000009"
-                transform: case when MARA.ERSDA in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(MARA.ERSDA) end
+                transform: case when MARA.ERSDA in ('00000000', ' ') THEN NULL ELSE TO_DATE(MARA.ERSDA) end
           - columnReference:
               columnCounter: 2000003989
               stepCounter: "200000047"
@@ -77,8 +78,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001046
                     stepCounter: "200000009"
-                transform: case when MARA.LAEDA in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(MARA.LAEDA) end
+                transform: case when MARA.LAEDA in ('00000000', ' ') THEN NULL ELSE TO_DATE(MARA.LAEDA) end
           - columnReference:
               columnCounter: 2000003991
               stepCounter: "200000047"
@@ -1001,8 +1001,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001117
                     stepCounter: "200000009"
-                transform: case when MARA.DATAB in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(MARA.DATAB) end
+                transform: case when MARA.DATAB in ('00000000', ' ') THEN NULL ELSE TO_DATE(MARA.DATAB) end
           - columnReference:
               columnCounter: 2000004062
               stepCounter: "200000047"
@@ -1015,8 +1014,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001118
                     stepCounter: "200000009"
-                transform: case when MARA.LIQDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(MARA.LIQDT) end
+                transform: case when MARA.LIQDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(MARA.LIQDT) end
           - columnReference:
               columnCounter: 2000004063
               stepCounter: "200000047"
@@ -1172,8 +1170,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001130
                     stepCounter: "200000009"
-                transform: case when MARA.MSTDE in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(MARA.MSTDE) end
+                transform: case when MARA.MSTDE in ('00000000', ' ') THEN NULL ELSE TO_DATE(MARA.MSTDE) end
           - columnReference:
               columnCounter: 2000004075
               stepCounter: "200000047"
@@ -1186,8 +1183,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001131
                     stepCounter: "200000009"
-                transform: case when MARA.MSTDV in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(MARA.MSTDV) end
+                transform: case when MARA.MSTDV in ('00000000', ' ') THEN NULL ELSE TO_DATE(MARA.MSTDV) end
           - columnReference:
               columnCounter: 2000004076
               stepCounter: "200000047"
@@ -3185,8 +3181,7 @@ steps:
               - locationName: RAW
                 nodeName: MARA
             join:
-              joinCondition: "FROM {{ ref('RAW', 'MARA') }} \"MARA\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'MARA') }} \"MARA\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Material
             noLinkRefs: []
       name: Material

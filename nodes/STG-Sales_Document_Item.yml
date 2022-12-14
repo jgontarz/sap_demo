@@ -1,11 +1,13 @@
 steps:
   Sales_Document_Item-200000075:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Sales Document: Item Data'
+      description: "Sales Document: Item Data"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -349,8 +351,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002237
                     stepCounter: "200000037"
-                transform: case when VBAP.ABDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAP.ABDAT) end
+                transform: case when VBAP.ABDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.ABDAT) end
           - columnReference:
               columnCounter: 2000005182
               stepCounter: "200000075"
@@ -974,8 +975,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002285
                     stepCounter: "200000037"
-                transform: case when VBAP.STDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAP.STDAT) end
+                transform: case when VBAP.STDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.STDAT) end
           - columnReference:
               columnCounter: 2000005230
               stepCounter: "200000075"
@@ -1027,8 +1027,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002289
                     stepCounter: "200000037"
-                transform: case when VBAP.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAP.ERDAT) end
+                transform: case when VBAP.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.ERDAT) end
           - columnReference:
               columnCounter: 2000005234
               stepCounter: "200000075"
@@ -1574,8 +1573,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002331
                     stepCounter: "200000037"
-                transform: case when VBAP.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAP.AEDAT) end
+                transform: case when VBAP.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.AEDAT) end
           - columnReference:
               columnCounter: 2000005276
               stepCounter: "200000075"
@@ -2173,8 +2171,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002377
                     stepCounter: "200000037"
-                transform: case when VBAP.STADAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAP.STADAT) end
+                transform: case when VBAP.STADAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.STADAT) end
           - columnReference:
               columnCounter: 2000005322
               stepCounter: "200000075"
@@ -2863,8 +2860,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002430
                     stepCounter: "200000037"
-                transform: case when VBAP.HANDOVERDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAP.HANDOVERDATE) end
+                transform: case when VBAP.HANDOVERDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.HANDOVERDATE) end
           - columnReference:
               columnCounter: 2000005375
               stepCounter: "200000075"
@@ -3020,8 +3016,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002442
                     stepCounter: "200000037"
-                transform: case when VBAP._DATAAGING in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAP._DATAAGING) end
+                transform: case when VBAP._DATAAGING in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP._DATAAGING) end
           - columnReference:
               columnCounter: 2000005387
               stepCounter: "200000075"
@@ -3242,8 +3237,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002459
                     stepCounter: "200000037"
-                transform: case when VBAP."/XLSO/COURSE_BDA" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAP."/XLSO/COURSE_BDA") end
+                transform: case when VBAP."/XLSO/COURSE_BDA" in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP."/XLSO/COURSE_BDA") end
           - columnReference:
               columnCounter: 2000005404
               stepCounter: "200000075"
@@ -3256,8 +3250,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002460
                     stepCounter: "200000037"
-                transform: case when VBAP."/XLSO/COURSE_EDA" in ('00000000', ' ')
-                  THEN NULL ELSE TO_DATE(VBAP."/XLSO/COURSE_EDA") end
+                transform: case when VBAP."/XLSO/COURSE_EDA" in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP."/XLSO/COURSE_EDA") end
           - columnReference:
               columnCounter: 2000005405
               stepCounter: "200000075"
@@ -3361,8 +3354,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002468
                     stepCounter: "200000037"
-                transform: case when VBAP.FSH_CANDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(VBAP.FSH_CANDATE) end
+                transform: case when VBAP.FSH_CANDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.FSH_CANDATE) end
           - columnReference:
               columnCounter: 2000005413
               stepCounter: "200000075"
@@ -4181,8 +4173,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002531
                     stepCounter: "200000037"
-                transform: case when VBAP.OIFEEDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(VBAP.OIFEEDT) end
+                transform: case when VBAP.OIFEEDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAP.OIFEEDT) end
           - columnReference:
               columnCounter: 2000005476
               stepCounter: "200000075"
@@ -5068,15 +5059,15 @@ steps:
                     stepCounter: "200000037"
                 transform: ""
         sourceMapping:
-          - aliases: {}
+          - aliases:
+              VBAP: "200000037"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW
                 nodeName: VBAP
             join:
-              joinCondition: "FROM {{ ref('RAW', 'VBAP') }} \"VBAP\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'VBAP') }} \"VBAP\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Sales_Document_Item
             noLinkRefs: []
       name: Sales_Document_Item

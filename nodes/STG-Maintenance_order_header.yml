@@ -1,7 +1,9 @@
 steps:
   Maintenance_order_header-200000040:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -258,8 +260,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000020
                     stepCounter: "200000002"
-                transform: case when AFIH.ANLBD in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFIH.ANLBD) end
+                transform: case when AFIH.ANLBD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFIH.ANLBD) end
           - columnReference:
               columnCounter: 2000002965
               stepCounter: "200000040"
@@ -272,8 +273,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000021
                     stepCounter: "200000002"
-                transform: case when AFIH.ANLVD in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFIH.ANLVD) end
+                transform: case when AFIH.ANLVD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFIH.ANLVD) end
           - columnReference:
               columnCounter: 2000002966
               stepCounter: "200000040"
@@ -325,8 +325,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000025
                     stepCounter: "200000002"
-                transform: case when AFIH.DATAN in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFIH.DATAN) end
+                transform: case when AFIH.DATAN in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFIH.DATAN) end
           - columnReference:
               columnCounter: 2000002970
               stepCounter: "200000040"
@@ -417,8 +416,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000032
                     stepCounter: "200000002"
-                transform: case when AFIH.ADDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFIH.ADDAT) end
+                transform: case when AFIH.ADDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFIH.ADDAT) end
           - columnReference:
               columnCounter: 2000002977
               stepCounter: "200000040"
@@ -483,8 +481,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000037
                     stepCounter: "200000002"
-                transform: case when AFIH.HISDA in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFIH.HISDA) end
+                transform: case when AFIH.HISDA in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFIH.HISDA) end
           - columnReference:
               columnCounter: 2000002982
               stepCounter: "200000040"
@@ -662,8 +659,7 @@ steps:
               - locationName: RAW
                 nodeName: AFIH
             join:
-              joinCondition: "FROM {{ ref('RAW', 'AFIH') }} \"AFIH\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'AFIH') }} \"AFIH\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Maintenance_order_header
             noLinkRefs: []
       name: Maintenance_order_header

@@ -1,11 +1,13 @@
 steps:
   Delivery_Header-200000044:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'SD Document: Delivery Header Data'
+      description: "SD Document: Delivery Header Data"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -76,8 +78,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000544
                     stepCounter: "200000006"
-                transform: case when LIKP.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.ERDAT) end
+                transform: case when LIKP.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.ERDAT) end
           - columnReference:
               columnCounter: 2000003489
               stepCounter: "200000044"
@@ -168,8 +169,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000551
                     stepCounter: "200000006"
-                transform: case when LIKP.WADAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.WADAT) end
+                transform: case when LIKP.WADAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.WADAT) end
           - columnReference:
               columnCounter: 2000003496
               stepCounter: "200000044"
@@ -182,8 +182,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000552
                     stepCounter: "200000006"
-                transform: case when LIKP.LDDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.LDDAT) end
+                transform: case when LIKP.LDDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.LDDAT) end
           - columnReference:
               columnCounter: 2000003497
               stepCounter: "200000044"
@@ -196,8 +195,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000553
                     stepCounter: "200000006"
-                transform: case when LIKP.TDDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.TDDAT) end
+                transform: case when LIKP.TDDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.TDDAT) end
           - columnReference:
               columnCounter: 2000003498
               stepCounter: "200000044"
@@ -210,8 +208,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000554
                     stepCounter: "200000006"
-                transform: case when LIKP.LFDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.LFDAT) end
+                transform: case when LIKP.LFDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.LFDAT) end
           - columnReference:
               columnCounter: 2000003499
               stepCounter: "200000044"
@@ -224,8 +221,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000555
                     stepCounter: "200000006"
-                transform: case when LIKP.KODAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.KODAT) end
+                transform: case when LIKP.KODAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.KODAT) end
           - columnReference:
               columnCounter: 2000003500
               stepCounter: "200000044"
@@ -628,8 +624,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000586
                     stepCounter: "200000006"
-                transform: case when LIKP.FKDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.FKDAT) end
+                transform: case when LIKP.FKDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.FKDAT) end
           - columnReference:
               columnCounter: 2000003531
               stepCounter: "200000044"
@@ -837,8 +832,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000602
                     stepCounter: "200000006"
-                transform: case when LIKP.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.AEDAT) end
+                transform: case when LIKP.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.AEDAT) end
           - columnReference:
               columnCounter: 2000003547
               stepCounter: "200000044"
@@ -942,8 +936,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000610
                     stepCounter: "200000006"
-                transform: case when LIKP.FKDIV in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.FKDIV) end
+                transform: case when LIKP.FKDIV in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.FKDIV) end
           - columnReference:
               columnCounter: 2000003555
               stepCounter: "200000044"
@@ -1112,8 +1105,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000623
                     stepCounter: "200000006"
-                transform: case when LIKP.CMFRE in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.CMFRE) end
+                transform: case when LIKP.CMFRE in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.CMFRE) end
           - columnReference:
               columnCounter: 2000003568
               stepCounter: "200000044"
@@ -1126,8 +1118,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000624
                     stepCounter: "200000006"
-                transform: case when LIKP.CMNGV in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.CMNGV) end
+                transform: case when LIKP.CMNGV in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.CMNGV) end
           - columnReference:
               columnCounter: 2000003569
               stepCounter: "200000044"
@@ -1153,8 +1144,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000626
                     stepCounter: "200000006"
-                transform: case when LIKP.BLDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.BLDAT) end
+                transform: case when LIKP.BLDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.BLDAT) end
           - columnReference:
               columnCounter: 2000003571
               stepCounter: "200000044"
@@ -1167,8 +1157,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000627
                     stepCounter: "200000006"
-                transform: case when LIKP.WADAT_IST in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(LIKP.WADAT_IST) end
+                transform: case when LIKP.WADAT_IST in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.WADAT_IST) end
           - columnReference:
               columnCounter: 2000003572
               stepCounter: "200000044"
@@ -1727,8 +1716,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000670
                     stepCounter: "200000006"
-                transform: case when LIKP.PODAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(LIKP.PODAT) end
+                transform: case when LIKP.PODAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.PODAT) end
           - columnReference:
               columnCounter: 2000003615
               stepCounter: "200000044"
@@ -2235,8 +2223,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000709
                     stepCounter: "200000006"
-                transform: case when LIKP.HANDOVERDATE in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(LIKP.HANDOVERDATE) end
+                transform: case when LIKP.HANDOVERDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(LIKP.HANDOVERDATE) end
           - columnReference:
               columnCounter: 2000003654
               stepCounter: "200000044"
@@ -2466,8 +2453,7 @@ steps:
               - locationName: RAW
                 nodeName: LIKP
             join:
-              joinCondition: "FROM {{ ref('RAW', 'LIKP') }} \"LIKP\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'LIKP') }} \"LIKP\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Delivery_Header
             noLinkRefs: []
       name: Delivery_Header

@@ -1,11 +1,13 @@
 steps:
   Sales_Documents_Rejection_Reason-200000068:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
-      description: 'Sales Documents: Rejection Reasons'
+      description: "Sales Documents: Rejection Reasons"
       isMultisource: false
       locationID: 2
       locationName: STG
@@ -137,8 +139,7 @@ steps:
               - locationName: RAW
                 nodeName: TVAG
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TVAG') }} \"TVAG\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'TVAG') }} \"TVAG\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Sales_Documents_Rejection_Reason
             noLinkRefs: []
       name: Sales_Documents_Rejection_Reason
