@@ -2573,7 +2573,7 @@ steps:
                 nodeName: KNA1
             join:
               joinCondition: "FROM {{ ref('RAW', 'KNA1') }} \"KNA1\" WHERE 1=1 AND\
-                \ MANDT in '800'  AND /XLSO/CLIENT in '800' "
+                \ MANDT in ('800')  AND /XLSO/CLIENT in ('800') "
             name: Customer
             noLinkRefs: []
       name: Customer

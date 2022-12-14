@@ -4031,7 +4031,7 @@ steps:
                 nodeName: LIPS
             join:
               joinCondition: "FROM {{ ref('RAW', 'LIPS') }} \"LIPS\" WHERE 1=1 AND\
-                \ MANDT in '800' "
+                \ MANDT in ('800') "
             name: Delivery_Item
             noLinkRefs: []
       name: Delivery_Item

@@ -1995,7 +1995,7 @@ steps:
                 nodeName: QMEL
             join:
               joinCondition: "FROM {{ ref('RAW', 'QMEL') }} \"QMEL\" WHERE 1=1 AND\
-                \ MANDT in '800'  AND /SAPSMOSS/MANDT in '800' "
+                \ MANDT in ('800')  AND /SAPSMOSS/MANDT in ('800') "
             name: Quality_Notification
             noLinkRefs: []
       name: Quality_Notification

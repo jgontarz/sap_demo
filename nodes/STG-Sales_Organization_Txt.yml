@@ -99,7 +99,7 @@ steps:
                 nodeName: TVKOT
             join:
               joinCondition: "FROM {{ ref('RAW', 'TVKOT') }} \"TVKOT\" WHERE 1=1 AND\
-                \ MANDT in '800' "
+                \ MANDT in ('800') "
             name: Sales_Organization_Txt
             noLinkRefs: []
       name: Sales_Organization_Txt

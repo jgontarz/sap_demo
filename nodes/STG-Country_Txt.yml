@@ -151,7 +151,7 @@ steps:
                 nodeName: T005T
             join:
               joinCondition: "FROM {{ ref('RAW', 'T005T') }} \"T005T\" WHERE 1=1 AND\
-                \ MANDT in '800' "
+                \ MANDT in ('800') "
             name: Country_Txt
             noLinkRefs: []
       name: Country_Txt

@@ -716,7 +716,7 @@ steps:
                 nodeName: QMSM
             join:
               joinCondition: "FROM {{ ref('RAW', 'QMSM') }} \"QMSM\" WHERE 1=1 AND\
-                \ MANDT in '800' "
+                \ MANDT in ('800') "
             name: Quality_notification_task
             noLinkRefs: []
       name: Quality_notification_task

@@ -2125,7 +2125,7 @@ steps:
                 nodeName: VBAK
             join:
               joinCondition: "FROM {{ ref('RAW', 'VBAK') }} \"VBAK\" WHERE 1=1 AND\
-                \ MANDT in '800' "
+                \ MANDT in ('800') "
             name: Sales_Document_Header
             noLinkRefs: []
       name: Sales_Document_Header
