@@ -1645,7 +1645,7 @@ steps:
               - locationName: RAW
                 nodeName: AUFK
             join:
-              joinCondition: "FROM {{ ref('SRC', 'AUFK') }} \"AUFK\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'AUFK') }} \"AUFK\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Order
             noLinkRefs: []

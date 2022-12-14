@@ -244,7 +244,7 @@ steps:
               - locationName: RAW
                 nodeName: QPCD
             join:
-              joinCondition: "FROM {{ ref('SRC', 'QPCD') }} \"QPCD\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'QPCD') }} \"QPCD\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Inspection_catalog_code
             noLinkRefs: []

@@ -1074,7 +1074,7 @@ steps:
               - locationName: RAW
                 nodeName: T001
             join:
-              joinCondition: "FROM {{ ref('SRC', 'T001') }} \"T001\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'T001') }} \"T001\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Company
             noLinkRefs: []

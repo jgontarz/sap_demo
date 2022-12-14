@@ -98,7 +98,7 @@ steps:
               - locationName: RAW
                 nodeName: TVAUT
             join:
-              joinCondition: "FROM {{ ref('SRC', 'TVAUT') }} \"TVAUT\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'TVAUT') }} \"TVAUT\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Sales_Documents_Order_Reason_Txt
             noLinkRefs: []

@@ -125,7 +125,7 @@ steps:
               - locationName: RAW
                 nodeName: TCURC
             join:
-              joinCondition: "FROM {{ ref('SRC', 'TCURC') }} \"TCURC\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'TCURC') }} \"TCURC\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Currency_Code
             noLinkRefs: []

@@ -163,7 +163,7 @@ steps:
               - locationName: RAW
                 nodeName: TCURV
             join:
-              joinCondition: "FROM {{ ref('SRC', 'TCURV') }} \"TCURV\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'TCURV') }} \"TCURV\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Currency_Exchange_rate_type
             noLinkRefs: []

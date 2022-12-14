@@ -72,7 +72,7 @@ steps:
               - locationName: RAW
                 nodeName: TSPA
             join:
-              joinCondition: "FROM {{ ref('SRC', 'TSPA') }} \"TSPA\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'TSPA') }} \"TSPA\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Sales_Division
             noLinkRefs: []

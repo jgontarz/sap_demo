@@ -3185,7 +3185,7 @@ steps:
               - locationName: RAW
                 nodeName: MARA
             join:
-              joinCondition: "FROM {{ ref('SRC', 'MARA') }} \"MARA\" WHERE 1=1 AND\
+              joinCondition: "FROM {{ ref('RAW', 'MARA') }} \"MARA\" WHERE 1=1 AND\
                 \ MANDT in '800' "
             name: Material
             noLinkRefs: []
