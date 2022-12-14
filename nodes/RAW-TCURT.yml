@@ -1,0 +1,84 @@
+steps:
+  TCURT-200000025:
+    operation:
+      config: {}
+      database: ""
+      dependencies: []
+      deployEnabled: false
+      description: Currency Code Names
+      isMultisource: false
+      locationID: 1
+      locationName: RAW
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000001914
+              stepCounter: "200000025"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: MANDT
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001915
+              stepCounter: "200000025"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SPRAS
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001916
+              stepCounter: "200000025"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: WAERS
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001917
+              stepCounter: "200000025"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: LTEXT
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001918
+              stepCounter: "200000025"
+            dataType: char(15)
+            defaultValue: ""
+            description: ""
+            name: KTEXT
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001919
+              stepCounter: "200000025"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001920
+              stepCounter: "200000025"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: ''
+            name: TCURT
+            noLinkRefs: []
+      name: TCURT
+      overrideSQL: false
+      sqlType: Source
+      table: TCURT
+      type: sourceInput
+    stepCounter: "200000025"

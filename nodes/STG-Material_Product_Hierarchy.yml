@@ -1,0 +1,96 @@
+steps:
+  Material_Product_Hierarchy-200000060:
+    operation:
+      config: {}
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: 'Materials: Product Hierarchies'
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004839
+              stepCounter: "200000060"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Client_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001895
+                    stepCounter: "200000022"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004840
+              stepCounter: "200000060"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: Product_Hierarchy_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001896
+                    stepCounter: "200000022"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004841
+              stepCounter: "200000060"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Level_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001897
+                    stepCounter: "200000022"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004842
+              stepCounter: "200000060"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Is_Deleted
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001898
+                    stepCounter: "200000022"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004843
+              stepCounter: "200000060"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Change_Time
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001899
+                    stepCounter: "200000022"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: T179
+            join:
+              joinCondition: "FROM {{ ref('SRC', 'T179') }} \"T179\" WHERE 1=1 AND\
+                \ MANDT in '800' "
+            name: Material_Product_Hierarchy
+            noLinkRefs: []
+      name: Material_Product_Hierarchy
+      overrideSQL: false
+      sqlType: View
+      type: sql
+    stepCounter: "200000060"

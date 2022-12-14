@@ -1,0 +1,174 @@
+steps:
+  Currency_Exchange_rate_type-200000064:
+    operation:
+      config: {}
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Exchange rate types for currency translation
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004865
+              stepCounter: "200000064"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Client_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001921
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004866
+              stepCounter: "200000064"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Exchange_Rate_Type_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001922
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004867
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Inverse
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001923
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004868
+              stepCounter: "200000064"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: Reference_Currency_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001924
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004869
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Base_Cur_=_From_Cur
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001925
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004870
+              stepCounter: "200000064"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Buying_Rate_At_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001926
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004871
+              stepCounter: "200000064"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Selling_Rate_At_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001927
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004872
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Fixed_Exchange_Rates
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001928
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004873
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Conversion_Acc_To_Emu
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001929
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004874
+              stepCounter: "200000064"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Is_Deleted
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001930
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004875
+              stepCounter: "200000064"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Change_Time
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001931
+                    stepCounter: "200000026"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: TCURV
+            join:
+              joinCondition: "FROM {{ ref('SRC', 'TCURV') }} \"TCURV\" WHERE 1=1 AND\
+                \ MANDT in '800' "
+            name: Currency_Exchange_rate_type
+            noLinkRefs: []
+      name: Currency_Exchange_rate_type
+      overrideSQL: false
+      sqlType: View
+      type: sql
+    stepCounter: "200000064"

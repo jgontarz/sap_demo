@@ -1,0 +1,255 @@
+steps:
+  Inspection_catalog_code-200000053:
+    operation:
+      config: {}
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Inspection catalog codes
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004572
+              stepCounter: "200000053"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Client_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001628
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004573
+              stepCounter: "200000053"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Catalog_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001629
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004574
+              stepCounter: "200000053"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Code_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001630
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004575
+              stepCounter: "200000053"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001631
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004576
+              stepCounter: "200000053"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Version_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001632
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004577
+              stepCounter: "200000053"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Valid_From_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001633
+                    stepCounter: "200000015"
+                transform: case when QPCD.GUELTIGAB in ('00000000', ' ') THEN NULL
+                  ELSE TO_DATE(QPCD.GUELTIGAB) end
+          - columnReference:
+              columnCounter: 2000004578
+              stepCounter: "200000053"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Defect_Class_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001634
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004579
+              stepCounter: "200000053"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Created_By
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001635
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004580
+              stepCounter: "200000053"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Created_On_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001636
+                    stepCounter: "200000015"
+                transform: case when QPCD.E_DATUM in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(QPCD.E_DATUM) end
+          - columnReference:
+              columnCounter: 2000004581
+              stepCounter: "200000053"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Changed_By
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001637
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004582
+              stepCounter: "200000053"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Changed_On_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001638
+                    stepCounter: "200000015"
+                transform: case when QPCD.A_DATUM in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(QPCD.A_DATUM) end
+          - columnReference:
+              columnCounter: 2000004583
+              stepCounter: "200000053"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Record_Inactive
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001639
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004584
+              stepCounter: "200000053"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Is_Used
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001640
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004585
+              stepCounter: "200000053"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Was_Deleted
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001641
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004586
+              stepCounter: "200000053"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Follow_Up_Action_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001642
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004587
+              stepCounter: "200000053"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Is_Deleted
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001643
+                    stepCounter: "200000015"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004588
+              stepCounter: "200000053"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Change_Time
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001644
+                    stepCounter: "200000015"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: QPCD
+            join:
+              joinCondition: "FROM {{ ref('SRC', 'QPCD') }} \"QPCD\" WHERE 1=1 AND\
+                \ MANDT in '800' "
+            name: Inspection_catalog_code
+            noLinkRefs: []
+      name: Inspection_catalog_code
+      overrideSQL: false
+      sqlType: View
+      type: sql
+    stepCounter: "200000053"

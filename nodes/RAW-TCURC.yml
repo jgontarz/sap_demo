@@ -1,0 +1,92 @@
+steps:
+  TCURC-200000024:
+    operation:
+      config: {}
+      database: ""
+      dependencies: []
+      deployEnabled: false
+      description: Currency Codes
+      isMultisource: false
+      locationID: 1
+      locationName: RAW
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000001906
+              stepCounter: "200000024"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: MANDT
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001907
+              stepCounter: "200000024"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: WAERS
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001908
+              stepCounter: "200000024"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ISOCD
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001909
+              stepCounter: "200000024"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ALTWR
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001910
+              stepCounter: "200000024"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: GDATU
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001911
+              stepCounter: "200000024"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: XPRIMARY
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001912
+              stepCounter: "200000024"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001913
+              stepCounter: "200000024"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: ''
+            name: TCURC
+            noLinkRefs: []
+      name: TCURC
+      overrideSQL: false
+      sqlType: Source
+      table: TCURC
+      type: sourceInput
+    stepCounter: "200000024"

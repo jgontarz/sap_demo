@@ -1,0 +1,100 @@
+steps:
+  TVAG-200000030:
+    operation:
+      config: {}
+      database: ""
+      dependencies: []
+      deployEnabled: false
+      description: 'Sales Documents: Rejection Reasons'
+      isMultisource: false
+      locationID: 1
+      locationName: RAW
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000001990
+              stepCounter: "200000030"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: MANDT
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001991
+              stepCounter: "200000030"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: ABGRU
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001992
+              stepCounter: "200000030"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: DRAGR
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001993
+              stepCounter: "200000030"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EP_OFF
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001994
+              stepCounter: "200000030"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: FK_ERL
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001995
+              stepCounter: "200000030"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: KOWRR
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001996
+              stepCounter: "200000030"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: FSH_PQR_SPEC
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001997
+              stepCounter: "200000030"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+          - columnReference:
+              columnCounter: 2000001998
+              stepCounter: "200000030"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies: []
+            join:
+              joinCondition: ''
+            name: TVAG
+            noLinkRefs: []
+      name: TVAG
+      overrideSQL: false
+      sqlType: Source
+      table: TVAG
+      type: sourceInput
+    stepCounter: "200000030"

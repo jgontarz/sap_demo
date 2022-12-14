@@ -1,0 +1,1656 @@
+steps:
+  Order-200000042:
+    operation:
+      config: {}
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Order master data
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000003164
+              stepCounter: "200000042"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Client_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000220
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003165
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000221
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003166
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Order_Type_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000222
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003167
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Order_Category
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000223
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003168
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Reference_Order_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000224
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003169
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Entered_By
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000225
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003170
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Created_On_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000226
+                    stepCounter: "200000004"
+                transform: case when AUFK.ERDAT in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.ERDAT) end
+          - columnReference:
+              columnCounter: 2000003171
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Last_Changed_By
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000227
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003172
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Change_Order_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000228
+                    stepCounter: "200000004"
+                transform: case when AUFK.AEDAT in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.AEDAT) end
+          - columnReference:
+              columnCounter: 2000003173
+              stepCounter: "200000042"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: Description
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000229
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003174
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Long_Text_Exists
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000230
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003175
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Company_Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000231
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003176
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Plant_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000232
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003177
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Business_Area_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000233
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003178
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Controlling_Area_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000234
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003179
+              stepCounter: "200000042"
+            dataType: char(23)
+            defaultValue: ""
+            description: ""
+            name: Cost_Collector_Key
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000235
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003180
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Responsible_Cost_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000236
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003181
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Location_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000237
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003182
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Location_Plant_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000238
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003183
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Identifier_Statistical_Order
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000239
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003184
+              stepCounter: "200000042"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: Order_Currency_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000240
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003185
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Order_Status_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000241
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003186
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Last_Status_Change_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000242
+                    stepCounter: "200000004"
+                transform: case when AUFK.STDAT in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.STDAT) end
+          - columnReference:
+              columnCounter: 2000003187
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Status_Reached_So_Far_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000243
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003188
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Phase_Order_Created
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000244
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003189
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Phase_Order_Released
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000245
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003190
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Phase_Order_Completed
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000246
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003191
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Phase_Order_Closed
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000247
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003192
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Planned_Release_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000248
+                    stepCounter: "200000004"
+                transform: case when AUFK.PDAT1 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.PDAT1) end
+          - columnReference:
+              columnCounter: 2000003193
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Planned_Completion_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000249
+                    stepCounter: "200000004"
+                transform: case when AUFK.PDAT2 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.PDAT2) end
+          - columnReference:
+              columnCounter: 2000003194
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Planned_Closing_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000250
+                    stepCounter: "200000004"
+                transform: case when AUFK.PDAT3 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.PDAT3) end
+          - columnReference:
+              columnCounter: 2000003195
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Release_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000251
+                    stepCounter: "200000004"
+                transform: case when AUFK.IDAT1 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.IDAT1) end
+          - columnReference:
+              columnCounter: 2000003196
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Technical_Completion_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000252
+                    stepCounter: "200000004"
+                transform: case when AUFK.IDAT2 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.IDAT2) end
+          - columnReference:
+              columnCounter: 2000003197
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Close_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000253
+                    stepCounter: "200000004"
+                transform: case when AUFK.IDAT3 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.IDAT3) end
+          - columnReference:
+              columnCounter: 2000003198
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Object_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000254
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003199
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Group_Disallowed_Transactions_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000255
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003200
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Deletion_Flag
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000256
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003201
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Plan_Line_Items
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000257
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003202
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Usage_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000258
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003203
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Application_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000259
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003204
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Costing_Sheet_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000260
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003205
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Overhead_Key
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000261
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003206
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Processing_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000262
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003207
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Settlement_Cost_Element_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000263
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003208
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Cost_Center_Basic_Settlement_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000264
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003209
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: G_L_Account_Basic_Settlement_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000265
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003210
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Allocation_Set
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000266
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003211
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Cctr_True_Postings_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000267
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003212
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Start_Date_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000268
+                    stepCounter: "200000004"
+                transform: case when AUFK.SDATE in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.SDATE) end
+          - columnReference:
+              columnCounter: 2000003213
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Sequence_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000269
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003214
+              stepCounter: "200000042"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: Applicant
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000270
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003215
+              stepCounter: "200000042"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: Applicants_Telephone_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000271
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003216
+              stepCounter: "200000042"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: Person_Responsible
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000272
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003217
+              stepCounter: "200000042"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: Telephone
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000273
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003218
+              stepCounter: "200000042"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Estimated_Total_Costs_Order_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000274
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003219
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Application_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000275
+                    stepCounter: "200000004"
+                transform: case when AUFK.USER5 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.USER5) end
+          - columnReference:
+              columnCounter: 2000003220
+              stepCounter: "200000042"
+            dataType: char(15)
+            defaultValue: ""
+            description: ""
+            name: Department
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000276
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003221
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Work_Start_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000277
+                    stepCounter: "200000004"
+                transform: case when AUFK.USER7 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.USER7) end
+          - columnReference:
+              columnCounter: 2000003222
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: End_Work_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000278
+                    stepCounter: "200000004"
+                transform: case when AUFK.USER8 in ('00000000', ' ') THEN NULL ELSE
+                  TO_DATE(AUFK.USER8) end
+          - columnReference:
+              columnCounter: 2000003223
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Work_Approval
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000279
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003224
+              stepCounter: "200000042"
+            dataType: char(22)
+            defaultValue: ""
+            description: ""
+            name: Object_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000280
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003225
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Profit_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000281
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003226
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Wbs_Element_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000282
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003227
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Variance_Key_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000283
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003228
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Results_Analysis_Key_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000284
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003229
+              stepCounter: "200000042"
+            dataType: char(15)
+            defaultValue: ""
+            description: ""
+            name: Tax_Jurisdiction_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000285
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003230
+              stepCounter: "200000042"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: Functional_Area_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000286
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003231
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Object_Class
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000287
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003232
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Integrated_Planning
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000288
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003233
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Sales_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000289
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003234
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Item_Number_In_Sales_Order
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000290
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003235
+              stepCounter: "200000042"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: External_Order_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000291
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003236
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Investment_Measure_Profile_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000292
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003237
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Logical_System_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000293
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003238
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Order_With_Multiple_Items
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000294
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003239
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Requesting_Company_Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000295
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003240
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Requesting_Cost_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000296
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003241
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Scale_Investment_Objects_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000297
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003242
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Reason_Investment_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000298
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003243
+              stepCounter: "200000042"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: Envir_Investment_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000299
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003244
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Indicator_Direct_Cost_Collector
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000300
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003245
+              stepCounter: "200000042"
+            dataType: char(7)
+            defaultValue: ""
+            description: ""
+            name: Interest_Profile_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000301
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003246
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Cost_Collector_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000302
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003247
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Requesting_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000303
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003248
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Production_Process_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000304
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003249
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Process_Category_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000305
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003250
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Refurbishment_Order
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000306
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003251
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Accounting_Indicator_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000307
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003252
+              stepCounter: "200000042"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: Address_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000308
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003253
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Created_Tim
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000309
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003254
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Changed_At_Tim
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000310
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003255
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Costing_Variant_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000311
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003256
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Cost_Estimate_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000312
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003257
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Person_Responsible_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000313
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003258
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Single_Character_Flag
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000314
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003259
+              stepCounter: "200000042"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: Joint_Venture_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000315
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003260
+              stepCounter: "200000042"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: Recovery_Indicator_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000316
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003261
+              stepCounter: "200000042"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Equity_Type_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000317
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003262
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Joint_Venture_Object_Type
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000318
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003263
+              stepCounter: "200000042"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Jib_Jibe_Class_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000319
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003264
+              stepCounter: "200000042"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: Jib_Jibe_Subclass_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000320
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003265
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Jv_Original_Cost_Object
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000321
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003266
+              stepCounter: "200000042"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Time_Stamp
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000322
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003267
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Cum_Cu_Order
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000323
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003268
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Cum_Cu_Construction_Measure_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000324
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003269
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Cum_Auto_Estimated_Costs
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000325
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003270
+              stepCounter: "200000042"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: Cum_Cu_Design_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000326
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003271
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Resource_Planning_Nodes_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000327
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003272
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Mgr_Type
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000328
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003273
+              stepCounter: "200000042"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Order_Probability_In_Percent
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000329
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003274
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Process_Variant
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000330
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003275
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Int_Initializ_Carried_Out_Once
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000331
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003276
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Changed
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000332
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003277
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Sales_Organization_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000333
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003278
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Mrss_Network_Set_To_Booked
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000334
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003279
+              stepCounter: "200000042"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: Main_Work_Center
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000335
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003280
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Plant_Workcenter_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000336
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003281
+              stepCounter: "200000042"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: Regulatory_Indicator_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000337
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003282
+              stepCounter: "200000042"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Status_Combination_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000338
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003283
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Claim_Creation_Control_Indicator_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000339
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003284
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Claim_Inconsistent_With_Order
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000340
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003285
+              stepCounter: "200000042"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: Claim_Update_Trigger_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000341
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003286
+              stepCounter: "200000042"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Is_Deleted
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000342
+                    stepCounter: "200000004"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003287
+              stepCounter: "200000042"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: Hvr_Change_Time
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000343
+                    stepCounter: "200000004"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: AUFK
+            join:
+              joinCondition: "FROM {{ ref('SRC', 'AUFK') }} \"AUFK\" WHERE 1=1 AND\
+                \ MANDT in '800' "
+            name: Order
+            noLinkRefs: []
+      name: Order
+      overrideSQL: false
+      sqlType: View
+      type: sql
+    stepCounter: "200000042"
