@@ -50,8 +50,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000053
                     stepCounter: "200000003"
-                transform: case when AFKO.GLTRP in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GLTRP) end
+                transform: case when AFKO.GLTRP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTRP) end
           - columnReference:
               columnCounter: 2000002998
               stepCounter: "200000041"
@@ -64,8 +63,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000054
                     stepCounter: "200000003"
-                transform: case when AFKO.GSTRP in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GSTRP) end
+                transform: case when AFKO.GSTRP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTRP) end
           - columnReference:
               columnCounter: 2000002999
               stepCounter: "200000041"
@@ -78,8 +76,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000055
                     stepCounter: "200000003"
-                transform: case when AFKO.FTRMS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.FTRMS) end
+                transform: case when AFKO.FTRMS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRMS) end
           - columnReference:
               columnCounter: 2000003000
               stepCounter: "200000041"
@@ -92,8 +89,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000056
                     stepCounter: "200000003"
-                transform: case when AFKO.GLTRS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GLTRS) end
+                transform: case when AFKO.GLTRS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTRS) end
           - columnReference:
               columnCounter: 2000003001
               stepCounter: "200000041"
@@ -106,8 +102,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000057
                     stepCounter: "200000003"
-                transform: case when AFKO.GSTRS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GSTRS) end
+                transform: case when AFKO.GSTRS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTRS) end
           - columnReference:
               columnCounter: 2000003002
               stepCounter: "200000041"
@@ -120,8 +115,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000058
                     stepCounter: "200000003"
-                transform: case when AFKO.GSTRI in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GSTRI) end
+                transform: case when AFKO.GSTRI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTRI) end
           - columnReference:
               columnCounter: 2000003003
               stepCounter: "200000041"
@@ -134,8 +128,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000059
                     stepCounter: "200000003"
-                transform: case when AFKO.GETRI in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GETRI) end
+                transform: case when AFKO.GETRI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GETRI) end
           - columnReference:
               columnCounter: 2000003004
               stepCounter: "200000041"
@@ -148,8 +141,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000060
                     stepCounter: "200000003"
-                transform: case when AFKO.GLTRI in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GLTRI) end
+                transform: case when AFKO.GLTRI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTRI) end
           - columnReference:
               columnCounter: 2000003005
               stepCounter: "200000041"
@@ -162,8 +154,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000061
                     stepCounter: "200000003"
-                transform: case when AFKO.FTRMI in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.FTRMI) end
+                transform: case when AFKO.FTRMI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRMI) end
           - columnReference:
               columnCounter: 2000003006
               stepCounter: "200000041"
@@ -176,8 +167,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000062
                     stepCounter: "200000003"
-                transform: case when AFKO.FTRMP in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.FTRMP) end
+                transform: case when AFKO.FTRMP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRMP) end
           - columnReference:
               columnCounter: 2000003007
               stepCounter: "200000041"
@@ -320,8 +310,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000073
                     stepCounter: "200000003"
-                transform: case when AFKO.PLAUF in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.PLAUF) end
+                transform: case when AFKO.PLAUF in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PLAUF) end
           - columnReference:
               columnCounter: 2000003018
               stepCounter: "200000041"
@@ -373,8 +362,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000077
                     stepCounter: "200000003"
-                transform: case when AFKO.PDATV in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.PDATV) end
+                transform: case when AFKO.PDATV in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PDATV) end
           - columnReference:
               columnCounter: 2000003022
               stepCounter: "200000041"
@@ -478,8 +466,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000085
                     stepCounter: "200000003"
-                transform: case when AFKO.SDATV in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.SDATV) end
+                transform: case when AFKO.SDATV in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.SDATV) end
           - columnReference:
               columnCounter: 2000003030
               stepCounter: "200000041"
@@ -583,8 +570,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000093
                     stepCounter: "200000003"
-                transform: case when AFKO.AUFLD in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.AUFLD) end
+                transform: case when AFKO.AUFLD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.AUFLD) end
           - columnReference:
               columnCounter: 2000003038
               stepCounter: "200000041"
@@ -935,8 +921,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000120
                     stepCounter: "200000003"
-                transform: case when AFKO.GLTPP in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GLTPP) end
+                transform: case when AFKO.GLTPP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTPP) end
           - columnReference:
               columnCounter: 2000003065
               stepCounter: "200000041"
@@ -949,8 +934,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000121
                     stepCounter: "200000003"
-                transform: case when AFKO.GSTPP in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GSTPP) end
+                transform: case when AFKO.GSTPP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTPP) end
           - columnReference:
               columnCounter: 2000003066
               stepCounter: "200000041"
@@ -963,8 +947,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000122
                     stepCounter: "200000003"
-                transform: case when AFKO.GLTPS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GLTPS) end
+                transform: case when AFKO.GLTPS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTPS) end
           - columnReference:
               columnCounter: 2000003067
               stepCounter: "200000041"
@@ -977,8 +960,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000123
                     stepCounter: "200000003"
-                transform: case when AFKO.GSTPS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GSTPS) end
+                transform: case when AFKO.GSTPS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTPS) end
           - columnReference:
               columnCounter: 2000003068
               stepCounter: "200000041"
@@ -991,8 +973,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000124
                     stepCounter: "200000003"
-                transform: case when AFKO.FTRPS in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.FTRPS) end
+                transform: case when AFKO.FTRPS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRPS) end
           - columnReference:
               columnCounter: 2000003069
               stepCounter: "200000041"
@@ -1499,8 +1480,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000163
                     stepCounter: "200000003"
-                transform: case when AFKO.TRMDT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.TRMDT) end
+                transform: case when AFKO.TRMDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.TRMDT) end
           - columnReference:
               columnCounter: 2000003108
               stepCounter: "200000041"
@@ -1669,8 +1649,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000176
                     stepCounter: "200000003"
-                transform: case when AFKO.PNETSTARTD in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(AFKO.PNETSTARTD) end
+                transform: case when AFKO.PNETSTARTD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PNETSTARTD) end
           - columnReference:
               columnCounter: 2000003121
               stepCounter: "200000041"
@@ -1696,8 +1675,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000178
                     stepCounter: "200000003"
-                transform: case when AFKO.PNETENDD in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(AFKO.PNETENDD) end
+                transform: case when AFKO.PNETENDD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PNETENDD) end
           - columnReference:
               columnCounter: 2000003123
               stepCounter: "200000041"
@@ -1775,8 +1753,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000184
                     stepCounter: "200000003"
-                transform: case when AFKO.GSBTR in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AFKO.GSBTR) end
+                transform: case when AFKO.GSBTR in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSBTR) end
           - columnReference:
               columnCounter: 2000003129
               stepCounter: "200000041"
@@ -2101,8 +2078,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000209
                     stepCounter: "200000003"
-                transform: case when AFKO.CFB_DATOFM in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(AFKO.CFB_DATOFM) end
+                transform: case when AFKO.CFB_DATOFM in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.CFB_DATOFM) end
           - columnReference:
               columnCounter: 2000003154
               stepCounter: "200000041"
@@ -2115,8 +2091,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000210
                     stepCounter: "200000003"
-                transform: case when AFKO.CFB_BBDPI in ('00000000', ' ') THEN NULL
-                  ELSE TO_DATE(AFKO.CFB_BBDPI) end
+                transform: case when AFKO.CFB_BBDPI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.CFB_BBDPI) end
           - columnReference:
               columnCounter: 2000003155
               stepCounter: "200000041"
@@ -2242,12 +2217,11 @@ steps:
               - locationName: RAW
                 nodeName: AFKO
             join:
-              joinCondition: "FROM {{ ref('RAW', 'AFKO') }} \"AFKO\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'AFKO') }} \"AFKO\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Order_Header_PP_Order
             noLinkRefs: []
       name: Order_Header_PP_Order
       overrideSQL: false
-      sqlType: View
+      sqlType: "1"
       type: sql
     stepCounter: "200000041"

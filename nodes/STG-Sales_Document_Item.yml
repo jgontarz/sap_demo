@@ -5067,11 +5067,13 @@ steps:
               - locationName: RAW
                 nodeName: VBAP
             join:
-              joinCondition: "FROM {{ ref('RAW', 'VBAP') }} \"VBAP\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'VBAP') }} "VBAP" 
+                WHERE 1=1 AND "MANDT" in ('800') 
             name: Sales_Document_Item
             noLinkRefs: []
       name: Sales_Document_Item
       overrideSQL: false
-      sqlType: View
+      sqlType: "1"
       type: sql
     stepCounter: "200000075"

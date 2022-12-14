@@ -102,8 +102,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000226
                     stepCounter: "200000004"
-                transform: case when AUFK.ERDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.ERDAT) end
+                transform: case when AUFK.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.ERDAT) end
           - columnReference:
               columnCounter: 2000003171
               stepCounter: "200000042"
@@ -129,8 +128,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000228
                     stepCounter: "200000004"
-                transform: case when AUFK.AEDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.AEDAT) end
+                transform: case when AUFK.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.AEDAT) end
           - columnReference:
               columnCounter: 2000003173
               stepCounter: "200000042"
@@ -312,8 +310,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000242
                     stepCounter: "200000004"
-                transform: case when AUFK.STDAT in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.STDAT) end
+                transform: case when AUFK.STDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.STDAT) end
           - columnReference:
               columnCounter: 2000003187
               stepCounter: "200000042"
@@ -391,8 +388,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000248
                     stepCounter: "200000004"
-                transform: case when AUFK.PDAT1 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.PDAT1) end
+                transform: case when AUFK.PDAT1 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.PDAT1) end
           - columnReference:
               columnCounter: 2000003193
               stepCounter: "200000042"
@@ -405,8 +401,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000249
                     stepCounter: "200000004"
-                transform: case when AUFK.PDAT2 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.PDAT2) end
+                transform: case when AUFK.PDAT2 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.PDAT2) end
           - columnReference:
               columnCounter: 2000003194
               stepCounter: "200000042"
@@ -419,8 +414,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000250
                     stepCounter: "200000004"
-                transform: case when AUFK.PDAT3 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.PDAT3) end
+                transform: case when AUFK.PDAT3 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.PDAT3) end
           - columnReference:
               columnCounter: 2000003195
               stepCounter: "200000042"
@@ -433,8 +427,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000251
                     stepCounter: "200000004"
-                transform: case when AUFK.IDAT1 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.IDAT1) end
+                transform: case when AUFK.IDAT1 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.IDAT1) end
           - columnReference:
               columnCounter: 2000003196
               stepCounter: "200000042"
@@ -447,8 +440,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000252
                     stepCounter: "200000004"
-                transform: case when AUFK.IDAT2 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.IDAT2) end
+                transform: case when AUFK.IDAT2 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.IDAT2) end
           - columnReference:
               columnCounter: 2000003197
               stepCounter: "200000042"
@@ -461,8 +453,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000253
                     stepCounter: "200000004"
-                transform: case when AUFK.IDAT3 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.IDAT3) end
+                transform: case when AUFK.IDAT3 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.IDAT3) end
           - columnReference:
               columnCounter: 2000003198
               stepCounter: "200000042"
@@ -657,8 +648,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000268
                     stepCounter: "200000004"
-                transform: case when AUFK.SDATE in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.SDATE) end
+                transform: case when AUFK.SDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.SDATE) end
           - columnReference:
               columnCounter: 2000003213
               stepCounter: "200000042"
@@ -749,8 +739,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000275
                     stepCounter: "200000004"
-                transform: case when AUFK.USER5 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.USER5) end
+                transform: case when AUFK.USER5 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.USER5) end
           - columnReference:
               columnCounter: 2000003220
               stepCounter: "200000042"
@@ -776,8 +765,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000277
                     stepCounter: "200000004"
-                transform: case when AUFK.USER7 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.USER7) end
+                transform: case when AUFK.USER7 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.USER7) end
           - columnReference:
               columnCounter: 2000003222
               stepCounter: "200000042"
@@ -790,8 +778,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000278
                     stepCounter: "200000004"
-                transform: case when AUFK.USER8 in ('00000000', ' ') THEN NULL ELSE
-                  TO_DATE(AUFK.USER8) end
+                transform: case when AUFK.USER8 in ('00000000', ' ') THEN NULL ELSE TO_DATE(AUFK.USER8) end
           - columnReference:
               columnCounter: 2000003223
               stepCounter: "200000042"
@@ -1645,12 +1632,11 @@ steps:
               - locationName: RAW
                 nodeName: AUFK
             join:
-              joinCondition: "FROM {{ ref('RAW', 'AUFK') }} \"AUFK\" WHERE 1=1 AND\
-                \ \"MANDT\" in ('800') "
+              joinCondition: "FROM {{ ref('RAW', 'AUFK') }} \"AUFK\" WHERE 1=1 AND \"MANDT\" in ('800') "
             name: Order
             noLinkRefs: []
       name: Order
       overrideSQL: false
-      sqlType: View
+      sqlType: "1"
       type: sql
     stepCounter: "200000042"
