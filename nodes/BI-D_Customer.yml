@@ -1,0 +1,108 @@
+steps:
+  D_Customer-58:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: General Data in Customer Master
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 11197
+              stepCounter: "58"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003289
+                    stepCounter: "200000043"
+                transform: LTRIM("Customer"."Customer_Id")
+          - columnReference:
+              columnCounter: 11199
+              stepCounter: "58"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Country_Key_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003290
+                    stepCounter: "200000043"
+                transform: ""
+          - columnReference:
+              columnCounter: 11200
+              stepCounter: "58"
+            dataType: char(35)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Name
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003291
+                    stepCounter: "200000043"
+                transform: ""
+          - columnReference:
+              columnCounter: 11202
+              stepCounter: "58"
+            dataType: char(35)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: City
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003293
+                    stepCounter: "200000043"
+                transform: ""
+          - columnReference:
+              columnCounter: 11198
+              stepCounter: "58"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003289
+                    stepCounter: "200000043"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              Customer: "200000043"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: Customer
+            join:
+              joinCondition: FROM {{ ref('STG', 'Customer') }} "Customer"
+            name: D_Customer
+            noLinkRefs: []
+      name: D_Customer
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "58"
