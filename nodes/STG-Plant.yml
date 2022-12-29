@@ -893,7 +893,10 @@ steps:
               - locationName: RAW
                 nodeName: T001W
             join:
-              joinCondition: "FROM {{ ref('RAW', 'T001W') }} \"T001W\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'T001W') }} "T001W" 
+                WHERE 1=1 
+                AND "MANDT" in ({{ parameters.fltrMandt }} ) 
             name: Plant
             noLinkRefs: []
       name: Plant

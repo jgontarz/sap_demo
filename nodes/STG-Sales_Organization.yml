@@ -1,25 +1,28 @@
 steps:
-  Sales_Organization-200000072:
+  Sales_Organization-70:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: "Organizational Unit: Sales Organizations"
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004960
-              stepCounter: "200000072"
+              columnCounter: 12172
+              stepCounter: "70"
             dataType: char(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Client_Id
             nullable: false
             sourceColumnReferences:
@@ -28,11 +31,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004961
-              stepCounter: "200000072"
+              columnCounter: 12173
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Sales_Organization_Id
             nullable: false
             sourceColumnReferences:
@@ -41,11 +45,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004962
-              stepCounter: "200000072"
+              columnCounter: 12174
+              stepCounter: "70"
             dataType: char(5)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Statistics_Currency_Id
             nullable: false
             sourceColumnReferences:
@@ -54,11 +59,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004963
-              stepCounter: "200000072"
+              columnCounter: 12175
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Company_Code_Id
             nullable: false
             sourceColumnReferences:
@@ -67,11 +73,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004964
-              stepCounter: "200000072"
+              columnCounter: 12176
+              stepCounter: "70"
             dataType: char(10)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Address_Id
             nullable: false
             sourceColumnReferences:
@@ -80,11 +87,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004965
-              stepCounter: "200000072"
+              columnCounter: 12177
+              stepCounter: "70"
             dataType: char(16)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Address_Text_Name
             nullable: false
             sourceColumnReferences:
@@ -93,11 +101,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004966
-              stepCounter: "200000072"
+              columnCounter: 12178
+              stepCounter: "70"
             dataType: char(16)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Letter_Header_Text
             nullable: false
             sourceColumnReferences:
@@ -106,11 +115,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004967
-              stepCounter: "200000072"
+              columnCounter: 12179
+              stepCounter: "70"
             dataType: char(16)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Footer_Lines_Text
             nullable: false
             sourceColumnReferences:
@@ -119,11 +129,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004968
-              stepCounter: "200000072"
+              columnCounter: 12180
+              stepCounter: "70"
             dataType: char(16)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Greeting_Text_Name
             nullable: false
             sourceColumnReferences:
@@ -132,11 +143,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004969
-              stepCounter: "200000072"
+              columnCounter: 12181
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Refsorg_Salesdoctype_Id
             nullable: false
             sourceColumnReferences:
@@ -145,11 +157,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004970
-              stepCounter: "200000072"
+              columnCounter: 12182
+              stepCounter: "70"
             dataType: char(10)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Cust_Inter_Co_Bill_Id
             nullable: false
             sourceColumnReferences:
@@ -158,11 +171,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004971
-              stepCounter: "200000072"
+              columnCounter: 12183
+              stepCounter: "70"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Rebate_Proc_Active
             nullable: false
             sourceColumnReferences:
@@ -171,11 +185,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004972
-              stepCounter: "200000072"
+              columnCounter: 12184
+              stepCounter: "70"
             dataType: char(2)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Sales_Organization_Calendar_Id
             nullable: false
             sourceColumnReferences:
@@ -184,11 +199,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004973
-              stepCounter: "200000072"
+              columnCounter: 12185
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Purchasing_Organization_Id
             nullable: false
             sourceColumnReferences:
@@ -197,11 +213,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004974
-              stepCounter: "200000072"
+              columnCounter: 12186
+              stepCounter: "70"
             dataType: char(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Purchasing_Group_Id
             nullable: false
             sourceColumnReferences:
@@ -210,11 +227,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004975
-              stepCounter: "200000072"
+              columnCounter: 12187
+              stepCounter: "70"
             dataType: char(10)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Vendor_Id
             nullable: false
             sourceColumnReferences:
@@ -223,11 +241,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004976
-              stepCounter: "200000072"
+              columnCounter: 12188
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Plant_Id
             nullable: false
             sourceColumnReferences:
@@ -236,11 +255,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004977
-              stepCounter: "200000072"
+              columnCounter: 12189
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Order_Type_Purchasing_Id
             nullable: false
             sourceColumnReferences:
@@ -249,11 +269,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004978
-              stepCounter: "200000072"
+              columnCounter: 12190
+              stepCounter: "70"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Purch_Doc_Category
             nullable: false
             sourceColumnReferences:
@@ -262,11 +283,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004979
-              stepCounter: "200000072"
+              columnCounter: 12191
+              stepCounter: "70"
             dataType: char(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Movement_Type_Id
             nullable: false
             sourceColumnReferences:
@@ -275,11 +297,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004980
-              stepCounter: "200000072"
+              columnCounter: 12192
+              stepCounter: "70"
             dataType: char(4)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Storage_Location_Id
             nullable: false
             sourceColumnReferences:
@@ -288,11 +311,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004981
-              stepCounter: "200000072"
+              columnCounter: 12193
+              stepCounter: "70"
             dataType: char(16)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Text_Sds_Sender
             nullable: false
             sourceColumnReferences:
@@ -301,11 +325,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004982
-              stepCounter: "200000072"
+              columnCounter: 12194
+              stepCounter: "70"
             dataType: char(2)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Tax_Code_Sd_Documents_Id
             nullable: false
             sourceColumnReferences:
@@ -314,11 +339,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004983
-              stepCounter: "200000072"
+              columnCounter: 12195
+              stepCounter: "70"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Tax_Number
             nullable: false
             sourceColumnReferences:
@@ -327,11 +353,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004984
-              stepCounter: "200000072"
+              columnCounter: 12196
+              stepCounter: "70"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Time_Numbering_Deliveries
             nullable: false
             sourceColumnReferences:
@@ -340,11 +367,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004985
-              stepCounter: "200000072"
+              columnCounter: 12197
+              stepCounter: "70"
             dataType: char(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Max_No_Bill_Items
             nullable: false
             sourceColumnReferences:
@@ -353,11 +381,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004986
-              stepCounter: "200000072"
+              columnCounter: 12198
+              stepCounter: "70"
             dataType: char(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Price_Protection_Period
             nullable: false
             sourceColumnReferences:
@@ -366,11 +395,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004987
-              stepCounter: "200000072"
+              columnCounter: 12199
+              stepCounter: "70"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Unit_Price_Protection
             nullable: false
             sourceColumnReferences:
@@ -379,11 +409,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004988
-              stepCounter: "200000072"
+              columnCounter: 12200
+              stepCounter: "70"
             dataType: NUMBER(38,0)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Hvr_Is_Deleted
             nullable: false
             sourceColumnReferences:
@@ -392,11 +423,12 @@ steps:
                     stepCounter: "200000034"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004989
-              stepCounter: "200000072"
+              columnCounter: 12201
+              stepCounter: "70"
             dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Hvr_Change_Time
             nullable: false
             sourceColumnReferences:
@@ -404,6 +436,22 @@ steps:
                   - columnCounter: 2000002045
                     stepCounter: "200000034"
                 transform: ""
+          - columnReference:
+              columnCounter: 12205
+              stepCounter: "70"
+            dataType: char(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Name
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002049
+                    stepCounter: "200000035"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -411,12 +459,21 @@ steps:
             dependencies:
               - locationName: RAW
                 nodeName: TVKO
+              - locationName: RAW
+                nodeName: TVKOT
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TVKO') }} \"TVKO\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TVKO') }} "TVKO"
+                INNER JOIN {{ ref('RAW', 'TVKOT') }} "TVKOT"
+                ON "TVKO"."MANDT" = "TVKOT"."MANDT"
+                AND "TVKO"."VKORG" = "TVKOT"."VKORG"
+                AND "TVKOT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "TVKO"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Organization
             noLinkRefs: []
       name: Sales_Organization
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000072"
+    stepCounter: "70"

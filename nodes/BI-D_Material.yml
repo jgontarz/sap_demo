@@ -1,0 +1,150 @@
+steps:
+  D_Material-66:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: General Material Data
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 11834
+              stepCounter: "66"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003987
+                    stepCounter: "200000047"
+                transform: LTRIM("Material"."Material_Id",'0')
+          - columnReference:
+              columnCounter: 12076
+              stepCounter: "66"
+            dataType: char(40)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Description
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11655
+                    stepCounter: "200000047"
+                transform: ""
+          - columnReference:
+              columnCounter: 12077
+              stepCounter: "66"
+            dataType: VARCHAR(4)
+            description: ""
+            name: Material_Type_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11789
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 12078
+              stepCounter: "66"
+            dataType: VARCHAR(25)
+            description: ""
+            name: Material_Type_Description
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11830
+                    stepCounter: "65"
+                transform: ""
+          - columnReference:
+              columnCounter: 11846
+              stepCounter: "66"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Base_Uom_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003999
+                    stepCounter: "200000047"
+                transform: ""
+          - columnReference:
+              columnCounter: 11862
+              stepCounter: "66"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Gross_Weight
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004015
+                    stepCounter: "200000047"
+                transform: ""
+          - columnReference:
+              columnCounter: 11864
+              stepCounter: "66"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Weight_Uom_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004017
+                    stepCounter: "200000047"
+                transform: ""
+          - columnReference:
+              columnCounter: 12079
+              stepCounter: "66"
+            dataType: char(18)
+            description: ""
+            name: Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000003987
+                    stepCounter: "200000047"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              Material: "200000047"
+              Material_Type: "65"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: Material_Type
+              - locationName: STG
+                nodeName: Material
+            join:
+              joinCondition: |-
+                FROM {{ ref('STG', 'Material') }} "Material"
+                LEFT OUTER JOIN {{ ref('STG', 'Material_Type') }} "Material_Type"
+                ON "Material"."Material_Type_Id" = "Material_Type"."Material_Type_Id"
+            name: D_Material
+            noLinkRefs: []
+      name: D_Material
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "66"

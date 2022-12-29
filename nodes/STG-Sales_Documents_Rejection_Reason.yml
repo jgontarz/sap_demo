@@ -1,25 +1,28 @@
 steps:
-  Sales_Documents_Rejection_Reason-200000068:
+  Sales_Documents_Rejection_Reason-68:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: "Sales Documents: Rejection Reasons"
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004934
-              stepCounter: "200000068"
+              columnCounter: 12147
+              stepCounter: "68"
             dataType: char(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Client_Id
             nullable: false
             sourceColumnReferences:
@@ -28,11 +31,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004935
-              stepCounter: "200000068"
+              columnCounter: 12148
+              stepCounter: "68"
             dataType: char(2)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Reason_Rejection_Id
             nullable: false
             sourceColumnReferences:
@@ -41,11 +45,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004936
-              stepCounter: "200000068"
+              columnCounter: 12149
+              stepCounter: "68"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Not_Relevant_Printing
             nullable: false
             sourceColumnReferences:
@@ -54,11 +59,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004937
-              stepCounter: "200000068"
+              columnCounter: 12150
+              stepCounter: "68"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Resource_Item_Open_Again
             nullable: false
             sourceColumnReferences:
@@ -67,11 +73,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004938
-              stepCounter: "200000068"
+              columnCounter: 12151
+              stepCounter: "68"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Not_Relevant_Billing
             nullable: false
             sourceColumnReferences:
@@ -80,11 +87,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004939
-              stepCounter: "200000068"
+              columnCounter: 12152
+              stepCounter: "68"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Statistical_Values
             nullable: false
             sourceColumnReferences:
@@ -93,11 +101,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004940
-              stepCounter: "200000068"
+              columnCounter: 12153
+              stepCounter: "68"
             dataType: char(1)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Relevant_Partial_Quantity_Rejection
             nullable: false
             sourceColumnReferences:
@@ -106,11 +115,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004941
-              stepCounter: "200000068"
+              columnCounter: 12154
+              stepCounter: "68"
             dataType: NUMBER(38,0)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Hvr_Is_Deleted
             nullable: false
             sourceColumnReferences:
@@ -119,11 +129,12 @@ steps:
                     stepCounter: "200000030"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004942
-              stepCounter: "200000068"
+              columnCounter: 12155
+              stepCounter: "68"
             dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: Hvr_Change_Time
             nullable: false
             sourceColumnReferences:
@@ -131,6 +142,22 @@ steps:
                   - columnCounter: 2000001998
                     stepCounter: "200000030"
                 transform: ""
+          - columnReference:
+              columnCounter: 12159
+              stepCounter: "68"
+            dataType: char(40)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Description
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002002
+                    stepCounter: "200000031"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -138,12 +165,21 @@ steps:
             dependencies:
               - locationName: RAW
                 nodeName: TVAG
+              - locationName: RAW
+                nodeName: TVAGT
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TVAG') }} \"TVAG\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TVAG') }} "TVAG"
+                INNER JOIN {{ ref('RAW', 'TVAGT') }} "TVAGT"
+                ON "TVAG"."MANDT" = "TVAGT"."MANDT"
+                AND "TVAG"."ABGRU" = "TVAGT"."ABGRU"
+                AND "TVAGT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "TVAG"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Documents_Rejection_Reason
             noLinkRefs: []
       name: Sales_Documents_Rejection_Reason
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000068"
+    stepCounter: "68"

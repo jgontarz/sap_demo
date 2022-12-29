@@ -1,0 +1,64 @@
+steps:
+  D_Rejection_Reason-69:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12163
+              stepCounter: "69"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Reason_Rejection_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12148
+                    stepCounter: "68"
+                transform: ""
+          - columnReference:
+              columnCounter: 12171
+              stepCounter: "69"
+            dataType: char(40)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Rejection_Reason_Description
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12159
+                    stepCounter: "68"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: Sales_Documents_Rejection_Reason
+            join:
+              joinCondition: FROM {{ ref('STG', 'Sales_Documents_Rejection_Reason') }} "Sales_Documents_Rejection_Reason"
+            name: D_Rejection_Reason
+            noLinkRefs: []
+      name: D_Rejection_Reason
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "69"

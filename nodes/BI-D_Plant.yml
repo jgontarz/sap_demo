@@ -1,0 +1,78 @@
+steps:
+  D_Plant-67:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: Plants/Branches
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12081
+              stepCounter: "67"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Plant_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004696
+                    stepCounter: "200000057"
+                transform: ""
+          - columnReference:
+              columnCounter: 12082
+              stepCounter: "67"
+            dataType: char(30)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Plant_Name
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004697
+                    stepCounter: "200000057"
+                transform: ""
+          - columnReference:
+              columnCounter: 12101
+              stepCounter: "67"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: City_Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004716
+                    stepCounter: "200000057"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: Plant
+            join:
+              joinCondition: FROM {{ ref('STG', 'Plant') }} "Plant"
+            name: D_Plant
+            noLinkRefs: []
+      name: D_Plant
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "67"

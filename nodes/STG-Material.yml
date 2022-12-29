@@ -3173,15 +3173,37 @@ steps:
                   - columnCounter: 2000001284
                     stepCounter: "200000009"
                 transform: ""
+          - columnReference:
+              columnCounter: 11655
+              stepCounter: "200000047"
+            dataType: char(40)
+            description: ""
+            name: Material_Description
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001038
+                    stepCounter: "200000008"
+                transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW
+                nodeName: MAKT
+              - locationName: RAW
                 nodeName: MARA
             join:
-              joinCondition: "FROM {{ ref('RAW', 'MARA') }} \"MARA\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |+
+                FROM {{ ref('RAW', 'MARA') }} "MARA"
+                LEFT JOIN {{ ref('RAW', 'MAKT') }} "MAKT"
+                ON "MARA"."MANDT" = "MAKT"."MANDT"
+                AND "MARA"."MATNR" = "MAKT"."MATNR"
+                AND "MAKT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE 1=1 
+                AND "MARA"."MANDT" in ({{ parameters.fltrMandt }})
+
             name: Material
             noLinkRefs: []
       name: Material
