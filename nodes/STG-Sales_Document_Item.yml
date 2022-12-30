@@ -5059,8 +5059,7 @@ steps:
                     stepCounter: "200000037"
                 transform: ""
         sourceMapping:
-          - aliases:
-              VBAP: "200000037"
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
@@ -5069,7 +5068,7 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('RAW', 'VBAP') }} "VBAP" 
-                WHERE 1=1 AND "MANDT" in ('800') 
+                WHERE 1=1 AND "VBAP"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Document_Item
             noLinkRefs: []
       name: Sales_Document_Item

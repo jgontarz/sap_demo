@@ -2453,7 +2453,10 @@ steps:
               - locationName: RAW
                 nodeName: LIKP
             join:
-              joinCondition: "FROM {{ ref('RAW', 'LIKP') }} \"LIKP\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'LIKP') }} "LIKP" 
+                WHERE 1=1 
+                AND "LIKP"."MANDT" in ({{ parameters.fltrMandt }})
             name: Delivery_Header
             noLinkRefs: []
       name: Delivery_Header

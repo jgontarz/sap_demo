@@ -191,7 +191,10 @@ steps:
               - locationName: RAW
                 nodeName: QPCT
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QPCT') }} \"QPCT\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'QPCT') }} "QPCT" 
+                WHERE 1=1 
+                AND "QPCT"."MANDT" in ({{ parameters.fltrMandt }})
             name: Inspection_catalog_code_Txt
             noLinkRefs: []
       name: Inspection_catalog_code_Txt

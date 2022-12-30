@@ -4026,7 +4026,10 @@ steps:
               - locationName: RAW
                 nodeName: LIPS
             join:
-              joinCondition: "FROM {{ ref('RAW', 'LIPS') }} \"LIPS\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'LIPS') }} "LIPS" 
+                WHERE 1=1 
+                AND "LIPS"."MANDT" in ({{ parameters.fltrMandt }})
             name: Delivery_Item
             noLinkRefs: []
       name: Delivery_Item

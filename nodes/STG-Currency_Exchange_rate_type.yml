@@ -165,7 +165,10 @@ steps:
               - locationName: RAW
                 nodeName: TCURV
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TCURV') }} \"TCURV\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TCURV') }} "TCURV" 
+                WHERE 1=1 
+                AND "TCURV"."MANDT" in ({{ parameters.fltrMandt }})
             name: Currency_Exchange_rate_type
             noLinkRefs: []
       name: Currency_Exchange_rate_type

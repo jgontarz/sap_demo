@@ -1,7 +1,9 @@
 steps:
   Order-200000042:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -1632,7 +1634,10 @@ steps:
               - locationName: RAW
                 nodeName: AUFK
             join:
-              joinCondition: "FROM {{ ref('RAW', 'AUFK') }} \"AUFK\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'AUFK') }} "AUFK" 
+                WHERE 1=1 
+                AND "AUFK"."MANDT" in ({{ parameters.fltrMandt }})
             name: Order
             noLinkRefs: []
       name: Order

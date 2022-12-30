@@ -1,7 +1,9 @@
 steps:
   Order_Header_PP_Order-200000041:
     operation:
-      config: {}
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
       customOverride: false
       dependencies: []
       deployEnabled: false
@@ -2217,7 +2219,10 @@ steps:
               - locationName: RAW
                 nodeName: AFKO
             join:
-              joinCondition: "FROM {{ ref('RAW', 'AFKO') }} \"AFKO\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'AFKO') }} "AFKO" 
+                WHERE 1=1 
+                AND "AFKO"."MANDT" in ({{ parameters.fltrMandt }})
             name: Order_Header_PP_Order
             noLinkRefs: []
       name: Order_Header_PP_Order

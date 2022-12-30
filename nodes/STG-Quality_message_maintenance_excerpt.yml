@@ -659,7 +659,10 @@ steps:
               - locationName: RAW
                 nodeName: QMIH
             join:
-              joinCondition: "FROM {{ ref('RAW', 'QMIH') }} \"QMIH\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'QMIH') }} "QMIH" 
+                WHERE 1=1 
+                AND "QMIH"."MANDT" in ({{ parameters.fltrMandt }})
             name: Quality_message_maintenance_excerpt
             noLinkRefs: []
       name: Quality_message_maintenance_excerpt

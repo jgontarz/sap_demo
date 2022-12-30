@@ -87,7 +87,10 @@ steps:
               - locationName: RAW
                 nodeName: T179
             join:
-              joinCondition: "FROM {{ ref('RAW', 'T179') }} \"T179\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'T179') }} "T179" 
+                WHERE 1=1 
+                AND "T179"."MANDT" in ({{ parameters.fltrMandt }})
             name: Material_Product_Hierarchy
             noLinkRefs: []
       name: Material_Product_Hierarchy

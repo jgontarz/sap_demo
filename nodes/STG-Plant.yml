@@ -896,7 +896,7 @@ steps:
               joinCondition: |-
                 FROM {{ ref('RAW', 'T001W') }} "T001W" 
                 WHERE 1=1 
-                AND "MANDT" in ({{ parameters.fltrMandt }} ) 
+                AND "T001W"."MANDT" in ({{ parameters.fltrMandt }} ) 
             name: Plant
             noLinkRefs: []
       name: Plant

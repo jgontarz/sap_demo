@@ -100,7 +100,10 @@ steps:
               - locationName: RAW
                 nodeName: TSPAT
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TSPAT') }} \"TSPAT\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TSPAT') }} "TSPAT" 
+                WHERE 1=1 
+                AND "TSPAT"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Division_Txt
             noLinkRefs: []
       name: Sales_Division_Txt

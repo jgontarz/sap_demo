@@ -2095,15 +2095,17 @@ steps:
                     stepCounter: "200000036"
                 transform: ""
         sourceMapping:
-          - aliases:
-              VBAK: "200000036"
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW
                 nodeName: VBAK
             join:
-              joinCondition: "FROM {{ ref('RAW', 'VBAK') }} \"VBAK\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'VBAK') }} "VBAK" 
+                WHERE 1=1 
+                AND "VBAK"."MANDT" in ({{ parameters.fltrMandt }}) 
             name: Sales_Document_Header
             noLinkRefs: []
       name: Sales_Document_Header

@@ -646,7 +646,10 @@ steps:
               - locationName: RAW
                 nodeName: TKA01
             join:
-              joinCondition: "FROM {{ ref('RAW', 'TKA01') }} \"TKA01\" WHERE 1=1 AND \"MANDT\" in ('800') "
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TKA01') }} "TKA01" 
+                WHERE 1=1 
+                AND "TKA01"."MANDT" in ({{ parameters.fltrMandt }})
             name: Controlling_Area
             noLinkRefs: []
       name: Controlling_Area
