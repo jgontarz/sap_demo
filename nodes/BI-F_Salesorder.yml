@@ -17,6 +17,20 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
+              columnCounter: 13326
+              stepCounter: "77"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: sales_document_number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004997
+                    stepCounter: "200000074"
+                transform: trim("Sales_Document_Header"."Sales_Document_Id" , '0')
+          - columnReference:
               columnCounter: 13197
               stepCounter: "77"
             dataType: VARCHAR(1)
@@ -58,20 +72,6 @@ steps:
                   - columnCounter: 12467
                     stepCounter: "75"
                 transform: ""
-          - columnReference:
-              columnCounter: 13326
-              stepCounter: "77"
-            dataType: char(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: sales_document_number
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000004997
-                    stepCounter: "200000074"
-                transform: trim("Sales_Document_Header"."Sales_Document_Id" , '0')
           - columnReference:
               columnCounter: 13327
               stepCounter: "77"
