@@ -1,0 +1,3256 @@
+steps:
+  V_Billing_Document_Item-78:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: "Billing Document: Item Data"
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 13873
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Client_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005660
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13874
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Billing_Document_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005661
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13875
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Billing_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005662
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13876
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Higher_Level_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005663
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13877
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Actual_Billed_Quantity
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005664
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13878
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Uom_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005665
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13879
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Numerator
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005666
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13880
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Denominator
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005667
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13881
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Base_Uom_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005668
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13882
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Scale_Quantity
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005669
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13883
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Billing_Qty_In_Sku
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005670
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13884
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Required_Quantity
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005671
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13885
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Net_Weight
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005672
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13886
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Gross_Weight
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005673
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13887
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Weight_Uom_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005674
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13888
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Volume
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005675
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13889
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Volume_Uom_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005676
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13890
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Business_Area_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005677
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13891
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Pricing_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005678
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13892
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: On_Which_Services_Rendered_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005679
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13893
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Exchange_Rate
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005680
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13894
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Net_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005681
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13895
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Originating_Document_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005682
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13896
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Originating_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005683
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13897
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Reference_Document_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005684
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13898
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Reference_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005685
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13899
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Preceding_Doc_Categ
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005686
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13900
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Document_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005687
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13901
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Document_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005688
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13902
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Referenced_Sales_Document
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005689
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13903
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005690
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13904
+              stepCounter: "78"
+            dataType: char(40)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Short_Text_Sales_Order_Item
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005691
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13905
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Pricing_Reference_Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005692
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13906
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Batch_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005693
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13907
+              stepCounter: "78"
+            dataType: char(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005694
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13908
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Document_Item_Category_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005695
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13909
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Item_Type
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005696
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13910
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Product_Hierarchy_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005697
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13911
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Shipping_Point_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005698
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13912
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Replacement_Part
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005699
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13913
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Division_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005700
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13914
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Partner_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005701
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13915
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Plant_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005702
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13916
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Country_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005703
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13917
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Region_In_Which_Plant_Is_Located_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005704
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13918
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: County_In_Which_Plant_Is_Located
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005705
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13919
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: City_In_Which_Plant_Is_Located
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005706
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13920
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Classification_Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005707
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13921
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Taxclass2_Matl_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005708
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13922
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Taxclass3_Matl_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005709
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13923
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Classification_4_Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005710
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13924
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Taxclass5_Matl_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005711
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13925
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Taxclass6_Matl_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005712
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13926
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Taxclass7_Matl_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005713
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13927
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Classification_8_Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005714
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13928
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Classification_9_Material_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005715
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13929
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Statistical_Values
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005716
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13930
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Carry_Out_Pricing
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005717
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13931
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cash_Discount_Indicator
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005718
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13932
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cash_Disc_Basis_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005719
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13933
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Pricing_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005720
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13934
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Acct_Assignment_Grp_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005721
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13935
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cost_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005722
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13936
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Volume_Rebate_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005723
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13937
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Commission_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005724
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13938
+              stepCounter: "78"
+            dataType: char(13)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Ean_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005725
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13939
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Group_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005726
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13940
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Office_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005727
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13941
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Division_Order_Header_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005728
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13942
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Returns_Item
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005729
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13943
+              stepCounter: "78"
+            dataType: char(12)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Created_By
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005730
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13944
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Created_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005731
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13945
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Created_Tim
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005732
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13946
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Valuation_Type_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005733
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13947
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Storage_Location_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005734
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13948
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Update_Group_Stats_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005735
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13949
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cost_Document_Currency_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005736
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13950
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Subtotal_1_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005737
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13951
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Subtotal_2_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005738
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13952
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Subtotal_3_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005739
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13953
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Subtotal_4_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005740
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13954
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Subtotal_5_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005741
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13955
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Subtotal_6_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005742
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13956
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Exchange_Rate_Stats
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005743
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13957
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Pricing
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005744
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13958
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Ly_Incomplete
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005745
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13959
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Ean
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005746
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13960
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Profit_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005747
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13961
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Group_1_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005748
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13962
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Group_2_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005749
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13963
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Group_3_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005750
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13964
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Group_4_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005751
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13965
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Group_5_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005752
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13966
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_1_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005753
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13967
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_2_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005754
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13968
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_3_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005755
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13969
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_4_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005756
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13970
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_5_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005757
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13971
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Entered_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005758
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13972
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Rebate_Basis_1_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005759
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13973
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Controlling_Area_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005760
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13974
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Profitability_Segment_No
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005761
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13975
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Wbs_Element_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005762
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13976
+              stepCounter: "78"
+            dataType: char(12)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005763
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13977
+              stepCounter: "78"
+            dataType: char(15)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Jurisdiction_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005764
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13978
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Item_Credit_Price_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005765
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13979
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Credit_Funct_Active
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005766
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13980
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Configuration
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005767
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13981
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Internal_Object_No
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005768
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13982
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Condition_Update
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005769
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13983
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Higherlevelitembatch_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005770
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13984
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Batch_Management
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005771
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13985
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Usage_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005772
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13986
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Bom_Explosion_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005773
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13987
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_District_Sales_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005774
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13988
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Group_Sales_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005775
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13989
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Price_Group_Sales_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005776
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13990
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Destinctry_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005777
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13991
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Status_Manual_Price_Change
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005778
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13992
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Price_List_Type_Sales_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005779
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13993
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Region_Sales_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005780
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13994
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Org_Order_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005781
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13995
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Distribchannelorder_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005782
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13996
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Acctsettlementstart_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005783
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13997
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Id_Material_Determination
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005784
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13998
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Id_Higher_Level_Item_Usage
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005785
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 13999
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sd_Document_Category
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005786
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14000
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Statistics_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005787
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14001
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Billing_Plan_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005788
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14002
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005789
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14003
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Promotion_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005790
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14004
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: KNUMA_PI
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005791
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14005
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Deal_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005792
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14006
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Preference_Auth
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005793
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14007
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Amount_Document_Currency_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005794
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14008
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Order_Reason_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005795
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14009
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Billing_Rule
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005796
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14010
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Mnitm_Prcrefmatl_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005797
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14011
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Mnitem_Matpricinggrp_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005798
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14012
+              stepCounter: "78"
+            dataType: FLOAT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Item_Credit_Price
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005799
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14013
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Form_Payment_Guarantee_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005800
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14014
+              stepCounter: "78"
+            dataType: FLOAT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Guaranteed
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005801
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14015
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Reason_Zero_Vat_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005802
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14016
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Region_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005803
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14017
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Activity_Code_Gi_Tax_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005804
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14018
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Distribution_Type_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005805
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14019
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Relevant_Classification_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005806
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14020
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cfop_Code_And_Extension_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005807
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14021
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Icms_Law_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005808
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14022
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Ipi_Law_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005809
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14023
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sd_Tax_Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005810
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14024
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Gross_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005811
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14025
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Value_Contract_No_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005812
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14026
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Value_Contract_Item_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005813
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14027
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Paym_Ca_Pl_No_Sales_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005814
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14028
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Translation_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005815
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14029
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_Hierarchy_1
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005816
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14030
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Material_Group_Hierarchy_2
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005817
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14031
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Condition_Group_1_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005818
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14032
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Condition_Group_2_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005819
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14033
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Condition_Group_3_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005820
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14034
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Condition_Group_4_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005821
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14035
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Customer_Condition_Group_5_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005822
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14036
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VKAUS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005823
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14037
+              stepCounter: "78"
+            dataType: char(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Inflation_Index_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005824
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14038
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Indexing_Base_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005825
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14039
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Leading_Uom
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005826
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14040
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Tax_Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005827
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14041
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Contract_Type
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005828
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14042
+              stepCounter: "78"
+            dataType: char(13)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Contract_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005829
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14043
+              stepCounter: "78"
+            dataType: char(50)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Item_Text
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005830
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14044
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Agreed_Delivery_Time
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005831
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14045
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Accounting_Indicator_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005832
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14046
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Revenue_Recognition_Category
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005833
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14047
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Ex_Rate_Lettofcredit
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005834
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14048
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Product_Catalog_Number_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005835
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14049
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VGBEL_EX
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005836
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14050
+              stepCounter: "78"
+            dataType: char(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VGPOS_EX
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005837
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14051
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Logical_System_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005838
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14052
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Category
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005839
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14053
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Iss_Tax_Law_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005840
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14054
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cofins_Tax_Law_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005841
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14055
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Pis_Tax_Law_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005842
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14056
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Process_Identification_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005843
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14057
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Returns_Refund_Code_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005844
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14058
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Return_Reason_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005845
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14059
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Condition_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005846
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14060
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Condition_Val
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005847
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14061
+              stepCounter: "78"
+            dataType: BINARY(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Dispute_Case
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005848
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14062
+              stepCounter: "78"
+            dataType: BINARY(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Fund_Usage_Item
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005849
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14063
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Revenue_Accounting_Type
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005850
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14064
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Claims_Taxation
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005851
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14065
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: KURRF_DAT_ORIG
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005852
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14066
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Prec_Cat_Extens
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005853
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14067
+              stepCounter: "78"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Requirement_Segment
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005854
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14068
+              stepCounter: "78"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Stock_Segment
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005855
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14069
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: On_Near_Offshore_Delivery_Type
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005856
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14070
+              stepCounter: "78"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Billable_Non_Billable
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005857
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14071
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Country_Key_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005858
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14072
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Staff_Grade
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005859
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14073
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Operation_Task_List_No
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005860
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14074
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Counter
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005861
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14075
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Down_Payment_Chain_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005862
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14076
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Transaction_Number
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005863
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14077
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Document_Seq_No
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005864
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14078
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Period_Performance_Start_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005865
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14079
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Period_Performance_End_Date
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005866
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14080
+              stepCounter: "78"
+            dataType: char(22)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Us_Government_Fields
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005867
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14081
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Season_Year
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005868
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14082
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Season_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005869
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14083
+              stepCounter: "78"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Fashion_Collection
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005870
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14084
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Fashion_Theme
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005871
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14085
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Fund_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005872
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14086
+              stepCounter: "78"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Funds_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005873
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14087
+              stepCounter: "78"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Functional_Area_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005874
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14088
+              stepCounter: "78"
+            dataType: char(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Grant
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005875
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14089
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Budget_Period_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005876
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14090
+              stepCounter: "78"
+            dataType: char(7)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Work_Period
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005877
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14091
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Partner_Profit_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005878
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14092
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Trading_Partba_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005879
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14093
+              stepCounter: "78"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: AUFPL_OAA
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005880
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14094
+              stepCounter: "78"
+            dataType: char(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: APLZL_OAA
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005881
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14095
+              stepCounter: "78"
+            dataType: BINARY(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Cgpl_Guid
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005882
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14096
+              stepCounter: "78"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Abb_Complaints_Reason
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005883
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14097
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Characteristic_Value_1
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005884
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14098
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Characteristic_Value_2
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005885
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14099
+              stepCounter: "78"
+            dataType: char(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Characteristic_Value_3
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005886
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14100
+              stepCounter: "78"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Call_Center_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005887
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14101
+              stepCounter: "78"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Hvr_Is_Deleted
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005888
+                    stepCounter: "200000077"
+                transform: ""
+          - columnReference:
+              columnCounter: 14102
+              stepCounter: "78"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Hvr_Change_Time
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000005889
+                    stepCounter: "200000077"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: Billing_Document_Item
+            join:
+              joinCondition: FROM {{ ref('STG', 'Billing_Document_Item') }} "Billing_Document_Item"
+            name: V_Billing_Document_Item
+            noLinkRefs: []
+      name: V_Billing_Document_Item
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "78"
