@@ -107,6 +107,354 @@ stepTypes:
           templateString: ""
     name: View - Whitespace
     version: 1
+  StepType-3:
+    id: "3"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |-
+        capitalized: Hybrid Merge
+        short: HM
+        tagColor: black
+        plural: Hybrid Merges
+
+        config:
+        - groupName: Stream Options
+          items:
+          - displayName: Append Only Stream
+            attributeName: appendOnly
+            type: toggleButton
+            default: true
+            isRequired: true
+
+          - displayName: Show Initial Rows
+            attributeName: initialRows
+            type: toggleButton
+            default: true
+            isRequired: true
+
+        - groupName: Target Loading Options
+          items:
+          - displayName: Table Key Column(s)
+            attributeName: tblKey
+            type: columnSelector
+            isRequired: true
+
+          - displayName: Row Update Timestamp Column
+            attributeName: tblChgTS
+            type: columnSelector
+            isRequired: true
+         
+        - groupName: Target Row DML Operations
+          items:
+          - displayName: Column that Identifies DML Operations
+            attributeName: dmlCol
+            type: columnSelector
+            isRequired: true
+
+          - displayName: Insert Value
+            attributeName: dmlInsert
+            type: textBox
+            default: I
+            isRequired: true
+         
+          - displayName: Update Value
+            attributeName: dmlUpdate
+            type: textBox
+            default: U
+            isRequired: true
+         
+          - displayName: Delete Value
+            attributeName: dmlDelete
+            type: textBox
+            default: D
+            isRequired: true
+         
+        - groupName: Target Delete Options
+          items:
+          - displayName: Soft Delete
+            attributeName: deleleteOption
+            type: toggleButton
+            default: false
+            isRequired: false
+
+          - displayName: Retain Last Non-Deleted Values
+            attributeName: retainOption
+            type: toggleButton
+            default: false
+            isRequired: false
+         
+        - groupName: Target Clustering Options
+          items:
+          - displayName: Cluster Key
+            attributeName: clsKey
+            type: dropdownSelector
+            default: None
+            options:
+              - None
+              - Table Key
+              - Cluster Key from Source
+              - Primary Key from Source
+              - Row Update Timestamp
+              - Primary Key and Update Timestamp from Source
+              - Update Timestamp and Primary Key from Source
+              - Custom Cluster Columns
+              - Custom Cluster Key
+            isRequired: true
+
+          - displayName: Custom Cluster Columns
+            attributeName: clsKeyCol
+            type: columnSelector
+            isRequired: false
+            enableIf: "{% if config.clsKey == 'Custom Cluster Columns' %} true {% else %} false {% endif %}"
+         
+          - displayName: Custom Cluster Key (ex. col1, left(col2,3), coln)
+            attributeName: clsKeyCus
+            type: textBox
+            isRequired: false
+            enableIf: "{% if config.clsKey == 'Custom Cluster Key' %} true {% else %} false {% endif %}"
+         
+        - groupName: Sceduling Options
+          items:
+          - displayName: Sceduling Options
+            attributeName: schedulingMode
+            type: dropdownSelector
+            default: Warehouse Task
+            options:
+              - Warehouse Task
+              - Serverless Task
+            isRequired: true
+
+          - displayName: When Source Stream has Data Flag
+            attributeName: flagSrcStream
+            type: toggleButton
+            isRequired: true
+
+          - displayName: Select Warehouse on which to run task
+            attributeName: whName
+            type: textBox
+            default: '<WAREHOUSE_NAME>'
+            isRequired: false
+            enableIf: "{% if config.schedulingMode == 'Warehouse Task' %} true {% else %} false {% endif %}"
+
+          - displayName: Select initial serverless Warehouse size
+            attributeName: serverlessSize
+            type: dropdownSelector
+            default: 'MEDIUM'
+            options:
+              - XSMALL
+              - SMALL
+              - MEDIUM
+              - LARGE
+              - XLARGE
+              - XXLARGE
+            isRequired: false
+            enableIf: "{% if config.schedulingMode == 'Serverless Task' %} true {% else %} false {% endif %}"
+
+          - displayName: Task Schedule
+            attributeName: schedulePeriodOption
+            type: dropdownSelector
+            default: Minutes
+            options:
+              - Minutes
+              - CRON
+            isRequired: TRUE
+
+          - displayName: Enter task schedule using minutes
+            attributeName: schedulePeriod
+            type: textBox
+            default: '60'
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Minutes' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter task schedule using CRON
+            attributeName: scheduleCRON
+            type: textBox
+            default: '5 0-23 * * * America/Los_Angeles'
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'CRON' %} true {% else %} false {% endif %}"
+
+        - groupName: "Pre/Post SQL"
+          items: 
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+      templates:
+        create:
+          templateString: |
+            {# Source Stream Location and Name #}
+
+            {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
+            {% set srcDb = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='database') | first %}
+            {% set srcSch = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='schema') | first %}
+            {% set srcTbl = sources[0].dependencies[0].node.name %}
+            {% set strName = srcTbl + '_STREAM' %}
+            {% set fqSrcTblName = '"' + srcDb + '"."' + srcSch + '"."' + srcTbl + '"' %}
+            {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
+            {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
+
+            {# Target Table Info #}
+            {% set tgtDb = ref_no_link(node.location.name, node.name).split('.')[0] %} 
+            {% set tgtSch = ref_no_link(node.location.name, node.name).split('.')[1] %} 
+            {% set tgtTbl = ref_no_link(node.location.name, node.name) %}
+
+            {# Task Info #}
+            {% set taskName = node.name + '_TASK'  %}
+            {%- set fqTaskName = tgtDb + '.' + tgtSch + '."' + taskName + '"' -%} 
+
+            {% set tblColid = columns | map(attribute='id') | list %}
+            {% set tblCol = columns | map(attribute='name') | list %}
+            {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
+            {% set tblColUpd = tblCol | reject('in', tblKeys) | list %}
+            {%- set tblKeyColStr = '"'+tblKey | join('", "')+'"' -%}
+            {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
+
+
+            {{ stage('Create Stream') }}
+            CREATE OR REPLACE STREAM {{ fqStrName }}
+                ON TABLE {{ fqSrcTblName }}
+                APPEND_ONLY = {% if config.appendOnly == true %} TRUE {% else %} FALSE {% endif %}
+                SHOW_INITIAL_ROWS = {% if config.initialRows == true %} TRUE {% else %} FALSE {% endif %}
+
+                
+            {{ stage('Create Target Table') }}
+            CREATE OR REPLACE TABLE {{ tgtTbl }}
+                (
+                {%- for col in columns %}
+                        "{{ col.name }}" {{ col.dataType }}
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                )
+
+            {{ stage('Create Task') }}
+                {# Task Type #}
+                {%- if config.schedulingMode == 'Warehouse Task' -%} 
+                    {%- set taskType = 'WAREHOUSE = ' + config.whName -%} 
+                {%- else -%}
+                    {%- set taskType = 'USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE = ' + config.serverlessSize -%} 
+                {%- endif -%}
+                {# Schedule Type #}
+                {%- if config.schedulePeriodOption == 'Minutes' -%} 
+                    {%- set schedule = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
+                {%- else -%}
+                    {%- set schedule = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON + "'" -%} 
+                {%- endif -%}
+                {# When Stream has data logic #}
+                {%- if config.flagSrcStream == true -%} 
+                    {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
+                {%- endif -%}
+                
+                CREATE OR REPLACE TASK 
+                    {{ fqTaskName }} 
+                    {{ taskType}} 
+                    {{ schedule}} 
+                    {{ poll }} 
+                AS 
+                {% if config.loadType == 'Insert' -%} 
+                INSERT INTO {{ tgtTbl }}
+                SELECT {% for id in tblColid %}
+                        {% set col = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='name') | first -%}
+                        {% set colTran = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='transform') | first -%}
+                        {%- if colTran == "" -%}
+                          "{{ col }}" as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- else -%}
+                          {{ colTran | replace(srcTbl, strName) }} as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- endif %}
+                    {%- endfor %}
+                 {{ strFrom }}
+                {% else -%}
+                MERGE INTO {{ tgtTbl }} tgt USING
+                -- Select Statement Preparing Data for Merge
+                (SELECT {% for id in tblColid %}
+                        {% set col = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='name') | first -%}
+                        {% set colTran = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='transform') | first -%}
+                        {%- if colTran == "" -%}
+                          "{{ col }}" as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- else -%}
+                          {{ colTran | replace(srcTbl, strName) }} as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- endif %}
+                    {%- endfor %}
+                 {{ strFrom }}
+                 QUALIFY ROW_NUMBER() over (partition by {{ tblKeyColStr }} order by "{{ recTS }}" desc) = 1) src
+                 -- Join Condition
+                 ON {% for col in tblKey -%}
+                     src."{{ col }}" = tgt."{{ col }}"
+                {% if not loop.last %} AND {% endif %}
+                    {%- endfor -%}
+                -- What to do if data is matched based on table key
+                WHEN MATCHED THEN UPDATE SET 
+                    {%- for col in tblColUpd %}
+                            tgt."{{ col }}" = src."{{ col }}"
+                            {%- if not loop.last -%}, {%- endif %}
+                    {%- endfor %}
+                -- What to do with new records based on table key
+                WHEN NOT MATCHED THEN INSERT 
+                    (
+                    {%- for col in columns -%}
+                            "{{ col.name }}"
+                            {%- if not loop.last -%}, {% endif %}
+                    {% endfor %}) 
+                VALUES (
+                    {%- for col in columns -%}
+                            src."{{ col.name }}"
+                            {%- if not loop.last -%}, {% endif %}
+                    {% endfor %})
+                {%- endif -%}
+
+            {{ stage('Resume Task') }}
+                ALTER TASK {{ fqTaskName }} RESUME;
+        run:
+          templateString: |-
+            {# Source Stream Location and Name #}
+
+            {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
+            {% set srcDb = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='database') | first %}
+            {% set srcSch = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='schema') | first %}
+            {% set srcTbl = sources[0].dependencies[0].node.name %}
+            {% set strName = srcTbl + '_STREAM' %}
+            {% set fqSrcTblName = '"' + srcDb + '"."' + srcSch + '"."' + srcTbl + '"' %}
+            {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
+            {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
+
+            {# Target Table Info #}
+            {% set tgtStrLoc = node.location.name %}
+            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
+            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
+            {% set tgtTbl = node.name %}
+            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
+
+            {# Hybrid View Info #}
+            {# View created in same schema as Target Table #}
+            {% set tgtView = node.name + '_HYBRID_VIEW'  %}
+            {%- set fqTgtViewName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtView + '"' -%} 
+
+            {# Task Info #}
+            {% set taskName = node.name + '_TASK'  %}
+            {%- set fqTgtTaskName = '"' + tgtDb + '"."' + tgtSch + '"."' + taskName + '"' -%} 
+
+            {% set tblColid = columns | map(attribute='id') | list %}
+            {% set tblCol = columns | map(attribute='name') | list %}
+            {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
+            {%- set tblKeyColStr = '"'+tblKey | join('", "')+'"' -%}
+            {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
+            {% set tblColUpd = tblCol | reject('in', tblKey) | reject('in', recTS) | list %}
+
+            {{ stage('Testing') }}
+            {#- for d in sources[0].dependencies #}
+                {{ tblColUpd }}
+            {#- endfor #}
+    name: Hybrid Merge
+    version: 1
   StepType-Dimension:
     id: Dimension
     isDisabled: false
