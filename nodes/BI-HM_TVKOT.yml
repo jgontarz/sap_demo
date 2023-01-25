@@ -1,0 +1,201 @@
+steps:
+  HM_TVKOT-102:
+    operation:
+      config:
+        appendOnly: true
+        capUpdate: false
+        clsKey: None
+        clsKeyCus: ""
+        deleleteOption: false
+        dmlDelete: "1"
+        dmlInsert: "0"
+        dmlUpdate: U
+        flagSrcStream: false
+        initialRows: true
+        postSQL: ""
+        preSQL: ""
+        retainOption: false
+        scheduleCRON: 5 0-23 * * * America/Los_Angeles
+        schedulePeriod: "60"
+        schedulePeriodOption: Minutes
+        schedulingMode: Warehouse Task
+        serverlessSize: MEDIUM
+        whName: <WAREHOUSE_NAME>
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: "Organizational Unit: Sales Organizations: Texts"
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 18511
+              stepCounter: "102"
+            config:
+              tblKey: true
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MANDT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002046
+                    stepCounter: "200000035"
+                transform: ""
+          - columnReference:
+              columnCounter: 18512
+              stepCounter: "102"
+            config:
+              tblKey: true
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SPRAS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002047
+                    stepCounter: "200000035"
+                transform: ""
+          - columnReference:
+              columnCounter: 18513
+              stepCounter: "102"
+            config:
+              tblKey: true
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VKORG
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002048
+                    stepCounter: "200000035"
+                transform: ""
+          - columnReference:
+              columnCounter: 18514
+              stepCounter: "102"
+            dataType: char(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VTEXT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002049
+                    stepCounter: "200000035"
+                transform: ""
+          - columnReference:
+              columnCounter: 18515
+              stepCounter: "102"
+            config:
+              dmlCol: true
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002050
+                    stepCounter: "200000035"
+                transform: ""
+          - columnReference:
+              columnCounter: 18516
+              stepCounter: "102"
+            config:
+              tblChgTS: true
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002051
+                    stepCounter: "200000035"
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 18517
+              stepCounter: "102"
+            config: {}
+            dataType: timestamp
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            hmUpdTs: true
+            name: HM_UPDATE_TIMESTAMP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 18518
+              stepCounter: "102"
+            config: {}
+            dataType: timestamp
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            hmEtlTs: true
+            name: HM_ETL_TIMESTAMP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 18519
+              stepCounter: "102"
+            config: {}
+            dataType: "{{ columns | selectattr('dmlCol', 'defined') | map(attribute='dataType') | first }}"
+            defaultValue: ""
+            description: ""
+            hashColumns: []
+            hmEtlTs: true
+            name: HM_LAST_DML_OPERATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: TVKOT
+            join:
+              joinCondition: FROM {{ ref('RAW', 'TVKOT') }} "TVKOT"
+            name: HM_TVKOT
+            noLinkRefs: []
+      name: HM_TVKOT
+      overrideSQL: false
+      schema: ""
+      sqlType: "3"
+      type: sql
+    stepCounter: "102"

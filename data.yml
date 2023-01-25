@@ -113,7 +113,7 @@ stepTypes:
     metadata:
       defaultStorageLocation: null
       error: null
-      nodeMetadataSpec: |-
+      nodeMetadataSpec: |+
         capitalized: Hybrid Merge
         short: HM
         tagColor: black
@@ -153,6 +153,12 @@ stepTypes:
             type: columnSelector
             isRequired: true
 
+          - displayName: Include Field for Update
+            attributeName: capUpdate
+            type: toggleButton
+            default: false
+            isRequired: false
+         
           - displayName: Insert Value
             attributeName: dmlInsert
             type: textBox
@@ -164,6 +170,7 @@ stepTypes:
             type: textBox
             default: U
             isRequired: true
+            enableIf: "{% if config.capUpdate == true %} true {% else %} false {% endif %}"
          
           - displayName: Delete Value
             attributeName: dmlDelete
@@ -288,6 +295,26 @@ stepTypes:
             type: textBox
             syntax: sql
             isRequired: false
+
+        systemColumns:
+        - displayName: 'HM_UPDATE_TIMESTAMP'
+          transform: ""
+          dataType: timestamp
+          placement: end
+          attributeName: hmUpdTs
+
+        - displayName: 'HM_ETL_TIMESTAMP'
+          transform: ""
+          dataType: timestamp
+          placement: end
+          attributeName: hmEtlTs
+
+        - displayName: 'HM_LAST_DML_OPERATION'
+          transform: ""
+          dataType: "{{ columns | selectattr('dmlCol', 'defined') | map(attribute='dataType') | first }}"
+          placement: end
+          attributeName: hmEtlTs
+
       templates:
         create:
           templateString: |
@@ -302,129 +329,24 @@ stepTypes:
             {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
             {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
 
-            {# Target Table Info #}
-            {% set tgtDb = ref_no_link(node.location.name, node.name).split('.')[0] %} 
-            {% set tgtSch = ref_no_link(node.location.name, node.name).split('.')[1] %} 
-            {% set tgtTbl = ref_no_link(node.location.name, node.name) %}
+            {# When Stream has data logic #}
+            {%- if config.flagSrcStream == true -%} 
+                {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
+            {%- endif -%}
 
-            {# Task Info #}
-            {% set taskName = node.name + '_TASK'  %}
-            {%- set fqTaskName = tgtDb + '.' + tgtSch + '."' + taskName + '"' -%} 
+            {# Stream Append Behavior #}
+            {% if config.appendOnly == true %} 
+                {% set strAppend = 'APPEND_ONLY = TRUE' %}
+            {% else %} 
+                {% set strAppend = 'APPEND_ONLY = FALSE' %}
+            {% endif %}
 
-            {% set tblColid = columns | map(attribute='id') | list %}
-            {% set tblCol = columns | map(attribute='name') | list %}
-            {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
-            {% set tblColUpd = tblCol | reject('in', tblKeys) | list %}
-            {%- set tblKeyColStr = '"'+tblKey | join('", "')+'"' -%}
-            {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
-
-
-            {{ stage('Create Stream') }}
-            CREATE OR REPLACE STREAM {{ fqStrName }}
-                ON TABLE {{ fqSrcTblName }}
-                APPEND_ONLY = {% if config.appendOnly == true %} TRUE {% else %} FALSE {% endif %}
-                SHOW_INITIAL_ROWS = {% if config.initialRows == true %} TRUE {% else %} FALSE {% endif %}
-
-                
-            {{ stage('Create Target Table') }}
-            CREATE OR REPLACE TABLE {{ tgtTbl }}
-                (
-                {%- for col in columns %}
-                        "{{ col.name }}" {{ col.dataType }}
-                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
-                        {%- if not loop.last -%}, {% endif %}
-                {%- endfor %}
-                )
-
-            {{ stage('Create Task') }}
-                {# Task Type #}
-                {%- if config.schedulingMode == 'Warehouse Task' -%} 
-                    {%- set taskType = 'WAREHOUSE = ' + config.whName -%} 
-                {%- else -%}
-                    {%- set taskType = 'USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE = ' + config.serverlessSize -%} 
-                {%- endif -%}
-                {# Schedule Type #}
-                {%- if config.schedulePeriodOption == 'Minutes' -%} 
-                    {%- set schedule = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
-                {%- else -%}
-                    {%- set schedule = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON + "'" -%} 
-                {%- endif -%}
-                {# When Stream has data logic #}
-                {%- if config.flagSrcStream == true -%} 
-                    {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
-                {%- endif -%}
-                
-                CREATE OR REPLACE TASK 
-                    {{ fqTaskName }} 
-                    {{ taskType}} 
-                    {{ schedule}} 
-                    {{ poll }} 
-                AS 
-                {% if config.loadType == 'Insert' -%} 
-                INSERT INTO {{ tgtTbl }}
-                SELECT {% for id in tblColid %}
-                        {% set col = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='name') | first -%}
-                        {% set colTran = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='transform') | first -%}
-                        {%- if colTran == "" -%}
-                          "{{ col }}" as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
-                        {%- else -%}
-                          {{ colTran | replace(srcTbl, strName) }} as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
-                        {%- endif %}
-                    {%- endfor %}
-                 {{ strFrom }}
-                {% else -%}
-                MERGE INTO {{ tgtTbl }} tgt USING
-                -- Select Statement Preparing Data for Merge
-                (SELECT {% for id in tblColid %}
-                        {% set col = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='name') | first -%}
-                        {% set colTran = sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='transform') | first -%}
-                        {%- if colTran == "" -%}
-                          "{{ col }}" as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
-                        {%- else -%}
-                          {{ colTran | replace(srcTbl, strName) }} as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
-                        {%- endif %}
-                    {%- endfor %}
-                 {{ strFrom }}
-                 QUALIFY ROW_NUMBER() over (partition by {{ tblKeyColStr }} order by "{{ recTS }}" desc) = 1) src
-                 -- Join Condition
-                 ON {% for col in tblKey -%}
-                     src."{{ col }}" = tgt."{{ col }}"
-                {% if not loop.last %} AND {% endif %}
-                    {%- endfor -%}
-                -- What to do if data is matched based on table key
-                WHEN MATCHED THEN UPDATE SET 
-                    {%- for col in tblColUpd %}
-                            tgt."{{ col }}" = src."{{ col }}"
-                            {%- if not loop.last -%}, {%- endif %}
-                    {%- endfor %}
-                -- What to do with new records based on table key
-                WHEN NOT MATCHED THEN INSERT 
-                    (
-                    {%- for col in columns -%}
-                            "{{ col.name }}"
-                            {%- if not loop.last -%}, {% endif %}
-                    {% endfor %}) 
-                VALUES (
-                    {%- for col in columns -%}
-                            src."{{ col.name }}"
-                            {%- if not loop.last -%}, {% endif %}
-                    {% endfor %})
-                {%- endif -%}
-
-            {{ stage('Resume Task') }}
-                ALTER TASK {{ fqTaskName }} RESUME;
-        run:
-          templateString: |-
-            {# Source Stream Location and Name #}
-
-            {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
-            {% set srcDb = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='database') | first %}
-            {% set srcSch = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='schema') | first %}
-            {% set srcTbl = sources[0].dependencies[0].node.name %}
-            {% set strName = srcTbl + '_STREAM' %}
-            {% set fqSrcTblName = '"' + srcDb + '"."' + srcSch + '"."' + srcTbl + '"' %}
-            {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
-            {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
+            {# Stream Initial Row Behavior #}
+            {% if config.initialRows == true %} 
+                {% set strInitialRows = 'SHOW_INITIAL_ROWS = TRUE' %}
+            {% else %} 
+                {% set strInitialRows = 'SHOW_INITIAL_ROWS = FALSE' %}
+            {% endif %}
 
             {# Target Table Info #}
             {% set tgtStrLoc = node.location.name %}
@@ -442,17 +364,148 @@ stepTypes:
             {% set taskName = node.name + '_TASK'  %}
             {%- set fqTgtTaskName = '"' + tgtDb + '"."' + tgtSch + '"."' + taskName + '"' -%} 
 
+            {# Task Type #}
+            {%- if config.schedulingMode == 'Warehouse Task' -%} 
+                {%- set taskType = 'WAREHOUSE = ' + config.whName -%} 
+            {%- else -%}
+                {%- set taskType = 'USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE = ' + config.serverlessSize -%} 
+            {%- endif -%}
+
+            {# Schedule Type #}
+            {%- if config.schedulePeriodOption == 'Minutes' -%} 
+                {%- set whenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
+            {% elif config.schedulePeriodOption == 'CRON' %}
+                {%- set whenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
+            {%- else -%}
+                {%- set whenRun = 'AFTER ' + config.predTask -%} 
+            {%- endif -%}
+
+            {# Table Column Info #}
             {% set tblColid = columns | map(attribute='id') | list %}
             {% set tblCol = columns | map(attribute='name') | list %}
             {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
-            {%- set tblKeyColStr = '"'+tblKey | join('", "')+'"' -%}
+            {% set tblKeyColStr = '"'+tblKey | join('", "')+'"' %}
             {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
-            {% set tblColUpd = tblCol | reject('in', tblKey) | reject('in', recTS) | list %}
+            {% set tblColUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | map(attribute='name') | list %}
+
+            {# DML Identifier Quoting #}
+            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
+                {% set insCode = "'" + config.dmlInsert + "'" %}
+                {% set delCode = "'" + config.dmlDelete + "'" %}
+                {% set updCode = "'" + config.dmlUpdate + "'" %}
+            {% else %}
+                {% set insCode = config.dmlInsert %}
+                {% set delCode = config.dmlDelete %}
+                {% set updCode = config.dmlUpdate %}
+            {% endif %}
+
+
+            {{ stage('Create Stream') }}
+            CREATE OR REPLACE STREAM {{ fqStrName }}
+                ON TABLE {{ fqSrcTblName }}
+                {{ strAppend }}
+                {{ strInitialRows }}
+
+                
+            {{ stage('Create Target Table') }}
+            CREATE OR REPLACE TABLE {{ fqTgtTblName }}
+                (
+                {%- for col in columns %}
+                    {%- if (col.dmlCol != true) and (col.tblChgTS != true) -%} 
+                        "{{ col.name }}" {{ col.dataType }}
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                    {% endif %}
+                {%- endfor %}
+                )
+
+            {{ stage('Create Target Table') }}
+            {{ columns | selectattr('dmlCol', 'defined') | map(attribute='dataType') | first }}
+        run:
+          templateString: |
+            {# Source Stream Location and Name #}
+
+            {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
+            {% set srcDb = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='database') | first %}
+            {% set srcSch = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='schema') | first %}
+            {% set srcTbl = sources[0].dependencies[0].node.name %}
+            {% set strName = srcTbl + '_STREAM' %}
+            {% set fqSrcTblName = '"' + srcDb + '"."' + srcSch + '"."' + srcTbl + '"' %}
+            {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
+            {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
+
+            {# When Stream has data logic #}
+            {%- if config.flagSrcStream == true -%} 
+                {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
+            {%- endif -%}
+
+            {# Stream Append Behavior #}
+            {% if config.appendOnly == true %} 
+                {% set strAppend = 'APPEND_ONLY = TRUE' %}
+            {% else %} 
+                {% set strAppend = 'APPEND_ONLY = FALSE' %}
+            {% endif %}
+
+            {# Stream Initial Row Behavior #}
+            {% if config.initialRows == true %} 
+                {% set strInitialRows = 'SHOW_INITIAL_ROWS = TRUE' %}
+            {% else %} 
+                {% set strInitialRows = 'SHOW_INITIAL_ROWS = FALSE' %}
+            {% endif %}
+
+            {# Target Table Info #}
+            {% set tgtStrLoc = node.location.name %}
+            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
+            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
+            {% set tgtTbl = node.name %}
+            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
+
+            {# Hybrid View Info #}
+            {# View created in same schema as Target Table #}
+            {% set tgtView = node.name + '_HYBRID_VIEW'  %}
+            {%- set fqTgtViewName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtView + '"' -%} 
+
+            {# Task Info #}
+            {% set taskName = node.name + '_TASK'  %}
+            {%- set fqTgtTaskName = '"' + tgtDb + '"."' + tgtSch + '"."' + taskName + '"' -%} 
+
+            {# Task Type #}
+            {%- if config.schedulingMode == 'Warehouse Task' -%} 
+                {%- set taskType = 'WAREHOUSE = ' + config.whName -%} 
+            {%- else -%}
+                {%- set taskType = 'USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE = ' + config.serverlessSize -%} 
+            {%- endif -%}
+
+            {# Schedule Type #}
+            {%- if config.schedulePeriodOption == 'Minutes' -%} 
+                {%- set whenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
+            {% elif config.schedulePeriodOption == 'CRON' %}
+                {%- set whenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
+            {%- else -%}
+                {%- set whenRun = 'AFTER ' + config.predTask -%} 
+            {%- endif -%}
+
+            {# Table Column Info #}
+            {% set tblColid = columns | map(attribute='id') | list %}
+            {% set tblCol = columns | map(attribute='name') | list %}
+            {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
+            {% set tblKeyColStr = '"'+tblKey | join('", "')+'"' %}
+            {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
+            {% set tblColUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | map(attribute='name') | list %}
+
+            {# DML Identifier Quoting #}
+            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
+                {% set insCode = "'" + config.dmlInsert + "'" %}
+                {% set delCode = "'" + config.dmlDelete + "'" %}
+                {% set updCode = "'" + config.dmlUpdate + "'" %}
+            {% else %}
+                {% set insCode = config.dmlInsert %}
+                {% set delCode = config.dmlDelete %}
+                {% set updCode = config.dmlUpdate %}
+            {% endif %}
 
             {{ stage('Testing') }}
-            {#- for d in sources[0].dependencies #}
-                {{ tblColUpd }}
-            {#- endfor #}
+                WHERE DML_INSERT = {{ insCode }}
     name: Hybrid Merge
     version: 1
   StepType-Dimension:
