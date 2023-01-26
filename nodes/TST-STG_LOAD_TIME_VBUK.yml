@@ -1,0 +1,97 @@
+steps:
+  STG_LOAD_TIME_VBUK-106:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: "Sales Document: Item Data"
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: TST
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 19654
+              stepCounter: "106"
+            config: {}
+            dataType: STRING
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SOURCE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: "'{{ node.name }}'"
+            systemColumnType: None
+            transform: ""
+          - columnReference:
+              columnCounter: 19651
+              stepCounter: "106"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MAX_LOAD_CHANGE_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 20910
+                    stepCounter: "110"
+                transform: MAX("STG_INC_VBUK"."HVR_CHANGE_TIME")
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 19655
+              stepCounter: "106"
+            config: {}
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: LOAD_COMPLETION_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_INC_VBUK: "110"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_INC_VBUK
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_INC_VBUK') }} "STG_INC_VBUK"
+            name: STG_LOAD_TIME_VBUK
+            noLinkRefs: []
+      name: STG_LOAD_TIME_VBUK
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "106"

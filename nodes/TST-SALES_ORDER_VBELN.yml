@@ -1,0 +1,99 @@
+steps:
+  SALES_ORDER_VBELN-121:
+    operation:
+      config:
+        insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: true
+      locationID: ""
+      locationName: TST
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 23698
+              stepCounter: "121"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: Sales_Document_Id
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 20826
+                    stepCounter: "110"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 22294
+                    stepCounter: "115"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 18877
+                    stepCounter: "105"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 21605
+                    stepCounter: "114"
+                transform: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_INC_VBUK: "110"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_INC_VBUK
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_INC_VBUK') }} "STG_INC_VBUK"
+            name: STG_INC_VBUK
+            noLinkRefs: []
+          - aliases:
+              STG_INC_VBAK: "115"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_INC_VBAK
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_INC_VBAK') }} "STG_INC_VBAK"
+            name: STG_INC_VBAK
+            noLinkRefs: []
+          - aliases:
+              STG_INC_VBAP: "105"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_INC_VBAP
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_INC_VBAP') }} "STG_INC_VBAP"
+            name: STG_INC_VBAP
+            noLinkRefs: []
+          - aliases:
+              STG_INC_VBUP: "114"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_INC_VBUP
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_INC_VBUP') }} "STG_INC_VBUP"
+            name: STG_INC_VBUP
+            noLinkRefs: []
+      name: SALES_ORDER_VBELN
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "121"
