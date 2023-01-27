@@ -70,15 +70,15 @@ steps:
             name: STG_INC_VBAK
             noLinkRefs: []
           - aliases:
-              STG_INC_VBAP: "105"
+              STG_INC_Sales_Document_Item: "105"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
-                nodeName: STG_INC_VBAP
+                nodeName: STG_INC_Sales_Document_Item
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_VBAP') }} "STG_INC_VBAP"
-            name: STG_INC_VBAP
+              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item') }} "STG_INC_Sales_Document_Item"
+            name: STG_INC_Sales_Document_Item
             noLinkRefs: []
           - aliases:
               STG_INC_VBUP: "114"

@@ -1,5 +1,5 @@
 steps:
-  STG_LOAD_TIME_VBAP-112:
+  STG_LOAD_TIME_Sales_Document_Item-112:
     operation:
       config:
         insertStrategy: INSERT
@@ -53,7 +53,7 @@ steps:
               - columnReferences:
                   - columnCounter: 19263
                     stepCounter: "105"
-                transform: MAX("STG_INC_VBAP"."HVR_CHANGE_TIME")
+                transform: MAX("STG_INC_Sales_Document_Item"."HVR_CHANGE_TIME")
           - acceptedValues:
               strictMatch: true
               values: []
@@ -79,17 +79,17 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              STG_INC_VBAP: "105"
+              STG_INC_Sales_Document_Item: "105"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
-                nodeName: STG_INC_VBAP
+                nodeName: STG_INC_Sales_Document_Item
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_VBAP') }} "STG_INC_VBAP"
-            name: STG_LOAD_TIME_VBAP
+              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item') }} "STG_INC_Sales_Document_Item"
+            name: STG_LOAD_TIME_Sales_Document_Item
             noLinkRefs: []
-      name: STG_LOAD_TIME_VBAP
+      name: STG_LOAD_TIME_Sales_Document_Item
       overrideSQL: false
       schema: ""
       sqlType: Stage

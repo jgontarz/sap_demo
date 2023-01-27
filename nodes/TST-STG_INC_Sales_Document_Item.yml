@@ -1,5 +1,5 @@
 steps:
-  STG_INC_VBAP-105:
+  STG_INC_Sales_Document_Item-105:
     operation:
       config:
         insertStrategy: INSERT
@@ -30,8 +30,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002213
-                    stepCounter: "200000037"
+                  - columnCounter: 2000005157
+                    stepCounter: "200000075"
                 transform: ""
           - columnReference:
               columnCounter: 19263
@@ -44,28 +44,26 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002599
-                    stepCounter: "200000037"
+                  - columnCounter: 2000005543
+                    stepCounter: "200000075"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              VBAP: "200000037"
+              Sales_Document_Item: "200000075"
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
-                nodeName: VBAP
+              - locationName: TST
+                nodeName: Sales_Document_Item
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBAP') }} "VBAP"
-                where "VBAP"."HVR_CHANGE_TIME" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_VBAP') }} "LAST_LOAD" )
-            name: STG_INC_VBAP
-            noLinkRefs:
-              - locationName: TST
-                nodeName: STG_LOAD_TIME_VBAP
-      name: STG_INC_VBAP
+                FROM {{ ref('TST', 'Sales_Document_Item') }} "Sales_Document_Item"
+                where "Sales_Document_Item"."Hvr_Change_Time" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref('TST', 'STG_LOAD_TIME_Sales_Document_Item') }} "LAST_LOAD" )
+            name: STG_INC_Sales_Document_Item
+            noLinkRefs: []
+      name: STG_INC_Sales_Document_Item
       overrideSQL: false
       schema: ""
       sqlType: Stage
