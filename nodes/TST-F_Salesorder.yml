@@ -3,7 +3,11 @@ steps:
     operation:
       config:
         insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
         selectDistinct: false
+        testsEnabled: true
+        truncateBefore: false
       database: ""
       dependencies: []
       deployEnabled: true
@@ -11,8 +15,8 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
-      materializationType: view
+      locationName: TST
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -27,9 +31,9 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004997
-                    stepCounter: "200000074"
-                transform: trim("Sales_Document_Header"."Sales_Document_Id" , '0')
+                  - columnCounter: 23698
+                    stepCounter: "121"
+                transform: trim("INC_KEYS_Sales_Order"."Sales_Document_Id" , '0')
           - columnReference:
               columnCounter: 13197
               stepCounter: "77"
@@ -75,12 +79,12 @@ steps:
           - columnReference:
               columnCounter: 13327
               stepCounter: "77"
-            dataType: char(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
             name: CREATED_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000004998
@@ -94,7 +98,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: CREATED_BY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005000
@@ -103,12 +107,12 @@ steps:
           - columnReference:
               columnCounter: 13332
               stepCounter: "77"
-            dataType: char(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
             name: DOCUMENT_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005003
@@ -122,7 +126,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SD_DOCUMENT_CATEGORY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005004
@@ -136,7 +140,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_TYPE_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005006
@@ -150,7 +154,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: ORDER_REASON_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005007
@@ -164,7 +168,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: delivery_block_id
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005010
@@ -178,7 +182,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_ORGANIZATION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005014
@@ -192,7 +196,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: DISTRIBUTION_CHANNEL_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005015
@@ -206,7 +210,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: DIVISION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005016
@@ -215,12 +219,12 @@ steps:
           - columnReference:
               columnCounter: 13353
               stepCounter: "77"
-            dataType: char(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
             name: REQUESTED_DELIVERY_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005024
@@ -234,11 +238,11 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000005043
-                    stepCounter: "200000074"
+                  - columnCounter: 23698
+                    stepCounter: "121"
                 transform: ""
           - columnReference:
               columnCounter: 13487
@@ -248,7 +252,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: sales_document_item
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005158
@@ -262,7 +266,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: MATERIAL_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005159
@@ -276,7 +280,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: MATERIAL_GROUP_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005163
@@ -290,7 +294,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_ITEM_CATEGORY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005165
@@ -304,7 +308,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: REASON_REJECTION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005171
@@ -318,7 +322,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: PRODUCT_HIERARCHY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005172
@@ -332,7 +336,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: BASE_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005178
@@ -346,7 +350,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: net_value
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005199
@@ -360,7 +364,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SD_DOCUMENT_CURRENCY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005200
@@ -374,7 +378,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: Order_Quantity
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005204
@@ -388,7 +392,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005208
@@ -402,7 +406,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: gross_weight
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005211
@@ -416,7 +420,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: WEIGHT_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005213
@@ -430,7 +434,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: Plant_Id
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005224
@@ -444,7 +448,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: net_price
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005248
@@ -458,7 +462,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: RETURNS_ITEM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005251
@@ -472,7 +476,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: HVR_IS_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005542
@@ -486,7 +490,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: HVR_CHANGE_TIME
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005543
@@ -496,6 +500,7 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
+              INC_KEYS_Sales_Order: "121"
               Sales_Document_Header: "200000074"
               Sales_Document_Header_Status: "73"
               Sales_Document_Item: "200000075"
@@ -503,23 +508,27 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: STG
+              - locationName: TST
                 nodeName: Sales_Document_Header_Status
-              - locationName: STG
+              - locationName: TST
                 nodeName: Sales_Document_Item_Status
-              - locationName: STG
+              - locationName: TST
+                nodeName: INC_KEYS_Sales_Order
+              - locationName: TST
                 nodeName: Sales_Document_Header
-              - locationName: STG
+              - locationName: TST
                 nodeName: Sales_Document_Item
             join:
               joinCondition: |-
-                FROM {{ ref('STG', 'Sales_Document_Header') }} "Sales_Document_Header"
-                INNER JOIN {{ ref('STG', 'Sales_Document_Item') }} "Sales_Document_Item"
-                ON "Sales_Document_Header"."Sales_Document_Id" = "Sales_Document_Item"."Sales_Document_Id"
-                INNER JOIN {{ ref('STG', 'Sales_Document_Header_Status') }} "Sales_Document_Header_Status"
-                ON "Sales_Document_Header"."Sales_Document_Id" = "Sales_Document_Header_Status"."Sales_Document_Id"
-                INNER JOIN {{ ref('STG', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
-                ON "Sales_Document_Item"."Sales_Document_Id" = "Sales_Document_Item_Status"."Sales_Document_Id"
+                FROM {{ ref('TST', 'INC_KEYS_Sales_Order') }} "INC_KEYS_Sales_Order"
+                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header') }} "Sales_Document_Header"
+                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Header"."Sales_Document_Id"
+                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item') }} "Sales_Document_Item"
+                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Item"."Sales_Document_Id"
+                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header_Status') }} "Sales_Document_Header_Status"
+                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Header_Status"."Sales_Document_Id"
+                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
+                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Item_Status"."Sales_Document_Id"
                 AND "Sales_Document_Item"."Sales_Document_Item_Id" = "Sales_Document_Item_Status"."Sd_Item_Id"
                 AND "Sales_Document_Header"."Sd_Document_Category" in ('C', 'H')
             name: F_Salesorder
@@ -527,6 +536,6 @@ steps:
       name: F_Salesorder
       overrideSQL: false
       schema: ""
-      sqlType: "1"
+      sqlType: Stage
       type: sql
     stepCounter: "77"

@@ -6,7 +6,7 @@ steps:
         selectDistinct: false
       customOverride: false
       dependencies: []
-      deployEnabled: false
+      deployEnabled: true
       description: "Sales Document: Item Data"
       isMultisource: false
       locationID: 2
@@ -369,7 +369,7 @@ steps:
             columnReference:
               columnCounter: 2000005181
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Reconciliation_Date
@@ -1041,7 +1041,7 @@ steps:
             columnReference:
               columnCounter: 2000005229
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Key_The_Bill_Material_Date
@@ -1097,7 +1097,7 @@ steps:
             columnReference:
               columnCounter: 2000005233
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Created_Date
@@ -1685,7 +1685,7 @@ steps:
             columnReference:
               columnCounter: 2000005275
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Changed_Date
@@ -2329,7 +2329,7 @@ steps:
             columnReference:
               columnCounter: 2000005321
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Statistics_Date
@@ -3071,7 +3071,7 @@ steps:
             columnReference:
               columnCounter: 2000005374
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Handover_Date
@@ -3239,7 +3239,7 @@ steps:
             columnReference:
               columnCounter: 2000005386
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Filter_Value_Aging_Date
@@ -3477,7 +3477,7 @@ steps:
             columnReference:
               columnCounter: 2000005403
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Xlso_Start_Date
@@ -3491,7 +3491,7 @@ steps:
             columnReference:
               columnCounter: 2000005404
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Xlso_End_Date
@@ -3603,7 +3603,7 @@ steps:
             columnReference:
               columnCounter: 2000005412
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Cancellation_Date
@@ -4485,7 +4485,7 @@ steps:
             columnReference:
               columnCounter: 2000005475
               stepCounter: "200000075"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Fee_Pricing_Condition_Date
@@ -5453,11 +5453,11 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: TST
                 nodeName: VBAP
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBAP') }} "VBAP" 
+                FROM {{ ref('TST', 'VBAP') }} "VBAP" 
                 WHERE 1=1 AND "VBAP"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Document_Item
             noLinkRefs: []

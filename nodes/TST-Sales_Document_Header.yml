@@ -6,11 +6,11 @@ steps:
         selectDistinct: false
       customOverride: false
       dependencies: []
-      deployEnabled: false
+      deployEnabled: true
       description: "Sales Document: Header Data"
       isMultisource: false
       locationID: 2
-      locationName: STG
+      locationName: TST
       materializationType: view
       metadata:
         columns:
@@ -43,7 +43,7 @@ steps:
           - columnReference:
               columnCounter: 2000004998
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Created_Date
@@ -82,7 +82,7 @@ steps:
           - columnReference:
               columnCounter: 2000005001
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Quotation_Inquiry_Is_Valid_From_Date
@@ -95,7 +95,7 @@ steps:
           - columnReference:
               columnCounter: 2000005002
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Quotation_Valid_To_Date
@@ -108,7 +108,7 @@ steps:
           - columnReference:
               columnCounter: 2000005003
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Document_Date
@@ -173,7 +173,7 @@ steps:
           - columnReference:
               columnCounter: 2000005008
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Guarantee_Date
@@ -342,7 +342,7 @@ steps:
           - columnReference:
               columnCounter: 2000005021
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Valid_From_Date
@@ -355,7 +355,7 @@ steps:
           - columnReference:
               columnCounter: 2000005022
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Valid_To_Date
@@ -381,7 +381,7 @@ steps:
           - columnReference:
               columnCounter: 2000005024
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Requested_Delivery_Date
@@ -537,7 +537,7 @@ steps:
           - columnReference:
               columnCounter: 2000005036
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Customer_Purchase_Order_Date
@@ -615,7 +615,7 @@ steps:
           - columnReference:
               columnCounter: 2000005042
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Last_Customer_Contact_Date
@@ -680,7 +680,7 @@ steps:
           - columnReference:
               columnCounter: 2000005047
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Changed_Date
@@ -888,7 +888,7 @@ steps:
           - columnReference:
               columnCounter: 2000005063
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Release_Date
@@ -901,7 +901,7 @@ steps:
           - columnReference:
               columnCounter: 2000005064
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Next_Check_Date
@@ -914,7 +914,7 @@ steps:
           - columnReference:
               columnCounter: 2000005065
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Next_Date
@@ -1265,7 +1265,7 @@ steps:
           - columnReference:
               columnCounter: 2000005092
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Pick_Up_Date
@@ -1382,7 +1382,7 @@ steps:
           - columnReference:
               columnCounter: 2000005101
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Cml_Delivery_Order_Qty_Date
@@ -1395,7 +1395,7 @@ steps:
           - columnReference:
               columnCounter: 2000005102
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Material_Availability_Date
@@ -1525,7 +1525,7 @@ steps:
           - columnReference:
               columnCounter: 2000005112
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Filter_Value_Aging_Date
@@ -1538,7 +1538,7 @@ steps:
           - columnReference:
               columnCounter: 2000005113
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Xlso_Field_Type_Dats_Date
@@ -1551,7 +1551,7 @@ steps:
           - columnReference:
               columnCounter: 2000005114
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: /XLSO/SO_VALD_TO
@@ -1616,7 +1616,7 @@ steps:
           - columnReference:
               columnCounter: 2000005119
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Posting_In_The_Document_Date
@@ -1759,7 +1759,7 @@ steps:
           - columnReference:
               columnCounter: 2000005130
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Cancellation_Date
@@ -1876,7 +1876,7 @@ steps:
           - columnReference:
               columnCounter: 2000005139
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Expiration_Date
@@ -1889,7 +1889,7 @@ steps:
           - columnReference:
               columnCounter: 2000005140
               stepCounter: "200000074"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: Resolution_Date
@@ -2099,11 +2099,11 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: TST
                 nodeName: VBAK
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBAK') }} "VBAK" 
+                FROM {{ ref('TST', 'VBAK') }} "VBAK" 
                 WHERE 1=1 
                 AND "VBAK"."MANDT" in ({{ parameters.fltrMandt }}) 
             name: Sales_Document_Header

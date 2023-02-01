@@ -1,0 +1,200 @@
+steps:
+  V_LOAD_TIME_Sales_Document_Item-130:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: "Sales Document: Item Data"
+      isDataVault: false
+      isMultisource: true
+      locationID: ""
+      locationName: TST
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 25968
+              stepCounter: "130"
+            dataType: STRING
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SOURCE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 20913
+                    stepCounter: "112"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 22991
+                    stepCounter: "116"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 21602
+                    stepCounter: "113"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 19654
+                    stepCounter: "106"
+                transform: ""
+          - columnReference:
+              columnCounter: 25969
+              stepCounter: "130"
+            dataType: timestamp_tz(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SOURCE_TABLE_POLL_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 25960
+                    stepCounter: "112"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 25958
+                    stepCounter: "116"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 25956
+                    stepCounter: "113"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 25954
+                    stepCounter: "106"
+                transform: ""
+          - columnReference:
+              columnCounter: 25970
+              stepCounter: "130"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MAX_LOAD_CHANGE_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 20914
+                    stepCounter: "112"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 22992
+                    stepCounter: "116"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 21603
+                    stepCounter: "113"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 19651
+                    stepCounter: "106"
+                transform: ""
+          - columnReference:
+              columnCounter: 25971
+              stepCounter: "130"
+            dataType: number
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: INCREMENTAL_ROWS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 25961
+                    stepCounter: "112"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 25959
+                    stepCounter: "116"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 25957
+                    stepCounter: "113"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 25955
+                    stepCounter: "106"
+                transform: ""
+          - columnReference:
+              columnCounter: 25972
+              stepCounter: "130"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOAD_COMPLETION_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 20915
+                    stepCounter: "112"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 22993
+                    stepCounter: "116"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 21604
+                    stepCounter: "113"
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 19655
+                    stepCounter: "106"
+                transform: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              STG_LOAD_TIME_Sales_Document_Item: "112"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_LOAD_TIME_Sales_Document_Item
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_LOAD_TIME_Sales_Document_Item') }} "STG_LOAD_TIME_Sales_Document_Item"
+            name: Sales_Document_Item
+            noLinkRefs: []
+          - aliases:
+              STG_LOAD_TIME_Sales_Document_Header: "116"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_LOAD_TIME_Sales_Document_Header
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_LOAD_TIME_Sales_Document_Header') }} "STG_LOAD_TIME_Sales_Document_Header"
+            name: Sales_Document_Header
+            noLinkRefs: []
+          - aliases:
+              STG_LOAD_TIME_Sales_Document_Item_Status: "113"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_LOAD_TIME_Sales_Document_Item_Status
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_LOAD_TIME_Sales_Document_Item_Status') }} "STG_LOAD_TIME_Sales_Document_Item_Status"
+            name: Sales_Document_Item_Status
+            noLinkRefs: []
+          - aliases:
+              STG_LOAD_TIME_Sales_Document_Header_Status: "106"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: TST
+                nodeName: STG_LOAD_TIME_Sales_Document_Header_Status
+            join:
+              joinCondition: FROM {{ ref('TST', 'STG_LOAD_TIME_Sales_Document_Header_Status') }} "STG_LOAD_TIME_Sales_Document_Header_Status"
+            name: Sales_Document_Header_Status
+            noLinkRefs: []
+      name: V_LOAD_TIME_Sales_Document_Item
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "130"

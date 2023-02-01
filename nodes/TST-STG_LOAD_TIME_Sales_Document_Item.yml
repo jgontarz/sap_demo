@@ -6,7 +6,7 @@ steps:
         postSQL: ""
         preSQL: ""
         testsEnabled: true
-        truncateBefore: true
+        truncateBefore: false
       database: ""
       dependencies: []
       deployEnabled: true
@@ -40,6 +40,27 @@ steps:
                 transform: "'{{ node.name }}'"
             systemColumnType: None
             transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 25960
+              stepCounter: "112"
+            config: {}
+            dataType: timestamp_tz(3)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SOURCE_TABLE_POLL_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: current_timestamp()::timestamp_ntz
+            systemColumnType: None
+            transform: ""
           - columnReference:
               columnCounter: 20914
               stepCounter: "112"
@@ -54,6 +75,27 @@ steps:
                   - columnCounter: 19263
                     stepCounter: "105"
                 transform: MAX("STG_INC_Sales_Document_Item"."HVR_CHANGE_TIME")
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 25961
+              stepCounter: "112"
+            config: {}
+            dataType: number
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: INCREMENTAL_ROWS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: COUNT("STG_INC_Sales_Document_Item"."HVR_CHANGE_TIME")
+            systemColumnType: None
+            transform: ""
           - acceptedValues:
               strictMatch: true
               values: []
@@ -79,7 +121,7 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              STG_INC_Sales_Document_Item: "105"
+              STG_INC_Sales_Document_Item: "131"
             customSQL:
               customSQL: ""
             dependencies:

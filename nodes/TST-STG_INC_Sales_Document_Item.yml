@@ -1,5 +1,5 @@
 steps:
-  STG_INC_Sales_Document_Item-105:
+  STG_INC_Sales_Document_Item-131:
     operation:
       config:
         insertStrategy: INSERT
@@ -20,8 +20,8 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 18877
-              stepCounter: "105"
+              columnCounter: 25973
+              stepCounter: "131"
             dataType: char(10)
             description: ""
             hashColumns: []
@@ -34,8 +34,8 @@ steps:
                     stepCounter: "200000075"
                 transform: ""
           - columnReference:
-              columnCounter: 19263
-              stepCounter: "105"
+              columnCounter: 25974
+              stepCounter: "131"
             dataType: TIMESTAMP_TZ(3)
             description: ""
             hashColumns: []
@@ -60,12 +60,14 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('TST', 'Sales_Document_Item') }} "Sales_Document_Item"
-                where "Sales_Document_Item"."Hvr_Change_Time" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref('TST', 'STG_LOAD_TIME_Sales_Document_Item') }} "LAST_LOAD" )
+                where "Sales_Document_Item"."Hvr_Change_Time" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Item') }} "LAST_LOAD" )
             name: STG_INC_Sales_Document_Item
-            noLinkRefs: []
+            noLinkRefs:
+              - locationName: TST
+                nodeName: STG_LOAD_TIME_Sales_Document_Item
       name: STG_INC_Sales_Document_Item
       overrideSQL: false
       schema: ""
       sqlType: Stage
       type: sql
-    stepCounter: "105"
+    stepCounter: "131"

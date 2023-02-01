@@ -1,5 +1,5 @@
 steps:
-  SALES_ORDER_VBELN-121:
+  INC_KEYS_Sales_Order-121:
     operation:
       config:
         insertStrategy: UNION
@@ -38,8 +38,8 @@ steps:
                     stepCounter: "115"
                 transform: ""
               - columnReferences:
-                  - columnCounter: 18877
-                    stepCounter: "105"
+                  - columnCounter: 25973
+                    stepCounter: "131"
                 transform: ""
               - columnReferences:
                   - columnCounter: 21605
@@ -48,29 +48,29 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              STG_INC_VBUK: "110"
+              STG_INC_Sales_Document_Header_Status: "110"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
-                nodeName: STG_INC_VBUK
+                nodeName: STG_INC_Sales_Document_Header_Status
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_VBUK') }} "STG_INC_VBUK"
-            name: STG_INC_VBUK
+              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }} "STG_INC_Sales_Document_Header_Status"
+            name: STG_INC_Sales_Document_Header_Status
             noLinkRefs: []
           - aliases:
-              STG_INC_VBAK: "115"
+              STG_INC_Sales_Document_Header: "115"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
-                nodeName: STG_INC_VBAK
+                nodeName: STG_INC_Sales_Document_Header
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_VBAK') }} "STG_INC_VBAK"
-            name: STG_INC_VBAK
+              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header') }} "STG_INC_Sales_Document_Header"
+            name: STG_INC_Sales_Document_Header
             noLinkRefs: []
           - aliases:
-              STG_INC_Sales_Document_Item: "105"
+              STG_INC_Sales_Document_Item: "131"
             customSQL:
               customSQL: ""
             dependencies:
@@ -81,17 +81,17 @@ steps:
             name: STG_INC_Sales_Document_Item
             noLinkRefs: []
           - aliases:
-              STG_INC_VBUP: "114"
+              STG_INC_Sales_Document_Item_Status: "114"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
-                nodeName: STG_INC_VBUP
+                nodeName: STG_INC_Sales_Document_Item_Status
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_VBUP') }} "STG_INC_VBUP"
-            name: STG_INC_VBUP
+              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item_Status') }} "STG_INC_Sales_Document_Item_Status"
+            name: STG_INC_Sales_Document_Item_Status
             noLinkRefs: []
-      name: SALES_ORDER_VBELN
+      name: INC_KEYS_Sales_Order
       overrideSQL: false
       schema: ""
       sqlType: Stage

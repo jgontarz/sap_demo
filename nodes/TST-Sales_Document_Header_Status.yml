@@ -11,7 +11,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: STG
+      locationName: TST
       materializationType: view
       metadata:
         appliedNodeTests: []
@@ -369,7 +369,7 @@ steps:
           - columnReference:
               columnCounter: 12351
               stepCounter: "73"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1241,11 +1241,11 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: TST
                 nodeName: VBUK
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBUK') }} "VBUK"
+                FROM {{ ref('TST', 'VBUK') }} "VBUK"
                 WHERE "VBUK"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Document_Header_Status
             noLinkRefs: []

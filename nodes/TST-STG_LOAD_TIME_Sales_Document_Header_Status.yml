@@ -1,12 +1,12 @@
 steps:
-  STG_LOAD_TIME_VBUP-113:
+  STG_LOAD_TIME_Sales_Document_Header_Status-106:
     operation:
       config:
         insertStrategy: INSERT
         postSQL: ""
         preSQL: ""
         testsEnabled: true
-        truncateBefore: true
+        truncateBefore: false
       database: ""
       dependencies: []
       deployEnabled: true
@@ -24,8 +24,8 @@ steps:
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 21602
-              stepCounter: "113"
+              columnCounter: 19654
+              stepCounter: "106"
             config: {}
             dataType: STRING
             defaultValue: ""
@@ -40,9 +40,30 @@ steps:
                 transform: "'{{ node.name }}'"
             systemColumnType: None
             transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 25954
+              stepCounter: "106"
+            config: {}
+            dataType: timestamp_tz(3)
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SOURCE_TABLE_POLL_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: current_timestamp()::timestamp_ntz
+            systemColumnType: None
+            transform: ""
           - columnReference:
-              columnCounter: 21603
-              stepCounter: "113"
+              columnCounter: 19651
+              stepCounter: "106"
             dataType: TIMESTAMP_TZ(3)
             description: ""
             hashColumns: []
@@ -51,16 +72,37 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 21606
-                    stepCounter: "114"
-                transform: MAX("STG_INC_VBUP"."HVR_CHANGE_TIME")
+                  - columnCounter: 20910
+                    stepCounter: "110"
+                transform: MAX("STG_INC_Sales_Document_Header_Status"."HVR_CHANGE_TIME")
           - acceptedValues:
               strictMatch: true
               values: []
             appliedColumnTests: {}
             columnReference:
-              columnCounter: 21604
-              stepCounter: "113"
+              columnCounter: 25955
+              stepCounter: "106"
+            config: {}
+            dataType: number
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: INCREMENTAL_ROWS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: COUNT("STG_INC_Sales_Document_Header_Status"."HVR_CHANGE_TIME")
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 19655
+              stepCounter: "106"
             config: {}
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
@@ -79,19 +121,19 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              STG_INC_VBUP: "114"
+              STG_INC_Sales_Document_Header_Status: "110"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
-                nodeName: STG_INC_VBUP
+                nodeName: STG_INC_Sales_Document_Header_Status
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_VBUP') }} "STG_INC_VBUP"
-            name: STG_LOAD_TIME_VBUP
+              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }} "STG_INC_Sales_Document_Header_Status"
+            name: STG_LOAD_TIME_Sales_Document_Header_Status
             noLinkRefs: []
-      name: STG_LOAD_TIME_VBUP
+      name: STG_LOAD_TIME_Sales_Document_Header_Status
       overrideSQL: false
       schema: ""
       sqlType: Stage
       type: sql
-    stepCounter: "113"
+    stepCounter: "106"

@@ -11,7 +11,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: STG
+      locationName: TST
       materializationType: view
       metadata:
         appliedNodeTests: []
@@ -681,11 +681,11 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: TST
                 nodeName: VBUP
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBUP') }} "VBUP"
+                FROM {{ ref('TST', 'VBUP') }} "VBUP"
                 WHERE "VBUP"."MANDT" in ({{ parameters.fltrMandt }})
             name: Sales_Document_Item_Status
             noLinkRefs: []

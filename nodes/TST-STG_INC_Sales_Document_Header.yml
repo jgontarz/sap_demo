@@ -1,5 +1,5 @@
 steps:
-  STG_INC_VBAK-115:
+  STG_INC_Sales_Document_Header-115:
     operation:
       config:
         insertStrategy: INSERT
@@ -30,8 +30,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002053
-                    stepCounter: "200000036"
+                  - columnCounter: 2000004997
+                    stepCounter: "200000074"
                 transform: ""
           - columnReference:
               columnCounter: 22295
@@ -44,28 +44,28 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002211
-                    stepCounter: "200000036"
+                  - columnCounter: 2000005155
+                    stepCounter: "200000074"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              VBAK: "200000036"
+              Sales_Document_Header: "200000074"
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
-                nodeName: VBAK
+              - locationName: TST
+                nodeName: Sales_Document_Header
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBAK') }} "VBAK"
-                where "VBAK"."HVR_CHANGE_TIME" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_VBAK') }} "LAST_LOAD" )
-            name: STG_INC_VBAK
+                FROM {{ ref('TST', 'Sales_Document_Header') }} "Sales_Document_Header"
+                where "Sales_Document_Header"."Hvr_Change_Time" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Header') }} "LAST_LOAD" )
+            name: STG_INC_Sales_Document_Header
             noLinkRefs:
               - locationName: TST
-                nodeName: STG_LOAD_TIME_VBAK
-      name: STG_INC_VBAK
+                nodeName: STG_LOAD_TIME_Sales_Document_Header
+      name: STG_INC_Sales_Document_Header
       overrideSQL: false
       schema: ""
       sqlType: Stage

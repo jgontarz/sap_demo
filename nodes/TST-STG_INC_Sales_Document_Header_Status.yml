@@ -1,5 +1,5 @@
 steps:
-  STG_INC_VBUP-114:
+  STG_INC_Sales_Document_Header_Status-110:
     operation:
       config:
         insertStrategy: INSERT
@@ -20,8 +20,8 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 21605
-              stepCounter: "114"
+              columnCounter: 20826
+              stepCounter: "110"
             dataType: VARCHAR(10)
             description: ""
             hashColumns: []
@@ -30,12 +30,12 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 12415
-                    stepCounter: "74"
+                  - columnCounter: 12328
+                    stepCounter: "73"
                 transform: ""
           - columnReference:
-              columnCounter: 21606
-              stepCounter: "114"
+              columnCounter: 20910
+              stepCounter: "110"
             dataType: TIMESTAMP_TZ(3)
             description: ""
             hashColumns: []
@@ -44,30 +44,30 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 12459
-                    stepCounter: "74"
+                  - columnCounter: 12412
+                    stepCounter: "73"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              VBUP: "74"
+              Sales_Document_Header_Status: "73"
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
-                nodeName: VBUP
+              - locationName: TST
+                nodeName: Sales_Document_Header_Status
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'VBUP') }} "VBUP"
-                where "VBUP"."HVR_CHANGE_TIME" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_VBUP') }} "LAST_LOAD" )
-            name: STG_INC_VBUP
+                FROM {{ ref('TST', 'Sales_Document_Header_Status') }} "Sales_Document_Header_Status"
+                where "Sales_Document_Header_Status"."Hvr_Change_Time" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Header_Status') }} "LAST_LOAD" )
+            name: STG_INC_Sales_Document_Header_Status
             noLinkRefs:
               - locationName: TST
-                nodeName: STG_LOAD_TIME_VBUP
-      name: STG_INC_VBUP
+                nodeName: STG_LOAD_TIME_Sales_Document_Header_Status
+      name: STG_INC_Sales_Document_Header_Status
       overrideSQL: false
       schema: ""
       sqlType: Stage
       type: sql
-    stepCounter: "114"
+    stepCounter: "110"
