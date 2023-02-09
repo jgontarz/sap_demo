@@ -1,5 +1,5 @@
 steps:
-  F_Salesorder-77:
+  FACT_SALESORDER-77:
     operation:
       config:
         insertStrategy: UNION
@@ -27,13 +27,13 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: sales_document_number
+            name: SALES_DOCUMENT_NUMBER
             nullable: false
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 23698
                     stepCounter: "121"
-                transform: trim("INC_KEYS_Sales_Order"."Sales_Document_Id" , '0')
+                transform: trim("INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" , '0')
           - columnReference:
               columnCounter: 13197
               stepCounter: "77"
@@ -69,7 +69,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: Item_Delivery_Status
+            name: ITEM_DELIVERY_STATUS
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -167,7 +167,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: delivery_block_id
+            name: DELIVERY_BLOCK_ID
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -251,13 +251,13 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: sales_document_item
+            name: SALES_DOCUMENT_ITEM
             nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005158
                     stepCounter: "200000075"
-                transform: ltrim("Sales_Document_Item"."Sales_Document_Item_Id"  , '0')
+                transform: ltrim("Sales_Document_Item"."SALES_DOCUMENT_ITEM_ID"  , '0')
           - columnReference:
               columnCounter: 13488
               stepCounter: "77"
@@ -349,13 +349,13 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: net_value
+            name: NET_VALUE
             nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005199
                     stepCounter: "200000075"
-                transform: case when "Sales_Document_Header"."Sd_Document_Category"  = 'C' then "Sales_Document_Item"."Net_Val" else "Sales_Document_Item"."Net_Val"  * -1 end
+                transform: case when "Sales_Document_Header"."SD_DOCUMENT_CATEGORY" = 'C' then "Sales_Document_Item"."NET_VAL" else "Sales_Document_Item"."NET_VAL"  * -1 end
           - columnReference:
               columnCounter: 13529
               stepCounter: "77"
@@ -377,13 +377,13 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: Order_Quantity
+            name: ORDER_QUANTITY
             nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2000005204
                     stepCounter: "200000075"
-                transform: case when "Sales_Document_Header"."Sd_Document_Category"  = 'C' then "Sales_Document_Item"."Order_Quantity" else "Sales_Document_Item"."Order_Quantity"  * -1 end
+                transform: case when "Sales_Document_Header"."SD_DOCUMENT_CATEGORY"  = 'C' then "Sales_Document_Item"."ORDER_QUANTITY" else "Sales_Document_Item"."ORDER_QUANTITY"  * -1 end
           - columnReference:
               columnCounter: 13537
               stepCounter: "77"
@@ -405,7 +405,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: gross_weight
+            name: GROSS_WEIGHT
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -433,7 +433,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: Plant_Id
+            name: PLANT_ID
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -447,7 +447,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: net_price
+            name: NET_PRICE
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -522,18 +522,18 @@ steps:
               joinCondition: |-
                 FROM {{ ref('TST', 'INC_KEYS_Sales_Order') }} "INC_KEYS_Sales_Order"
                 LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header') }} "Sales_Document_Header"
-                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Header"."Sales_Document_Id"
+                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Header"."SALES_DOCUMENT_ID"
                 LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item') }} "Sales_Document_Item"
-                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Item"."Sales_Document_Id"
+                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Item"."SALES_DOCUMENT_ID"
                 LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header_Status') }} "Sales_Document_Header_Status"
-                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Header_Status"."Sales_Document_Id"
+                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Header_Status"."SALES_DOCUMENT_ID"
                 LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
-                ON "INC_KEYS_Sales_Order"."Sales_Document_Id" = "Sales_Document_Item_Status"."Sales_Document_Id"
-                AND "Sales_Document_Item"."Sales_Document_Item_Id" = "Sales_Document_Item_Status"."Sd_Item_Id"
-                AND "Sales_Document_Header"."Sd_Document_Category" in ('C', 'H')
-            name: F_Salesorder
+                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Item_Status"."SALES_DOCUMENT_ID"
+                AND "Sales_Document_Item"."SALES_DOCUMENT_ITEM_ID" = "Sales_Document_Item_Status"."SD_ITEM_ID"
+                AND "Sales_Document_Header"."SD_DOCUMENT_CATEGORY" in ('C', 'H')
+            name: FACT_SALESORDER
             noLinkRefs: []
-      name: F_Salesorder
+      name: FACT_SALESORDER
       overrideSQL: false
       schema: ""
       sqlType: Stage

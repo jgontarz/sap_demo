@@ -26,7 +26,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: Sales_Document_Id
+            name: SALES_DOCUMENT_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
@@ -60,7 +60,7 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
-                where "Sales_Document_Item_Status"."Hvr_Change_Time" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Item_Status') }} "LAST_LOAD" )
+                where "Sales_Document_Item_Status"."HVR_CHANGE_TIME" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Item_Status') }} "LAST_LOAD" )
             name: STG_INC_Sales_Document_Item_Status
             noLinkRefs:
               - locationName: TST
