@@ -1,0 +1,613 @@
+steps:
+  F_PURCHASING_ORDER-196:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 82589
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_DELIVER_LATE_DAYS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56910
+                    stepCounter: "167"
+                transform: CAST((PURCHASING_DOCUMENT_OVERVIEW.LATEST_GOODS_RECEIVE_DATE - PURCHASING_DOCUMENT_HEADER."PURCHASING_DOCUMENT_DATE") AS DECIMAL(15, 2))
+          - columnReference:
+              columnCounter: 82590
+              stepCounter: "196"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMPANY_CODE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56911
+                    stepCounter: "167"
+                transform: ""
+          - columnReference:
+              columnCounter: 82591
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CANCEL_PURCHASE_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56912
+                    stepCounter: "167"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_ITEM."REJECTION_INDICATOR" = 'X'
+                  			THEN (
+                  					CAST(PURCHASING_DOCUMENT_ITEM."NET_ORDER_PO_CURRENCY_VAL" * CASE 
+                  							WHEN PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE" < 0
+                  								THEN - 1 / PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
+                  							ELSE PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
+                  							END AS DECIMAL(15, 2))
+                  					)
+                  		ELSE CAST(0 AS DECIMAL(15, 2))
+                  		END
+          - columnReference:
+              columnCounter: 83213
+              stepCounter: "196"
+            dataType: char(5)
+            description: ""
+            name: CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000004619
+                    stepCounter: "200000056"
+                transform: ""
+          - columnReference:
+              columnCounter: 82600
+              stepCounter: "196"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VENDOR_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56921
+                    stepCounter: "167"
+                transform: ""
+          - columnReference:
+              columnCounter: 82608
+              stepCounter: "196"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_ORGANIZATION_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56929
+                    stepCounter: "167"
+                transform: ""
+          - columnReference:
+              columnCounter: 82609
+              stepCounter: "196"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_GROUP_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56930
+                    stepCounter: "167"
+                transform: ""
+          - columnReference:
+              columnCounter: 82610
+              stepCounter: "196"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DOCUMENT_CURRENCY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56931
+                    stepCounter: "167"
+                transform: ""
+          - columnReference:
+              columnCounter: 82611
+              stepCounter: "196"
+            dataType: NUMBER(9,5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_OPEN_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56932
+                    stepCounter: "167"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_OVERVIEW."DELIVERY_COMPLETED" IS NOT NULL
+                  			THEN CAST(0 AS DECIMAL(15, 2))
+                  		ELSE (
+                  				PURCHASING_DOCUMENT_ITEM."NET_ORDER_PO_CURRENCY_VAL"  * (
+                  					CASE 
+                  						WHEN PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE" < 0
+                  							THEN - 1 / PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
+                  						ELSE PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
+                  						END
+                  					)
+                  				) - PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_VALUE_IN_LOCAL_CURR
+                  		END
+          - columnReference:
+              columnCounter: 82613
+              stepCounter: "196"
+            dataType: VARCHAR(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56934
+                    stepCounter: "167"
+                transform: ""
+          - columnReference:
+              columnCounter: 82729
+              stepCounter: "196"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57435
+                    stepCounter: "169"
+                transform: ""
+          - columnReference:
+              columnCounter: 82730
+              stepCounter: "196"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57436
+                    stepCounter: "169"
+                transform: ""
+          - columnReference:
+              columnCounter: 82735
+              stepCounter: "196"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57441
+                    stepCounter: "169"
+                transform: ""
+          - columnReference:
+              columnCounter: 82738
+              stepCounter: "196"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PLANT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57444
+                    stepCounter: "169"
+                transform: ""
+          - columnReference:
+              columnCounter: 82746
+              stepCounter: "196"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORDER_UOM_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57452
+                    stepCounter: "169"
+                transform: ""
+          - columnReference:
+              columnCounter: 82754
+              stepCounter: "196"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_CURRENCY_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57460
+                    stepCounter: "169"
+                transform: ""
+          - columnReference:
+              columnCounter: 83289
+              stepCounter: "196"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_ORDER_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57460
+                    stepCounter: "169"
+                transform: |-
+                  CAST(PURCHASING_DOCUMENT_ITEM."NET_ORDER_PO_CURRENCY_VAL" * CASE 
+                  			WHEN PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE" < 0
+                  				THEN - 1 / PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
+                  			ELSE PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
+                  			END AS DECIMAL(15, 2))
+          - columnReference:
+              columnCounter: 82773
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CANCEL_PURCHASE_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57479
+                    stepCounter: "169"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_ITEM."REJECTION_INDICATOR" = 'X'
+                  			THEN PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
+                  		ELSE CAST(0 AS DECIMAL(15, 3))
+                  		END
+          - columnReference:
+              columnCounter: 82775
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_OPEN_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57481
+                    stepCounter: "169"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_ITEM."DELIVERY_COMPLETED" <> ''
+                  			THEN CAST(0 AS DECIMAL(15, 3))
+                  		ELSE (PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY" - COALESCE(PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_QUANTITY,0))
+                  		END
+          - columnReference:
+              columnCounter: 82891
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_ORDER_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57597
+                    stepCounter: "169"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_ITEM."RETURNS_ITEM" = ''
+                  			THEN PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
+                  		ELSE - 1 * PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
+                  		END
+          - columnReference:
+              columnCounter: 83115
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_LATE_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 82131
+                    stepCounter: "191"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_OVERVIEW.LATEST_GOODS_RECEIVE_DATE > PURCHASING_DOCUMENT_SCHEDULE_TOTAL."LASTEST_SCHEDULED_DELIVERY_DATE"
+                  			THEN PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_QUANTITY
+                  		ELSE CAST(0 AS DECIMAL(15, 3))
+                  		END
+          - columnReference:
+              columnCounter: 83117
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DELIVERED_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 82133
+                    stepCounter: "191"
+                transform: ""
+          - columnReference:
+              columnCounter: 83118
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_DELIVERED_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 82134
+                    stepCounter: "191"
+                transform: ""
+          - columnReference:
+              columnCounter: 83125
+              stepCounter: "196"
+            dataType: NUMBER
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_LATE_LEAD_DAYS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 82517
+                    stepCounter: "195"
+                transform: CAST((PURCHASING_DOCUMENT_OVERVIEW.LATEST_GOODS_RECEIVE_DATE - PURCHASING_DOCUMENT_SCHEDULE_TOTAL."LASTEST_SCHEDULED_DELIVERY_DATE") AS DECIMAL(15, 2))
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83290
+              stepCounter: "196"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PURCHASE_ORDER_ITEM_COUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: CAST(1 AS DECIMAL(15, 0))
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83291
+              stepCounter: "196"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PURCHASE_ITEM_LATE_COUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_OVERVIEW.LATEST_GOODS_RECEIVE_DATE > PURCHASING_DOCUMENT_SCHEDULE_TOTAL."LASTEST_SCHEDULED_DELIVERY_DATE"
+                  			THEN CAST(1 AS DECIMAL(15, 0))
+                  		ELSE CAST(0 AS DECIMAL(15, 0))
+                  		END
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83292
+              stepCounter: "196"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PURCHASE_ITEM_OPEN_COUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: |-
+                  CASE 
+                  		WHEN COALESCE(PURCHASING_DOCUMENT_OVERVIEW."DELIVERY_COMPLETED", 'N') <> ' '
+                  			AND COALESCE (PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_QUANTITY,0) < PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
+                  			THEN CAST(1 AS DECIMAL(15, 0))
+                  		ELSE CAST(0 AS DECIMAL(15, 0))
+                  		END
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83293
+              stepCounter: "196"
+            config: {}
+            dataType: ""
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PURCHASE_ITEM_CLOSED_COUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: |-
+                  CASE 
+                  		WHEN COALESCE(PURCHASING_DOCUMENT_OVERVIEW."DELIVERY_COMPLETED", 'N') <> ' '
+                  			OR PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_QUANTITY >= PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
+                  			THEN CAST(1 AS DECIMAL(15, 0))
+                  		ELSE CAST(0 AS DECIMAL(15, 0))
+                  		END
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83295
+              stepCounter: "196"
+            config: {}
+            dataType: ""
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PURCHASE_INVOICED_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 82137
+                    stepCounter: "191"
+                transform: ""
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83296
+              stepCounter: "196"
+            config: {}
+            dataType: DATE
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SCHEDULED_DELIVERY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: PURCHASING_DOCUMENT_SCHEDULE_TOTAL."LASTEST_SCHEDULED_DELIVERY_DATE"
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83297
+              stepCounter: "196"
+            config: {}
+            dataType: ""
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: PURCHASE_LATE_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: |-
+                  CASE 
+                  		WHEN PURCHASING_DOCUMENT_OVERVIEW.LATEST_GOODS_RECEIVE_DATE > PURCHASING_DOCUMENT_SCHEDULE_TOTAL."LASTEST_SCHEDULED_DELIVERY_DATE"
+                  			THEN PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_VALUE_IN_LOCAL_CURR
+                  		ELSE CAST(0 AS DECIMAL(15, 2))
+                  		END
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              COMPANY: "200000056"
+              PURCHASING_DOCUMENT_HEADER: "167"
+              PURCHASING_DOCUMENT_ITEM: "169"
+              PURCHASING_DOCUMENT_OVERVIEW: "191"
+              PURCHASING_DOCUMENT_SCHEDULE_TOTAL: "195"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_HEADER
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_ITEM
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_OVERVIEW
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
+              - locationName: STG
+                nodeName: COMPANY
+            join:
+              joinCondition: |-
+                FROM {{ ref('STG', 'PURCHASING_DOCUMENT_ITEM') }} "PURCHASING_DOCUMENT_ITEM"
+                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_HEADER') }} "PURCHASING_DOCUMENT_HEADER"
+                ON "PURCHASING_DOCUMENT_HEADER"."PURCHASING_DOCUMENT_ID" = "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ID"
+                LEFT OUTER JOIN {{ ref('STG', 'COMPANY') }} "COMPANY"
+                ON "COMPANY"."COMPANY_CODE_ID" = "PURCHASING_DOCUMENT_HEADER"."COMPANY_CODE_ID"
+                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_OVERVIEW') }} "PURCHASING_DOCUMENT_OVERVIEW"
+                ON "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ID" = "PURCHASING_DOCUMENT_OVERVIEW"."PURCHASING_DOCUMENT_ID"
+                AND "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ITEM_ID" = "PURCHASING_DOCUMENT_OVERVIEW"."PURCHASING_DOCUMENT_ITEM_ID"
+                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_SCHEDULE_TOTAL') }} "PURCHASING_DOCUMENT_SCHEDULE_TOTAL"
+                ON "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ID" = "PURCHASING_DOCUMENT_SCHEDULE_TOTAL"."PURCHASING_DOCUMENT_ID"
+                AND "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ITEM_ID" = "PURCHASING_DOCUMENT_SCHEDULE_TOTAL"."PURCHASING_DOCUMENT_ITEM_ID"
+            name: F_PURCHASING_ORDER
+            noLinkRefs: []
+      name: F_PURCHASING_ORDER
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "196"

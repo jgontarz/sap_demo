@@ -1,0 +1,1271 @@
+steps:
+  PURCHASING_DOCUMENT_HISTORY-177:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 65723
+              stepCounter: "177"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_ROWID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65635
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65724
+              stepCounter: "177"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65636
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65725
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65637
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65726
+              stepCounter: "177"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65638
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65727
+              stepCounter: "177"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEQ_NO_ACCOUNT_ASSGT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65639
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65728
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TRANS_EVENT_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65640
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65729
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_DOCUMENT_YEAR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65641
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65730
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65642
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65731
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_IN_MATERIAL_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65643
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65732
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_ORDER_HISTORY_CATEGORY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65644
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65733
+              stepCounter: "177"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MOVEMENT_TYPE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65645
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65734
+              stepCounter: "177"
+            dataType: VARCHAR(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: POSTING_IN_THE_DOCUMENT_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65646
+                    stepCounter: "176"
+                transform: CASE when "EKBE"."BUDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."BUDAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 65735
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QTY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65647
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65736
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUANTITY_IN_OPUN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65648
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65737
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOCCUR_AMOUNT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65649
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65738
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: AMOUNT_DOCUMENT_CURRENCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65650
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65739
+              stepCounter: "177"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CURRENCY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65651
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65740
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GR_IR_CLEARG_LOCAL_CURRENCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65652
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65741
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GR_BLCK_STOCK_IN_OUN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65653
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65742
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GR_BLOCKED_STCK_OPUN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65654
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65743
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DEBITCREDIT_INDICATOR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65655
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65744
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VALUATION_TYPE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65656
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65745
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_COMPLETED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65657
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65746
+              stepCounter: "177"
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REFERENCE_DOCUMENT_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65658
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65747
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FISC_YEAR_REF_DOC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65659
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65748
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REFERENCE_DOCUMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65660
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65749
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_REFERENCE_DOCUMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65661
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65750
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REASON_MOVEMENT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65662
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65751
+              stepCounter: "177"
+            dataType: VARCHAR(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTRY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65663
+                    stepCounter: "176"
+                transform: CASE when "EKBE"."CPUDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."CPUDT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 65752
+              stepCounter: "177"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ENTRY_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65664
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65753
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VOICE_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65665
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65754
+              stepCounter: "177"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMPLIANCE_WITH_SHIPPING_INSTR_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65666
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65755
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VOICE_FC_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65667
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65756
+              stepCounter: "177"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65668
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65757
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PLANT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65669
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65758
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVGR_DESPITE_IR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65670
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65759
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEQUENTIAL_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65671
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65760
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DOCUMENT_CONDITION_NO
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65672
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65761
+              stepCounter: "177"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TAX_CODE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65673
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65762
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DEL_NOTE_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65674
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65763
+              stepCounter: "177"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_NOTE_UOM_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65675
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65764
+              stepCounter: "177"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_NUMBER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65676
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65765
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GR_IR_CLEARG_FC_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65677
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65766
+              stepCounter: "177"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOCAL_CURRENCY_KEY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65678
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65767
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BAMNG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65679
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65768
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BATCH_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65680
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65769
+              stepCounter: "177"
+            dataType: VARCHAR(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DOCUMENT_IN_DOCUMENT_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65681
+                    stepCounter: "176"
+                transform: CASE when "EKBE"."BLDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."BLDAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 65770
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CALCULATION_VAL_OPEN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65682
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65771
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: UNPLANNED_ACCT_ASSGMT_INV_VERIFICATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65683
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65772
+              stepCounter: "177"
+            dataType: VARCHAR(12)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CREATED_BY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65684
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65773
+              stepCounter: "177"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SERVICE_NUMBER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65685
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65774
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PACKAGE_NUMBER_SERVICE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65686
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65775
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LINE_NUMBER_SERVICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65687
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65776
+              stepCounter: "177"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NUMBER_PO_ACCOUNT_ASSIGNMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65688
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65777
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RETURNS_INDICATOR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65689
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65778
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: AREWB
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65690
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65779
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VOICE_AMOUNT_PO_CURRENCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65691
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65780
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SAP_RELEASE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65692
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65781
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MENGE_POP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65693
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65782
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BPMNG_POP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65694
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65783
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DMBTR_POP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65695
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65784
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WRBTR_POP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65696
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65785
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VAL_GR_BLOCKED_STOCK_IN_OUN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65697
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65786
+              stepCounter: "177"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VALUATED_GR_BLOCKED_STOCK_IN_OPUN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65698
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65787
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ACCEPTANCE_AT_ORIGIN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65699
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65788
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: AREWR_POP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65700
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65789
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: EXCHANGE_RATE_DIFFERENCE_AMOUNT_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65701
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65790
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RETENTION_DOCUMENT_CURRENCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65702
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65791
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RETENTION_COMPANY_CODE_CURRENCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65703
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65792
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: POSTED_RETENTION_DOCUMENT_CURRENCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65704
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65793
+              stepCounter: "177"
+            dataType: NUMBER(13,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: POSTED_SECURITY_RETENTION_CC_CRCY_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65705
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65794
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MULTIPLE_ACCOUNT_ASSIGNMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65706
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65795
+              stepCounter: "177"
+            dataType: NUMBER(9,5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: EXCHANGE_RATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65707
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65796
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORIGIN_AN_INVOICE_ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65708
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65797
+              stepCounter: "177"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65709
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65798
+              stepCounter: "177"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_ITEM_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65710
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65799
+              stepCounter: "177"
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STOCK_SEGMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65711
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65800
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SLQUPD
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65712
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65801
+              stepCounter: "177"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DEPRECIATION_COMPLETION_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65713
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65802
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEASON_YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65714
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65803
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SEASON_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65715
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65804
+              stepCounter: "177"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FASHION_COLLECTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65716
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65805
+              stepCounter: "177"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FASHION_THEME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65717
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65806
+              stepCounter: "177"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CHARACTERISTIC_VALUE_1
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65718
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65807
+              stepCounter: "177"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CHARACTERISTIC_VALUE_2
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65719
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65808
+              stepCounter: "177"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CHARACTERISTIC_VALUE_3
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65720
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65809
+              stepCounter: "177"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65721
+                    stepCounter: "176"
+                transform: ""
+          - columnReference:
+              columnCounter: 65810
+              stepCounter: "177"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65722
+                    stepCounter: "176"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: EKBE
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'EKBE') }} "EKBE"
+                where "EKBE"."MANDT" in ({{ parameters.fltrMandt }})
+            name: PURCHASING_DOCUMENT_HISTORY
+            noLinkRefs: []
+      name: PURCHASING_DOCUMENT_HISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "177"

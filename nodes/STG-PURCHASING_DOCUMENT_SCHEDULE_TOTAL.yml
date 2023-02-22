@@ -1,0 +1,96 @@
+steps:
+  PURCHASING_DOCUMENT_SCHEDULE_TOTAL-195:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 82514
+              stepCounter: "195"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57896
+                    stepCounter: "171"
+                transform: ""
+          - columnReference:
+              columnCounter: 82515
+              stepCounter: "195"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57897
+                    stepCounter: "171"
+                transform: ""
+          - columnReference:
+              columnCounter: 82517
+              stepCounter: "195"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LASTEST_SCHEDULED_DELIVERY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57899
+                    stepCounter: "171"
+                transform: max("PURCHASING_DOCUMENT_SCHEDULE_LINE"."ITEM_DELIVERY_DATE")
+          - columnReference:
+              columnCounter: 82520
+              stepCounter: "195"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TOTAL_SCHEDULED_DELIVERY_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57902
+                    stepCounter: "171"
+                transform: sum("PURCHASING_DOCUMENT_SCHEDULE_LINE"."SCHEDULED_QUANTITY")
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              PURCHASING_DOCUMENT_SCHEDULE_LINE: "171"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_SCHEDULE_LINE
+            join:
+              joinCondition: |-
+                FROM {{ ref('STG', 'PURCHASING_DOCUMENT_SCHEDULE_LINE') }} "PURCHASING_DOCUMENT_SCHEDULE_LINE"
+                group by "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ID", "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ITEM_ID"
+            name: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
+            noLinkRefs: []
+      name: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "195"

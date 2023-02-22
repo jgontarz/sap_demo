@@ -1,0 +1,78 @@
+steps:
+  D_PURCHASING_ORGANIZATION-192:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 82141
+              stepCounter: "192"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65852
+                    stepCounter: "181"
+                transform: ""
+          - columnReference:
+              columnCounter: 82142
+              stepCounter: "192"
+            dataType: VARCHAR(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65853
+                    stepCounter: "181"
+                transform: ""
+          - columnReference:
+              columnCounter: 82143
+              stepCounter: "192"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMPANY_CODE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65854
+                    stepCounter: "181"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: PURCHASING_ORGANIZATON
+            join:
+              joinCondition: FROM {{ ref('STG', 'PURCHASING_ORGANIZATON') }} "PURCHASING_ORGANIZATON"
+            name: D_PURCHASING_ORGANIZATION
+            noLinkRefs: []
+      name: D_PURCHASING_ORGANIZATION
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "192"

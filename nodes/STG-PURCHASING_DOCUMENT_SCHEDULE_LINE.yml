@@ -1,0 +1,1103 @@
+steps:
+  PURCHASING_DOCUMENT_SCHEDULE_LINE-171:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 57894
+              stepCounter: "171"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_ROWID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57818
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57895
+              stepCounter: "171"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57819
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57896
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57820
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57897
+              stepCounter: "171"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57821
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57898
+              stepCounter: "171"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_SCHEDULE_LINE_COUNTER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57822
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57899
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_DELIVERY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57823
+                    stepCounter: "170"
+                transform: CASE when EKET."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."EINDT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57900
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STAT_REL_DEL_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57824
+                    stepCounter: "170"
+                transform: CASE when EKET."SLFDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."SLFDT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57901
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CATEGORY_DELIVERY_DATE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57825
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57902
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SCHEDULED_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57826
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57903
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PREVIOUS_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57827
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57904
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUANTITY_GOODS_RECEIVED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57828
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57905
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ISSUED_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57829
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57906
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_DATE_SPOT_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57830
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57907
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASE_REQUISITION_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57831
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57908
+              stepCounter: "171"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_REQUISITION_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57832
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57909
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CREATION_INDICATOR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57833
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57910
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NUMBER_QUOTA_ARRANGEMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57834
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57911
+              stepCounter: "171"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUOTA_ARRANGEMENT_ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57835
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57912
+              stepCounter: "171"
+            dataType: NUMBER(3,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NO_REM_EXPEDITERS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57836
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57913
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORDER_SCHEDULE_LINE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57837
+                    stepCounter: "170"
+                transform: CASE when EKET."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."BEDAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57914
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RESERVATION_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57838
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57915
+              stepCounter: "171"
+            dataType: VARCHAR(8)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BOM_EXPLOSION_NUMBER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57839
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57916
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SCHEDULE_LINE_IS_FIXED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57840
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57917
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QTY_DELIVERED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57841
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57918
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUANTITY_REDUCED_MRP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57842
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57919
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BATCH_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57843
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57920
+              stepCounter: "171"
+            dataType: VARCHAR(15)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VENDOR_BATCH_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57844
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57921
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMPONENTS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57845
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57922
+              stepCounter: "171"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCTION_VERSION_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57846
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57923
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RELEASE_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57847
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57924
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMMITTED_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57848
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57925
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMMITTED_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57849
+                    stepCounter: "170"
+                transform: CASE when EKET."DAT01" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."DAT01", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57926
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PREVIOUS_DELIVERY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57850
+                    stepCounter: "170"
+                transform: CASE when EKET."ALTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."ALTDT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57927
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ROUTE_SCHEDULE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57851
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57928
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_AVAILABILITY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57852
+                    stepCounter: "170"
+                transform: CASE when EKET."ALTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."ALTDT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57929
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATL_STAGING_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57853
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57930
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOADING_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57854
+                    stepCounter: "170"
+                transform: CASE when EKET."LDDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."LDDAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57931
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOADING_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57855
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57932
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TRANSPORTATION_PLANNING_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57856
+                    stepCounter: "170"
+                transform: CASE when EKET."TDDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."TDDAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57933
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TRANSP_PLAN_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57857
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57934
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GOODS_ISSUE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57858
+                    stepCounter: "170"
+                transform: CASE when EKET."WADAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."WADAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57935
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GOODS_ISSUE_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57859
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57936
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GOODS_RECEIPT_END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57860
+                    stepCounter: "170"
+                transform: CASE when "EKET"."ELDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."ELDAT", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57937
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GOODS_RECEIPT_END_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57861
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57938
+              stepCounter: "171"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NUMBER_SERIAL_NUMBERS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57862
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57939
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RESERVATION_PURC_REQ
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57863
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57940
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GEOGRAPHICAL_ROUTE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57864
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57941
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GTS_ROUTE_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57865
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57942
+              stepCounter: "171"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GOODS_TRAFFIC_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57866
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57943
+              stepCounter: "171"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FORWARDING_AGENT_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57867
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57944
+              stepCounter: "171"
+            dataType: VARCHAR(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LOCATION_NUMBER_IN_APO
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57868
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57945
+              stepCounter: "171"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: APO_LOCATION_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57869
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57946
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HANDOVER_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57870
+                    stepCounter: "170"
+                transform: CASE when "EKET"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."HANDOVERDATE", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57947
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HANDOVER_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57871
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57948
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REQUIREMENT_ALLOCATED_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57872
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57949
+              stepCounter: "171"
+            dataType: NUMBER(13,3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ALLOCATED_STOCK_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57873
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57950
+              stepCounter: "171"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORDER_SCHEDULING_GROUP_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57874
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57951
+              stepCounter: "171"
+            dataType: VARCHAR(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: UNIQUE_NUMBER_BUDGET
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57875
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57952
+              stepCounter: "171"
+            dataType: NUMBER(17,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REQUIRED_BUDGET_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57876
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57953
+              stepCounter: "171"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OTB_CURRENCY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57877
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57954
+              stepCounter: "171"
+            dataType: NUMBER(17,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RESERVED_BUDGET_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57878
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57955
+              stepCounter: "171"
+            dataType: NUMBER(17,2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SPECIAL_RELEASE_BUDGET_VAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57879
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57956
+              stepCounter: "171"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OTB_REASON_PROFILE_SPECIAL_RELEASE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57880
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57957
+              stepCounter: "171"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BUDGET_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57881
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57958
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OTB_CHECK_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57882
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57959
+              stepCounter: "171"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REASON
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57883
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57960
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TYPE_OTB_CHECK
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57884
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57961
+              stepCounter: "171"
+            dataType: VARCHAR(22)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DATELINE_ID_GUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57885
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57962
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TRANSFER_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57886
+                    stepCounter: "170"
+                transform: CASE when "EKET"."HANDOVER_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."HANDOVER_DATE", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57963
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NO_SCEM_CONTROLLING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57887
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57964
+              stepCounter: "171"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REM_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57888
+                    stepCounter: "170"
+                transform: CASE when "EKET"."DNG_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."DNG_DATE", 'YYYYMMDD' ) END
+          - columnReference:
+              columnCounter: 57965
+              stepCounter: "171"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REMINDER_TIM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57889
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57966
+              stepCounter: "171"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CANCELLATION_THREAT_MADE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57890
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57967
+              stepCounter: "171"
+            dataType: NUMBER(3,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NUMBER_CURRENT_DATE_SHIFTS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57891
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57968
+              stepCounter: "171"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57892
+                    stepCounter: "170"
+                transform: ""
+          - columnReference:
+              columnCounter: 57969
+              stepCounter: "171"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 57893
+                    stepCounter: "170"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: EKET
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'EKET') }} "EKET"
+                WHERE "EKET"."MANDT" in ({{ parameters.fltrMandt }})
+            name: PURCHASING_DOCUMENT_SCHEDULE_LINE
+            noLinkRefs: []
+      name: PURCHASING_DOCUMENT_SCHEDULE_LINE
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "171"

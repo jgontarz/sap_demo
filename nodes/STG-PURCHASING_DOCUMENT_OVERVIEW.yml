@@ -1,0 +1,248 @@
+steps:
+  PURCHASING_DOCUMENT_OVERVIEW-191:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 82044
+              stepCounter: "191"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65725
+                    stepCounter: "177"
+                transform: ""
+          - columnReference:
+              columnCounter: 82045
+              stepCounter: "191"
+            dataType: VARCHAR(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_DOCUMENT_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65726
+                    stepCounter: "177"
+                transform: ""
+          - columnReference:
+              columnCounter: 82130
+              stepCounter: "191"
+            dataType: VARCHAR(1)
+            description: ""
+            name: DELIVERY_COMPLETED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 65745
+                    stepCounter: "177"
+                transform: max("PURCHASING_DOCUMENT_HISTORY"."DELIVERY_COMPLETED")
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82131
+              stepCounter: "191"
+            config: {}
+            dataType: DATE
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: LATEST_GOODS_RECEIVE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: MAX(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' then "PURCHASING_DOCUMENT_HISTORY"."POSTING_IN_THE_DOCUMENT_DATE" ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82132
+              stepCounter: "191"
+            config: {}
+            dataType: DATE
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: LATEST_INVOICE_RECEIVE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: MAX(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '2' then "PURCHASING_DOCUMENT_HISTORY"."POSTING_IN_THE_DOCUMENT_DATE" ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82133
+              stepCounter: "191"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: RECEIVED_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."QTY" ELSE "PURCHASING_DOCUMENT_HISTORY"."QTY" end ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82134
+              stepCounter: "191"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: RECEIVED_VALUE_IN_LOCAL_CURR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" ELSE "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" end ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82135
+              stepCounter: "191"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: RECEIVED_VALUE_IN_DOC_CURR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" ELSE "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" end ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82136
+              stepCounter: "191"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: INVOICE_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '2' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."QTY" ELSE "PURCHASING_DOCUMENT_HISTORY"."QTY" end ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82137
+              stepCounter: "191"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: INVOICE_VALUE_LOCAL_CURR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '2' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" ELSE "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" end ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 82138
+              stepCounter: "191"
+            config: {}
+            dataType: NUMBER
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: INVOICE_VALUE_FOREIGN_CURR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0
+                    stepCounter: "0"
+                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '2' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" ELSE "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" end ELSE NULL end)
+            systemColumnType: None
+            transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              PURCHASING_DOCUMENT_HISTORY: "177"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_HISTORY
+            join:
+              joinCondition: |-
+                FROM {{ ref('STG', 'PURCHASING_DOCUMENT_HISTORY') }} "PURCHASING_DOCUMENT_HISTORY"
+                GROUP BY "PURCHASING_DOCUMENT_HISTORY"."PURCHASING_DOCUMENT_ID", "PURCHASING_DOCUMENT_ITEM_ID"
+            name: PURCHASING_DOCUMENT_OVERVIEW
+            noLinkRefs: []
+      name: PURCHASING_DOCUMENT_OVERVIEW
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "191"

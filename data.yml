@@ -113,7 +113,7 @@ stepTypes:
     metadata:
       defaultStorageLocation: null
       error: null
-      nodeMetadataSpec: |+
+      nodeMetadataSpec: |-
         capitalized: Hybrid Merge
         short: HM
         tagColor: black
@@ -298,23 +298,10 @@ stepTypes:
 
         systemColumns:
         - displayName: 'HM_UPDATE_TIMESTAMP'
-          transform: ""
+          transform: "current_timestamp::timestamp_tz(3)"
           dataType: timestamp
           placement: end
           attributeName: hmUpdTs
-
-        - displayName: 'HM_ETL_TIMESTAMP'
-          transform: ""
-          dataType: timestamp
-          placement: end
-          attributeName: hmEtlTs
-
-        - displayName: 'HM_LAST_DML_OPERATION'
-          transform: ""
-          dataType: "{{ columns | selectattr('dmlCol', 'defined') | map(attribute='dataType') | first }}"
-          placement: end
-          attributeName: hmEtlTs
-
       templates:
         create:
           templateString: |
@@ -374,11 +361,15 @@ stepTypes:
             {# Schedule Type #}
             {%- if config.schedulePeriodOption == 'Minutes' -%} 
                 {%- set whenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
-            {% elif config.schedulePeriodOption == 'CRON' %}
-                {%- set whenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
             {%- else -%}
-                {%- set whenRun = 'AFTER ' + config.predTask -%} 
+                {%- set whenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
             {%- endif -%}
+
+            {# When Stream has data logic #}
+            {%- if config.flagSrcStream == true -%} 
+                {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
+            {%- endif -%}
+
 
             {# Table Column Info #}
             {% set tblColid = columns | map(attribute='id') | list %}
@@ -386,7 +377,9 @@ stepTypes:
             {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
             {% set tblKeyColStr = '"'+tblKey | join('", "')+'"' %}
             {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
-            {% set tblColUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | map(attribute='name') | list %}
+            {% set tblColHmUpdTs = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
+            {% set tblDmlCol = columns | selectattr('dmlCol','defined') | map(attribute='name') | first %}
+            {% set tblColNoUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | rejectattr('hmUpdTs','defined') | map(attribute='name') | list %}
 
             {# DML Identifier Quoting #}
             {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
@@ -411,18 +404,153 @@ stepTypes:
             CREATE OR REPLACE TABLE {{ fqTgtTblName }}
                 (
                 {%- for col in columns %}
-                    {%- if (col.dmlCol != true) and (col.tblChgTS != true) -%} 
-                        "{{ col.name }}" {{ col.dataType }}
-                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
-                        {%- if not loop.last -%}, {% endif %}
-                    {% endif %}
+                    "{{ col.name }}" {{ col.dataType }}
+                    {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                    {%- if not loop.last -%}, {% endif %}
                 {%- endfor %}
                 )
 
-            {{ stage('Create Target Table') }}
-            {{ columns | selectattr('dmlCol', 'defined') | map(attribute='dataType') | first }}
+            {{ stage('Create Hybrid View') }}
+            CREATE OR REPLACE VIEW {{ fqTgtViewName }} (
+                {%- for col in columns %}
+                    "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {%- endfor %} ) AS
+            WITH delta AS 
+            (
+            SELECT {%- for col in columns %}
+                        {% if col.name == tblColHmUpdTs %}
+                            {{ sources[0].columns | selectattr('name','equalto',tblColHmUpdTs) | map(attribute='transform') | first }} as "{{ col.name }}"
+                        {% else %}
+                            "{{ col.name }}"
+                        {% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                   {%- endfor %}
+            FROM {{ fqSrcTblName }}
+            CHANGES(information => append_only)
+            AT(stream => '{{ fqStrName }}' )
+            QUALIFY 1 = ROW_NUMBER() OVER (PARTITION BY {{ tblKeyColStr }} ORDER BY {{ recTS }} DESC)
+            )
+            SELECT {%- for col in columns %}
+                        {% if col.name == tblColHmUpdTs %}
+                            {{ sources[0].columns | selectattr('name','equalto',tblColHmUpdTs) | map(attribute='transform') | first }} as "{{ col.name }}"
+                        {% else %}
+                            "{{ col.name }}"
+                        {% endif %}
+                       {%- if not loop.last -%}, {% endif %}
+                   {%- endfor %}
+            FROM {{ fqSrcTblName }} a
+            WHERE NOT EXISTS (SELECT 1
+                              FROM delta d
+                              WHERE {%- for col in tblKey %}
+                                        a."{{ col }}" = d."{{ col }}"
+                                        {% if not loop.last -%}AND {% endif %}
+                                    {%- endfor %})
+            UNION ALL
+            SELECT {%- for col in columns %}
+                      "{{ col.name }}"
+                       {%- if not loop.last -%}, {% endif %}
+                   {%- endfor %}
+            FROM delta d
+
+            {{ stage('Create Task') }}
+            CREATE OR REPLACE TASK 
+                {{ fqTgtTaskName }} 
+                {{ taskType }} 
+                {{ whenRun }} 
+                {{ poll }} 
+            AS 
+            MERGE INTO {{ fqTgtTblName }} a USING (
+            SELECT {%- for col in columns %}
+                        {% if col.name == tblColHmUpdTs %}
+                            {{ sources[0].columns | selectattr('name','equalto',tblColHmUpdTs) | map(attribute='transform') | first }} as "{{ col.name }}"
+                        {% else %}
+                            "{{ col.name }}"
+                        {% endif %}
+                       {%- if not loop.last -%}, {% endif %}
+                   {%- endfor %}
+            FROM {{ fqSrcTblName }}
+            QUALIFY 1 = row_number() over (partition by {{ tblKeyColStr }} order by {{ recTS }} desc)) d
+            ON 
+            {% for col in tblKey -%}
+                a."{{ col }}" = d."{{ col }}"
+                {% if not loop.last %} AND {% endif %}
+            {%- endfor -%}
+            WHEN NOT MATCHED AND d."{{ tblDmlCol }}" = {{ insCode }} then insert
+            (
+            {%- for col in columns -%}
+                a."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            )
+            VALUES (
+            {%- for col in columns -%}
+                d."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            )
+
+            {% if config.capUpdate == true %} 
+            WHEN NOT MATCHED AND d."{{ tblDmlCol }}" = {{ updCode }} then insert
+            (
+            {%- for col in columns -%}
+                a."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            )
+            VALUES (
+            {%- for col in columns -%}
+                d."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            )
+            {% endif %}
+
+            WHEN NOT MATCHED AND d."{{ tblDmlCol }}" = {{ delCode }} then insert
+            (
+            {%- for col in columns -%}
+                a."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            )
+            VALUES (
+            {%- for col in columns -%}
+                d."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            )
+
+            {% if config.capUpdate == false %} 
+            WHEN MATCHED AND d."{{ tblDmlCol }}" = {{ insCode }} then update
+            SET 
+            {% for col in columns -%}
+                a."{{ col.name }}" = d."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            {% endif %}
+
+            {% if config.capUpdate == true %} 
+            WHEN MATCHED AND d."{{ tblDmlCol }}" = {{ updCode }} then update
+            SET 
+            {% for col in columns -%}
+                a."{{ col.name }}" = d."{{ col.name }}"
+                {%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+            {% endif %}
+
+            WHEN MATCHED AND d."{{ tblDmlCol }}" = {{ delCode }} then update
+            SET 
+            {% for col in columns -%}
+                {% if col.name not in tblColNoUpd %}
+                    a."{{ col.name }}" = d."{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            {{ stage('Resume Task') }}
+                ALTER TASK {{ fqTgtTaskName }} RESUME;
         run:
-          templateString: |
+          templateString: |+
             {# Source Stream Location and Name #}
 
             {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
@@ -491,6 +619,7 @@ stepTypes:
             {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
             {% set tblKeyColStr = '"'+tblKey | join('", "')+'"' %}
             {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
+            {% set tblColHmUpdTs = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
             {% set tblColUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | map(attribute='name') | list %}
 
             {# DML Identifier Quoting #}
@@ -505,7 +634,11 @@ stepTypes:
             {% endif %}
 
             {{ stage('Testing') }}
-                WHERE DML_INSERT = {{ insCode }}
+
+            {%- for col in sources.columns %}
+                {{ get_source_transform(col) }}
+            {%- endfor %} ) AS
+
     name: Hybrid Merge
     version: 1
   StepType-Dimension:
