@@ -1,0 +1,178 @@
+steps:
+  CURRENCY_EXCHANGE_RATE_TYPE-200000064:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Exchange rate types for currency translation
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004865
+              stepCounter: "200000064"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001921
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004866
+              stepCounter: "200000064"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: EXCHANGE_RATE_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001922
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004867
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: INVERSE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001923
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004868
+              stepCounter: "200000064"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: REFERENCE_CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001924
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004869
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BASE_CUR_=_FROM_CUR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001925
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004870
+              stepCounter: "200000064"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: BUYING_RATE_AT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001926
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004871
+              stepCounter: "200000064"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SELLING_RATE_AT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001927
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004872
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: FIXED_EXCHANGE_RATES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001928
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004873
+              stepCounter: "200000064"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CONVERSION_ACC_TO_EMU
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001929
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004874
+              stepCounter: "200000064"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001930
+                    stepCounter: "200000026"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004875
+              stepCounter: "200000064"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001931
+                    stepCounter: "200000026"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: TCURV
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TCURV') }} "TCURV" 
+                WHERE 1=1 
+                AND "TCURV"."MANDT" in ({{ parameters.fltrMandt }})
+            name: CURRENCY_EXCHANGE_RATE_TYPE
+            noLinkRefs: []
+      name: CURRENCY_EXCHANGE_RATE_TYPE
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000064"

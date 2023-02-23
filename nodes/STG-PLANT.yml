@@ -1,0 +1,906 @@
+steps:
+  PLANT-200000057:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Plants/Branches
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004695
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001751
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004696
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001752
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004697
+              stepCounter: "200000057"
+            dataType: char(30)
+            defaultValue: ""
+            description: ""
+            name: NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001753
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004698
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: VALUATION_AREA_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001754
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004699
+              stepCounter: "200000057"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_NUMBER_PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001755
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004700
+              stepCounter: "200000057"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: VENDOR_NUMBER_PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001756
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004701
+              stepCounter: "200000057"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: FACTORY_CALENDAR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001757
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004702
+              stepCounter: "200000057"
+            dataType: char(30)
+            defaultValue: ""
+            description: ""
+            name: NAME_2
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001758
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004703
+              stepCounter: "200000057"
+            dataType: char(30)
+            defaultValue: ""
+            description: ""
+            name: STREET_AND_HOUSE_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001759
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004704
+              stepCounter: "200000057"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: PO_BOX
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001760
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004705
+              stepCounter: "200000057"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: POSTAL_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001761
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004706
+              stepCounter: "200000057"
+            dataType: char(25)
+            defaultValue: ""
+            description: ""
+            name: CITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001762
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004707
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: PURCHASING_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001763
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004708
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SALES_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001764
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004709
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BATCH_STATUS_MGMT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001765
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004710
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CONDS_AT_PLANT_LEVEL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001766
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004711
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SOURCE_LIST
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001767
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004712
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ACTIVATING_REQUIREMENTS_PLANNING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001768
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004713
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001769
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004714
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: REGION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001770
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004715
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: COUNTY_CODE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001771
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004716
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CITY_CODE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001772
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004717
+              stepCounter: "200000057"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: ADDRESS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001773
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004718
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: MAINTENANCE_PLANNING_PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001774
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004719
+              stepCounter: "200000057"
+            dataType: char(15)
+            defaultValue: ""
+            description: ""
+            name: TAX_JURISDICTION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001775
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004720
+              stepCounter: "200000057"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: DISTRIB_CHANNEL_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001776
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004721
+              stepCounter: "200000057"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: INT_CO_BILLING_DIV_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001777
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004722
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: LANGUAGE_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001778
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004723
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SOP_PLANT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001779
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004724
+              stepCounter: "200000057"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: VARIANCE_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001780
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004725
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHAZV_OLD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001781
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004726
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PLANT_CATEGORY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001782
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004727
+              stepCounter: "200000057"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SALES_DISTRICT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001783
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004728
+              stepCounter: "200000057"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: SUPPLY_REGION_REGION_SUPPLIED_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001784
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004729
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAX_INDICATOR_PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001785
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004730
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAKE_REGULAR_VENDOR_INTO_ACCOUNT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001786
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004731
+              stepCounter: "200000057"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: 1ST_REMINDER_EXPED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001787
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004732
+              stepCounter: "200000057"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: 2ND_REMINDER_EXPED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001788
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004733
+              stepCounter: "200000057"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: 3RD_REMINDER_EXPED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001789
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004734
+              stepCounter: "200000057"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: TEXT_1ST_DUNNING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001790
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004735
+              stepCounter: "200000057"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: TEXT_2ND_DUNNING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001791
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004736
+              stepCounter: "200000057"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: TEXT_3RD_DUNNING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001792
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004737
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: PO_TOLERANCE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001793
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004738
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_PLACE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001794
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004739
+              stepCounter: "200000057"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: SALES_AREA_DETRM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001795
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004740
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: DISTRIB_PROFILE_PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001796
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004741
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ARCHIVING_MARKER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001797
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004742
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BATCH_TYPE_DMS_USED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001798
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004743
+              stepCounter: "200000057"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: NODE_TYPE_SUPPLY_CHAIN_NETWORK_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001799
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004744
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: STRUCTURE_NAME_FORMATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001800
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004745
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COST_OBJ_CONTROLLING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001801
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004746
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: MIXED_COSTING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001802
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004747
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_COSTING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001803
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004748
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SHIPPING_POINT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001804
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004749
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_ACTIVITIES_UPDATED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001805
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004750
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CONTROL_CREDIT_COST_CENTERS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001806
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004751
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: AF_SRCE_DET_VIA_ATP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001807
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004752
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ORDER_ALLOCATION_RUN
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001808
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004753
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SEASON_ACTIVE_IN_INVENTORY_MANAGEMENT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001809
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004754
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CONTROL_BOM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001810
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004755
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EXCHANGE_VALUATION_INDICATOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001811
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004756
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: VENDOR_TYPE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001812
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004757
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: IPI_CREDIT_ALLOWED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001813
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004758
+              stepCounter: "200000057"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: STORE_CAT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001814
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004759
+              stepCounter: "200000057"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SUPERIOR_DEPARTMENT_STORE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001815
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004760
+              stepCounter: "200000057"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001816
+                    stepCounter: "200000019"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004761
+              stepCounter: "200000057"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001817
+                    stepCounter: "200000019"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: T001W
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'T001W') }} "T001W" 
+                WHERE 1=1 
+                AND "T001W"."MANDT" in ({{ parameters.fltrMandt }} ) 
+            name: PLANT
+            noLinkRefs: []
+      name: PLANT
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000057"

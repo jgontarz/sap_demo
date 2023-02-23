@@ -1,0 +1,2115 @@
+steps:
+  SALES_DOCUMENT_HEADER-200000074:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: "Sales Document: Header Data"
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004996
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002052
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004997
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002053
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004998
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CREATED_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002054
+                    stepCounter: "200000036"
+                transform: case when VBAK.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.ERDAT) end
+          - columnReference:
+              columnCounter: 2000004999
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: CREATED_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002055
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005000
+              stepCounter: "200000074"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: CREATED_BY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002056
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005001
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: QUOTATION_INQUIRY_IS_VALID_FROM_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002057
+                    stepCounter: "200000036"
+                transform: case when VBAK.ANGDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.ANGDT) end
+          - columnReference:
+              columnCounter: 2000005002
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: QUOTATION_VALID_TO_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002058
+                    stepCounter: "200000036"
+                transform: case when VBAK.BNDDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.BNDDT) end
+          - columnReference:
+              columnCounter: 2000005003
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: DOCUMENT_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002059
+                    stepCounter: "200000036"
+                transform: case when VBAK.AUDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.AUDAT) end
+          - columnReference:
+              columnCounter: 2000005004
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SD_DOCUMENT_CATEGORY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002060
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005005
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TRANSACTION_GROUP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002061
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005006
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002062
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005007
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ORDER_REASON_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002063
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005008
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: GUARANTEE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002064
+                    stepCounter: "200000036"
+                transform: case when VBAK.GWLDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.GWLDT) end
+          - columnReference:
+              columnCounter: 2000005009
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: COLLECTIVE_NUMBER_SD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002065
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005010
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: DELIVERY_BLOCK_DOCUMENT_HEADER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002066
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005011
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: BILLING_BLOCK_IN_SD_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002067
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005012
+              stepCounter: "200000074"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: NET_VAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002068
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005013
+              stepCounter: "200000074"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: SD_DOCUMENT_CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002069
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005014
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SALES_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002070
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005015
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: DISTRIBUTION_CHANNEL_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002071
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005016
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: DIVISION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002072
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005017
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: SALES_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002073
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005018
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SALES_OFFICE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002074
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005019
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_AREA_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002075
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005020
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_AREA_FROM_COST_CENTER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002076
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005021
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: VALID_FROM_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002077
+                    stepCounter: "200000036"
+                transform: case when VBAK.GUEBG in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.GUEBG) end
+          - columnReference:
+              columnCounter: 2000005022
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: VALID_TO_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002078
+                    stepCounter: "200000036"
+                transform: case when VBAK.GUEEN in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.GUEEN) end
+          - columnReference:
+              columnCounter: 2000005023
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: DOCUMENT_CONDITION_NO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002079
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005024
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: REQUESTED_DELIVERY_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002080
+                    stepCounter: "200000036"
+                transform: case when VBAK.VDATU in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.VDATU) end
+          - columnReference:
+              columnCounter: 2000005025
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PROPOSED_DATE_TYPE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002081
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005026
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COMPLETE_DELIVERY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002082
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005027
+              stepCounter: "200000074"
+            dataType: char(9)
+            defaultValue: ""
+            description: ""
+            name: ORIGINAL_SYSTEM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002083
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005028
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SD_DOCUMENT_INDICATOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002084
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005029
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PRICING_PROCEDURE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002085
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005030
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: SHIPPING_CONDITIONS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002086
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005031
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: ORDER_REL_BILL_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002087
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005032
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: SALES_PROBABILITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002088
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005033
+              stepCounter: "200000074"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: SEARCH_TERM_PRODUCT_PROPOSAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002089
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005034
+              stepCounter: "200000074"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_PURCHASE_ORDER_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002090
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005035
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_PURCHASE_ORDER_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002091
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005036
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_PURCHASE_ORDER_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002092
+                    stepCounter: "200000036"
+                transform: case when VBAK.BSTDK in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.BSTDK) end
+          - columnReference:
+              columnCounter: 2000005037
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: PURCHASE_ORDER_NUMBER_SUPPLEMENT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002093
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005038
+              stepCounter: "200000074"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: YOUR_REFERENCE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002094
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005039
+              stepCounter: "200000074"
+            dataType: char(35)
+            defaultValue: ""
+            description: ""
+            name: NAME_ORDERER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002095
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005040
+              stepCounter: "200000074"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: TELEPHONE_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002096
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005041
+              stepCounter: "200000074"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: NUMBER_CONTACTS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002097
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005042
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: LAST_CUSTOMER_CONTACT_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002098
+                    stepCounter: "200000036"
+                transform: case when VBAK.MAHDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.MAHDT) end
+          - columnReference:
+              columnCounter: 2000005043
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: SOLD_TO_PARTY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002099
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005044
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: COST_CENTER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002100
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005045
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: UPDATE_GROUP_STATS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002101
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005046
+              stepCounter: "200000074"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: STATISTICS_CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002102
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005047
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CHANGED_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002103
+                    stepCounter: "200000036"
+                transform: case when VBAK.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.AEDAT) end
+          - columnReference:
+              columnCounter: 2000005048
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_1_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002104
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005049
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_2_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002105
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005050
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_3_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002106
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005051
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_4_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002107
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005052
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_5_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002108
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005053
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: AGREEMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002109
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005054
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CONTROLLING_AREA_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002110
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005055
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: WBS_ELEMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002111
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005056
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: EXCHANGE_RATE_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002112
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005057
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CREDIT_CONTROL_AREA_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002113
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005058
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: CREDIT_ACCOUNT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002114
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005059
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_CREDIT_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002115
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005060
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CREDIT_REP_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002116
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005061
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CREDIT_MANAGEMENT_RISK_CATEGORY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002117
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005062
+              stepCounter: "200000074"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002118
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005063
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: RELEASE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002119
+                    stepCounter: "200000036"
+                transform: case when VBAK.CMFRE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.CMFRE) end
+          - columnReference:
+              columnCounter: 2000005064
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: NEXT_CHECK_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002120
+                    stepCounter: "200000036"
+                transform: case when VBAK.CMNUP in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.CMNUP) end
+          - columnReference:
+              columnCounter: 2000005065
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: NEXT_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002121
+                    stepCounter: "200000036"
+                transform: case when VBAK.CMNGV in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.CMNGV) end
+          - columnReference:
+              columnCounter: 2000005066
+              stepCounter: "200000074"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: REL_CREDIT_VAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002122
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005067
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: HIERARCHY_TYPE_PRICING_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002123
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005068
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: USAGE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002124
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005069
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: MRP_DELIVERY_SCHEDULE_TYPES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002125
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005070
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: REFERENCE_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002126
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005071
+              stepCounter: "200000074"
+            dataType: char(22)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_NUMBER_AT_HEADER_LEVEL_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002127
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005072
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: COMPANY_CODE_TO_BE_BILLED_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002128
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005073
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ALTERNATIVE_TAX_CLASSIFICATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002129
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005074
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS2_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002130
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005075
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS3_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002131
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005076
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAX_CLASSIFICATION_4_CUSTOMER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002132
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005077
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS5_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002133
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005078
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS6_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002134
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005079
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS7_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002135
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005080
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS8_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002136
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005081
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXCLASS9_CUST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002137
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005082
+              stepCounter: "200000074"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: REFERENCE_DOCUMENT_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002138
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005083
+              stepCounter: "200000074"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: ASSIGNMENT_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002139
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005084
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PRECEDING_DOC_CATEG
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002140
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005085
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SEARCH_PROCEDURE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002141
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005086
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: ACCRUAL_PERIOD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002142
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005087
+              stepCounter: "200000074"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002143
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005088
+              stepCounter: "200000074"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: NOTIFICATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002144
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005089
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: MSTER_CONTRACT_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002145
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005090
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: GROUP_REF_PROCEDURE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002146
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005091
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_PARTNER_AUTHORIZATIONS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002147
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005092
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: PICK_UP_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002148
+                    stepCounter: "200000036"
+                transform: case when VBAK.ABHOD in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.ABHOD) end
+          - columnReference:
+              columnCounter: 2000005093
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PICK_UP_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002149
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005094
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: ABHOB
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002150
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005095
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: NUMBER_PAYMENT_CARD_PLAN_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002151
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005096
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: REQUESTED_DELY_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002152
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005097
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: TAX_DESTINATION_COUNTRY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002153
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005098
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: TAX_DEPARTURE_COUNTRY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002154
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005099
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EU_TRIANGULAR_DEAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002155
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005100
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ENQUEUE_GRP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002156
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005101
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CML_DELIVERY_ORDER_QTY_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002157
+                    stepCounter: "200000036"
+                transform: case when VBAK.DAT_FZAU in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.DAT_FZAU) end
+          - columnReference:
+              columnCounter: 2000005102
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: MATERIAL_AVAILABILITY_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002158
+                    stepCounter: "200000036"
+                transform: case when VBAK.FMBDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.FMBDAT) end
+          - columnReference:
+              columnCounter: 2000005103
+              stepCounter: "200000074"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_VERSION_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002159
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005104
+              stepCounter: "200000074"
+            dataType: char(22)
+            defaultValue: ""
+            description: ""
+            name: INT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002160
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005105
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: DG_MGMT_PROFILE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002161
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005106
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CONTAINS_DG
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002162
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005107
+              stepCounter: "200000074"
+            dataType: char(70)
+            defaultValue: ""
+            description: ""
+            name: CHARACTER_FIELD_LENGTH_70
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002163
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005108
+              stepCounter: "200000074"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: TIME_STAMP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002164
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005109
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: PROCESS_IDENTIFICATION_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002165
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005110
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CONTROL_KEY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002166
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005111
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: HANDOVER_LOCATION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002167
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005112
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: FILTER_VALUE_AGING_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002168
+                    stepCounter: "200000036"
+                transform: case when VBAK._DATAAGING in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK._DATAAGING) end
+          - columnReference:
+              columnCounter: 2000005113
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: XLSO_FIELD_TYPE_DATS_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002169
+                    stepCounter: "200000036"
+                transform: case when VBAK."/XLSO/SO_VALD_FM" in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK."/XLSO/SO_VALD_FM") end
+          - columnReference:
+              columnCounter: 2000005114
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: /XLSO/SO_VALD_TO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002170
+                    stepCounter: "200000036"
+                transform: case when VBAK."/XLSO/SO_VALD_TO" in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK."/XLSO/SO_VALD_TO") end
+          - columnReference:
+              columnCounter: 2000005115
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: XLSO_PAYMENT_METHOD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002171
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005116
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: XLSO_TRANSACTION_CONTEXT_GUID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002172
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005117
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: XLSO_PRODUCT_CATALOG_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002173
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005118
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: XLSO_PRODUCT_CATALOG_VARIANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002174
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005119
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: POSTING_IN_THE_DOCUMENT_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002175
+                    stepCounter: "200000036"
+                transform: case when VBAK.PSM_BUDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.PSM_BUDAT) end
+          - columnReference:
+              columnCounter: 2000005120
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_6_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002176
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005121
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_7_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002177
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005122
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_8_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002178
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005123
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_9_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002179
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005124
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CUSTOMER_GROUP_10_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002180
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005125
+              stepCounter: "200000074"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: RELEASE_RULE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002181
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005126
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: REQUIREMENT_RELEVANT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002182
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005127
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: SNAPSHOT_STATUS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002183
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005128
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: TRANSACTION_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002184
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005129
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: VAS_CUSTOMER_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002185
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005130
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CANCELLATION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002186
+                    stepCounter: "200000036"
+                transform: case when VBAK.FSH_CANDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.FSH_CANDATE) end
+          - columnReference:
+              columnCounter: 2000005131
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ORDER_SCHEDULING_STRATEGY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002187
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005132
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: OS_STRATEGY_SPECIFIC_FIELDS_CHANGE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002188
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005133
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_ENTITY_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002189
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005134
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: NUMBER_SALES_UNIT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002190
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005135
+              stepCounter: "200000074"
+            dataType: char(11)
+            defaultValue: ""
+            description: ""
+            name: SALES_PHASE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002191
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005136
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: MARKER_LOW_INCOME_HOUSING_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002192
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005137
+              stepCounter: "200000074"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: CONSTRUCTION_STAGE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002193
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005138
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: CONTINGENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002194
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005139
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: EXPIRATION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002195
+                    stepCounter: "200000036"
+                transform: case when VBAK.HB_EXPDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.HB_EXPDATE) end
+          - columnReference:
+              columnCounter: 2000005140
+              stepCounter: "200000074"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: RESOLUTION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002196
+                    stepCounter: "200000036"
+                transform: case when VBAK.HB_RESDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBAK.HB_RESDATE) end
+          - columnReference:
+              columnCounter: 2000005141
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: APPLICATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002197
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005142
+              stepCounter: "200000074"
+            dataType: char(30)
+            defaultValue: ""
+            description: ""
+            name: TREASURY_ACCOUNT_SYMBOL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002198
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005143
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_EVENT_TYPE_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002199
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005144
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: MODIFICATION_ALLOWED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002200
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005145
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CANCELLATION_ALLOWED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002201
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005146
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: PAYMENT_METHODS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002202
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005147
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_PARTNER_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002203
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005148
+              stepCounter: "200000074"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: REPORTING_FREQUENCY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002204
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005149
+              stepCounter: "200000074"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: LOGICAL_SYSTEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002205
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005150
+              stepCounter: "200000074"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PROC_CAMP_DETERMIN_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002206
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005151
+              stepCounter: "200000074"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: MULTIPLE_PROMOTIONS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002207
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005152
+              stepCounter: "200000074"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: PAYMENT_METHOD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002208
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005153
+              stepCounter: "200000074"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: CLAIM_HEADER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002209
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005154
+              stepCounter: "200000074"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002210
+                    stepCounter: "200000036"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000005155
+              stepCounter: "200000074"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002211
+                    stepCounter: "200000036"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: VBAK
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'VBAK') }} "VBAK" 
+                WHERE 1=1 
+                AND "VBAK"."MANDT" in ({{ parameters.fltrMandt }}) 
+            name: SALES_DOCUMENT_HEADER
+            noLinkRefs: []
+      name: SALES_DOCUMENT_HEADER
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000074"

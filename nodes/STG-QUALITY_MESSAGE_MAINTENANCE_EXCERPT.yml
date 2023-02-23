@@ -1,0 +1,672 @@
+steps:
+  QUALITY_MESSAGE_MAINTENANCE_EXCERPT-200000051:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Quality message - maintenance data excerpt
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004470
+              stepCounter: "200000051"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001526
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004471
+              stepCounter: "200000051"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: NOTIFICATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001527
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004472
+              stepCounter: "200000051"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: MAINTENANCE_PLANNING_PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001528
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004473
+              stepCounter: "200000051"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: LOC_ACCT_ASSIGNMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001529
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004474
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ILOA_INDIVIDUAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001530
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004475
+              stepCounter: "200000051"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: EQUIPMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001531
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004476
+              stepCounter: "200000051"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: ASSEMBLY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001532
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004477
+              stepCounter: "200000051"
+            dataType: char(20)
+            defaultValue: ""
+            description: ""
+            name: INSTALLATION_POINT_SUBITEM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001533
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004478
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BREAKDOWN_INDICATOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001534
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004479
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: START_MALFUNCTION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001535
+                    stepCounter: "200000013"
+                transform: case when QMIH.AUSVN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.AUSVN) end
+          - columnReference:
+              columnCounter: 2000004480
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: END_MALFUNCTION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001536
+                    stepCounter: "200000013"
+                transform: case when QMIH.AUSBS in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.AUSBS) end
+          - columnReference:
+              columnCounter: 2000004481
+              stepCounter: "200000051"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: START_MALFUNCTION_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001537
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004482
+              stepCounter: "200000051"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: END_MALFUNCTION_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001538
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004483
+              stepCounter: "200000051"
+            dataType: FLOAT
+            defaultValue: ""
+            description: ""
+            name: BREAKDOWN_DURATION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001539
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004484
+              stepCounter: "200000051"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: BREAKDOWN_DURATION_UOM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001540
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004485
+              stepCounter: "200000051"
+            dataType: char(30)
+            defaultValue: ""
+            description: ""
+            name: FUNCTIONAL_LOCATION_AFFECTED_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001541
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004486
+              stepCounter: "200000051"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: EQUIPMENT_AFFECTED_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001542
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004487
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EFFECT_ON_OPERATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001543
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004488
+              stepCounter: "200000051"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: AVAILABILITY_BEFORE_MALFUNCTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001544
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004489
+              stepCounter: "200000051"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: AVAILABILITY_AFTER_MALFUNCTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001545
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004490
+              stepCounter: "200000051"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: AVAIL_AFTER_TASK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001546
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004491
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COND_BEF_MALFUNCTN_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001547
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004492
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COND_AFT_MALFUNCTN_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001548
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004493
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COND_AFTER_TASK_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001549
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004494
+              stepCounter: "200000051"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: TECHINSPECTION_BY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001550
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004495
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: TECHNICAL_INSPECTION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001551
+                    stepCounter: "200000013"
+                transform: case when QMIH.DATAN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.DATAN) end
+          - columnReference:
+              columnCounter: 2000004496
+              stepCounter: "200000051"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: PLANNER_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001552
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004497
+              stepCounter: "200000051"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: MAINTENANCE_PLAN_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001553
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004498
+              stepCounter: "200000051"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: MAINTENANCE_PLAN_CALL_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001554
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004499
+              stepCounter: "200000051"
+            dataType: char(16)
+            defaultValue: ""
+            description: ""
+            name: MAINTENANCE_ITEM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001555
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004500
+              stepCounter: "200000051"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001556
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004501
+              stepCounter: "200000051"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001557
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004502
+              stepCounter: "200000051"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SCENARIO_OR_SUBSCREEN_CATEGORY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001558
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004503
+              stepCounter: "200000051"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TASK_LIST_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001559
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004504
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: KEY_TASK_LIST_GROUP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001560
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004505
+              stepCounter: "200000051"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: GROUP_COUNTER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001561
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004506
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: REVISION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001562
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004507
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: COUNTER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001563
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004508
+              stepCounter: "200000051"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_TIME_STAMP_FROM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001564
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004509
+              stepCounter: "200000051"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_TIME_STAMP_TO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001565
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004510
+              stepCounter: "200000051"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_START_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001566
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004511
+              stepCounter: "200000051"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_END_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001567
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004512
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: PAM_POOL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001568
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004513
+              stepCounter: "200000051"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: COST_CENTER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001569
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004514
+              stepCounter: "200000051"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001570
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004515
+              stepCounter: "200000051"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: WBS_ELEMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001571
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004516
+              stepCounter: "200000051"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CONTROLLING_AREA_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001572
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004517
+              stepCounter: "200000051"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001573
+                    stepCounter: "200000013"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004518
+              stepCounter: "200000051"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001574
+                    stepCounter: "200000013"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: QMIH
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'QMIH') }} "QMIH" 
+                WHERE 1=1 
+                AND "QMIH"."MANDT" in ({{ parameters.fltrMandt }})
+            name: QUALITY_MESSAGE_MAINTENANCE_EXCERPT
+            noLinkRefs: []
+      name: QUALITY_MESSAGE_MAINTENANCE_EXCERPT
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000051"

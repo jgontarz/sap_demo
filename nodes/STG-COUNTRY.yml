@@ -1,0 +1,906 @@
+steps:
+  COUNTRY-200000058:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Countries
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004762
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001818
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004763
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001819
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004764
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: VEHICLE_COUNTRY_KEY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001820
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004765
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: POSTAL_CODE_LENGTH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001821
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004766
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_POSTAL_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001822
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004767
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ADDRESS_LAYOUT_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001823
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004768
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: POSTAL_CODE_REQUIRED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001824
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004769
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PO_BOX_POSTAL_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001825
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004770
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: LANGUAGE_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001826
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004771
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_VERSION_FLAG
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001827
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004772
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PRINT_COUNTRY_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001828
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004773
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: STANDARD_NAME_FORMAT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001829
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004774
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: FLAG_CITY_FILE_ADDRESS_CHECK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001830
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004775
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: STREET_POSTCODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001831
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004776
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_ISO_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001832
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004777
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ISO_COUNTRY_CODE_3_CHAR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001833
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004778
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ISO_CODE_NUMERIC_3_CHARS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001834
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004779
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EU_MEMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001835
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004780
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: DISCOUNT_BASE_IS_NET_VALUE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001836
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004781
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAX_BASE_IS_NET_VALUE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001837
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004782
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: BANK_ACCOUNT_NUMBER_LENGTH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001838
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004783
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_BANK_ACCT_NO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001839
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004784
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: BANK_NUMBER_LENGTH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001840
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004785
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_BANK_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001841
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004786
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: POST_OFFICE_BANK_ACCT_NO_LENGTH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001842
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004787
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_PST_CHCK_ACCT_NO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001843
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004788
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BANK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001844
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004789
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: NAME_THE_BANK_KEY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001845
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004790
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: LENGTH_BANK_KEY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001846
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004791
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: RULE_CHECKING_BANK_KEY_FIELD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001847
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004792
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: OTHER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001848
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004793
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: VAT_REGISTRATION_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001849
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004794
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: VAT_REGISTRATION_NUMBER_LENGTH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001850
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004795
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: PERMITTED_LENGTH_TAX_NUMBER_1
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001851
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004796
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_TAX_CODE_1
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001852
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004797
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: PERMITTED_LENGTH_TAX_NUMBER_2
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001853
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004798
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_TAX_CODE_2
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001854
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004799
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: PERMITTED_LENGTH_TAX_NUMBER_3
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001855
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004800
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_TAX_CODE_3
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001856
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004801
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: PERMITTED_LENGTH_TAX_NUMBER_4
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001857
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004802
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_TAX_CODE_4
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001858
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004803
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: PERMITTED_LENGTH_TAX_NUMBER_5
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001859
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004804
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHECK_RULE_TAX_CODE_5
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001860
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004805
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: DUEVO_NATIONALITY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001861
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004806
+              stepCounter: "200000058"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PROCEDURE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001862
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004807
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ALTERNATIVE_COUNTRY_KEY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001863
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004808
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: B_EXCH_PAYMENT_PERIOD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001864
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004809
+              stepCounter: "200000058"
+            dataType: char(7)
+            defaultValue: ""
+            description: ""
+            name: TRDE_STAT_SHORT_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001865
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004810
+              stepCounter: "200000058"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: INTRASTAT_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001866
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004811
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: DECIMAL_POINT_FORMAT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001867
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004812
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: DATE_FORMAT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001868
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004813
+              stepCounter: "200000058"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: INDEX_BASED_CURR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001869
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004814
+              stepCounter: "200000058"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: HARD_CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001870
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004815
+              stepCounter: "200000058"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001871
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004816
+              stepCounter: "200000058"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: EXCHANGE_RATE_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001872
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004817
+              stepCounter: "200000058"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CHART_DEP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001873
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004818
+              stepCounter: "200000058"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: MAXIMUM_LOW_ASSET_AMOUNT_VAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001874
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004819
+              stepCounter: "200000058"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: NET_BOOK_DEP_CHANGE_VAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001875
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004820
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: POST_NET_BOOK_VALUE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001876
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004821
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CAPITALIZE_AUC_W_O_DOWNPAYMENT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001877
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004822
+              stepCounter: "200000058"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: W_TAX_CERTIFICATE_NUMBERING_CONCEPTS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001878
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004823
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TAXES_AT_IND_SERV_LEVEL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001879
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004824
+              stepCounter: "200000058"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CAPITAL_GOODS_IND
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001880
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004825
+              stepCounter: "200000058"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SUPER_REGION_PER_COUNTRY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001881
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004826
+              stepCounter: "200000058"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: CTRY_GPING_SHIP_SCH_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001882
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004827
+              stepCounter: "200000058"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001883
+                    stepCounter: "200000020"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004828
+              stepCounter: "200000058"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001884
+                    stepCounter: "200000020"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: T005
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'T005') }} "T005" 
+                WHERE 1=1 
+                AND "T005"."MANDT" in ({{ parameters.fltrMandt }})
+            name: COUNTRY
+            noLinkRefs: []
+      name: COUNTRY
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000058"

@@ -1,0 +1,165 @@
+steps:
+  COUNTRY_TXT-200000059:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Country Names
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004829
+              stepCounter: "200000059"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001885
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004830
+              stepCounter: "200000059"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: LANGUAGE_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001886
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004831
+              stepCounter: "200000059"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001887
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004832
+              stepCounter: "200000059"
+            dataType: char(15)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001888
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004833
+              stepCounter: "200000059"
+            dataType: char(15)
+            defaultValue: ""
+            description: ""
+            name: NATIONALITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001889
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004834
+              stepCounter: "200000059"
+            dataType: char(50)
+            defaultValue: ""
+            description: ""
+            name: LONG_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001890
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004835
+              stepCounter: "200000059"
+            dataType: char(50)
+            defaultValue: ""
+            description: ""
+            name: NATIONALITY_MAX_50_CHARACTERS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001891
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004836
+              stepCounter: "200000059"
+            dataType: char(30)
+            defaultValue: ""
+            description: ""
+            name: SUPER_REGION_PER_COUNTRY_TEXT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001892
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004837
+              stepCounter: "200000059"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001893
+                    stepCounter: "200000021"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004838
+              stepCounter: "200000059"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001894
+                    stepCounter: "200000021"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: T005T
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'T005T') }} "T005T" 
+                WHERE 1=1 
+                AND "T005T"."MANDT" in ({{ parameters.fltrMandt }})
+            name: COUNTRY_TXT
+            noLinkRefs: []
+      name: COUNTRY_TXT
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000059"

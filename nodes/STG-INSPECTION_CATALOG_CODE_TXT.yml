@@ -1,0 +1,204 @@
+steps:
+  INSPECTION_CATALOG_CODE_TXT-200000054:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Code texts
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004589
+              stepCounter: "200000054"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001645
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004590
+              stepCounter: "200000054"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CATALOG_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001646
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004591
+              stepCounter: "200000054"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CODE_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001647
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004592
+              stepCounter: "200000054"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CODE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001648
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004593
+              stepCounter: "200000054"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: LANGUAGE_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001649
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004594
+              stepCounter: "200000054"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: VERSION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001650
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004595
+              stepCounter: "200000054"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: VALID_FROM_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001651
+                    stepCounter: "200000016"
+                transform: case when QPCT.GUELTIGAB in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPCT.GUELTIGAB) end
+          - columnReference:
+              columnCounter: 2000004596
+              stepCounter: "200000054"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: SHORT_TEXT_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001652
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004597
+              stepCounter: "200000054"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: LONG_TEXT_EXISTS_THE_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001653
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004598
+              stepCounter: "200000054"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: RECORD_INACTIVE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001654
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004599
+              stepCounter: "200000054"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: WAS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001655
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004600
+              stepCounter: "200000054"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001656
+                    stepCounter: "200000016"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004601
+              stepCounter: "200000054"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001657
+                    stepCounter: "200000016"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: QPCT
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'QPCT') }} "QPCT" 
+                WHERE 1=1 
+                AND "QPCT"."MANDT" in ({{ parameters.fltrMandt }})
+            name: INSPECTION_CATALOG_CODE_TXT
+            noLinkRefs: []
+      name: INSPECTION_CATALOG_CODE_TXT
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000054"

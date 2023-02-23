@@ -1,0 +1,724 @@
+steps:
+  QUALITY_NOTIFICATION_TASK-200000052:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Quality notification - tasks
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004519
+              stepCounter: "200000052"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001575
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004520
+              stepCounter: "200000052"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: NOTIFICATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001576
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004521
+              stepCounter: "200000052"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SEQUENTIAL_TASK_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001577
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004522
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CATALOG_TYPE_TASKS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001578
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004523
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CODE_GROUP_TASKS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001579
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004524
+              stepCounter: "200000052"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: TASK_CODE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001580
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004525
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: VERSION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001581
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004526
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: FOLLOW_UP_ACTION_TASK_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001582
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004527
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: LOG_FOLLOW_UP_ACTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001583
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004528
+              stepCounter: "200000052"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: SHORT_TEXT_TASK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001584
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004529
+              stepCounter: "200000052"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: CREATED_BY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001585
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004530
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CREATED_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001586
+                    stepCounter: "200000014"
+                transform: case when QMSM.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.ERDAT) end
+          - columnReference:
+              columnCounter: 2000004531
+              stepCounter: "200000052"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: CHANGED_BY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001587
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004532
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CHANGED_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001588
+                    stepCounter: "200000014"
+                transform: case when QMSM.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.AEDAT) end
+          - columnReference:
+              columnCounter: 2000004533
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001589
+                    stepCounter: "200000014"
+                transform: case when QMSM.PSTER in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.PSTER) end
+          - columnReference:
+              columnCounter: 2000004534
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001590
+                    stepCounter: "200000014"
+                transform: case when QMSM.PETER in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.PETER) end
+          - columnReference:
+              columnCounter: 2000004535
+              stepCounter: "200000052"
+            dataType: char(22)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001591
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004536
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_LONG_TEXT_AVAILABLE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001592
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004537
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PRIMARY_LANGUAGE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001593
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004538
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_START_TASK_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001594
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004539
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_FINISH_TASK_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001595
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004540
+              stepCounter: "200000052"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: PERSON_WHO_COMPLETED_THE_TASK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001596
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004541
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: COMPLETION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001597
+                    stepCounter: "200000014"
+                transform: case when QMSM.ERLDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.ERLDAT) end
+          - columnReference:
+              columnCounter: 2000004542
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: AT_WHICH_TASK_WAS_COMPLETED_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001598
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004543
+              stepCounter: "200000052"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: RESUBMISSION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001599
+                    stepCounter: "200000014"
+                transform: case when QMSM.WDVDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMSM.WDVDAT) end
+          - columnReference:
+              columnCounter: 2000004544
+              stepCounter: "200000052"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: ITEM_NUMBER_IN_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001600
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004545
+              stepCounter: "200000052"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SEQUENTIAL_NUMBER_CAUSE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001601
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004546
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: AT_WHICH_WAS_ADDED_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001602
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004547
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: CHANGE_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001603
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004548
+              stepCounter: "200000052"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: TASK_PROCESSOR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001604
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004549
+              stepCounter: "200000052"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: RESPONSIBLE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001605
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004550
+              stepCounter: "200000052"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: QUANTITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001606
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004551
+              stepCounter: "200000052"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ITEM_UOM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001607
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004552
+              stepCounter: "200000052"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: ASSEMBLY_AFFECTED_BY_THE_TASK_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001608
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004553
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: DELETE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001609
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004554
+              stepCounter: "200000052"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SORT_NUMBER_TASK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001610
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004555
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_CREATED_AUTOM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001611
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004556
+              stepCounter: "200000052"
+            dataType: char(22)
+            defaultValue: ""
+            description: ""
+            name: HANDLE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001612
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004557
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TIME_SEGMENT_EXISTS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001613
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004558
+              stepCounter: "200000052"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: TEMPLATE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001614
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004559
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: TIME_ZONE_NOTIFICATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001615
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004560
+              stepCounter: "200000052"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: TIME_ZONE_TASK_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001616
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004561
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TIME_ZONE_ORIGIN
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001617
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004562
+              stepCounter: "200000052"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CREATED_USING_ACTION_BOX
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001618
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004563
+              stepCounter: "200000052"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: KEY_FUNCTION_IN_ACTION_BOX
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001619
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004564
+              stepCounter: "200000052"
+            dataType: char(7)
+            defaultValue: ""
+            description: ""
+            name: SAPSMOSS_NOTE_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001620
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004565
+              stepCounter: "200000052"
+            dataType: char(35)
+            defaultValue: ""
+            description: ""
+            name: SAPSMOSS_NOTE_CREATED_BY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001621
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004566
+              stepCounter: "200000052"
+            dataType: char(14)
+            defaultValue: ""
+            description: ""
+            name: SAPSMOSS_TIME_STAMP_DATE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001622
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004567
+              stepCounter: "200000052"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: ABC_TEMPL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001623
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004568
+              stepCounter: "200000052"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: EFFECT_IN_PERCENTAGE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001624
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004569
+              stepCounter: "200000052"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: EFFECT_TEXT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001625
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004570
+              stepCounter: "200000052"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001626
+                    stepCounter: "200000014"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004571
+              stepCounter: "200000052"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001627
+                    stepCounter: "200000014"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: QMSM
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'QMSM') }} "QMSM" 
+                WHERE 1=1 
+                AND "QMSM"."MANDT" in ({{ parameters.fltrMandt }})
+            name: QUALITY_NOTIFICATION_TASK
+            noLinkRefs: []
+      name: QUALITY_NOTIFICATION_TASK
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000052"

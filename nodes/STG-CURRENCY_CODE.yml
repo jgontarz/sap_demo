@@ -1,0 +1,139 @@
+steps:
+  CURRENCY_CODE-200000062:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Currency Codes
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000004850
+              stepCounter: "200000062"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001906
+                    stepCounter: "200000024"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004851
+              stepCounter: "200000062"
+            dataType: char(5)
+            defaultValue: ""
+            description: ""
+            name: CURRENCY_KEY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001907
+                    stepCounter: "200000024"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004852
+              stepCounter: "200000062"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ISO_CURRENCY_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001908
+                    stepCounter: "200000024"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004853
+              stepCounter: "200000062"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: ALTERNATIVE_KEY_CURRENCIES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001909
+                    stepCounter: "200000024"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004854
+              stepCounter: "200000062"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: VALID_UNTIL_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001910
+                    stepCounter: "200000024"
+                transform: case when TCURC.GDATU in ('00000000', ' ') THEN NULL ELSE TO_DATE(TCURC.GDATU) end
+          - columnReference:
+              columnCounter: 2000004855
+              stepCounter: "200000062"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PRIAMRY_SAP_CODE_ISO_CODE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001911
+                    stepCounter: "200000024"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004856
+              stepCounter: "200000062"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001912
+                    stepCounter: "200000024"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000004857
+              stepCounter: "200000062"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001913
+                    stepCounter: "200000024"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: TCURC
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TCURC') }} "TCURC" 
+                WHERE 1=1 
+                AND "TCURC"."MANDT" in ({{ parameters.fltrMandt }})
+            name: CURRENCY_CODE
+            noLinkRefs: []
+      name: CURRENCY_CODE
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000062"

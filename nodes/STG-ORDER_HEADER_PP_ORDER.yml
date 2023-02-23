@@ -1,0 +1,2232 @@
+steps:
+  ORDER_HEADER_PP_ORDER-200000041:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      customOverride: false
+      dependencies: []
+      deployEnabled: false
+      description: Order Header Data PP Orders
+      isMultisource: false
+      locationID: 2
+      locationName: STG
+      materializationType: view
+      metadata:
+        columns:
+          - columnReference:
+              columnCounter: 2000002995
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000051
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000002996
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000052
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000002997
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: BASIC_FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000053
+                    stepCounter: "200000003"
+                transform: case when AFKO.GLTRP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTRP) end
+          - columnReference:
+              columnCounter: 2000002998
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: BASIC_START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000054
+                    stepCounter: "200000003"
+                transform: case when AFKO.GSTRP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTRP) end
+          - columnReference:
+              columnCounter: 2000002999
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_RELEASE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000055
+                    stepCounter: "200000003"
+                transform: case when AFKO.FTRMS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRMS) end
+          - columnReference:
+              columnCounter: 2000003000
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000056
+                    stepCounter: "200000003"
+                transform: case when AFKO.GLTRS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTRS) end
+          - columnReference:
+              columnCounter: 2000003001
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000057
+                    stepCounter: "200000003"
+                transform: case when AFKO.GSTRS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTRS) end
+          - columnReference:
+              columnCounter: 2000003002
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000058
+                    stepCounter: "200000003"
+                transform: case when AFKO.GSTRI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTRI) end
+          - columnReference:
+              columnCounter: 2000003003
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: CONFIRMED_ORDER_FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000059
+                    stepCounter: "200000003"
+                transform: case when AFKO.GETRI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GETRI) end
+          - columnReference:
+              columnCounter: 2000003004
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000060
+                    stepCounter: "200000003"
+                transform: case when AFKO.GLTRI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTRI) end
+          - columnReference:
+              columnCounter: 2000003005
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_RELEASE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000061
+                    stepCounter: "200000003"
+                transform: case when AFKO.FTRMI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRMI) end
+          - columnReference:
+              columnCounter: 2000003006
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: PLANNED_RELEASE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000062
+                    stepCounter: "200000003"
+                transform: case when AFKO.FTRMP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRMP) end
+          - columnReference:
+              columnCounter: 2000003007
+              stepCounter: "200000041"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: RESERVATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000063
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003008
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: TOTAL_SCRAP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000064
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003009
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: TOTAL_ORDER_QUANTITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000065
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003010
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: BASE_UOM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000066
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003011
+              stepCounter: "200000041"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: MATERIAL_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000067
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003012
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: TASK_LIST_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000068
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003013
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: KEY_TASK_LIST_GROUP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000069
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003014
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: APPLICATION_THE_TASK_LIST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000070
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003015
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: GROUP_COUNTER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000071
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003016
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: TASK_LIST_USAGE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000072
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003017
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: ROUTING_EXPLOSION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000073
+                    stepCounter: "200000003"
+                transform: case when AFKO.PLAUF in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PLAUF) end
+          - columnReference:
+              columnCounter: 2000003018
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: TO_LOT_SIZE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000074
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003019
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: TASK_LIST_UOM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000075
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003020
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: FROM_LOT_SIZE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000076
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003021
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: VALID_FROM_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000077
+                    stepCounter: "200000003"
+                transform: case when AFKO.PDATV in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PDATV) end
+          - columnReference:
+              columnCounter: 2000003022
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: CHANGE_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000078
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003023
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: PLANNER_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000079
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003024
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: LOT_SIZE_DIVISOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000080
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003025
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BOM_CATEGORY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000081
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003026
+              stepCounter: "200000041"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: STLBEZ
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000082
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003027
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: BOM_STATUS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000083
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003028
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: BILL_MATERIAL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000084
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003029
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SDATV
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000085
+                    stepCounter: "200000003"
+                transform: case when AFKO.SDATV in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.SDATV) end
+          - columnReference:
+              columnCounter: 2000003030
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: BASE_QUANTITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000086
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003031
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: SBMEH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000087
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003032
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: SAENR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000088
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003033
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: ALTERNATIVE_BOM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000089
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003034
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BOM_USAGE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000090
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003035
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: SLSVN
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000091
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003036
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: SLSBS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000092
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003037
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: EXPLOSION_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000093
+                    stepCounter: "200000003"
+                transform: case when AFKO.AUFLD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.AUFLD) end
+          - columnReference:
+              columnCounter: 2000003038
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: MRP_CONTROLLER_THE_ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000094
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003039
+              stepCounter: "200000041"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: OPERATION_TASK_LIST_NO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000095
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003040
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: PRODUCTION_SUPERVISOR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000096
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003041
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULING_MARGIN_KEY_FLOATS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000097
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003042
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULING_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000098
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003043
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: REDUCTION_INDICATOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000099
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003044
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ORDER_PRIORITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000100
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003045
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: SUPERIOR_NETWORK_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000101
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003046
+              stepCounter: "200000041"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: SUPERIOR_ACTIVITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000102
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003047
+              stepCounter: "200000041"
+            dataType: char(7)
+            defaultValue: ""
+            description: ""
+            name: NETWORK_PROFILE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000103
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003048
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: FLOAT_BEFORE_PRODUCTION_IN_DAYS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000104
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003049
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: FLOAT_AFTER_PRODUCTION_IN_DAYS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000105
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003050
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: RELEASE_PERIOD_IN_DAYS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000106
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003051
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: DATES_CHNGD_MANUALLY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000107
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003052
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000108
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003053
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: PROJECT_DEFINITION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000109
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003054
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: COUNTER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000110
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003055
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: MZAEHL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000111
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003056
+              stepCounter: "200000041"
+            dataType: char(7)
+            defaultValue: ""
+            description: ""
+            name: COUNTER_ADDITIONAL_CRITERIA
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000112
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003057
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: INSPECTION_LOT_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000113
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003058
+              stepCounter: "200000041"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: CSTG_VARIANT_PLANNED_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000114
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003059
+              stepCounter: "200000041"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: COSTING_VARIANT_ACTUAL_COSTS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000115
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003060
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BACKFLUSHING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000116
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003061
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BASIS_SCHEDULING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000117
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003062
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: INDICATOR_RELATIONSHIPS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000118
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003063
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: IND_WORK
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000119
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003064
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: FINISH_FORECAST_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000120
+                    stepCounter: "200000003"
+                transform: case when AFKO.GLTPP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTPP) end
+          - columnReference:
+              columnCounter: 2000003065
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: FORECAST_START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000121
+                    stepCounter: "200000003"
+                transform: case when AFKO.GSTPP in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTPP) end
+          - columnReference:
+              columnCounter: 2000003066
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_FORECAST_FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000122
+                    stepCounter: "200000003"
+                transform: case when AFKO.GLTPS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GLTPS) end
+          - columnReference:
+              columnCounter: 2000003067
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_FORECAST_START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000123
+                    stepCounter: "200000003"
+                transform: case when AFKO.GSTPS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSTPS) end
+          - columnReference:
+              columnCounter: 2000003068
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: SCHED_RELEASE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000124
+                    stepCounter: "200000003"
+                transform: case when AFKO.FTRPS in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.FTRPS) end
+          - columnReference:
+              columnCounter: 2000003069
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: RDKZP
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000125
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003070
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULING_TYPE_FORECAST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000126
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003071
+              stepCounter: "200000041"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: CONFIRMATION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000127
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003072
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: RMZHL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000128
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003073
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: CONFIRMED_QUANTITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000129
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003074
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: RATID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000130
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003075
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: GROID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000131
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003076
+              stepCounter: "200000041"
+            dataType: char(18)
+            defaultValue: ""
+            description: ""
+            name: INTERNAL_OBJECT_NO
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000132
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003077
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_FINISH_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000133
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003078
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_START_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000134
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003079
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: REVISION_LEVEL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000135
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003080
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_TYPE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000136
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003081
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_ID_THE_RESOURCE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000137
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003082
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: RSNTY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000138
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003083
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: RSNID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000139
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003084
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: NO_AUTO_SCHEDULING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000140
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003085
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: NO_AUTOMATIC_COSTING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000141
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003086
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: LEVEL
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000142
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003087
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: PATH
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000143
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003088
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: VWEGX
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000144
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003089
+              stepCounter: "200000041"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: ARSNR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000145
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003090
+              stepCounter: "200000041"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: ORDER_ITEM_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000146
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003091
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: NUMBER_SUPERIOR_ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000147
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003092
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: LEFT_NODE_IN_COLLECTIVE_ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000148
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003093
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: RIGHT_NODE_COLLECTIVE_ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000149
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003094
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COLLECTIVE_ORDER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000150
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003095
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: SCRAP_CONFIRMED_ORDER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000151
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003096
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: DEGREE_PROCESSING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000152
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003097
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: NUMBER_SUPERIOR_NETWORK_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000153
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003098
+              stepCounter: "200000041"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: AUFPT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000154
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003099
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: COUNTER_ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000155
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003100
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EFFECTIVE_MATERIALS_PLANNING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000156
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003101
+              stepCounter: "200000041"
+            dataType: char(4)
+            defaultValue: ""
+            description: ""
+            name: APPORTIONMENT_STRUCTURE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000157
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003102
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: AENNR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000158
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003103
+              stepCounter: "200000041"
+            dataType: char(14)
+            defaultValue: ""
+            description: ""
+            name: SEQ_NUMBER_ORDER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000159
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003104
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: EXACT_BREAK_TIMES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000160
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003105
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: SCHD_FLT_BEFORE_PROD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000161
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003106
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: SCHED_FLT_AFTER_PROD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000162
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003107
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: THE_LAST_SCHEDULING_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000163
+                    stepCounter: "200000003"
+                transform: case when AFKO.TRMDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.TRMDT) end
+          - columnReference:
+              columnCounter: 2000003108
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: BASIC_FINISH_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000164
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003109
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: BASIC_START_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000165
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003110
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: ACTUAL_START_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000166
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003111
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: CONFIRMED_ORDER_FINISH_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000167
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003112
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: FORECAST_FINISH_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000168
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003113
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: FORECAST_START_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000169
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003114
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_FORECAST_FINISH_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000170
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003115
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULED_START_FORECAST_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000171
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003116
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SEARCH_PROCEDURE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000172
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003117
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: REMAINPREPRODFLOAT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000173
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003118
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: REMAINING_FLOAT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000174
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003119
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: LEADING_ORDER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000175
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003120
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: START_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000176
+                    stepCounter: "200000003"
+                transform: case when AFKO.PNETSTARTD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PNETSTARTD) end
+          - columnReference:
+              columnCounter: 2000003121
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: START_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000177
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003122
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: FINISH_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000178
+                    stepCounter: "200000003"
+                transform: case when AFKO.PNETENDD in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.PNETENDD) end
+          - columnReference:
+              columnCounter: 2000003123
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: FINISH_TIM
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000179
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003124
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: N_CAP_REQUIREMENTS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000180
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003125
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COSTINGCOMP_IND
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000181
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003126
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: PRODUCTION_SCHEDULING_PROFILE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000182
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003127
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: TOTAL_CONFIRMED_REWORK_QUANTITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000183
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003128
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: OVERALL_COMMITMENT_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000184
+                    stepCounter: "200000003"
+                transform: case when AFKO.GSBTR in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.GSBTR) end
+          - columnReference:
+              columnCounter: 2000003129
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: COMMITTED_QTY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000185
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003130
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: NO_PLANNED_COSTS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000186
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003131
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: ACCOUNT_ASSIGNMENT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000187
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003132
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: REQUEST_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000188
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003133
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHANGE_INDICATOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000189
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003134
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CHANGE_PROCESS_TYPE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000190
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003135
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: VERSION_AVAILABLE_CAPACITY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000191
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003136
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: CO_PROCESSING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000192
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003137
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: PROJ_SUMM_MAST
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000193
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003138
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: IDENTICAL_OBJECT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000194
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003139
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: OBJECT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000195
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003140
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_VERSION_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000196
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003141
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SCHEDULING_NOTE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000197
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003142
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: SPLIT_STATUS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000198
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003143
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COSTS_ARE_UPDATED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000199
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003144
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: MAXIMUM_QUANTITY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000200
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003145
+              stepCounter: "200000041"
+            dataType: char(64)
+            defaultValue: ""
+            description: ""
+            name: MES_ROUTING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000201
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003146
+              stepCounter: "200000041"
+            dataType: char(40)
+            defaultValue: ""
+            description: ""
+            name: PM_PS_REFERENCE_ELEMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000202
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003147
+              stepCounter: "200000041"
+            dataType: char(10)
+            defaultValue: ""
+            description: ""
+            name: SALES_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000203
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003148
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: SD_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000204
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003149
+              stepCounter: "200000041"
+            dataType: char(6)
+            defaultValue: ""
+            description: ""
+            name: POSNV_RMA
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000205
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003150
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: MAXIMUM_STORAGE_PERIOD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000206
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003151
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: MAXIMUM_STORAGE_PERIOD_UOM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000207
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003152
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: ADDITIONAL_DAYS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000208
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003153
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: MANUFACTURE_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000209
+                    stepCounter: "200000003"
+                transform: case when AFKO.CFB_DATOFM in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.CFB_DATOFM) end
+          - columnReference:
+              columnCounter: 2000003154
+              stepCounter: "200000041"
+            dataType: char(8)
+            defaultValue: ""
+            description: ""
+            name: BBD_SLED_DATE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000210
+                    stepCounter: "200000003"
+                transform: case when AFKO.CFB_BBDPI in ('00000000', ' ') THEN NULL ELSE TO_DATE(AFKO.CFB_BBDPI) end
+          - columnReference:
+              columnCounter: 2000003155
+              stepCounter: "200000041"
+            dataType: char(2)
+            defaultValue: ""
+            description: ""
+            name: HANDLING_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000211
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003156
+              stepCounter: "200000041"
+            dataType: char(12)
+            defaultValue: ""
+            description: ""
+            name: PRODUCTION_ORDER_NUMBER_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000212
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003157
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: BUNDLE_FLAG
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000213
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003158
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: ADJUSTMENT_FACTOR_SETTLEMENT_RULES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000214
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003159
+              stepCounter: "200000041"
+            dataType: char(3)
+            defaultValue: ""
+            description: ""
+            name: BMEINS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000215
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003160
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: BMENGE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000216
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003161
+              stepCounter: "200000041"
+            dataType: char(1)
+            defaultValue: ""
+            description: ""
+            name: COMBINATION_INDICATOR
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000217
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003162
+              stepCounter: "200000041"
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000218
+                    stepCounter: "200000003"
+                transform: ""
+          - columnReference:
+              columnCounter: 2000003163
+              stepCounter: "200000041"
+            dataType: TIMESTAMP_TZ(3)
+            defaultValue: ""
+            description: ""
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000000219
+                    stepCounter: "200000003"
+                transform: ""
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: AFKO
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'AFKO') }} "AFKO" 
+                WHERE 1=1 
+                AND "AFKO"."MANDT" in ({{ parameters.fltrMandt }})
+            name: ORDER_HEADER_PP_ORDER
+            noLinkRefs: []
+      name: ORDER_HEADER_PP_ORDER
+      overrideSQL: false
+      sqlType: "1"
+      type: sql
+    stepCounter: "200000041"

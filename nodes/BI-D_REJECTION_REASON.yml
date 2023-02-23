@@ -1,0 +1,66 @@
+steps:
+  D_REJECTION_REASON-69:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12163
+              stepCounter: "69"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REASON_REJECTION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12148
+                    stepCounter: "68"
+                transform: ""
+          - columnReference:
+              columnCounter: 12171
+              stepCounter: "69"
+            dataType: char(40)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REJECTION_REASON_DESCRIPTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12159
+                    stepCounter: "68"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              SALES_DOCUMENT_REJECTION_REASON: "68"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: SALES_DOCUMENT_REJECTION_REASON
+            join:
+              joinCondition: FROM {{ ref('STG', 'SALES_DOCUMENT_REJECTION_REASON') }} "SALES_DOCUMENT_REJECTION_REASON"
+            name: D_REJECTION_REASON
+            noLinkRefs: []
+      name: D_REJECTION_REASON
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "69"

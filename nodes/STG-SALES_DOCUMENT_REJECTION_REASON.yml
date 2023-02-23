@@ -1,0 +1,185 @@
+steps:
+  SALES_DOCUMENT_REJECTION_REASON-68:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12147
+              stepCounter: "68"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001990
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12148
+              stepCounter: "68"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REASON_REJECTION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001991
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12149
+              stepCounter: "68"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NOT_RELEVANT_PRINTING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001992
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12150
+              stepCounter: "68"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RESOURCE_ITEM_OPEN_AGAIN
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001993
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12151
+              stepCounter: "68"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NOT_RELEVANT_BILLING
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001994
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12152
+              stepCounter: "68"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATISTICAL_VALUES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001995
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12153
+              stepCounter: "68"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RELEVANT_PARTIAL_QUANTITY_REJECTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001996
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12154
+              stepCounter: "68"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001997
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12155
+              stepCounter: "68"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000001998
+                    stepCounter: "200000030"
+                transform: ""
+          - columnReference:
+              columnCounter: 12159
+              stepCounter: "68"
+            dataType: char(40)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002002
+                    stepCounter: "200000031"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: TVAG
+              - locationName: RAW
+                nodeName: TVAGT
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TVAG') }} "TVAG"
+                INNER JOIN {{ ref('RAW', 'TVAGT') }} "TVAGT"
+                ON "TVAG"."MANDT" = "TVAGT"."MANDT"
+                AND "TVAG"."ABGRU" = "TVAGT"."ABGRU"
+                AND "TVAGT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "TVAG"."MANDT" in ({{ parameters.fltrMandt }})
+            name: SALES_DOCUMENT_REJECTION_REASON
+            noLinkRefs: []
+      name: SALES_DOCUMENT_REJECTION_REASON
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "68"

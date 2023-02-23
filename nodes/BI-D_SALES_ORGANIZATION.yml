@@ -1,0 +1,94 @@
+steps:
+  D_SALES_ORGANIZATION-71:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: BI
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12209
+              stepCounter: "71"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SALES_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12173
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 12238
+              stepCounter: "71"
+            dataType: char(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12205
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 12211
+              stepCounter: "71"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMPANY_CODE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12175
+                    stepCounter: "70"
+                transform: ""
+          - columnReference:
+              columnCounter: 12224
+              stepCounter: "71"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12188
+                    stepCounter: "70"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              SALES_ORGANZIATION: "70"
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: STG
+                nodeName: SALES_ORGANIZATION
+            join:
+              joinCondition: FROM {{ ref('STG', 'SALES_ORGANIZATION') }} "SALES_ORGANZIATION"
+            name: D_SALES_ORGANIZATION
+            noLinkRefs: []
+      name: D_SALES_ORGANIZATION
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "71"

@@ -1,0 +1,479 @@
+steps:
+  SALES_ORGANIZATION-70:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12172
+              stepCounter: "70"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002016
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12173
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SALES_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002017
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12174
+              stepCounter: "70"
+            dataType: char(5)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATISTICS_CURRENCY_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002018
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12175
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: COMPANY_CODE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002019
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12176
+              stepCounter: "70"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002020
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12177
+              stepCounter: "70"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ADDRESS_TEXT_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002021
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12178
+              stepCounter: "70"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LETTER_HEADER_TEXT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002022
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12179
+              stepCounter: "70"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FOOTER_LINES_TEXT
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002023
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12180
+              stepCounter: "70"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GREETING_TEXT_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002024
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12181
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REFSORG_SALESDOCTYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002025
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12182
+              stepCounter: "70"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CUST_INTER_CO_BILL_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002026
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12183
+              stepCounter: "70"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REBATE_PROC_ACTIVE
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002027
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12184
+              stepCounter: "70"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SALES_ORGANIZATION_CALENDAR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002028
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12185
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_ORGANIZATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002029
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12186
+              stepCounter: "70"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCHASING_GROUP_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002030
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12187
+              stepCounter: "70"
+            dataType: char(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VENDOR_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002031
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12188
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PLANT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002032
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12189
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORDER_TYPE_PURCHASING_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002033
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12190
+              stepCounter: "70"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PURCH_DOC_CATEGORY
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002034
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12191
+              stepCounter: "70"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MOVEMENT_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002035
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12192
+              stepCounter: "70"
+            dataType: char(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STORAGE_LOCATION_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002036
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12193
+              stepCounter: "70"
+            dataType: char(16)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TEXT_SDS_SENDER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002037
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12194
+              stepCounter: "70"
+            dataType: char(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TAX_CODE_SD_DOCUMENTS_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002038
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12195
+              stepCounter: "70"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TAX_NUMBER
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002039
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12196
+              stepCounter: "70"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TIME_NUMBERING_DELIVERIES
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002040
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12197
+              stepCounter: "70"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MAX_NO_BILL_ITEMS
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002041
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12198
+              stepCounter: "70"
+            dataType: char(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE_PROTECTION_PERIOD
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002042
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12199
+              stepCounter: "70"
+            dataType: char(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: UNIT_PRICE_PROTECTION
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002043
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12200
+              stepCounter: "70"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002044
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12201
+              stepCounter: "70"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002045
+                    stepCounter: "200000034"
+                transform: ""
+          - columnReference:
+              columnCounter: 12205
+              stepCounter: "70"
+            dataType: char(20)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2000002049
+                    stepCounter: "200000035"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: TVKO
+              - locationName: RAW
+                nodeName: TVKOT
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'TVKO') }} "TVKO"
+                INNER JOIN {{ ref('RAW', 'TVKOT') }} "TVKOT"
+                ON "TVKO"."MANDT" = "TVKOT"."MANDT"
+                AND "TVKO"."VKORG" = "TVKOT"."VKORG"
+                AND "TVKOT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "TVKO"."MANDT" in ({{ parameters.fltrMandt }})
+            name: SALES_ORGANIZATION
+            noLinkRefs: []
+      name: SALES_ORGANIZATION
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "70"

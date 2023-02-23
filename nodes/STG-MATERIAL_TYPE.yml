@@ -1,0 +1,591 @@
+steps:
+  MATERIAL_TYPE-65:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 11788
+              stepCounter: "65"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11657
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11789
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_TYPE_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11658
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11790
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REFERENCE_MATERIAL_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11659
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11791
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SREF_MATERIAL_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11660
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11792
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FIELD_REFERENCE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11661
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11793
+              stepCounter: "65"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NUMBER_RANGE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11662
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11794
+              stepCounter: "65"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NUMKE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11663
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11795
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: EXTERNAL_NO_ASSIGMENT_W_O_CHECK
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11664
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11796
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: EXTERNAL_PURCHASE_ORDERS_ALLOWED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11665
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11797
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: INTERNAL_PURCHASE_ORDERS_ALLOWED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11666
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11798
+              stepCounter: "65"
+            dataType: VARCHAR(15)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MAINTENANCE_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11667
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11799
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ACCOUNT_CATEGORY_REFERENCE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11668
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11800
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE_CONTROL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11669
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11801
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICE_CONTROL_MANDATORY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11670
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11802
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_CATEGORY_GROUP_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11671
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11803
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WITH_QTY_STRUCTURE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11672
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11804
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GROUPING_INDICATOR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11673
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11805
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CONFIGURABLE_MATERIAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11674
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11806
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: AUTHORIZATION_GROUP_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11675
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11807
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MATERIAL_F_PROCESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11676
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11808
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PIPELINE_HANDLING_MANDATORY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11677
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11809
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRINT_PRICE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11678
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11810
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DISPLAY_MATERIAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11679
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11811
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WMAKG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11680
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11812
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: INITIAL_STATUS_NEW_BATCH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11681
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11813
+              stepCounter: "65"
+            dataType: VARCHAR(4)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TIME_TILL_DELETED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11682
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11814
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MANUFACTURER_PART
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11683
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11815
+              stepCounter: "65"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CROSS_PLANT_MATERIAL_STATUS_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11684
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11816
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HISTORY_REQMT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11685
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11817
+              stepCounter: "65"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLASS_TYPE_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11686
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11818
+              stepCounter: "65"
+            dataType: VARCHAR(18)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLASS_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11687
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11819
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CREATE_NEW_BACH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11688
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11820
+              stepCounter: "65"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VERSION_CATEGORY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11689
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11821
+              stepCounter: "65"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VNUMKI
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11690
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11822
+              stepCounter: "65"
+            dataType: VARCHAR(2)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: VNUMKE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11691
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11823
+              stepCounter: "65"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MAND_RP_LOGISTICS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11692
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11824
+              stepCounter: "65"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11693
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11825
+              stepCounter: "65"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11694
+                    stepCounter: "61"
+                transform: ""
+          - columnReference:
+              columnCounter: 11830
+              stepCounter: "65"
+            dataType: VARCHAR(25)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION_MATERIAL_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 11699
+                    stepCounter: "62"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: T134
+              - locationName: RAW
+                nodeName: T134T
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'T134') }} "T134"
+                INNER JOIN {{ ref('RAW', 'T134T') }} "T134T"
+                ON "T134"."MANDT" = "T134T"."MANDT"
+                AND "T134"."MTART" = "T134T"."MTART"
+                AND "T134T"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "T134"."MANDT" in ({{ parameters.fltrSpras }})
+            name: MATERIAL_TYPE
+            noLinkRefs: []
+      name: MATERIAL_TYPE
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "65"

@@ -1,0 +1,697 @@
+steps:
+  SALES_DOCUMENT_ITEM_STATUS-75:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 12460
+              stepCounter: "75"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_ROWID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12413
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12461
+              stepCounter: "75"
+            dataType: VARCHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12414
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12462
+              stepCounter: "75"
+            dataType: VARCHAR(10)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SALES_DOCUMENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12415
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12463
+              stepCounter: "75"
+            dataType: VARCHAR(6)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SD_ITEM_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12416
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12464
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REFERENCE_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12417
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12465
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OVERALL_STATUS_REFERENCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12418
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12466
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CONFIRMED
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12419
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12467
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12420
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12468
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OVERALL_DELIV_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12421
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12469
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: GOODS_MOVEMENT_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12422
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12470
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BILLING_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12423
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12471
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORD_RELATED_BILL_ST
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12424
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12472
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REJECTION_STATUS_SD_ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12425
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12473
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: OVERALL_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12426
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12474
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PICKING_STATUS_PUTAWAY_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12427
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12475
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WM_ACTIVITY_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12428
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12476
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12429
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12477
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_DELIV
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12430
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12478
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_BILLING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12431
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12479
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRICING_ITEM_IS_INCOMPLETE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12432
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12480
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: INTERCOMPANY_BILLING_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12433
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12481
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CUSTOMER_RESERVES_1_ITEM_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12434
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12482
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CUSTOMER_RESERVES_2_ITEM_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12435
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12483
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_RESERVES_3_ITEM_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12436
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12484
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_RESERVES_4_ITEM_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12437
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12485
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CUSTOMER_RESERVES_5_ITEM_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12438
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12486
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PACKING_STATUS_ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12439
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12487
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PICK_CONFIRMATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12440
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12488
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CONFIRMATION_STATUS_ALE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12441
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12489
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FINANCIAL_DOCUMENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12442
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12490
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: EXPT_CRED_INSURANCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12443
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12491
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_PICKING_PUTAWAY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12444
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12492
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_PACKAGING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12445
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12493
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ITEM_GOODS_MVMT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12446
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12494
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELAY_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12447
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12495
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: REVENUE_DETERMINATION_STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12448
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12496
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DECENTRALIZED_WHSE_PROCESSING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12449
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12497
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BILLING_BLOCK_STATUS_ITEMS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12450
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12498
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_BLOCK_STATUS_ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12451
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12499
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: POD_STATUS_ON_ITEM_LEVEL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12452
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12500
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MANUAL_COMPLETION_CONTRACT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12453
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12501
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DELIVERY_ITEM_NOT_COMPLETE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12454
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12502
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STOCKABLE_TYPE_SWITCHED_INTO_STAND_PROD
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12455
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12503
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ARUN_STATUS_ITEM_LEVEL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12456
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12504
+              stepCounter: "75"
+            dataType: VARCHAR(1)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: STATUS_SALES_ORDER_ITEM
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12457
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12505
+              stepCounter: "75"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_IS_DELETED
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12458
+                    stepCounter: "74"
+                transform: ""
+          - columnReference:
+              columnCounter: 12506
+              stepCounter: "75"
+            dataType: TIMESTAMP_TZ(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: HVR_CHANGE_TIME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12459
+                    stepCounter: "74"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW
+                nodeName: VBUP
+            join:
+              joinCondition: |-
+                FROM {{ ref('RAW', 'VBUP') }} "VBUP"
+                WHERE "VBUP"."MANDT" in ({{ parameters.fltrMandt }})
+            name: SALES_DOCUMENT_ITEM_STATUS
+            noLinkRefs: []
+      name: SALES_DOCUMENT_ITEM_STATUS
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: "75"
