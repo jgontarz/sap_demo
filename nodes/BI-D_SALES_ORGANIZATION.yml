@@ -17,12 +17,10 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 12209
+              columnCounter: 83496
               stepCounter: "71"
             dataType: char(4)
             description: ""
-            hashColumns: []
-            hashDetails: null
             name: SALES_ORGANIZATION_ID
             nullable: false
             sourceColumnReferences:
@@ -76,14 +74,14 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              SALES_ORGANZIATION: "70"
+              SALES_ORGANIZATION: "70"
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: STG
                 nodeName: SALES_ORGANIZATION
             join:
-              joinCondition: FROM {{ ref('STG', 'SALES_ORGANIZATION') }} "SALES_ORGANZIATION"
+              joinCondition: FROM {{ ref('STG', 'SALES_ORGANIZATION') }} "SALES_ORGANIZATION"
             name: D_SALES_ORGANIZATION
             noLinkRefs: []
       name: D_SALES_ORGANIZATION
