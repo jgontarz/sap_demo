@@ -65,7 +65,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001924
                     stepCounter: "200000026"
-                transform: ""
+                transform: case when "TCURV"."BWAER" in ('DEM','FRF') then 'EUR' else "TCURV"."BWAER" end
           - columnReference:
               columnCounter: 2000004869
               stepCounter: "200000064"

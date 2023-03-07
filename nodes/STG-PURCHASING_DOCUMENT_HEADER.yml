@@ -337,7 +337,7 @@ steps:
               - columnReferences:
                   - columnCounter: 56791
                     stepCounter: "166"
-                transform: ""
+                transform: case when "EKKO"."WAERS" in ('DEM','FRF') then 'EUR' else "EKKO"."WAERS" end
           - columnReference:
               columnCounter: 56932
               stepCounter: "167"

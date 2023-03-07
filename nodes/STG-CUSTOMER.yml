@@ -1040,7 +1040,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000422
                     stepCounter: "200000005"
-                transform: ""
+                transform: case when "KNA1"."UWAER" in ('DEM','FRF') then 'EUR' else "KNA1"."UWAER" end
           - columnReference:
               columnCounter: 2000003367
               stepCounter: "200000043"

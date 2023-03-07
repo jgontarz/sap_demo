@@ -1,0 +1,229 @@
+steps:
+  EXRATESCC2018-198:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: MKTPLC_CUR
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83497
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Currency
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83498
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(1000)
+            defaultValue: ""
+            description: ""
+            name: Currency Name
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83499
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Currency Unit
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83500
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Currency Description
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83501
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Currency PairId
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83502
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Currency Exchange
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83503
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Currency Units
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83504
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Indicator
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83505
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(1000)
+            defaultValue: ""
+            description: ""
+            name: Indicator Name
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83506
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(65535)
+            defaultValue: ""
+            description: ""
+            name: Units
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83507
+              stepCounter: 198
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: Scale
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83508
+              stepCounter: 198
+            config: {}
+            dataType: VARCHAR(2)
+            defaultValue: ""
+            description: ""
+            name: Frequency
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83509
+              stepCounter: 198
+            config: {}
+            dataType: DATE
+            defaultValue: ""
+            description: ""
+            name: Date
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 83510
+              stepCounter: 198
+            config: {}
+            dataType: FLOAT
+            defaultValue: ""
+            description: ""
+            name: Value
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('MKTPLC_CUR', 'EXRATESCC2018') }}
+      name: EXRATESCC2018
+      schema: ""
+      sqlType: Source
+      table: EXRATESCC2018
+      type: sourceInput
+    stepCounter: "198"

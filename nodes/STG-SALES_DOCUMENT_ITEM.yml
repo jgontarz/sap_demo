@@ -644,7 +644,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002256
                     stepCounter: "200000037"
-                transform: ""
+                transform: case when "VBAP"."WAERK" in ('DEM','FRF') then 'EUR' else "VBAP"."WAERK" end
           - appliedColumnTests: {}
             columnReference:
               columnCounter: 2000005201

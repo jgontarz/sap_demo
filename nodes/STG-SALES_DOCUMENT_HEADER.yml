@@ -247,7 +247,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002069
                     stepCounter: "200000036"
-                transform: ""
+                transform: case when "VBAK"."WAERK" in ('DEM','FRF') then 'EUR' else "VBAK"."WAERK" end
           - columnReference:
               columnCounter: 2000005014
               stepCounter: "200000074"
@@ -676,7 +676,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002102
                     stepCounter: "200000036"
-                transform: ""
+                transform: case when "VBAK"."STWAE" in ('DEM','FRF') then 'EUR' else "VBAK"."STWAE" end
           - columnReference:
               columnCounter: 2000005047
               stepCounter: "200000074"
@@ -884,7 +884,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002118
                     stepCounter: "200000036"
-                transform: ""
+                transform: case when "VBAK"."CMWAE" in ('DEM','FRF') then 'EUR' else "VBAK"."CMWAE" end
           - columnReference:
               columnCounter: 2000005063
               stepCounter: "200000074"

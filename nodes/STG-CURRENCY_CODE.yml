@@ -39,7 +39,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001907
                     stepCounter: "200000024"
-                transform: ""
+                transform: case when "TCURC"."WAERS" in ('DEM','FRF') then 'EUR' else "TCURC"."WAERS" end
           - columnReference:
               columnCounter: 2000004852
               stepCounter: "200000062"
@@ -52,7 +52,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001908
                     stepCounter: "200000024"
-                transform: ""
+                transform: case when "TCURC"."ISOCD" in ('DEM','FRF') then 'EUR' else "TCURC"."ISOCD" end
           - columnReference:
               columnCounter: 2000004853
               stepCounter: "200000062"

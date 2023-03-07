@@ -253,7 +253,7 @@ steps:
               - columnReferences:
                   - columnCounter: 65651
                     stepCounter: "176"
-                transform: ""
+                transform: case when "EKBE"."WAERS" in ('DEM','FRF') then 'EUR' else "EKBE"."WAERS" end
           - columnReference:
               columnCounter: 65740
               stepCounter: "177"
@@ -631,7 +631,7 @@ steps:
               - columnReferences:
                   - columnCounter: 65678
                     stepCounter: "176"
-                transform: ""
+                transform: case when "EKBE"."HSWAE" in ('DEM','FRF') then 'EUR' else "EKBE"."HSWAE" end
           - columnReference:
               columnCounter: 65767
               stepCounter: "177"

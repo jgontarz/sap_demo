@@ -1751,7 +1751,7 @@ steps:
               - columnReferences:
                   - columnCounter: 81813
                     stepCounter: "187"
-                transform: ""
+                transform: case when "LFA1"."J_SC_CURRENCY" in ('DEM','FRF') then 'EUR' else "LFA1"."J_SC_CURRENCY" end
           - columnReference:
               columnCounter: 81956
               stepCounter: "188"

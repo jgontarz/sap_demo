@@ -702,7 +702,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000592
                     stepCounter: "200000006"
-                transform: ""
+                transform: case when "LIKP"."WAERK" in ('DEM','FRF') then 'EUR' else "LIKP"."WAERK" end
           - columnReference:
               columnCounter: 2000003537
               stepCounter: "200000044"
@@ -780,7 +780,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000598
                     stepCounter: "200000006"
-                transform: ""
+                transform: case when "LIKP"."STWAE" in ('DEM','FRF') then 'EUR' else "LIKP"."STWAE" end
           - columnReference:
               columnCounter: 2000003543
               stepCounter: "200000044"
@@ -1027,7 +1027,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000617
                     stepCounter: "200000006"
-                transform: ""
+                transform: case when "LIKP"."CMWAE" in ('DEM','FRF') then 'EUR' else "LIKP"."CMWAE" end
           - columnReference:
               columnCounter: 2000003562
               stepCounter: "200000044"
@@ -1417,7 +1417,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000000647
                     stepCounter: "200000006"
-                transform: ""
+                transform: case when "LIKP"."AKWAE" in ('DEM','FRF') then 'EUR' else "LIKP"."AKWAE" end
           - columnReference:
               columnCounter: 2000003592
               stepCounter: "200000044"

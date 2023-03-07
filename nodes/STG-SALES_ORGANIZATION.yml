@@ -57,7 +57,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002018
                     stepCounter: "200000034"
-                transform: ""
+                transform: case when "TVKO"."WAERS" in ('DEM','FRF') then 'EUR' else "TVKO"."WAERS" end
           - columnReference:
               columnCounter: 12175
               stepCounter: "70"

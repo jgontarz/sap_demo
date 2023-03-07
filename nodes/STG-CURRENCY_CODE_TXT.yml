@@ -52,7 +52,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001916
                     stepCounter: "200000025"
-                transform: ""
+                transform: case when "TCURT"."WAERS" in ('DEM','FRF') then 'EUR' else "TCURT"."WAERS" end
           - columnReference:
               columnCounter: 2000004861
               stepCounter: "200000063"

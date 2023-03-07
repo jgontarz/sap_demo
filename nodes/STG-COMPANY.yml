@@ -91,7 +91,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001675
                     stepCounter: "200000018"
-                transform: ""
+                transform: case when "T001"."WAERS" in ('DEM','FRF') then 'EUR' else "T001"."WAERS" end
           - columnReference:
               columnCounter: 2000004620
               stepCounter: "200000056"

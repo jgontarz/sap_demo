@@ -247,7 +247,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001333
                     stepCounter: "200000011"
-                transform: ""
+                transform: case when "QMEL"."WAERS" in ('DEM','FRF') then 'EUR' else "QMEL"."WAERS" end
           - columnReference:
               columnCounter: 2000004278
               stepCounter: "200000049"

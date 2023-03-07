@@ -91,7 +91,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002605
                     stepCounter: "200000038"
-                transform: ""
+                transform: case when "VBRK"."WAERK" in ('DEM','FRF') then 'EUR' else "VBRK"."WAERK" end
           - columnReference:
               columnCounter: 2000005550
               stepCounter: "200000076"
@@ -728,7 +728,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000002654
                     stepCounter: "200000038"
-                transform: ""
+                transform: case when "VBRK"."STWAE" in ('DEM','FRF') then 'EUR' else "VBRK"."STWAE" end
           - columnReference:
               columnCounter: 2000005599
               stepCounter: "200000076"

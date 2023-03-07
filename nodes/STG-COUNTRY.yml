@@ -702,7 +702,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001870
                     stepCounter: "200000020"
-                transform: ""
+                transform: case when "T005"."CURHA" in ('DEM','FRF') then 'EUR' else "T005"."CURHA" end
           - columnReference:
               columnCounter: 2000004815
               stepCounter: "200000058"
@@ -715,7 +715,7 @@ steps:
               - columnReferences:
                   - columnCounter: 2000001871
                     stepCounter: "200000020"
-                transform: ""
+                transform: case when "T005"."WAERS" in ('DEM','FRF') then 'EUR' else "T005"."WAERS" end
           - columnReference:
               columnCounter: 2000004816
               stepCounter: "200000058"
