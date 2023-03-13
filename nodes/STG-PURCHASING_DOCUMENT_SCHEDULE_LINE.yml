@@ -23,12 +23,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_ROWID
+            name: _FIVETRAN_ROWID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 57818
-                    stepCounter: "170"
+                  - columnCounter: 87541
+                    stepCounter: "218"
                 transform: ""
           - columnReference:
               columnCounter: 57895
@@ -1059,12 +1059,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 57892
-                    stepCounter: "170"
+                  - columnCounter: 87542
+                    stepCounter: "218"
                 transform: ""
           - columnReference:
               columnCounter: 57969
@@ -1073,12 +1073,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 57893
-                    stepCounter: "170"
+                  - columnCounter: 87543
+                    stepCounter: "218"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
@@ -1087,11 +1087,11 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: EKET
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'EKET') }} "EKET"
+                FROM {{ ref('RAW_NEW', 'EKET') }} "EKET"
                 WHERE "EKET"."MANDT" in ({{ parameters.fltrMandt }})
             name: PURCHASING_DOCUMENT_SCHEDULE_LINE
             noLinkRefs: []

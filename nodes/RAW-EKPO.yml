@@ -5784,6 +5784,111 @@ steps:
             nullable: false
             primaryKey: false
             uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86562
+              stepCounter: "168"
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: _BEV1_NEGEN_ITEM
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86563
+              stepCounter: "168"
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: _BEV1_NEDEPFREE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86564
+              stepCounter: "168"
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: _BEV1_NESTRUCCAT
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86565
+              stepCounter: "168"
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: _ACCGO_IS_CO_REL
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86566
+              stepCounter: "168"
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_ROWID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86567
+              stepCounter: "168"
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_DELETED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 86568
+              stepCounter: "168"
+            config: {}
+            dataType: TIMESTAMP_TZ(9)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_SYNCED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
         join:
           joinCondition: FROM {{ ref('RAW', 'EKPO') }}
       name: EKPO
