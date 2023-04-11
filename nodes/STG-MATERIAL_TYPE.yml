@@ -565,7 +565,8 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - customSQL:
+          - aliases: {}
+            customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
@@ -576,7 +577,10 @@ steps:
               joinCondition: |-
                 FROM {{ ref('RAW_NEW', 'T134') }} "T134"
                 INNER JOIN {{ ref('RAW_NEW', 'T134T') }} "T134T"
-                ON "T134"./*COLUMN*/ = "T134T"./*COLUMN*/
+                ON "T134"."MANDT" = "T134T"."MANDT"
+                AND "T134"."MTART" = "T134T"."MTART"
+                AND "T134T"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "T134"."MANDT" in ({{ parameters.fltrSpras }})
             name: MATERIAL_TYPE
             noLinkRefs: []
       name: MATERIAL_TYPE

@@ -2273,13 +2273,17 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - customSQL:
+          - aliases: {}
+            customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
                 nodeName: VBAK
             join:
-              joinCondition: FROM {{ ref('RAW_NEW', 'VBAK') }} "VBAK"
+              joinCondition: |-
+                FROM {{ ref('RAW_NEW', 'VBAK') }} "VBAK" 
+                WHERE 1=1 
+                AND "VBAK"."MANDT" in ({{ parameters.fltrMandt }}) 
             name: SALES_DOCUMENT_HEADER
             noLinkRefs: []
       name: SALES_DOCUMENT_HEADER

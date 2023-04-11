@@ -1,5 +1,5 @@
 steps:
-  BILLING_DOCUMENT_ITEM1-200000077:
+  BILLING_DOCUMENT_ITEM-200000077:
     operation:
       config:
         insertStrategy: UNION
@@ -3016,9 +3016,9 @@ steps:
                 FROM {{ ref('RAW_NEW', 'VBRP') }} "VBRP" 
                 WHERE 1=1 
                 AND "VBRP"."MANDT" in ({{ parameters.fltrMandt }})
-            name: BILLING_DOCUMENT_ITEM1
+            name: BILLING_DOCUMENT_ITEM
             noLinkRefs: []
-      name: BILLING_DOCUMENT_ITEM1
+      name: BILLING_DOCUMENT_ITEM
       overrideSQL: false
       sqlType: "1"
       type: sql

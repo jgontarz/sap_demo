@@ -3435,7 +3435,8 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - customSQL:
+          - aliases: {}
+            customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
@@ -3443,10 +3444,15 @@ steps:
               - locationName: RAW_NEW
                 nodeName: MARA
             join:
-              joinCondition: |-
+              joinCondition: |+
                 FROM {{ ref('RAW_NEW', 'MAKT') }} "MAKT"
                 INNER JOIN {{ ref('RAW_NEW', 'MARA') }} "MARA"
-                ON "MAKT"./*COLUMN*/ = "MARA"./*COLUMN*/
+                ON "MARA"."MANDT" = "MAKT"."MANDT"
+                AND "MARA"."MATNR" = "MAKT"."MATNR"
+                AND "MAKT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE 1=1 
+                AND "MARA"."MANDT" in ({{ parameters.fltrMandt }})
+
             name: MATERIAL
             noLinkRefs: []
       name: MATERIAL

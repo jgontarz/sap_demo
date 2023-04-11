@@ -66,9 +66,9 @@ steps:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
-                nodeName: DD07L
-              - locationName: RAW_NEW
                 nodeName: DD07T
+              - locationName: RAW_NEW
+                nodeName: DD07L
             join:
               joinCondition: |-
                 FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"

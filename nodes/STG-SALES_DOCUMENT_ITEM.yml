@@ -5465,13 +5465,16 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - customSQL:
+          - aliases: {}
+            customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
                 nodeName: VBAP
             join:
-              joinCondition: FROM {{ ref('RAW_NEW', 'VBAP') }} "VBAP"
+              joinCondition: |-
+                FROM {{ ref('RAW_NEW', 'VBAP') }} "VBAP" 
+                WHERE 1=1 AND "VBAP"."MANDT" in ({{ parameters.fltrMandt }})
             name: SALES_DOCUMENT_ITEM
             noLinkRefs: []
       name: SALES_DOCUMENT_ITEM

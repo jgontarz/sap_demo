@@ -453,18 +453,22 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - customSQL:
+          - aliases: {}
+            customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
-                nodeName: TVKO
-              - locationName: RAW_NEW
                 nodeName: TVKOT
+              - locationName: RAW_NEW
+                nodeName: TVKO
             join:
               joinCondition: |-
                 FROM {{ ref('RAW_NEW', 'TVKO') }} "TVKO"
                 INNER JOIN {{ ref('RAW_NEW', 'TVKOT') }} "TVKOT"
-                ON "TVKO"./*COLUMN*/ = "TVKOT"./*COLUMN*/
+                ON "TVKO"."MANDT" = "TVKOT"."MANDT"
+                AND "TVKO"."VKORG" = "TVKOT"."VKORG"
+                AND "TVKOT"."SPRAS" = {{ parameters.fltrSpras }}
+                WHERE "TVKO"."MANDT" in ({{ parameters.fltrMandt }})
             name: SALES_ORGANIZATION
             noLinkRefs: []
       name: SALES_ORGANIZATION

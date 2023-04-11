@@ -957,13 +957,17 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - customSQL:
+          - aliases: {}
+            customSQL:
               customSQL: ""
             dependencies:
               - locationName: RAW_NEW
                 nodeName: T001W
             join:
-              joinCondition: FROM {{ ref('RAW_NEW', 'T001W') }} "T001W"
+              joinCondition: |-
+                FROM {{ ref('RAW_NEW', 'T001W') }} "T001W" 
+                WHERE 1=1 
+                AND "T001W"."MANDT" in ({{ parameters.fltrMandt }} ) 
             name: PLANT
             noLinkRefs: []
       name: PLANT
