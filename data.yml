@@ -1,5 +1,26 @@
 defaultStorageMapping: BI
-jobs: {}
+jobs:
+  Job-1:
+    excludeSelector: ""
+    id: 1
+    includeSelector: "+{ location: BI name: D_* }"
+    name: Dimension Load
+    steps: []
+    subgraphs: []
+  Job-2:
+    excludeSelector: ""
+    id: 2
+    includeSelector: "+{ location: BI name: F_SALESORDER }"
+    name: Fact Salesorder
+    steps: []
+    subgraphs: []
+  Job-3:
+    excludeSelector: ""
+    id: 3
+    includeSelector: "+{ location: BI name: F_PURCHASING_ORDER }"
+    name: Fact Purchase Order
+    steps: []
+    subgraphs: []
 locations:
   ADMIN:
     mappingDefinitions: {}
