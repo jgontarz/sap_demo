@@ -761,12 +761,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001524
-                    stepCounter: "200000012"
+                  - columnCounter: 90351
+                    stepCounter: "262"
                 transform: ""
           - columnReference:
               columnCounter: 2000004469
@@ -774,23 +774,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001525
-                    stepCounter: "200000012"
+                  - columnCounter: 90352
+                    stepCounter: "262"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: QMFE
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'QMFE') }} "QMFE" 
+                FROM {{ ref('RAW_NEW', 'QMFE') }} "QMFE" 
                 WHERE 1=1 
                 AND "QMFE"."MANDT" in ({{ parameters.fltrMandt }})
             name: QUALITY_NOTIFICATION_ITEM

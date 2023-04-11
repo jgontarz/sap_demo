@@ -3,7 +3,11 @@ steps:
     operation:
       config:
         insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
         selectDistinct: false
+        testsEnabled: true
+        truncateBefore: true
       database: ""
       dependencies: []
       deployEnabled: true
@@ -12,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: view
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -25,8 +29,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 12173
-                    stepCounter: "70"
+                  - columnCounter: 15736e24-3b41-43a6-a44b-fd95dde4d2b5
+                    stepCounter: 509e30cc-207f-43d0-b0a8-1543eef07779
                 transform: ""
           - columnReference:
               columnCounter: 12238
@@ -39,8 +43,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 12205
-                    stepCounter: "70"
+                  - columnCounter: 93a8666e-0fba-44b3-a339-d540677f1ca1
+                    stepCounter: 509e30cc-207f-43d0-b0a8-1543eef07779
                 transform: ""
           - columnReference:
               columnCounter: 12211
@@ -53,8 +57,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 12175
-                    stepCounter: "70"
+                  - columnCounter: 720b6aa3-9741-4296-a8f0-7d589d99f392
+                    stepCounter: 509e30cc-207f-43d0-b0a8-1543eef07779
                 transform: ""
           - columnReference:
               columnCounter: 12224
@@ -67,14 +71,14 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 12188
-                    stepCounter: "70"
+                  - columnCounter: 8313074f-177d-43b0-8a5f-df2acba5928f
+                    stepCounter: 509e30cc-207f-43d0-b0a8-1543eef07779
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              SALES_ORGANIZATION: "70"
+              SALES_ORGANIZATION: 509e30cc-207f-43d0-b0a8-1543eef07779
             customSQL:
               customSQL: ""
             dependencies:
@@ -87,6 +91,6 @@ steps:
       name: D_SALES_ORGANIZATION
       overrideSQL: false
       schema: ""
-      sqlType: "1"
+      sqlType: Stage
       type: sql
     stepCounter: "71"

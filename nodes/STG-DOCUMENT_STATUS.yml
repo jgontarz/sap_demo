@@ -27,8 +27,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37623
-                    stepCounter: "160"
+                  - columnCounter: 87796
+                    stepCounter: "224"
                 transform: ""
           - columnReference:
               columnCounter: 37671
@@ -37,12 +37,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37627
-                    stepCounter: "160"
+                  - columnCounter: 87801
+                    stepCounter: "224"
                 transform: ""
           - columnReference:
               columnCounter: 37678
@@ -55,8 +55,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37634
-                    stepCounter: "161"
+                  - columnCounter: 87807
+                    stepCounter: "225"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
@@ -65,14 +65,14 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: DD07L
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: DD07T
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'DD07L') }} "DD07L"
-                LEFT JOIN {{ ref('RAW', 'DD07T') }} "DD07T"
+                FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
+                LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
                 ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
                 and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
                 and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}

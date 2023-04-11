@@ -3,7 +3,11 @@ steps:
     operation:
       config:
         insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
         selectDistinct: false
+        testsEnabled: true
+        truncateBefore: true
       database: ""
       dependencies: []
       deployEnabled: true
@@ -12,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: view
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -27,8 +31,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004696
-                    stepCounter: "200000057"
+                  - columnCounter: e4bdc2b4-aa09-4a50-a439-2a7d30dac890
+                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
                 transform: ""
           - columnReference:
               columnCounter: 12082
@@ -41,8 +45,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004697
-                    stepCounter: "200000057"
+                  - columnCounter: df134d42-93c3-44a3-af99-3ac5fd716ea6
+                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
                 transform: ""
           - columnReference:
               columnCounter: 12101
@@ -55,8 +59,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004716
-                    stepCounter: "200000057"
+                  - columnCounter: 68d62827-7d88-4861-9a15-db0d9de26132
+                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
@@ -75,6 +79,6 @@ steps:
       name: D_PLANT
       overrideSQL: false
       schema: ""
-      sqlType: "1"
+      sqlType: Stage
       type: sql
     stepCounter: "67"

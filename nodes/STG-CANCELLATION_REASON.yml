@@ -27,8 +27,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37590
-                    stepCounter: "156"
+                  - columnCounter: 91551
+                    stepCounter: "275"
                 transform: ""
           - columnReference:
               columnCounter: 37615
@@ -41,8 +41,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37591
-                    stepCounter: "156"
+                  - columnCounter: 91550
+                    stepCounter: "275"
                 transform: ""
           - columnReference:
               columnCounter: 37616
@@ -51,12 +51,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37592
-                    stepCounter: "156"
+                  - columnCounter: 91553
+                    stepCounter: "275"
                 transform: ""
           - columnReference:
               columnCounter: 37617
@@ -65,12 +65,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 37593
-                    stepCounter: "156"
+                  - columnCounter: 91554
+                    stepCounter: "275"
                 transform: ""
           - columnReference:
               columnCounter: 37610
@@ -93,14 +93,14 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: T165M
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: T165R
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'T165M') }} "T165M"
-                LEFT JOIN {{ ref('RAW', 'T165R') }} "T165R"
+                FROM {{ ref('RAW_NEW', 'T165M') }} "T165M"
+                LEFT JOIN {{ ref('RAW_NEW', 'T165R') }} "T165R"
                 ON "T165M"."MANDT" = "T165R"."MANDT"
                 and "T165M"."ABSGR" = "T165R"."ABSGR"
                 where "T165M"."SPRAS" = {{ parameters.fltrSpras }}

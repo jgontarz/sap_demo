@@ -3,7 +3,11 @@ steps:
     operation:
       config:
         insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
         selectDistinct: false
+        testsEnabled: true
+        truncateBefore: true
       database: ""
       dependencies: []
       deployEnabled: true
@@ -12,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: view
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -481,7 +485,7 @@ steps:
               columnCounter: 83293
               stepCounter: "196"
             config: {}
-            dataType: ""
+            dataType: NUMBER
             defaultValue: ""
             description: ""
             keyColumnType: None
@@ -508,7 +512,7 @@ steps:
               columnCounter: 83295
               stepCounter: "196"
             config: {}
-            dataType: ""
+            dataType: NUMBER
             defaultValue: ""
             description: ""
             keyColumnType: None
@@ -550,7 +554,7 @@ steps:
               columnCounter: 83297
               stepCounter: "196"
             config: {}
-            dataType: ""
+            dataType: NUMBER
             defaultValue: ""
             description: ""
             keyColumnType: None
@@ -572,7 +576,7 @@ steps:
         enabledColumnTestIDs: []
         sourceMapping:
           - aliases:
-              COMPANY: "200000056"
+              COMPANY: 100cc3c7-b800-47a0-9575-5721229fe792
               PURCHASING_DOCUMENT_HEADER: "167"
               PURCHASING_DOCUMENT_ITEM: "169"
               PURCHASING_DOCUMENT_OVERVIEW: "191"
@@ -581,13 +585,13 @@ steps:
               customSQL: ""
             dependencies:
               - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
+              - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_HEADER
               - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_ITEM
               - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_OVERVIEW
-              - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
               - locationName: STG
                 nodeName: COMPANY
             join:
@@ -608,6 +612,6 @@ steps:
       name: F_PURCHASING_ORDER
       overrideSQL: false
       schema: ""
-      sqlType: "1"
+      sqlType: Stage
       type: sql
     stepCounter: "196"

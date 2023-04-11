@@ -1,5 +1,5 @@
 steps:
-  SALES_DOCUMENT_REJECTION_REASON-68:
+  SALES_DOCUMENT_REJECTION_REASON-371e1915-bb7a-4730-b5ed-1b84fa7e3baf:
     operation:
       config:
         insertStrategy: UNION
@@ -17,23 +17,9 @@ steps:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 12147
-              stepCounter: "68"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001990
-                    stepCounter: "200000030"
-                transform: ""
-          - columnReference:
-              columnCounter: 12148
-              stepCounter: "68"
-            dataType: char(2)
+              columnCounter: d007a104-134d-4c17-8630-54aff85e2f33
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -41,140 +27,150 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001991
-                    stepCounter: "200000030"
+                  - columnCounter: 89218
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12149
-              stepCounter: "68"
-            dataType: char(1)
+              columnCounter: 5e09660f-0a6d-45ed-a815-d5e8f53fb9b7
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 89219
+                    stepCounter: "236"
+                transform: ""
+          - columnReference:
+              columnCounter: da06a609-6579-4f1b-ac01-1526fc027f62
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
             name: NOT_RELEVANT_PRINTING
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001992
-                    stepCounter: "200000030"
+                  - columnCounter: 89220
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12150
-              stepCounter: "68"
-            dataType: char(1)
+              columnCounter: 167e90ef-fdf3-4539-8792-47ddef16fc9e
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
             name: RESOURCE_ITEM_OPEN_AGAIN
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001993
-                    stepCounter: "200000030"
+                  - columnCounter: 89221
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12151
-              stepCounter: "68"
-            dataType: char(1)
+              columnCounter: ae65a0fa-e996-4287-b6a2-daab6e0d0bf7
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
             name: NOT_RELEVANT_BILLING
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001994
-                    stepCounter: "200000030"
+                  - columnCounter: 89222
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12152
-              stepCounter: "68"
-            dataType: char(1)
+              columnCounter: 2ce5de2a-cbf4-40b0-8d31-b4fb47979c83
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
             name: STATISTICAL_VALUES
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001995
-                    stepCounter: "200000030"
+                  - columnCounter: 89223
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12153
-              stepCounter: "68"
-            dataType: char(1)
+              columnCounter: 71d17d85-5e9e-4baf-b0cc-6ded753c770d
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
             name: RELEVANT_PARTIAL_QUANTITY_REJECTION
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001996
-                    stepCounter: "200000030"
+                  - columnCounter: 89224
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12154
-              stepCounter: "68"
-            dataType: NUMBER(38,0)
+              columnCounter: 871e8810-a382-486c-819a-5b6ee0844b17
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: BOOLEAN
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_IS_DELETED
-            nullable: false
+            name: _FIVETRAN_DELETED
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001997
-                    stepCounter: "200000030"
+                  - columnCounter: 89226
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12155
-              stepCounter: "68"
-            dataType: TIMESTAMP_TZ(3)
+              columnCounter: f20f265f-0e8f-4429-94ad-77a5e6ca93df
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: TIMESTAMP_TZ(9)
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_CHANGE_TIME
-            nullable: false
+            name: _FIVETRAN_SYNCED
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001998
-                    stepCounter: "200000030"
+                  - columnCounter: 89227
+                    stepCounter: "236"
                 transform: ""
           - columnReference:
-              columnCounter: 12159
-              stepCounter: "68"
-            dataType: char(40)
+              columnCounter: 465b8a70-9a0a-4b85-af04-b38729f9e01c
+              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
             name: DESCRIPTION
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002002
-                    stepCounter: "200000031"
+                  - columnCounter: 89231
+                    stepCounter: "237"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases: {}
-            customSQL:
+          - customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: TVAG
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: TVAGT
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'TVAG') }} "TVAG"
-                INNER JOIN {{ ref('RAW', 'TVAGT') }} "TVAGT"
-                ON "TVAG"."MANDT" = "TVAGT"."MANDT"
-                AND "TVAG"."ABGRU" = "TVAGT"."ABGRU"
-                AND "TVAGT"."SPRAS" = {{ parameters.fltrSpras }}
-                WHERE "TVAG"."MANDT" in ({{ parameters.fltrMandt }})
+                FROM {{ ref('RAW_NEW', 'TVAG') }} "TVAG"
+                INNER JOIN {{ ref('RAW_NEW', 'TVAGT') }} "TVAGT"
+                ON "TVAG"./*COLUMN*/ = "TVAGT"./*COLUMN*/
             name: SALES_DOCUMENT_REJECTION_REASON
             noLinkRefs: []
       name: SALES_DOCUMENT_REJECTION_REASON
@@ -182,4 +178,4 @@ steps:
       schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "68"
+    stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf

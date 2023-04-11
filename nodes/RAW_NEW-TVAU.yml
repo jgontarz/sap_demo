@@ -1,0 +1,109 @@
+steps:
+  TVAU-246:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: RAW_NEW
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89956
+              stepCounter: 246
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: AUGRU
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89957
+              stepCounter: 246
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: MANDT
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89958
+              stepCounter: 246
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: VAUNA
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89959
+              stepCounter: 246
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_ROWID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89960
+              stepCounter: 246
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_DELETED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89961
+              stepCounter: 246
+            config: {}
+            dataType: TIMESTAMP_TZ(9)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_SYNCED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('RAW_NEW', 'TVAU') }}
+      name: TVAU
+      schema: ""
+      sqlType: Source
+      table: TVAU
+      type: sourceInput
+    stepCounter: "246"

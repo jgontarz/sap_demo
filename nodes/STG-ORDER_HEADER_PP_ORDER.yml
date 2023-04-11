@@ -2191,12 +2191,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000218
-                    stepCounter: "200000003"
+                  - columnCounter: 91327
+                    stepCounter: "268"
                 transform: ""
           - columnReference:
               columnCounter: 2000003163
@@ -2204,23 +2204,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000219
-                    stepCounter: "200000003"
+                  - columnCounter: 91328
+                    stepCounter: "268"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: AFKO
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'AFKO') }} "AFKO" 
+                FROM {{ ref('RAW_NEW', 'AFKO') }} "AFKO" 
                 WHERE 1=1 
                 AND "AFKO"."MANDT" in ({{ parameters.fltrMandt }})
             name: ORDER_HEADER_PP_ORDER

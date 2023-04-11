@@ -23,12 +23,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_ROWID
+            name: _FIVETRAN_ROWID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65835
-                    stepCounter: "180"
+                  - columnCounter: 88493
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65851
@@ -41,8 +41,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65836
-                    stepCounter: "180"
+                  - columnCounter: 88482
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65852
@@ -55,8 +55,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65837
-                    stepCounter: "180"
+                  - columnCounter: 88481
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65853
@@ -69,8 +69,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65838
-                    stepCounter: "180"
+                  - columnCounter: 88483
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65854
@@ -83,8 +83,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65839
-                    stepCounter: "180"
+                  - columnCounter: 88484
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65855
@@ -97,8 +97,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65840
-                    stepCounter: "180"
+                  - columnCounter: 88485
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65856
@@ -111,8 +111,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65841
-                    stepCounter: "180"
+                  - columnCounter: 88486
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65857
@@ -125,8 +125,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65842
-                    stepCounter: "180"
+                  - columnCounter: 88487
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65858
@@ -139,8 +139,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65843
-                    stepCounter: "180"
+                  - columnCounter: 88488
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65859
@@ -153,8 +153,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65844
-                    stepCounter: "180"
+                  - columnCounter: 88489
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65860
@@ -167,8 +167,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65845
-                    stepCounter: "180"
+                  - columnCounter: 88490
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65861
@@ -181,8 +181,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65846
-                    stepCounter: "180"
+                  - columnCounter: 88491
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65862
@@ -195,8 +195,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65847
-                    stepCounter: "180"
+                  - columnCounter: 88492
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65863
@@ -205,12 +205,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65848
-                    stepCounter: "180"
+                  - columnCounter: 88494
+                    stepCounter: "229"
                 transform: ""
           - columnReference:
               columnCounter: 65864
@@ -219,12 +219,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 65849
-                    stepCounter: "180"
+                  - columnCounter: 88495
+                    stepCounter: "229"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
@@ -233,11 +233,11 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: T024E
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'T024E') }} "T024E"
+                FROM {{ ref('RAW_NEW', 'T024E') }} "T024E"
                 WHERE "T024E"."MANDT" in ({{ parameters.fltrMandt }})
             name: PURCHASING_ORGANIZATON
             noLinkRefs: []

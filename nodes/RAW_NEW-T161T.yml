@@ -1,0 +1,139 @@
+steps:
+  T161T-222:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: RAW_NEW
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87726
+              stepCounter: 222
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: BSART
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87727
+              stepCounter: 222
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: BSTYP
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87728
+              stepCounter: 222
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: MANDT
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87729
+              stepCounter: 222
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: SPRAS
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87730
+              stepCounter: 222
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: BATXT
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87731
+              stepCounter: 222
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_ROWID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87732
+              stepCounter: 222
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_DELETED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 87733
+              stepCounter: 222
+            config: {}
+            dataType: TIMESTAMP_TZ(9)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_SYNCED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('RAW_NEW', 'T161T') }}
+      name: T161T
+      schema: ""
+      sqlType: Source
+      table: T161T
+      type: sourceInput
+    stepCounter: "222"

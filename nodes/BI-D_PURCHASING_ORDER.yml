@@ -3,7 +3,11 @@ steps:
     operation:
       config:
         insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
         selectDistinct: false
+        testsEnabled: true
+        truncateBefore: true
       database: ""
       dependencies: []
       deployEnabled: true
@@ -12,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: view
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -197,15 +201,15 @@ steps:
               customSQL: ""
             dependencies:
               - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_CATEGORY
-              - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_HEADER
+              - locationName: STG
+                nodeName: PURCHASING_GROUP
               - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_STATUS
               - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_TYPE
+                nodeName: PURCHASING_DOCUMENT_CATEGORY
               - locationName: STG
-                nodeName: PURCHASING_GROUP
+                nodeName: PURCHASING_DOCUMENT_TYPE
             join:
               joinCondition: |
                 FROM {{ ref('STG', 'PURCHASING_DOCUMENT_HEADER') }} "PURCHASING_DOCUMENT_HEADER"
@@ -223,6 +227,6 @@ steps:
       name: D_PURCHASING_ORDER
       overrideSQL: false
       schema: ""
-      sqlType: "1"
+      sqlType: Stage
       type: sql
     stepCounter: "193"

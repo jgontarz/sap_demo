@@ -109,7 +109,7 @@ stepTypes:
             {% endif %}
         run:
           templateString: ""
-    name: View - Whitespace
+    name: View
     version: 1
   StepType-3:
     id: "3"
@@ -2583,5 +2583,105 @@ stepTypes:
             {% endif %}
     name: Persistent Stage
     version: 1
-subgraphs: {}
+subgraphs:
+  Subgraph-1:
+    id: "1"
+    name: D_PURCHASING_ORDER
+    steps:
+      - "193"
+      - "165"
+      - "167"
+      - "172"
+      - "175"
+      - "179"
+      - "193"
+      - "221"
+      - "222"
+      - "223"
+      - "224"
+      - "225"
+      - "226"
+  Subgraph-10:
+    id: "10"
+    name: Dimensions and Facts
+    steps:
+      - "58"
+      - "66"
+      - "67"
+      - "69"
+      - "71"
+      - "77"
+      - "192"
+      - "193"
+      - "194"
+      - "196"
+  Subgraph-2:
+    id: "2"
+    name: F_PURCHASING_ORDER
+    steps:
+      - "167"
+      - "171"
+      - "177"
+      - "191"
+      - "195"
+      - "196"
+      - "218"
+      - "219"
+      - "220"
+      - "226"
+  Subgraph-3:
+    id: "3"
+    name: D_VENDOR
+    steps:
+      - "188"
+      - "194"
+      - "228"
+  Subgraph-4:
+    id: "4"
+    name: D_PURCHASING_ORGANIZATION
+    steps:
+      - "181"
+      - "192"
+      - "229"
+  Subgraph-5:
+    id: "5"
+    name: F_SALESORDER
+    steps:
+      - "73"
+      - "75"
+      - "77"
+      - "230"
+      - "231"
+      - "232"
+      - "233"
+  Subgraph-6:
+    id: "6"
+    name: D_SALES_ORGANIZATION
+    steps:
+      - "71"
+      - "234"
+      - "235"
+  Subgraph-7:
+    id: "7"
+    name: D_REJECTION_REASON
+    steps:
+      - "69"
+      - "236"
+      - "237"
+  Subgraph-8:
+    id: "8"
+    name: D_PLANT
+    steps:
+      - "67"
+      - "238"
+  Subgraph-9:
+    id: "9"
+    name: D_MATERIAL
+    steps:
+      - "66"
+      - "239"
+      - "240"
+      - "241"
+      - "242"
+      - "200000047"
 version: 1

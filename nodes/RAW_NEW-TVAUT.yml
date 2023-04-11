@@ -1,0 +1,124 @@
+steps:
+  TVAUT-245:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationID: ""
+      locationName: RAW_NEW
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89949
+              stepCounter: 245
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: AUGRU
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89950
+              stepCounter: 245
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: MANDT
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89951
+              stepCounter: 245
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: SPRAS
+            nullable: false
+            primaryKey: true
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89952
+              stepCounter: 245
+            config: {}
+            dataType: VARCHAR(256)
+            defaultValue: ""
+            description: ""
+            name: BEZEI
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89953
+              stepCounter: 245
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_ROWID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89954
+              stepCounter: 245
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_DELETED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 89955
+              stepCounter: 245
+            config: {}
+            dataType: TIMESTAMP_TZ(9)
+            defaultValue: ""
+            description: ""
+            name: _FIVETRAN_SYNCED
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('RAW_NEW', 'TVAUT') }}
+      name: TVAUT
+      schema: ""
+      sqlType: Source
+      table: TVAUT
+      type: sourceInput
+    stepCounter: "245"

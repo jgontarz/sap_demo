@@ -72,12 +72,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001988
-                    stepCounter: "200000029"
+                  - columnCounter: 89967
+                    stepCounter: "247"
                 transform: ""
           - columnReference:
               columnCounter: 2000004933
@@ -85,23 +85,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001989
-                    stepCounter: "200000029"
+                  - columnCounter: 89968
+                    stepCounter: "247"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: TSPAT
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'TSPAT') }} "TSPAT" 
+                FROM {{ ref('RAW_NEW', 'TSPAT') }} "TSPAT" 
                 WHERE 1=1 
                 AND "TSPAT"."MANDT" in ({{ parameters.fltrMandt }})
             name: SALES_DIVISION_TXT

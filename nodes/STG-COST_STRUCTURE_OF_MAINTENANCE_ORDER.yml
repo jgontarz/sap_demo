@@ -397,12 +397,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001314
-                    stepCounter: "200000010"
+                  - columnCounter: 90535
+                    stepCounter: "264"
                 transform: ""
           - columnReference:
               columnCounter: 2000004259
@@ -410,23 +410,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001315
-                    stepCounter: "200000010"
+                  - columnCounter: 90536
+                    stepCounter: "264"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: PMCO
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'PMCO') }} "PMCO" 
+                FROM {{ ref('RAW_NEW', 'PMCO') }} "PMCO" 
                 WHERE 1=1 
                 AND "PMCO"."MANDT" in ({{ parameters.fltrMandt }})
             name: COST_STRUCTURE_OF_MAINTENANCE_ORDER

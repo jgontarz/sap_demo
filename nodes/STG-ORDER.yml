@@ -1363,8 +1363,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000323
-                    stepCounter: "200000004"
+                  - columnCounter: 91137
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003268
@@ -1376,8 +1376,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000324
-                    stepCounter: "200000004"
+                  - columnCounter: 91138
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003269
@@ -1389,8 +1389,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000325
-                    stepCounter: "200000004"
+                  - columnCounter: 91139
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003270
@@ -1402,8 +1402,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000326
-                    stepCounter: "200000004"
+                  - columnCounter: 91140
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003271
@@ -1415,8 +1415,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000327
-                    stepCounter: "200000004"
+                  - columnCounter: 91141
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003272
@@ -1428,8 +1428,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000328
-                    stepCounter: "200000004"
+                  - columnCounter: 91142
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003273
@@ -1441,8 +1441,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000329
-                    stepCounter: "200000004"
+                  - columnCounter: 91143
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003274
@@ -1454,8 +1454,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000330
-                    stepCounter: "200000004"
+                  - columnCounter: 91144
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003275
@@ -1467,8 +1467,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000331
-                    stepCounter: "200000004"
+                  - columnCounter: 91145
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003276
@@ -1480,8 +1480,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000332
-                    stepCounter: "200000004"
+                  - columnCounter: 91146
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003277
@@ -1493,8 +1493,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000333
-                    stepCounter: "200000004"
+                  - columnCounter: 91147
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003278
@@ -1506,8 +1506,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000334
-                    stepCounter: "200000004"
+                  - columnCounter: 91148
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003279
@@ -1606,12 +1606,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000342
-                    stepCounter: "200000004"
+                  - columnCounter: 91157
+                    stepCounter: "267"
                 transform: ""
           - columnReference:
               columnCounter: 2000003287
@@ -1619,23 +1619,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000343
-                    stepCounter: "200000004"
+                  - columnCounter: 91158
+                    stepCounter: "267"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: AUFK
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'AUFK') }} "AUFK" 
+                FROM {{ ref('RAW_NEW', 'AUFK') }} "AUFK" 
                 WHERE 1=1 
                 AND "AUFK"."MANDT" in ({{ parameters.fltrMandt }})
             name: ORDER

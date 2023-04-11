@@ -3,7 +3,11 @@ steps:
     operation:
       config:
         insertStrategy: UNION
+        postSQL: ""
+        preSQL: ""
         selectDistinct: false
+        testsEnabled: true
+        truncateBefore: true
       database: ""
       dependencies: []
       deployEnabled: true
@@ -12,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: view
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -27,8 +31,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000003987
-                    stepCounter: "200000047"
+                  - columnCounter: b9162eca-826b-4ff0-afb9-a000262eea7b
+                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
                 transform: LTRIM("MATERIAL"."MATERIAL_ID",'0')
           - columnReference:
               columnCounter: 12076
@@ -41,8 +45,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 11655
-                    stepCounter: "200000047"
+                  - columnCounter: 3ce4cf09-a56e-4dcc-bbc3-b6c98ff5bb71
+                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
                 transform: ""
           - columnReference:
               columnCounter: 12077
@@ -53,8 +57,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 11789
-                    stepCounter: "65"
+                  - columnCounter: 94029c59-3126-4af8-b4af-8e9a48da259d
+                    stepCounter: e60374d2-0371-4d1d-bf90-0cb33306682e
                 transform: ""
           - columnReference:
               columnCounter: 12078
@@ -65,8 +69,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 11830
-                    stepCounter: "65"
+                  - columnCounter: 21c0d976-5aaf-47f3-958a-086ed92f9967
+                    stepCounter: e60374d2-0371-4d1d-bf90-0cb33306682e
                 transform: ""
           - columnReference:
               columnCounter: 11846
@@ -79,8 +83,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000003999
-                    stepCounter: "200000047"
+                  - columnCounter: 8babb788-a28e-4111-8eca-9396218d8da9
+                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
                 transform: ""
           - columnReference:
               columnCounter: 11862
@@ -93,8 +97,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004015
-                    stepCounter: "200000047"
+                  - columnCounter: 6d445789-e17e-4ecc-89b2-b6671fc8cab9
+                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
                 transform: ""
           - columnReference:
               columnCounter: 11864
@@ -107,8 +111,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004017
-                    stepCounter: "200000047"
+                  - columnCounter: 7c5e0540-d59e-46c3-9fea-c23e1fdbafce
+                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
                 transform: ""
           - columnReference:
               columnCounter: 12079
@@ -119,8 +123,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000003987
-                    stepCounter: "200000047"
+                  - columnCounter: b9162eca-826b-4ff0-afb9-a000262eea7b
+                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
@@ -145,6 +149,6 @@ steps:
       name: D_MATERIAL
       overrideSQL: false
       schema: ""
-      sqlType: "1"
+      sqlType: Stage
       type: sql
     stepCounter: "66"

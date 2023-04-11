@@ -618,12 +618,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001978
-                    stepCounter: "200000027"
+                  - columnCounter: 90021
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
               columnCounter: 2000004923
@@ -631,23 +631,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001979
-                    stepCounter: "200000027"
+                  - columnCounter: 90022
+                    stepCounter: "249"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: TKA01
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'TKA01') }} "TKA01" 
+                FROM {{ ref('RAW_NEW', 'TKA01') }} "TKA01" 
                 WHERE 1=1 
                 AND "TKA01"."MANDT" in ({{ parameters.fltrMandt }})
             name: CONTROLLING_AREA

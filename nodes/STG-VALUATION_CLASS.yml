@@ -27,8 +27,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81664
-                    stepCounter: "184"
+                  - columnCounter: 91533
+                    stepCounter: "272"
                 transform: ""
           - columnReference:
               columnCounter: 81678
@@ -41,8 +41,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81665
-                    stepCounter: "184"
+                  - columnCounter: 91531
+                    stepCounter: "272"
                 transform: ""
           - columnReference:
               columnCounter: 81679
@@ -55,8 +55,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81666
-                    stepCounter: "184"
+                  - columnCounter: 91530
+                    stepCounter: "272"
                 transform: ""
           - columnReference:
               columnCounter: 81680
@@ -69,8 +69,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81667
-                    stepCounter: "184"
+                  - columnCounter: 91532
+                    stepCounter: "272"
                 transform: ""
           - columnReference:
               columnCounter: 81681
@@ -79,12 +79,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81668
-                    stepCounter: "184"
+                  - columnCounter: 91534
+                    stepCounter: "272"
                 transform: ""
           - columnReference:
               columnCounter: 81682
@@ -93,12 +93,12 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81669
-                    stepCounter: "184"
+                  - columnCounter: 91535
+                    stepCounter: "272"
                 transform: ""
           - columnReference:
               columnCounter: 81687
@@ -111,8 +111,8 @@ steps:
             nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 81674
-                    stepCounter: "185"
+                  - columnCounter: 91539
+                    stepCounter: "273"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
@@ -121,14 +121,14 @@ steps:
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: T025
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: T025T
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'T025') }} "T025"
-                LEFT JOIN {{ ref('RAW', 'T025T') }} "T025T"
+                FROM {{ ref('RAW_NEW', 'T025') }} "T025"
+                LEFT JOIN {{ ref('RAW_NEW', 'T025T') }} "T025T"
                 ON "T025"."MANDT" = "T025T"."MANDT"
                 AND "T025"."BKLAS" = "T025T"."BKLAS"
                 AND "T025T"."SPRAS" = {{ parameters.fltrSpras }}

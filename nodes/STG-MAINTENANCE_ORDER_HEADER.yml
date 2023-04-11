@@ -596,8 +596,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000046
-                    stepCounter: "200000002"
+                  - columnCounter: 91373
+                    stepCounter: "269"
                 transform: ""
           - columnReference:
               columnCounter: 2000002991
@@ -609,8 +609,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000047
-                    stepCounter: "200000002"
+                  - columnCounter: 91374
+                    stepCounter: "269"
                 transform: ""
           - columnReference:
               columnCounter: 2000002992
@@ -631,12 +631,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000049
-                    stepCounter: "200000002"
+                  - columnCounter: 91377
+                    stepCounter: "269"
                 transform: ""
           - columnReference:
               columnCounter: 2000002994
@@ -644,23 +644,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000000050
-                    stepCounter: "200000002"
+                  - columnCounter: 91378
+                    stepCounter: "269"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: AFIH
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'AFIH') }} "AFIH" 
+                FROM {{ ref('RAW_NEW', 'AFIH') }} "AFIH" 
                 WHERE 1=1 
                 AND "AFIH"."MANDT" in ({{ parameters.fltrMandt }})
             name: MAINTENANCE_ORDER_HEADER

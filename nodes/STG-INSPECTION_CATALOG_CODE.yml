@@ -215,12 +215,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001643
-                    stepCounter: "200000015"
+                  - columnCounter: 90187
+                    stepCounter: "259"
                 transform: ""
           - columnReference:
               columnCounter: 2000004588
@@ -228,23 +228,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001644
-                    stepCounter: "200000015"
+                  - columnCounter: 90188
+                    stepCounter: "259"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: QPCD
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'QPCD') }} "QPCD" 
+                FROM {{ ref('RAW_NEW', 'QPCD') }} "QPCD" 
                 WHERE 1=1 
                 AND "QPCD"."MANDT" in ({{ parameters.fltrMandt }})
             name: INSPECTION_CATALOG_CODE

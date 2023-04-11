@@ -631,12 +631,12 @@ steps:
             dataType: NUMBER(38,0)
             defaultValue: ""
             description: ""
-            name: HVR_IS_DELETED
+            name: _FIVETRAN_DELETED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001573
-                    stepCounter: "200000013"
+                  - columnCounter: 90291
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
               columnCounter: 2000004518
@@ -644,23 +644,23 @@ steps:
             dataType: TIMESTAMP_TZ(3)
             defaultValue: ""
             description: ""
-            name: HVR_CHANGE_TIME
+            name: _FIVETRAN_SYNCED
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001574
-                    stepCounter: "200000013"
+                  - columnCounter: 90292
+                    stepCounter: "261"
                 transform: ""
         sourceMapping:
           - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
-              - locationName: RAW
+              - locationName: RAW_NEW
                 nodeName: QMIH
             join:
               joinCondition: |-
-                FROM {{ ref('RAW', 'QMIH') }} "QMIH" 
+                FROM {{ ref('RAW_NEW', 'QMIH') }} "QMIH" 
                 WHERE 1=1 
                 AND "QMIH"."MANDT" in ({{ parameters.fltrMandt }})
             name: QUALITY_MESSAGE_MAINTENANCE_EXCERPT
