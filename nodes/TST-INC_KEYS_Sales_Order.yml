@@ -56,7 +56,7 @@ steps:
                 nodeName: STG_INC_Sales_Document_Header_Status
             join:
               joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }} "STG_INC_Sales_Document_Header_Status"
-            name: STG_INC_Sales_Document_Header_Status
+            name: "0"
             noLinkRefs: []
           - aliases:
               STG_INC_Sales_Document_Header: "115"
@@ -67,7 +67,7 @@ steps:
                 nodeName: STG_INC_Sales_Document_Header
             join:
               joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header') }} "STG_INC_Sales_Document_Header"
-            name: STG_INC_Sales_Document_Header
+            name: "2"
             noLinkRefs: []
           - aliases:
               STG_INC_Sales_Document_Item: "131"
@@ -78,7 +78,7 @@ steps:
                 nodeName: STG_INC_Sales_Document_Item
             join:
               joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item') }} "STG_INC_Sales_Document_Item"
-            name: STG_INC_Sales_Document_Item
+            name: "3"
             noLinkRefs: []
           - aliases:
               STG_INC_Sales_Document_Item_Status: "114"
@@ -89,7 +89,7 @@ steps:
                 nodeName: STG_INC_Sales_Document_Item_Status
             join:
               joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item_Status') }} "STG_INC_Sales_Document_Item_Status"
-            name: STG_INC_Sales_Document_Item_Status
+            name: "4"
             noLinkRefs: []
       name: INC_KEYS_Sales_Order
       overrideSQL: false

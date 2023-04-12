@@ -116,70 +116,59 @@ stepTypes:
       defaultStorageLocation: null
       error: null
       nodeMetadataSpec: |
-        capitalized: Copy of Stage
-        short: STG
+        capitalized: Group Load
+        short: GL
         plural: Stages
-        tagColor: '#2EB67D'
+        tagColor: blue
 
         config:
         - groupName: Options
           items:
-          - type: materializationSelector
-            default: table
-            options:
-            - table
-            - view
+          - type: textBox
+            default: Enter double-quote list of join key columns seperated by commas.  Ex. "col1","COL1"
             isRequired: true
 
-          - type: multisourceToggle
-            enableIf: "{% if node.materializationType == 'table' %} true {% else %} false {% endif %}" 
+        systemColumns:
+        - displayName: 'LOAD_GROUP_NAME'
+          transform: ""
+          dataType: string
+          placement: start
+          attributeName: ldGrpNm
 
-          - type: overrideSQLToggle
-            enableIf: "{% if node.materializationType == 'view' %} true {% else %} false {% endif %}"
-            
-          - displayName: Multi Source Strategy
-            attributeName: insertStrategy
-            type: dropdownSelector
-            default: INSERT
-            options:
-            - "INSERT"
-            - "UNION"
-            - "UNION ALL"
-            isRequired: true
-            enableIf: "{% if node.isMultisource %} true {% else %} false {% endif %}"
+        - displayName: 'SOURCE_OBJECT_NAME'
+          transform: ""
+          dataType: string
+          placement: start
+          attributeName: ldSrcNm
 
-          - displayName: Truncate Before
-            attributeName: truncateBefore
-            type: toggleButton
-            default: true
+        - displayName: 'SOURCE_OBJECT_POLL_TIME'
+          transform: ""
+          dataType: timestamp_ntz
+          placement: start
+          attributeName: ldSrcPollTm
 
-          - displayName: Enable Tests
-            attributeName: testsEnabled
-            type: toggleButton
-            default: true
-            
-          - displayName: Pre-SQL
-            attributeName: preSQL
-            type: textBox
-            syntax: sql
-            isRequired: false
+        - displayName: 'INCREMENTAL_ROWS'
+          transform: ""
+          dataType: number
+          placement: start
+          attributeName: ldSrcIncRow
 
-          - displayName: Post-SQL
-            attributeName: postSQL
-            type: textBox
-            syntax: sql
-            isRequired: false
+        - displayName: 'LOAD_COMPLETION_TIME'
+          transform: ""
+          dataType: timestamp_ntz
+          placement: start
+          attributeName: ldGrpCmpTm
       templates:
         create:
           templateString: |
-            {% if node.override.create.enabled %}
-            	
-            	{{ node.override.create.script }}
+            {% set tgtStrLoc = node.location.name %}
+            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
+            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
+            {% set tgtTbl = 'TABLE_HIGH_WATERMARK' %}
+            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
 
-            {% elif node.materializationType == 'table' %}
-            	{{ stage('Create Stage Table') }}
-
-            	CREATE OR REPLACE TABLE {{ ref_no_link(node.location.name, node.name) }}
+            {{ stage('Create Stage Table') }}
+            CREATE TABLE IF NOT EXISTS {{ fqTgtTblName}}
             	(
             		{% for col in columns %}
             			"{{ col.name }}" {{ col.dataType }}
@@ -312,7 +301,121 @@ stepTypes:
             		{% endfor %}
             	{% endfor %}
             {% endif %}
-    name: Copy of Stage
+    name: GL SYS
+    version: 1
+  StepType-12:
+    id: "12"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |
+        capitalized: Copy of Group Load
+        short: GL
+        plural: Stages
+        tagColor: blue
+
+        config:
+        - groupName: Options
+          items:
+          - displayName: Table Join
+            attributeName: tblJoin
+            type: columnSelector
+            default: Select column(s) that uniquely identify records across tables
+            isRequired: true
+
+          - displayName: Common High Watermark column.
+            attributeName: tblHw
+            type: textBox
+            default: Enter double-quoted column that identifies load time.  Ex. "col1" or "COL1"
+            isRequired: true
+
+          - displayName: Enable Tests
+            attributeName: testsEnabled
+            type: toggleButton
+            default: true
+            
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+      templates:
+        create:
+          templateString: |+
+            {# Basic Target Info #}
+            {% set tgtStrLoc = node.location.name %}
+            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
+            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
+            {% set tgtTbl = node.name %}
+            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
+
+            {# High Watermark Table #}
+            {% set hwLogTbl = 'GROUPED_TABLE_LOAD_HIGH_WATERMARK' %}
+            {%- set fqHwTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + hwLogTbl + '"' -%} 
+
+
+
+            {{ stage('Create high watermark table if it does not exist') }}
+            CREATE TABLE IF NOT EXISTS {{ fqHwTblName }}
+                (
+                 "LOAD_GROUP_NAME" STRING,
+                 "SOURCE_NAME" STRING,
+                 "SOURCE_TABLE_POLL_TIME" timestamp_tz(3),
+                 "MAX_LOAD_CHANGE_TIME" TIMESTAMP_TZ(3),
+                 "INCREMENTAL_ROWS" number,
+                 "LOAD_COMPLETION_TIME" TIMESTAMP_TZ(3)
+                ) COMMENT = 'Sales Document: Item Data'
+
+
+            {{ stage('Create Target Table') }}
+            CREATE TABLE IF NOT EXISTS {{ fqTgtTblName}}
+            	(
+            		{% for col in columns %}
+            			"{{ col.name }}" {{ col.dataType }}
+            			{%- if not col.nullable %} NOT NULL
+            				{%- if col.defaultValue | length > 0 %} DEFAULT {{ col.defaultValue }}{% endif %}
+            			{% endif %}
+            			{%- if col.description | length > 0 %} COMMENT '{{ col.description | escape }}'{% endif %}
+            			{%- if not loop.last -%}, {% endif %}
+            		{% endfor %}
+            	)
+            	{%- if node.description | length > 0 %} COMMENT = '{{ node.description | escape }}'{% endif %}
+
+
+        run:
+          templateString: |
+            {# Basic Target Info #}
+            {% set tgtStrLoc = node.location.name %}
+            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
+            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
+            {% set tgtTbl = node.name %}
+            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
+
+            {# Join Info #}
+            {% set tblJoin = columns | selectattr(('tblJoin'), 'defined') | map(attribute='name') | list %}
+
+            {# High Watermark Table #}
+            {% set hwLogTbl = 'GROUPED_TABLE_LOAD_HIGH_WATERMARK' %}
+            {%- set fqHwTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + hwLogTbl + '"' -%} 
+
+            {# Source Loading Info #}
+            {% set srcGrp = node.name %}
+
+
+            {{ stage('Testing') }}
+            {{ tblJoin }}
+
+            {% for col in sources.columns %}
+                    {{ col.name }}
+            {% endfor %}
+    name: GL
     version: 1
   StepType-3:
     id: "3"

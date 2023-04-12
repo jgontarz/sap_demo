@@ -1,5 +1,5 @@
 steps:
-  GROUP_LOAD_STATUS-145:
+  GROUP_LOAD_FACT_SALES_ORDER-145:
     operation:
       config:
         insertStrategy: INSERT
@@ -141,18 +141,27 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              STG_INC_Sales_Document_Header_Status: "110"
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
               - locationName: TST
                 nodeName: STG_INC_Sales_Document_Header_Status
+              - locationName: TST
+                nodeName: STG_INC_Sales_Document_Item_Status
+              - locationName: TST
+                nodeName: STG_INC_Sales_Document_Header
+              - locationName: TST
+                nodeName: STG_INC_Sales_Document_Item
             join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }} "STG_INC_Sales_Document_Header_Status"
-            name: GROUP_LOAD_STATUS
+              joinCondition: |
+                -- {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }}
+                -- {{ ref('TST', 'STG_INC_Sales_Document_Item_Status') }}
+                -- {{ ref('TST', 'STG_INC_Sales_Document_Header') }}
+                -- {{ ref('TST', 'STG_INC_Sales_Document_Item') }}
+            name: GROUP_LOAD_FACT_SALES_ORDER
             noLinkRefs: []
-      name: GROUP_LOAD_STATUS
+      name: GROUP_LOAD_FACT_SALES_ORDER
       overrideSQL: false
       schema: ""
       sqlType: Stage
