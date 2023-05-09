@@ -1,123 +1,135 @@
 steps:
-  CURRENCY_CODE-200000062:
+  CURRENCY_CODE-dbf6b276-affc-458f-9021-a209976963e8:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: Currency Codes
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004850
-              stepCounter: "200000062"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 7d789ef2-42d6-4855-b51d-bc6fdc50db6b
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CLIENT_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001906
-                    stepCounter: "200000024"
+                  - columnCounter: 90043
+                    stepCounter: "252"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004851
-              stepCounter: "200000062"
-            dataType: char(5)
-            defaultValue: ""
+              columnCounter: a5adbb3a-4778-4fd1-b71f-3a844d76b89d
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CURRENCY_KEY_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001907
-                    stepCounter: "200000024"
-                transform: case when "TCURC"."WAERS" in ('DEM','FRF') then 'EUR' else "TCURC"."WAERS" end
+                  - columnCounter: 90044
+                    stepCounter: "252"
+                transform: ""
           - columnReference:
-              columnCounter: 2000004852
-              stepCounter: "200000062"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 5edf36cf-2e8d-43c2-9c91-4ac65c07147e
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ISO_CURRENCY_CODE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001908
-                    stepCounter: "200000024"
-                transform: case when "TCURC"."ISOCD" in ('DEM','FRF') then 'EUR' else "TCURC"."ISOCD" end
+                  - columnCounter: 90045
+                    stepCounter: "252"
+                transform: ""
           - columnReference:
-              columnCounter: 2000004853
-              stepCounter: "200000062"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 9a2f17dd-cd13-4e6e-8a6f-b41f435f2c8b
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ALTERNATIVE_KEY_CURRENCIES
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001909
-                    stepCounter: "200000024"
+                  - columnCounter: 90046
+                    stepCounter: "252"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004854
-              stepCounter: "200000062"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: 2d195e73-ed5d-4eec-b75d-6dc79b96c649
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: DATE
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: VALID_UNTIL_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001910
-                    stepCounter: "200000024"
-                transform: case when TCURC.GDATU in ('00000000', ' ') THEN NULL ELSE TO_DATE(TCURC.GDATU) end
+                  - columnCounter: 90047
+                    stepCounter: "252"
+                transform: case when "TCURC"."GDATU" in ('00000000', ' ') THEN NULL ELSE TO_DATE("TCURC"."GDATU") end
           - columnReference:
-              columnCounter: 2000004855
-              stepCounter: "200000062"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: cbd669f1-31db-4304-8688-8b232facfc4b
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PRIAMRY_SAP_CODE_ISO_CODE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001911
-                    stepCounter: "200000024"
+                  - columnCounter: 90048
+                    stepCounter: "252"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004856
-              stepCounter: "200000062"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 480c2ffc-08dc-4f49-865e-9a972283e13a
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: BOOLEAN
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90050
                     stepCounter: "252"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004857
-              stepCounter: "200000062"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: d34ba9c1-6442-4091-b360-da5b1a7a106a
+              stepCounter: dbf6b276-affc-458f-9021-a209976963e8
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90051
                     stepCounter: "252"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -134,6 +146,7 @@ steps:
             noLinkRefs: []
       name: CURRENCY_CODE
       overrideSQL: false
-      sqlType: "1"
+      schema: ""
+      sqlType: View
       type: sql
-    stepCounter: "200000062"
+    stepCounter: dbf6b276-affc-458f-9021-a209976963e8

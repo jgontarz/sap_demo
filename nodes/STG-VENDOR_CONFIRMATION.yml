@@ -113,11 +113,11 @@ steps:
               - columnReferences:
                   - columnCounter: 91384
                     stepCounter: "270"
-                transform: CASE when "EKES"."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."EINDT", 'YYYYMMDD' ) END
+                transform: case when "EKES"."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."EINDT") end
           - columnReference:
               columnCounter: 82015
               stepCounter: "190"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -127,7 +127,7 @@ steps:
               - columnReferences:
                   - columnCounter: 91385
                     stepCounter: "270"
-                transform: ""
+                transform: case when "EKES"."LPEIN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."LPEIN") end
           - columnReference:
               columnCounter: 82016
               stepCounter: "190"
@@ -155,7 +155,7 @@ steps:
               - columnReferences:
                   - columnCounter: 91387
                     stepCounter: "270"
-                transform: CASE when "EKES"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."ERDAT", 'YYYYMMDD' ) END
+                transform: case when "EKES"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."ERDAT") end
           - columnReference:
               columnCounter: 82018
               stepCounter: "190"
@@ -421,7 +421,7 @@ steps:
               - columnReferences:
                   - columnCounter: 91406
                     stepCounter: "270"
-                transform: CASE when "EKES"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."HANDOVERDATE", 'YYYYMMDD' ) END
+                transform: case when "EKES"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."HANDOVERDATE") end
           - columnReference:
               columnCounter: 82037
               stepCounter: "190"

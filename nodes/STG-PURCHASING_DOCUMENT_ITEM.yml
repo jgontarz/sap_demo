@@ -113,7 +113,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87959
                     stepCounter: "227"
-                transform: CASE when EKPO."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."AEDAT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."AEDAT") end
           - columnReference:
               columnCounter: 57440
               stepCounter: "169"
@@ -435,7 +435,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87982
                     stepCounter: "227"
-                transform: CASE when EKPO."AGDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."AGDAT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."AGDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."AGDAT") end
           - columnReference:
               columnCounter: 57463
               stepCounter: "169"
@@ -495,7 +495,7 @@ steps:
           - columnReference:
               columnCounter: 57467
               stepCounter: "169"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -505,7 +505,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87987
                     stepCounter: "227"
-                transform: ""
+                transform: case when "EKPO"."SPINF" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."SPINF") end
           - columnReference:
               columnCounter: 57468
               stepCounter: "169"
@@ -911,7 +911,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88016
                     stepCounter: "227"
-                transform: CASE when EKPO."ABDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."ABDAT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."ABDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."ABDAT") end
           - columnReference:
               columnCounter: 57497
               stepCounter: "169"
@@ -1065,7 +1065,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88027
                     stepCounter: "227"
-                transform: CASE when EKPO."PRDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."PRDAT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."PRDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."PRDAT") end
           - columnReference:
               columnCounter: 57508
               stepCounter: "169"
@@ -1167,7 +1167,7 @@ steps:
           - columnReference:
               columnCounter: 57515
               stepCounter: "169"
-            dataType: VARCHAR(6)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1177,7 +1177,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88035
                     stepCounter: "227"
-                transform: ""
+                transform: case when "EKPO"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."STAFO") end
           - columnReference:
               columnCounter: 57516
               stepCounter: "169"
@@ -1475,7 +1475,7 @@ steps:
           - columnReference:
               columnCounter: 57537
               stepCounter: "169"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1485,7 +1485,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88057
                     stepCounter: "227"
-                transform: ""
+                transform: case when "EKPO"."MEPRF" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."MEPRF") end
           - columnReference:
               columnCounter: 57538
               stepCounter: "169"
@@ -1681,7 +1681,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88071
                     stepCounter: "227"
-                transform: CASE when EKPO."LEWED" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."LEWED", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."LEWED" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."LEWED") end
           - columnReference:
               columnCounter: 57552
               stepCounter: "169"
@@ -1835,7 +1835,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88082
                     stepCounter: "227"
-                transform: CASE when EKPO."EILDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."EILDT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."EILDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."EILDT") end
           - columnReference:
               columnCounter: 57563
               stepCounter: "169"
@@ -1849,7 +1849,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88083
                     stepCounter: "227"
-                transform: CASE when EKPO."DRDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."DRDAT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."DRDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."DRDAT") end
           - columnReference:
               columnCounter: 57564
               stepCounter: "169"
@@ -2493,7 +2493,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88129
                     stepCounter: "227"
-                transform: CASE when EKPO."NLABD" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."NLABD", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."NLABD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."NLABD") end
           - columnReference:
               columnCounter: 57610
               stepCounter: "169"
@@ -2507,7 +2507,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88130
                     stepCounter: "227"
-                transform: CASE when EKPO."NFABD" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."NFABD", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."NFABD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."NFABD") end
           - columnReference:
               columnCounter: 57611
               stepCounter: "169"
@@ -2577,7 +2577,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88135
                     stepCounter: "227"
-                transform: CASE when EKPO."J_1AIDATEP" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."J_1AIDATEP", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."J_1AIDATEP" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."J_1AIDATEP") end
           - columnReference:
               columnCounter: 57616
               stepCounter: "169"
@@ -3347,7 +3347,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88190
                     stepCounter: "227"
-                transform: CASE when EKPO."DPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."DPDAT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."DPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."DPDAT") end
           - columnReference:
               columnCounter: 57671
               stepCounter: "169"
@@ -3477,7 +3477,7 @@ steps:
           - columnReference:
               columnCounter: 57680
               stepCounter: "169"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -3487,7 +3487,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88200
                     stepCounter: "227"
-                transform: ""
+                transform: case when "EKPO"."FIXMG" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."FIXMG") end
           - columnReference:
               columnCounter: 57681
               stepCounter: "169"
@@ -4187,7 +4187,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88250
                     stepCounter: "227"
-                transform: CASE when EKPO."OIFEEDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."OIFEEDT", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."OIFEEDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."OIFEEDT") end
           - columnReference:
               columnCounter: 57731
               stepCounter: "169"
@@ -4635,7 +4635,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88282
                     stepCounter: "227"
-                transform: CASE when EKPO."OIDATFM1" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."OIDATFM1", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."OIDATFM1" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."OIDATFM1") end
           - columnReference:
               columnCounter: 57763
               stepCounter: "169"
@@ -4649,7 +4649,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88283
                     stepCounter: "227"
-                transform: CASE when EKPO."OIDATTO1" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."OIDATTO1", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."OIDATTO1" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."OIDATTO1") end
           - columnReference:
               columnCounter: 57764
               stepCounter: "169"
@@ -5167,7 +5167,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88320
                     stepCounter: "227"
-                transform: CASE when EKPO."FSH_ATP_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKPO."FSH_ATP_DATE", 'YYYYMMDD' ) END
+                transform: case when "EKPO"."FSH_ATP_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKPO"."FSH_ATP_DATE") end
           - columnReference:
               columnCounter: 57801
               stepCounter: "169"

@@ -117,7 +117,7 @@ steps:
           - columnReference:
               columnCounter: c1a66288-2324-4340-a49d-63f013e6576b
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -127,7 +127,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90360
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."ERDAT") end
           - columnReference:
               columnCounter: 0ef20557-1853-410c-9e49-2c54c3ac18ca
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -145,7 +145,7 @@ steps:
           - columnReference:
               columnCounter: fc2f64d8-cc7e-460e-a531-5cfa29fc8483
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -155,7 +155,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90362
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."AEDAT") end
           - columnReference:
               columnCounter: 2de170c0-2152-48a2-850f-b275bfc26c17
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -173,7 +173,7 @@ steps:
           - columnReference:
               columnCounter: 29fbea0a-a01b-4677-bd3d-cf006785fd04
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -183,7 +183,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90364
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."QMDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."QMDAT") end
           - columnReference:
               columnCounter: d062eb53-e522-46c6-8ff7-01d0de756596
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -201,7 +201,7 @@ steps:
           - columnReference:
               columnCounter: 3e4dea7b-08ed-4cf7-abb8-feba720d49f7
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -211,7 +211,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90366
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."STRMN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."STRMN") end
           - columnReference:
               columnCounter: 61b51995-3a7e-46fd-b562-af5ae3dc1fa4
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -229,7 +229,7 @@ steps:
           - columnReference:
               columnCounter: e1bc15be-6f2e-47d2-8396-07388252cd3f
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -239,7 +239,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90368
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."LTRMN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."LTRMN") end
           - columnReference:
               columnCounter: 01e4aeb1-6a6c-42dc-afe9-9d967ee83e37
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -481,7 +481,7 @@ steps:
           - columnReference:
               columnCounter: 05d41706-3d97-494c-8f95-d830605af06d
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -491,7 +491,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90386
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."QMDAB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."QMDAB") end
           - columnReference:
               columnCounter: 006b4c03-b4eb-43be-af28-bec9199ef5f6
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -579,7 +579,7 @@ steps:
           - columnReference:
               columnCounter: 2e561671-3dae-4dca-9612-f13dffa18f3c
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -589,7 +589,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90393
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."BEZDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."BEZDT") end
           - columnReference:
               columnCounter: 6e283c8a-c895-415a-bc52-8ee632a8f8b1
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -663,7 +663,7 @@ steps:
           - columnReference:
               columnCounter: 07304668-045d-4ceb-a51f-3e6248e1bbb2
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -673,7 +673,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90399
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."BSTDK" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."BSTDK") end
           - columnReference:
               columnCounter: 9358b561-0810-4eab-9f36-f35dc562c641
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -1279,7 +1279,7 @@ steps:
           - columnReference:
               columnCounter: 127c4e65-6add-428e-a667-ae644d18589a
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1289,7 +1289,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90443
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."RKDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."RKDAT") end
           - columnReference:
               columnCounter: 4d73cedb-fc9b-463b-8186-5f5a3930453f
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -1391,7 +1391,7 @@ steps:
           - columnReference:
               columnCounter: 031a06b6-b610-4b82-8276-76df4f8206c4
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1401,7 +1401,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90451
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."PRODDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."PRODDAT") end
           - columnReference:
               columnCounter: 4f34da2e-39e3-4dfc-8024-903ced921448
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
@@ -1769,7 +1769,7 @@ steps:
           - columnReference:
               columnCounter: 1136d763-bc6d-405b-82be-87782e667160
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1779,7 +1779,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90478
                     stepCounter: "263"
-                transform: ""
+                transform: case when "QMEL"."_SAPSMOSS_ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMEL"."_SAPSMOSS_ERDAT") end
           - columnReference:
               columnCounter: 3a68ece9-82d9-4407-ae32-18da636bb396
               stepCounter: 70d8ed28-44e7-4b72-af3e-86e2a48c886d

@@ -47,7 +47,7 @@ steps:
           - columnReference:
               columnCounter: c3ed2638-d3b5-41c6-9d1f-9c96592be28b
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -57,7 +57,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88887
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."ERDAT") end
           - columnReference:
               columnCounter: 5921966f-71d2-48c1-84a8-063f0974bb5a
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -89,7 +89,7 @@ steps:
           - columnReference:
               columnCounter: 891f1451-ffde-46af-8147-92131e243b68
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -99,11 +99,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88890
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."ANGDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."ANGDT") end
           - columnReference:
               columnCounter: 7cc38018-be26-40ab-9cbd-80d41a4ebdae
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -113,11 +113,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88891
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."BNDDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."BNDDT") end
           - columnReference:
               columnCounter: fd64c212-79c8-4da1-af11-32375fa972ae
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -127,7 +127,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88892
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."AUDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."AUDAT") end
           - columnReference:
               columnCounter: cdcf03da-64e3-4ff1-863f-bfbb66a583af
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -187,7 +187,7 @@ steps:
           - columnReference:
               columnCounter: ce07caf8-629e-4d09-bafe-7f45aa565c9f
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -197,7 +197,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88897
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."GWLDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."GWLDT") end
           - columnReference:
               columnCounter: 17395628-5ebe-4949-bf19-8dffa299d63b
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -369,7 +369,7 @@ steps:
           - columnReference:
               columnCounter: a4598a64-8696-4991-bd8b-10113454ce78
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -379,11 +379,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88910
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."GUEBG" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."GUEBG") end
           - columnReference:
               columnCounter: d0cb91b6-06b5-4312-a395-12782f42c560
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -393,7 +393,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88911
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."GUEEN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."GUEEN") end
           - columnReference:
               columnCounter: 1abe89ef-2eac-4950-9b1a-9a4c6a95e7bc
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -411,7 +411,7 @@ steps:
           - columnReference:
               columnCounter: f98ca311-bec2-4b4d-aeb3-119b2e4f0340
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -421,11 +421,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88913
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."VDATU" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."VDATU") end
           - columnReference:
               columnCounter: 509d4472-da71-46d5-a2de-9b6797462daa
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -435,7 +435,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88914
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."VPRGR" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."VPRGR") end
           - columnReference:
               columnCounter: f3f246d8-7ed1-446c-9a76-26ccc11d6222
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -579,7 +579,7 @@ steps:
           - columnReference:
               columnCounter: 2c7ee406-b356-4c72-bf01-bbe96da60728
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -589,7 +589,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88925
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."BSTDK" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."BSTDK") end
           - columnReference:
               columnCounter: deddfd49-0065-4e90-90b0-10b846d06573
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -663,7 +663,7 @@ steps:
           - columnReference:
               columnCounter: 6b430570-2127-4b08-a92a-ba74baaa9b4f
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -673,7 +673,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88931
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."MAHDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."MAHDT") end
           - columnReference:
               columnCounter: d56373c3-c8e1-4c40-93ac-6bfbb86693fc
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -705,7 +705,7 @@ steps:
           - columnReference:
               columnCounter: 4ef79893-2451-41bc-bd62-c8d753260b26
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -715,7 +715,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88934
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."STAFO") end
           - columnReference:
               columnCounter: 5d0c54b2-7f5a-4637-8655-c9e4a4712ba5
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -733,7 +733,7 @@ steps:
           - columnReference:
               columnCounter: 314fc04c-b77b-4114-83cc-b947d2253100
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -743,7 +743,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88936
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."AEDAT") end
           - columnReference:
               columnCounter: f592f55f-f494-4bd1-835d-18e6999262a0
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -957,7 +957,7 @@ steps:
           - columnReference:
               columnCounter: d6269aab-f018-44ef-a676-06801ffa4a93
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -967,11 +967,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88952
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."CMFRE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."CMFRE") end
           - columnReference:
               columnCounter: 6d19d6b1-2414-4338-ae57-d4c5995b6a6e
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -981,11 +981,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88953
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."CMNUP" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."CMNUP") end
           - columnReference:
               columnCounter: affa2016-5dc5-4567-818f-e8e5e268fe01
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -995,7 +995,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88954
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."CMNGV" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."CMNGV") end
           - columnReference:
               columnCounter: a765820f-6e00-4ac5-a112-8665d83d8e7d
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -1363,7 +1363,7 @@ steps:
           - columnReference:
               columnCounter: 1ad7a1ae-1456-412c-9dc2-f53013bdf611
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1373,7 +1373,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88981
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."ABHOD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."ABHOD") end
           - columnReference:
               columnCounter: 19bfccd2-f8e5-42fc-aa5d-2ebe90c34997
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -1489,7 +1489,7 @@ steps:
           - columnReference:
               columnCounter: 5a404e35-d712-4a22-91e2-8d40e58a5db7
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1499,11 +1499,11 @@ steps:
               - columnReferences:
                   - columnCounter: 88990
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."DAT_FZAU" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."DAT_FZAU") end
           - columnReference:
               columnCounter: b10390f6-718d-49f2-825c-3d16b83dbf7e
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1513,7 +1513,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88991
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."FMBDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."FMBDAT") end
           - columnReference:
               columnCounter: 81568f56-4796-4184-829a-2b1f9a1f9d56
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -1643,7 +1643,7 @@ steps:
           - columnReference:
               columnCounter: c28fafe0-35e4-4df6-9cc5-6984d826787c
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1653,11 +1653,11 @@ steps:
               - columnReferences:
                   - columnCounter: 89001
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."_DATAAGING" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."_DATAAGING") end
           - columnReference:
               columnCounter: 4d0ffcb7-0b21-4f91-82d3-67282825a9b9
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1667,7 +1667,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89002
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."_XLSO_SO_VALD_FM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."_XLSO_SO_VALD_FM") end
           - columnReference:
               columnCounter: b5e2c5f2-cd28-4dac-9102-912cf88ee4a6
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -1741,7 +1741,7 @@ steps:
           - columnReference:
               columnCounter: fbf156ab-2d80-4539-8bb2-8b8e1180d508
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1751,7 +1751,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89008
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."PSM_BUDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."PSM_BUDAT") end
           - columnReference:
               columnCounter: fc279f9c-d92b-40c2-b0c4-aecbfe844a62
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -1895,7 +1895,7 @@ steps:
           - columnReference:
               columnCounter: 64db9d99-177d-4c17-bb41-ca28adb8331c
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1905,7 +1905,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89019
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."FSH_CANDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."FSH_CANDATE") end
           - columnReference:
               columnCounter: e01dd100-5eef-4acc-9b9a-b1dc14a28d40
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
@@ -2021,7 +2021,7 @@ steps:
           - columnReference:
               columnCounter: 371b7cc8-ce82-4d50-bdd4-32d5100761d5
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -2031,11 +2031,11 @@ steps:
               - columnReferences:
                   - columnCounter: 89028
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."HB_EXPDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."HB_EXPDATE") end
           - columnReference:
               columnCounter: 29195eff-1f52-4819-bc0e-1c8e3d995697
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -2045,7 +2045,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89029
                     stepCounter: "231"
-                transform: ""
+                transform: case when "VBAK"."HB_RESDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAK"."HB_RESDATE") end
           - columnReference:
               columnCounter: 3191d852-4b0c-4f04-8d92-02850df9008a
               stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2

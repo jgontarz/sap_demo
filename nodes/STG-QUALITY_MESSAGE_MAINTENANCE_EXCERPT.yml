@@ -1,656 +1,709 @@
 steps:
-  QUALITY_MESSAGE_MAINTENANCE_EXCERPT-200000051:
+  QUALITY_MESSAGE_MAINTENANCE_EXCERPT-218cbd20-86a4-4c5d-8026-c4cc76b3e087:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: Quality message - maintenance data excerpt
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004470
-              stepCounter: "200000051"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 763681eb-5043-44bd-bbed-b4d75edb0506
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CLIENT_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001526
-                    stepCounter: "200000013"
+                  - columnCounter: 90243
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004471
-              stepCounter: "200000051"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: b3a211c9-6e40-4158-8d33-bb6e3d887184
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: NOTIFICATION_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001527
-                    stepCounter: "200000013"
+                  - columnCounter: 90244
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004472
-              stepCounter: "200000051"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: b6e21969-f64c-493b-bd9e-3b31925aee08
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: MAINTENANCE_PLANNING_PLANT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001528
-                    stepCounter: "200000013"
+                  - columnCounter: 90245
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004473
-              stepCounter: "200000051"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: 4013774c-567c-4e63-affd-e4f0655dd6df
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: LOC_ACCT_ASSIGNMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001529
-                    stepCounter: "200000013"
+                  - columnCounter: 90246
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004474
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 04bda6a9-5ca7-4757-8a6c-09fd48c67f2a
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ILOA_INDIVIDUAL
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001530
-                    stepCounter: "200000013"
+                  - columnCounter: 90247
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004475
-              stepCounter: "200000051"
-            dataType: char(18)
-            defaultValue: ""
+              columnCounter: 83955853-8779-4ebf-a1b3-73a65e007dcb
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: EQUIPMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001531
-                    stepCounter: "200000013"
+                  - columnCounter: 90248
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004476
-              stepCounter: "200000051"
-            dataType: char(18)
-            defaultValue: ""
+              columnCounter: 17634ff0-8df3-4e31-9b2c-3b0e6cd21b34
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ASSEMBLY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001532
-                    stepCounter: "200000013"
+                  - columnCounter: 90249
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004477
-              stepCounter: "200000051"
-            dataType: char(20)
-            defaultValue: ""
+              columnCounter: 55a6105d-0449-4683-bca6-b35941e253a8
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: INSTALLATION_POINT_SUBITEM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001533
-                    stepCounter: "200000013"
+                  - columnCounter: 90250
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004478
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 018f58e1-309a-4f9a-a3cf-0d5b85f04634
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: BREAKDOWN_INDICATOR
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001534
-                    stepCounter: "200000013"
+                  - columnCounter: 90251
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004479
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: c4242470-d302-4044-ae53-c2a926aa8dc2
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: DATE
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: START_MALFUNCTION_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001535
-                    stepCounter: "200000013"
-                transform: case when QMIH.AUSVN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.AUSVN) end
+                  - columnCounter: 90252
+                    stepCounter: "261"
+                transform: case when "QMIH"."AUSVN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMIH"."AUSVN") end
           - columnReference:
-              columnCounter: 2000004480
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: 1f48a7f9-3fdd-451d-92fa-675334991bf3
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: DATE
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: END_MALFUNCTION_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001536
-                    stepCounter: "200000013"
-                transform: case when QMIH.AUSBS in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.AUSBS) end
+                  - columnCounter: 90253
+                    stepCounter: "261"
+                transform: case when "QMIH"."AUSBS" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMIH"."AUSBS") end
           - columnReference:
-              columnCounter: 2000004481
-              stepCounter: "200000051"
-            dataType: char(6)
-            defaultValue: ""
+              columnCounter: bd20e08a-880f-4cb8-8b81-973887a381f4
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: START_MALFUNCTION_TIM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001537
-                    stepCounter: "200000013"
+                  - columnCounter: 90254
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004482
-              stepCounter: "200000051"
-            dataType: char(6)
-            defaultValue: ""
+              columnCounter: 892ea55a-c1bc-4486-ab55-ed0c48d5ed02
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: END_MALFUNCTION_TIM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001538
-                    stepCounter: "200000013"
+                  - columnCounter: 90255
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004483
-              stepCounter: "200000051"
+              columnCounter: 47c85858-95fc-4a65-aa1a-82f867eb026a
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
             dataType: FLOAT
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: BREAKDOWN_DURATION
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001539
-                    stepCounter: "200000013"
+                  - columnCounter: 90256
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004484
-              stepCounter: "200000051"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 36af9f2a-4e9a-4748-b78d-df8fa48f0d8f
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: BREAKDOWN_DURATION_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001540
-                    stepCounter: "200000013"
+                  - columnCounter: 90257
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004485
-              stepCounter: "200000051"
-            dataType: char(30)
-            defaultValue: ""
+              columnCounter: df6fa65d-dadb-4bd7-8b5c-34c9d90bdb4d
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: FUNCTIONAL_LOCATION_AFFECTED_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001541
-                    stepCounter: "200000013"
+                  - columnCounter: 90258
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004486
-              stepCounter: "200000051"
-            dataType: char(18)
-            defaultValue: ""
+              columnCounter: f9e44f47-28c8-4eaa-8464-4be693e2c28c
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: EQUIPMENT_AFFECTED_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001542
-                    stepCounter: "200000013"
+                  - columnCounter: 90259
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004487
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 7ecfab18-7b83-4d3d-9af3-f525891da526
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: EFFECT_ON_OPERATION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001543
-                    stepCounter: "200000013"
+                  - columnCounter: 90260
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004488
-              stepCounter: "200000051"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: b1b1f640-cbf0-456d-9842-ae00c1d33cec
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: AVAILABILITY_BEFORE_MALFUNCTION
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001544
-                    stepCounter: "200000013"
+                  - columnCounter: 90261
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004489
-              stepCounter: "200000051"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 695a5e87-7642-4056-a8ab-7e3a8e1dd6a6
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: AVAILABILITY_AFTER_MALFUNCTION
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001545
-                    stepCounter: "200000013"
+                  - columnCounter: 90262
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004490
-              stepCounter: "200000051"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: b0ff3e27-cd9f-4561-a606-872aad9d11c2
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: AVAIL_AFTER_TASK
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001546
-                    stepCounter: "200000013"
+                  - columnCounter: 90263
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004491
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 8d834c8d-ce6f-4330-bc72-a7ee595a92db
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: COND_BEF_MALFUNCTN_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001547
-                    stepCounter: "200000013"
+                  - columnCounter: 90264
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004492
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 605dabff-f66b-4eea-9c54-df475264d540
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: COND_AFT_MALFUNCTN_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001548
-                    stepCounter: "200000013"
+                  - columnCounter: 90265
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004493
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: c8b20062-ac66-490d-b1df-801df210402b
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: COND_AFTER_TASK_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001549
-                    stepCounter: "200000013"
+                  - columnCounter: 90266
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004494
-              stepCounter: "200000051"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: 66642d6a-419f-4741-9660-622d6fc6ded1
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: TECHINSPECTION_BY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001550
-                    stepCounter: "200000013"
+                  - columnCounter: 90267
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004495
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: 4b220323-191a-47a9-b64b-a81837713379
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: DATE
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: TECHNICAL_INSPECTION_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001551
-                    stepCounter: "200000013"
-                transform: case when QMIH.DATAN in ('00000000', ' ') THEN NULL ELSE TO_DATE(QMIH.DATAN) end
+                  - columnCounter: 90268
+                    stepCounter: "261"
+                transform: case when "QMIH"."DATAN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMIH"."DATAN") end
           - columnReference:
-              columnCounter: 2000004496
-              stepCounter: "200000051"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 558f9375-c4bc-42ab-bf28-dc87c6f9aa5e
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PLANNER_GROUP_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001552
-                    stepCounter: "200000013"
+                  - columnCounter: 90269
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004497
-              stepCounter: "200000051"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: fd802050-952f-4868-bacd-02bd11c3976c
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: MAINTENANCE_PLAN_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001553
-                    stepCounter: "200000013"
+                  - columnCounter: 90270
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004498
-              stepCounter: "200000051"
+              columnCounter: 45926c5b-de4f-4f69-aa8e-8b3b4617b13b
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
             dataType: NUMBER(38,0)
-            defaultValue: ""
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: MAINTENANCE_PLAN_CALL_NUMBER
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001554
-                    stepCounter: "200000013"
+                  - columnCounter: 90271
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004499
-              stepCounter: "200000051"
-            dataType: char(16)
-            defaultValue: ""
+              columnCounter: 3c6fbf82-8356-48ed-8633-525f6be5697f
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: MAINTENANCE_ITEM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001555
-                    stepCounter: "200000013"
+                  - columnCounter: 90272
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004500
-              stepCounter: "200000051"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: fc19433a-e3dd-4d24-ac18-6f051a87d6b2
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: SALES_DOCUMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001556
-                    stepCounter: "200000013"
+                  - columnCounter: 90273
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004501
-              stepCounter: "200000051"
-            dataType: char(6)
-            defaultValue: ""
+              columnCounter: f3f96bd1-ae64-4101-8d06-fd90457908b1
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: SALES_DOCUMENT_ITEM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001557
-                    stepCounter: "200000013"
+                  - columnCounter: 90274
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004502
-              stepCounter: "200000051"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: c85a08a5-6d65-4946-a24d-fa90a2a1b94e
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: SCENARIO_OR_SUBSCREEN_CATEGORY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001558
-                    stepCounter: "200000013"
+                  - columnCounter: 90275
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004503
-              stepCounter: "200000051"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 34a83535-4ec7-4187-bf2b-4a7ab5c0453f
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: TASK_LIST_TYPE_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001559
-                    stepCounter: "200000013"
+                  - columnCounter: 90276
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004504
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: 37174034-e496-4f8d-8395-95183fdd1257
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: KEY_TASK_LIST_GROUP
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001560
-                    stepCounter: "200000013"
+                  - columnCounter: 90277
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004505
-              stepCounter: "200000051"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: 5c714dcd-48f2-41f8-9eb2-363477779181
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: GROUP_COUNTER
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001561
-                    stepCounter: "200000013"
+                  - columnCounter: 90278
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004506
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: 467744bd-8ef6-4f62-803f-06be2f2ee023
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: REVISION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001562
-                    stepCounter: "200000013"
+                  - columnCounter: 90279
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004507
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: 6bd74edd-89f3-4656-af5e-8118b53ac637
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: COUNTER_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001563
-                    stepCounter: "200000013"
+                  - columnCounter: 90280
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004508
-              stepCounter: "200000051"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: cdc2f1db-03b7-472f-8b29-05a5c950ffc5
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: NUMBER(15,0)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PLANNED_TIME_STAMP_FROM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001564
-                    stepCounter: "200000013"
+                  - columnCounter: 90281
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004509
-              stepCounter: "200000051"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 3a1ce4f9-3d68-4b88-a510-535c5e1898ed
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: NUMBER(15,0)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PLANNED_TIME_STAMP_TO
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001565
-                    stepCounter: "200000013"
+                  - columnCounter: 90282
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004510
-              stepCounter: "200000051"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 14dba003-6127-4922-b906-5391f0204e05
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: NUMBER(15,0)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ACTUAL_START_TIME
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001566
-                    stepCounter: "200000013"
+                  - columnCounter: 90283
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004511
-              stepCounter: "200000051"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 3d793abb-5b0d-4ecb-be08-bef477f62d93
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: NUMBER(15,0)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ACTUAL_END_TIME
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001567
-                    stepCounter: "200000013"
+                  - columnCounter: 90284
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004512
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: e67d2250-b57a-4f32-8dfb-eb4ee11bb568
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PAM_POOL
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001568
-                    stepCounter: "200000013"
+                  - columnCounter: 90285
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004513
-              stepCounter: "200000051"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: cd91f6f2-1c05-440a-8789-a6fb61cd5e20
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: COST_CENTER_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001569
-                    stepCounter: "200000013"
+                  - columnCounter: 90286
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004514
-              stepCounter: "200000051"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: e028875d-2e9a-43ee-a479-0c2968d8f204
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ORDER_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001570
-                    stepCounter: "200000013"
+                  - columnCounter: 90287
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004515
-              stepCounter: "200000051"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: f4ebf910-f615-4ab0-bf76-266b0592141e
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: WBS_ELEMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001571
-                    stepCounter: "200000013"
+                  - columnCounter: 90288
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004516
-              stepCounter: "200000051"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: bf3d8585-e816-4ad9-a0d2-a9f27989ebf8
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CONTROLLING_AREA_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001572
-                    stepCounter: "200000013"
+                  - columnCounter: 90289
+                    stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004517
-              stepCounter: "200000051"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: e5bf0ebc-fb61-4ba0-9bbe-cf824d22484c
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: BOOLEAN
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90291
                     stepCounter: "261"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004518
-              stepCounter: "200000051"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: 192e9ff2-11d7-40d6-9f2f-885207f0b6f9
+              stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90292
                     stepCounter: "261"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -667,6 +720,7 @@ steps:
             noLinkRefs: []
       name: QUALITY_MESSAGE_MAINTENANCE_EXCERPT
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000051"
+    stepCounter: 218cbd20-86a4-4c5d-8026-c4cc76b3e087

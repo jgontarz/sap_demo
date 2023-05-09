@@ -61,7 +61,7 @@ steps:
           - columnReference:
               columnCounter: b14efc21-3b51-449f-b5c7-bec04e33dab6
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -71,7 +71,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89313
                     stepCounter: "240"
-                transform: ""
+                transform: case when "MARA"."ERSDA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("MARA"."ERSDA") end
           - columnReference:
               columnCounter: 1cc7399b-0155-40a1-b7ac-1c4b3f46bdc2
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
@@ -89,7 +89,7 @@ steps:
           - columnReference:
               columnCounter: 4d5ddf97-bba5-475c-b0b8-507c2a50c418
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -99,7 +99,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89315
                     stepCounter: "240"
-                transform: ""
+                transform: case when "MARA"."LAEDA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("MARA"."LAEDA") end
           - columnReference:
               columnCounter: 2064c692-fb64-4d08-94e5-fe0f8c2572c3
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
@@ -1083,7 +1083,7 @@ steps:
           - columnReference:
               columnCounter: 8c6b9d0a-b0a7-444b-b3bf-f936462e4e31
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1093,11 +1093,11 @@ steps:
               - columnReferences:
                   - columnCounter: 89386
                     stepCounter: "240"
-                transform: ""
+                transform: case when "MARA"."DATAB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("MARA"."DATAB") end
           - columnReference:
               columnCounter: c756597b-8e34-44f2-8e6f-710aad367a20
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1107,7 +1107,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89387
                     stepCounter: "240"
-                transform: ""
+                transform: case when "MARA"."LIQDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("MARA"."LIQDT") end
           - columnReference:
               columnCounter: 49ac0f35-1e66-44bc-a809-b62da2f4c654
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
@@ -1825,7 +1825,7 @@ steps:
           - columnReference:
               columnCounter: a8dfa04d-5014-4f94-8d21-d1b6354cf39c
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1835,7 +1835,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89439
                     stepCounter: "240"
-                transform: ""
+                transform: case when "MARA"."SLED_BBD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("MARA"."SLED_BBD") end
           - columnReference:
               columnCounter: 24a256d6-5bff-4e44-8df6-1b4f9b3d7d88
               stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad

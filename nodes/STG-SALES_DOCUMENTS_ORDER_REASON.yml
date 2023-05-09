@@ -1,84 +1,93 @@
 steps:
-  SALES_DOCUMENTS_ORDER_REASON-200000070:
+  SALES_DOCUMENTS_ORDER_REASON-ae59dd15-e733-478c-aa96-2e98efd78e93:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: "Sales Documents: Order Reasons"
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004949
-              stepCounter: "200000070"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: bc757bc5-20f1-44e6-9af6-d935e8603191
+              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+            dataType: VARCHAR(256)
             description: ""
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000002005
-                    stepCounter: "200000032"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004950
-              stepCounter: "200000070"
-            dataType: char(3)
-            defaultValue: ""
-            description: ""
+            hashColumns: []
+            hashDetails: null
             name: ORDER_REASON_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002006
-                    stepCounter: "200000032"
+                  - columnCounter: 89956
+                    stepCounter: "246"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004951
-              stepCounter: "200000070"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 57de3e17-f79e-4229-b793-77f86cdbc0a5
+              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+            dataType: VARCHAR(256)
             description: ""
-            name: RETRO_BILLING
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000002007
-                    stepCounter: "200000032"
+                  - columnCounter: 89957
+                    stepCounter: "246"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004952
-              stepCounter: "200000070"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: ef449337-1829-4e6a-a349-29d9e9ae8b85
+              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
+            name: RETRO_BILLING
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 89958
+                    stepCounter: "246"
+                transform: ""
+          - columnReference:
+              columnCounter: 47e64718-4090-42a0-940a-da23da835ec5
+              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 89960
                     stepCounter: "246"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004953
-              stepCounter: "200000070"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: aa0af1db-9d03-4a5e-8970-94c72b0230fa
+              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 89961
                     stepCounter: "246"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -95,6 +104,7 @@ steps:
             noLinkRefs: []
       name: SALES_DOCUMENTS_ORDER_REASON
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000070"
+    stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93

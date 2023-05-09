@@ -11,7 +11,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: view
       metadata:
         appliedNodeTests: []
@@ -173,7 +173,7 @@ steps:
           - columnReference:
               columnCounter: 91566
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -183,7 +183,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89843
                     stepCounter: "244"
-                transform: case when VBRK.FKDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.FKDAT) end
+                transform: case when "VBRK"."FKDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."FKDAT") end
           - columnReference:
               columnCounter: 91567
               stepCounter: "276"
@@ -397,7 +397,7 @@ steps:
           - columnReference:
               columnCounter: 91582
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -407,7 +407,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89859
                     stepCounter: "244"
-                transform: case when VBRK.VALDT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.VALDT) end
+                transform: case when "VBRK"."VALDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."VALDT") end
           - columnReference:
               columnCounter: 91583
               stepCounter: "276"
@@ -705,7 +705,7 @@ steps:
           - columnReference:
               columnCounter: 91604
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -715,11 +715,11 @@ steps:
               - columnReferences:
                   - columnCounter: 89881
                     stepCounter: "244"
-                transform: case when VBRK.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.ERDAT) end
+                transform: case when "VBRK"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."ERDAT") end
           - columnReference:
               columnCounter: 91605
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -729,7 +729,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89882
                     stepCounter: "244"
-                transform: ""
+                transform: case when "VBRK"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."STAFO") end
           - columnReference:
               columnCounter: 91606
               stepCounter: "276"
@@ -817,7 +817,7 @@ steps:
           - columnReference:
               columnCounter: 91612
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -827,7 +827,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89889
                     stepCounter: "244"
-                transform: case when VBRK.AEDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.AEDAT) end
+                transform: case when "VBRK"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."AEDAT") end
           - columnReference:
               columnCounter: 91613
               stepCounter: "276"
@@ -1237,7 +1237,7 @@ steps:
           - columnReference:
               columnCounter: 91642
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1247,7 +1247,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89919
                     stepCounter: "244"
-                transform: case when VBRK.KURRF_DAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(VBRK.KURRF_DAT) end
+                transform: case when "VBRK"."KURRF_DAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."KURRF_DAT") end
           - columnReference:
               columnCounter: 91643
               stepCounter: "276"
@@ -1531,7 +1531,7 @@ steps:
           - columnReference:
               columnCounter: 91663
               stepCounter: "276"
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1541,7 +1541,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89940
                     stepCounter: "244"
-                transform: ""
+                transform: case when "VBRK"."MNDID" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRK"."MNDID") end
           - columnReference:
               columnCounter: 91664
               stepCounter: "276"

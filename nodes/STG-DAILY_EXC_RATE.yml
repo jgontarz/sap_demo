@@ -225,7 +225,7 @@ steps:
               - columnReferences:
                   - columnCounter: 83509
                     stepCounter: "198"
-                transform: ""
+                transform: case when "EXRATESCC2018"."Date" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EXRATESCC2018"."Date") end
           - columnReference:
               columnCounter: 83801
               stepCounter: "204"
@@ -239,7 +239,7 @@ steps:
               - columnReferences:
                   - columnCounter: 83509
                     stepCounter: "198"
-                transform: to_number(YEAR("EXRATESCC2018"."Date") || TO_CHAR("EXRATESCC2018"."Date",'MM') || TO_CHAR("EXRATESCC2018"."Date",'DD'))
+                transform: case when "EXRATESCC2018"."Date" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EXRATESCC2018"."Date") end
           - columnReference:
               columnCounter: 83797
               stepCounter: "204"

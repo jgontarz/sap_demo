@@ -471,7 +471,7 @@ steps:
           - columnReference:
               columnCounter: 13871
               stepCounter: "77"
-            dataType: NUMBER(38,0)
+            dataType: BOOLEAN
             description: ""
             hashColumns: []
             hashDetails: null
@@ -510,11 +510,11 @@ steps:
               - locationName: STG
                 nodeName: SALES_DOCUMENT_ITEM
               - locationName: STG
-                nodeName: SALES_DOCUMENT_HEADER_STATUS
-              - locationName: STG
                 nodeName: SALES_DOCUMENT_HEADER
               - locationName: STG
                 nodeName: SALES_DOCUMENT_ITEM_STATUS
+              - locationName: STG
+                nodeName: SALES_DOCUMENT_HEADER_STATUS
             join:
               joinCondition: |-
                 FROM {{ ref('STG', 'SALES_DOCUMENT_HEADER') }} "SALES_DOCUMENT_HEADER"

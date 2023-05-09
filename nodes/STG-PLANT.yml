@@ -775,7 +775,7 @@ steps:
           - columnReference:
               columnCounter: 66f4d7c6-50d5-442a-a070-3c79a7600680
               stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -785,7 +785,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89289
                     stepCounter: "238"
-                transform: ""
+                transform: case when "T001W"."MGVLAUPD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001W"."MGVLAUPD") end
           - columnReference:
               columnCounter: 5dedc4b7-a008-4331-8d82-67a588518a9f
               stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb

@@ -439,7 +439,7 @@ steps:
           - columnReference:
               columnCounter: 81862
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -449,7 +449,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88368
                     stepCounter: "228"
-                transform: CASE when "LFA1"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."ERDAT", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."ERDAT") end
           - columnReference:
               columnCounter: 81863
               stepCounter: "188"
@@ -845,7 +845,7 @@ steps:
           - columnReference:
               columnCounter: 81891
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -855,7 +855,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88397
                     stepCounter: "228"
-                transform: CASE when "LFA1"."GBDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."GBDAT", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."GBDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."GBDAT") end
           - columnReference:
               columnCounter: 81892
               stepCounter: "188"
@@ -887,7 +887,7 @@ steps:
           - columnReference:
               columnCounter: 81894
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -897,7 +897,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88400
                     stepCounter: "228"
-                transform: CASE when "LFA1"."REVDB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."REVDB", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."REVDB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."REVDB") end
           - columnReference:
               columnCounter: 81895
               stepCounter: "188"
@@ -1349,7 +1349,7 @@ steps:
           - columnReference:
               columnCounter: 81927
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1359,7 +1359,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88433
                     stepCounter: "228"
-                transform: CASE when "LFA1"."UPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."UPDAT", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."UPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."UPDAT") end
           - columnReference:
               columnCounter: 81928
               stepCounter: "188"
@@ -1391,7 +1391,7 @@ steps:
           - columnReference:
               columnCounter: 81930
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1401,7 +1401,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88436
                     stepCounter: "228"
-                transform: CASE when "LFA1"."QSSYSDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."QSSYSDAT", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."QSSYSDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."QSSYSDAT") end
           - columnReference:
               columnCounter: 81931
               stepCounter: "188"
@@ -1559,7 +1559,7 @@ steps:
           - columnReference:
               columnCounter: 81942
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1569,7 +1569,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88448
                     stepCounter: "228"
-                transform: CASE when "LFA1"."RGDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RGDATE", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."RGDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RGDATE") end
           - columnReference:
               columnCounter: 81943
               stepCounter: "188"
@@ -1601,7 +1601,7 @@ steps:
           - columnReference:
               columnCounter: 81945
               stepCounter: "188"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1611,7 +1611,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88451
                     stepCounter: "228"
-                transform: CASE when "LFA1"."RNEDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RNEDATE", 'YYYYMMDD' ) END
+                transform: case when "LFA1"."RNEDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RNEDATE") end
           - columnReference:
               columnCounter: 81946
               stepCounter: "188"

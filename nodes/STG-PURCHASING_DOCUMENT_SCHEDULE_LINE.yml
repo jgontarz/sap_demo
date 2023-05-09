@@ -99,7 +99,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87472
                     stepCounter: "218"
-                transform: CASE when EKET."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."EINDT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."EINDT") end
           - columnReference:
               columnCounter: 57900
               stepCounter: "171"
@@ -113,11 +113,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87473
                     stepCounter: "218"
-                transform: CASE when EKET."SLFDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."SLFDT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."SLFDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."SLFDT") end
           - columnReference:
               columnCounter: 57901
               stepCounter: "171"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -127,7 +127,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87474
                     stepCounter: "218"
-                transform: ""
+                transform: case when "EKET"."LPEIN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."LPEIN") end
           - columnReference:
               columnCounter: 57902
               stepCounter: "171"
@@ -187,7 +187,7 @@ steps:
           - columnReference:
               columnCounter: 57906
               stepCounter: "171"
-            dataType: VARCHAR(6)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -197,7 +197,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87479
                     stepCounter: "218"
-                transform: ""
+                transform: case when "EKET"."UZEIT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."UZEIT") end
           - columnReference:
               columnCounter: 57907
               stepCounter: "171"
@@ -295,7 +295,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87486
                     stepCounter: "218"
-                transform: CASE when EKET."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."BEDAT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."BEDAT") end
           - columnReference:
               columnCounter: 57914
               stepCounter: "171"
@@ -463,7 +463,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87498
                     stepCounter: "218"
-                transform: CASE when EKET."DAT01" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."DAT01", 'YYYYMMDD' ) END
+                transform: case when "EKET"."DAT01" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."DAT01") end
           - columnReference:
               columnCounter: 57926
               stepCounter: "171"
@@ -477,7 +477,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87499
                     stepCounter: "218"
-                transform: CASE when EKET."ALTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."ALTDT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."ALTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."ALTDT") end
           - columnReference:
               columnCounter: 57927
               stepCounter: "171"
@@ -505,7 +505,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87501
                     stepCounter: "218"
-                transform: CASE when EKET."ALTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."ALTDT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."MBDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."MBDAT") end
           - columnReference:
               columnCounter: 57929
               stepCounter: "171"
@@ -533,7 +533,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87503
                     stepCounter: "218"
-                transform: CASE when EKET."LDDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."LDDAT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."LDDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."LDDAT") end
           - columnReference:
               columnCounter: 57931
               stepCounter: "171"
@@ -561,7 +561,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87505
                     stepCounter: "218"
-                transform: CASE when EKET."TDDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."TDDAT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."TDDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."TDDAT") end
           - columnReference:
               columnCounter: 57933
               stepCounter: "171"
@@ -589,7 +589,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87507
                     stepCounter: "218"
-                transform: CASE when EKET."WADAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKET."WADAT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."WADAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."WADAT") end
           - columnReference:
               columnCounter: 57935
               stepCounter: "171"
@@ -617,7 +617,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87509
                     stepCounter: "218"
-                transform: CASE when "EKET"."ELDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."ELDAT", 'YYYYMMDD' ) END
+                transform: case when "EKET"."ELDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."ELDAT") end
           - columnReference:
               columnCounter: 57937
               stepCounter: "171"
@@ -757,7 +757,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87519
                     stepCounter: "218"
-                transform: CASE when "EKET"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."HANDOVERDATE", 'YYYYMMDD' ) END
+                transform: case when "EKET"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."HANDOVERDATE") end
           - columnReference:
               columnCounter: 57947
               stepCounter: "171"
@@ -957,7 +957,7 @@ steps:
           - columnReference:
               columnCounter: 57961
               stepCounter: "171"
-            dataType: VARCHAR(22)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -967,7 +967,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87534
                     stepCounter: "218"
-                transform: ""
+                transform: case when "EKET"."DL_ID" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."DL_ID") end
           - columnReference:
               columnCounter: 57962
               stepCounter: "171"
@@ -981,7 +981,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87535
                     stepCounter: "218"
-                transform: CASE when "EKET"."HANDOVER_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."HANDOVER_DATE", 'YYYYMMDD' ) END
+                transform: case when "EKET"."HANDOVER_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."HANDOVER_DATE") end
           - columnReference:
               columnCounter: 57963
               stepCounter: "171"
@@ -1009,7 +1009,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87537
                     stepCounter: "218"
-                transform: CASE when "EKET"."DNG_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."DNG_DATE", 'YYYYMMDD' ) END
+                transform: case when "EKET"."DNG_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."DNG_DATE") end
           - columnReference:
               columnCounter: 57965
               stepCounter: "171"
@@ -1041,7 +1041,7 @@ steps:
           - columnReference:
               columnCounter: 57967
               stepCounter: "171"
-            dataType: NUMBER(3,0)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1051,7 +1051,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87540
                     stepCounter: "218"
-                transform: ""
+                transform: case when "EKET"."DATESHIFT_NUMBER" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKET"."DATESHIFT_NUMBER") end
           - columnReference:
               columnCounter: 57968
               stepCounter: "171"

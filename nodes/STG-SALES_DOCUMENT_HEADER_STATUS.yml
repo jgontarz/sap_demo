@@ -369,7 +369,7 @@ steps:
           - columnReference:
               columnCounter: 12351
               stepCounter: "73"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -379,7 +379,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89117
                     stepCounter: "233"
-                transform: CASE when "VBUK"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBUK"."AEDAT", 'YYYYMMDD' ) END
+                transform: case when "VBUK"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBUK"."AEDAT") end
           - columnReference:
               columnCounter: 12352
               stepCounter: "73"
@@ -621,7 +621,7 @@ steps:
           - columnReference:
               columnCounter: 12369
               stepCounter: "73"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -631,7 +631,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89135
                     stepCounter: "233"
-                transform: ""
+                transform: case when "VBUK"."CMPSE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBUK"."CMPSE") end
           - columnReference:
               columnCounter: 12370
               stepCounter: "73"

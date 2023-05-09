@@ -1,643 +1,695 @@
 steps:
-  CONTROLLING_AREA-200000065:
+  CONTROLLING_AREA-d6591728-843a-4dbe-b21d-cb3e6b8e7b2d:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: Controlling Areas
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004876
-              stepCounter: "200000065"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: f6ea0f83-1ed4-4cd5-a8c4-f51435b96958
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001932
-                    stepCounter: "200000027"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004877
-              stepCounter: "200000065"
-            dataType: char(4)
-            defaultValue: ""
-            description: ""
+            hashColumns: []
+            hashDetails: null
             name: CONTROLLING_AREA_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001933
-                    stepCounter: "200000027"
+                  - columnCounter: 89974
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004878
-              stepCounter: "200000065"
-            dataType: char(25)
-            defaultValue: ""
+              columnCounter: 659c0f58-788d-4cea-8697-37e3a13e7e8d
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 89975
+                    stepCounter: "249"
+                transform: ""
+          - columnReference:
+              columnCounter: 467daa84-366a-430d-9b13-6092759deeaa
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
+            description: ""
+            hashColumns: []
+            hashDetails: null
             name: NAME_THE_CONTROLLING_AREA
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001934
-                    stepCounter: "200000027"
+                  - columnCounter: 89976
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004879
-              stepCounter: "200000065"
-            dataType: char(5)
-            defaultValue: ""
+              columnCounter: 1ae5937a-b564-4b18-8b92-dc624fd8860e
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CURRENCY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001935
-                    stepCounter: "200000027"
-                transform: case when "TKA01"."WAERS" in ('DEM','FRF') then 'EUR' else "TKA01"."WAERS" end
+                  - columnCounter: 89977
+                    stepCounter: "249"
+                transform: ""
           - columnReference:
-              columnCounter: 2000004880
-              stepCounter: "200000065"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: 50ef1ef4-940a-4611-a57d-8f143556a464
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CHART_OF_ACCOUNTS_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001936
-                    stepCounter: "200000027"
+                  - columnCounter: 89978
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004881
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: 362d97aa-c23f-4f36-b744-d667b5db5618
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: FISCAL_YEAR_VARIANT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001937
-                    stepCounter: "200000027"
+                  - columnCounter: 89979
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004882
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 0b316940-fc17-47ef-b225-d8ee3c59e324
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ALLOCATION_INDICATOR
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001938
-                    stepCounter: "200000027"
+                  - columnCounter: 89980
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004883
-              stepCounter: "200000065"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: e2696ba1-4aa4-4bd9-9d33-1f06b18f5ef4
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: LOGICAL_SYSTEM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001939
-                    stepCounter: "200000027"
+                  - columnCounter: 89981
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004884
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: e55c3f8e-0690-4373-8832-1f1c3fa267e5
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: DISTRIBUTION_METHOD
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001940
-                    stepCounter: "200000027"
+                  - columnCounter: 89982
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004885
-              stepCounter: "200000065"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: 8016c56a-20f6-440f-8890-e6c1e7ff0a62
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: LSYSTEM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001941
-                    stepCounter: "200000027"
+                  - columnCounter: 89983
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004886
-              stepCounter: "200000065"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: 482fa34c-44ff-4c7f-8b4b-02f12bf4e85e
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
-            name: CCTR_STD_HIERARCHY
-            nullable: false
+            hashColumns: []
+            hashDetails: null
+            name: _FIVETRAN_SYNCED
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001942
-                    stepCounter: "200000027"
+                  - columnCounter: 89984
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004887
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 98ca92b6-1dd1-4950-ba02-4f239b32149a
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CONVERT_REVENUE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001943
-                    stepCounter: "200000027"
+                  - columnCounter: 89985
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004888
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 77a9321a-f3d8-49de-ba5f-6fc78cf4a02d
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PRODUCTIVE_INDICATOR
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001944
-                    stepCounter: "200000027"
+                  - columnCounter: 89986
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004889
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: ed0adb71-bd6c-44e0-a899-1c2d3b36987f
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: RESERVE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001945
-                    stepCounter: "200000027"
+                  - columnCounter: 89987
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004890
-              stepCounter: "200000065"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: 183fc122-4ae5-49d6-a9cc-609df8097553
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: OPERATING_CONCERN_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001946
-                    stepCounter: "200000027"
+                  - columnCounter: 89988
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004891
-              stepCounter: "200000065"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: eb73c9b7-74b9-4370-9c8a-3b051f9dec92
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: DUMMY_PROFIT_CENTER_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001947
-                    stepCounter: "200000027"
+                  - columnCounter: 89989
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004892
-              stepCounter: "200000065"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: cfac6975-e76a-4648-81e0-298325dfc413
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PROFIT_CENTER_AREA
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001948
-                    stepCounter: "200000027"
+                  - columnCounter: 89990
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004893
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: a7164481-3a45-4f7b-997f-df96d02f03c8
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PROFIT_CENTER_LEDGER_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001949
-                    stepCounter: "200000027"
+                  - columnCounter: 89991
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004894
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 6b48624d-6cef-465c-a2e5-c803c15bea9a
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ELIM_INTERN_BUS_VOL
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001950
-                    stepCounter: "200000027"
+                  - columnCounter: 89992
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004895
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 2f17c3b1-dc6c-4f8e-8fed-53902dd93e98
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: DIFF_CCODE_CURRENCY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001951
-                    stepCounter: "200000027"
+                  - columnCounter: 89993
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004896
-              stepCounter: "200000065"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: 8c281273-95cf-44fe-89be-1b321e0cd9b6
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: STANDARD_HIERARCHY_AREA
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001952
-                    stepCounter: "200000027"
+                  - columnCounter: 89994
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004897
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: c19d6a5d-365f-4403-ba77-8b638d73755b
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: BUS_PROC_ALE_ACTIVE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001953
-                    stepCounter: "200000027"
+                  - columnCounter: 89995
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004898
-              stepCounter: "200000065"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: 78e4802a-266f-4a5f-a598-de5233edc94c
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CELEM_VEND_DWNPAYMNT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001954
-                    stepCounter: "200000027"
+                  - columnCounter: 89996
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004899
-              stepCounter: "200000065"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: c3535d41-4f71-448d-a189-930a18d44848
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: REVTYP_CUS_DOWNPAYMT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001955
-                    stepCounter: "200000027"
+                  - columnCounter: 89997
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004900
-              stepCounter: "200000065"
-            dataType: char(5)
-            defaultValue: ""
+              columnCounter: 8d1d7b1f-af54-48a7-bcbd-4b6e18128be4
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PROFIT_CENTER_LOCAL_CURRENCY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001956
-                    stepCounter: "200000027"
+                  - columnCounter: 89998
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004901
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: 12eb169b-e312-4d86-852d-ae5afec4a48a
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CURRENCY_TYPE_PROFIT_CTR_ACCTG
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001957
-                    stepCounter: "200000027"
+                  - columnCounter: 89999
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004902
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: fe56ff1c-303e-4933-b31c-b5eee7984cdd
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: TRANSACTION_CURRENCY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001958
-                    stepCounter: "200000027"
+                  - columnCounter: 90000
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004903
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: 748b7570-8699-428f-a2b9-49d12cfae6c6
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CURRENCY_TYPE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001959
-                    stepCounter: "200000027"
+                  - columnCounter: 90001
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004904
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: b625780f-d81f-4219-a115-ba6287d1986a
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: RECONCILIATION_LEDGER_ACTIVE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001960
-                    stepCounter: "200000027"
+                  - columnCounter: 90002
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004905
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: 0a52eb8c-5c6c-494c-b1e9-d190e2bad523
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: DOCUMENT_TYPE_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001961
-                    stepCounter: "200000027"
+                  - columnCounter: 90003
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004906
-              stepCounter: "200000065"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: 5e05abc2-5381-40cd-86ac-aab62ea82370
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: FINANCIAL_MANAGEMENT_AREA_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001962
-                    stepCounter: "200000027"
+                  - columnCounter: 90004
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004907
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 6e3c63d3-dd52-4684-88d9-dd35c319d940
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ACCT_DETERMINATION_PRIMARY_CELMS
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001963
-                    stepCounter: "200000027"
+                  - columnCounter: 90005
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004908
-              stepCounter: "200000065"
-            dataType: char(2)
-            defaultValue: ""
+              columnCounter: 1ab04a11-855d-47f9-be18-f79f5a4e5e15
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ALE_DISTRIBUTION_METHOD
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001964
-                    stepCounter: "200000027"
+                  - columnCounter: 90006
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004909
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 24c80f44-5d2f-461d-9307-85297b82f341
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: VALUATION_VIEW
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001965
-                    stepCounter: "200000027"
+                  - columnCounter: 90007
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004910
-              stepCounter: "200000065"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: cf37a7f9-898a-4913-9ca5-891e024b1b29
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CURRENCY_AND_VALUATION_PROFILE_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001966
-                    stepCounter: "200000027"
+                  - columnCounter: 90008
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004911
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 2f35e286-f078-4a25-8fdd-b7f27371b60e
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: C&V_PROFILE_ACTIVE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001967
-                    stepCounter: "200000027"
+                  - columnCounter: 90009
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004912
-              stepCounter: "200000065"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: 59843dd8-56a3-418d-aa24-272ff33b05ce
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: PERSON_RESPONSIBLE_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001968
-                    stepCounter: "200000027"
+                  - columnCounter: 90010
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004913
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 8657bcaf-f082-448d-8c7b-a176ef1a5a65
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: ACCOUNT_CONTROL_TRANSFER_VALUATION_DIFF
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001969
-                    stepCounter: "200000027"
+                  - columnCounter: 90011
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004914
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: bb06a063-8ba6-4d4c-b331-b2bf5f6fb266
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: VALVIEW_CALCBASE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001970
-                    stepCounter: "200000027"
+                  - columnCounter: 90012
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004915
-              stepCounter: "200000065"
-            dataType: char(10)
-            defaultValue: ""
+              columnCounter: 08487b17-7b44-4c7b-9f60-11b2e4b95245
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: DEFAULT_PROFIT_CTR_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001971
-                    stepCounter: "200000027"
+                  - columnCounter: 90013
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004916
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 2a4c9603-6872-4565-b17d-6a2121a25301
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: DO_NOT_USE_STD_HIER
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001972
-                    stepCounter: "200000027"
+                  - columnCounter: 90014
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004917
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: b410763d-87a0-4118-9344-066c0fe3556e
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: HIERARCHY_1
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001973
-                    stepCounter: "200000027"
+                  - columnCounter: 90015
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004918
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 0d6e53a3-d7d1-4114-8779-be6962b13e23
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: HIERARCHY_2
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001974
-                    stepCounter: "200000027"
+                  - columnCounter: 90016
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004919
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 80abf1fc-ff0e-4632-a067-222fc3e3bc5e
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: AUTH_KE_NO_STD
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001975
-                    stepCounter: "200000027"
+                  - columnCounter: 90017
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004920
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 4f722356-8354-4f89-8c5e-5fae58288a87
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: AUTH_KE_USE_ADD1
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001976
-                    stepCounter: "200000027"
+                  - columnCounter: 90018
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004921
-              stepCounter: "200000065"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: c24caa73-05e0-4387-ba6f-be1190ec70ee
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: AUTH_KE_USE_ADD2
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001977
-                    stepCounter: "200000027"
+                  - columnCounter: 90019
+                    stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004922
-              stepCounter: "200000065"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 8c47368e-fdd1-4bef-95bb-0bffc6707081
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: BOOLEAN
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90021
                     stepCounter: "249"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004923
-              stepCounter: "200000065"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: 0d05fd91-6383-4aee-a6d5-dca5f8b35510
+              stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90022
                     stepCounter: "249"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -654,6 +706,7 @@ steps:
             noLinkRefs: []
       name: CONTROLLING_AREA
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000065"
+    stepCounter: d6591728-843a-4dbe-b21d-cb3e6b8e7b2d

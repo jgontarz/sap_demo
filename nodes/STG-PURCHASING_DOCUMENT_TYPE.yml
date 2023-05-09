@@ -173,7 +173,7 @@ steps:
           - columnReference:
               columnCounter: 65580
               stepCounter: "175"
-            dataType: VARCHAR(6)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -183,7 +183,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87744
                     stepCounter: "223"
-                transform: ""
+                transform: case when "T161"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T161"."STAFO") end
           - columnReference:
               columnCounter: 65581
               stepCounter: "175"
@@ -705,7 +705,7 @@ steps:
           - columnReference:
               columnCounter: 65618
               stepCounter: "175"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -715,7 +715,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87782
                     stepCounter: "223"
-                transform: ""
+                transform: case when "T161"."FSH_VAS_DETDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T161"."FSH_VAS_DETDT") end
           - columnReference:
               columnCounter: 65619
               stepCounter: "175"
@@ -789,7 +789,7 @@ steps:
           - columnReference:
               columnCounter: 65624
               stepCounter: "175"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -799,7 +799,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87788
                     stepCounter: "223"
-                transform: ""
+                transform: case when "T161"."WRF_ENABLE_DATELINE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T161"."WRF_ENABLE_DATELINE") end
           - columnReference:
               columnCounter: 65625
               stepCounter: "175"

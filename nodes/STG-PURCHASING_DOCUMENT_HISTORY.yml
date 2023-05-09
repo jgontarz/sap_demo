@@ -173,7 +173,7 @@ steps:
           - columnReference:
               columnCounter: 65734
               stepCounter: "177"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -183,7 +183,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87554
                     stepCounter: "219"
-                transform: CASE when "EKBE"."BUDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."BUDAT", 'YYYYMMDD' ) END
+                transform: case when "EKBE"."BUDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."BUDAT") end
           - columnReference:
               columnCounter: 65735
               stepCounter: "177"
@@ -411,7 +411,7 @@ steps:
           - columnReference:
               columnCounter: 65751
               stepCounter: "177"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -421,7 +421,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87571
                     stepCounter: "219"
-                transform: CASE when "EKBE"."CPUDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."CPUDT", 'YYYYMMDD' ) END
+                transform: case when "EKBE"."CPUDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."CPUDT") end
           - columnReference:
               columnCounter: 65752
               stepCounter: "177"
@@ -663,7 +663,7 @@ steps:
           - columnReference:
               columnCounter: 65769
               stepCounter: "177"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -673,7 +673,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87589
                     stepCounter: "219"
-                transform: CASE when "EKBE"."BLDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."BLDAT", 'YYYYMMDD' ) END
+                transform: case when "EKBE"."BLDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKBE"."BLDAT") end
           - columnReference:
               columnCounter: 65770
               stepCounter: "177"

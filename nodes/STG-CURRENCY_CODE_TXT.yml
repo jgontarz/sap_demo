@@ -1,110 +1,121 @@
 steps:
-  CURRENCY_CODE_TXT-200000063:
+  CURRENCY_CODE_TXT-4cdb5de1-a8cb-4ade-bd64-2cb951f3b471:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: Currency Code Names
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004858
-              stepCounter: "200000063"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: c2111066-8d29-4eac-a43b-8bf428d2892c
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CLIENT_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001914
-                    stepCounter: "200000025"
+                  - columnCounter: 90035
+                    stepCounter: "251"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004859
-              stepCounter: "200000063"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 96f6c752-c28c-4350-bd1d-90c7d5ceb639
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: LANGUAGE_KEY_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001915
-                    stepCounter: "200000025"
+                  - columnCounter: 90036
+                    stepCounter: "251"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004860
-              stepCounter: "200000063"
-            dataType: char(5)
-            defaultValue: ""
+              columnCounter: 2479a0e0-22a8-43ef-9bfe-8e7961c1ae90
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CURRENCY_KEY_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001916
-                    stepCounter: "200000025"
-                transform: case when "TCURT"."WAERS" in ('DEM','FRF') then 'EUR' else "TCURT"."WAERS" end
+                  - columnCounter: 90037
+                    stepCounter: "251"
+                transform: ""
           - columnReference:
-              columnCounter: 2000004861
-              stepCounter: "200000063"
-            dataType: char(40)
-            defaultValue: ""
+              columnCounter: 6a1e5a5d-754f-4cbc-bf42-8000f85315c2
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: LONG_TEXT
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001917
-                    stepCounter: "200000025"
+                  - columnCounter: 90038
+                    stepCounter: "251"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004862
-              stepCounter: "200000063"
-            dataType: char(15)
-            defaultValue: ""
+              columnCounter: b12c4fd5-8fdf-4289-9cd8-2edb154c4a57
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: SHORT_TEXT
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001918
-                    stepCounter: "200000025"
+                  - columnCounter: 90039
+                    stepCounter: "251"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004863
-              stepCounter: "200000063"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 192bf35c-5419-4106-83b0-b686442212f2
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: BOOLEAN
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90041
                     stepCounter: "251"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004864
-              stepCounter: "200000063"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: 775f2bef-bfc9-4bb8-92e7-63b92f54d6b2
+              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90042
                     stepCounter: "251"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -121,6 +132,7 @@ steps:
             noLinkRefs: []
       name: CURRENCY_CODE_TXT
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000063"
+    stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471

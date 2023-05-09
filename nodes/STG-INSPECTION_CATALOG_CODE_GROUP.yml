@@ -1,175 +1,191 @@
 steps:
-  INSPECTION_CATALOG_CODE_GROUP-200000055:
+  INSPECTION_CATALOG_CODE_GROUP-1ccb588c-2738-4e15-892d-c2b32f7ae3ee:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: Inspection catalog code groups
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004602
-              stepCounter: "200000055"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 20bab6fc-50a9-4063-9363-249851b814d5
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
             description: ""
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001658
-                    stepCounter: "200000017"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004603
-              stepCounter: "200000055"
-            dataType: char(1)
-            defaultValue: ""
-            description: ""
-            name: CATALOG_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001659
-                    stepCounter: "200000017"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004604
-              stepCounter: "200000055"
-            dataType: char(8)
-            defaultValue: ""
-            description: ""
+            hashColumns: []
+            hashDetails: null
             name: CODE_GROUP_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001660
-                    stepCounter: "200000017"
+                  - columnCounter: 90144
+                    stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004605
-              stepCounter: "200000055"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: db875a43-f62f-4177-9c5c-fda6173220b4
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CATALOG_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 90145
+                    stepCounter: "257"
+                transform: ""
+          - columnReference:
+              columnCounter: b814cacf-4b59-455f-aed6-278ebf461cd4
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 90146
+                    stepCounter: "257"
+                transform: ""
+          - columnReference:
+              columnCounter: 5554fbce-4a82-40e4-8b34-820c7b941d3c
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
+            description: ""
+            hashColumns: []
+            hashDetails: null
             name: CREATED_BY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001661
-                    stepCounter: "200000017"
+                  - columnCounter: 90147
+                    stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004606
-              stepCounter: "200000055"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: e87e6213-fe2e-49fe-b3c1-10405e442f62
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: DATE
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CREATED_ON_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001662
-                    stepCounter: "200000017"
-                transform: case when QPGR.E_DATUM in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPGR.E_DATUM) end
+                  - columnCounter: 90148
+                    stepCounter: "257"
+                transform: case when "QPGR"."E_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPGR"."E_DATUM") end
           - columnReference:
-              columnCounter: 2000004607
-              stepCounter: "200000055"
-            dataType: char(12)
-            defaultValue: ""
+              columnCounter: d3cb9d8f-543d-414e-a915-b76dbe1a2df1
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CHANGED_BY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001663
-                    stepCounter: "200000017"
+                  - columnCounter: 90149
+                    stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004608
-              stepCounter: "200000055"
-            dataType: char(8)
-            defaultValue: ""
+              columnCounter: a5324e8d-be85-4fd4-9c5d-6c27ccf41eb0
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: DATE
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CHANGED_ON_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001664
-                    stepCounter: "200000017"
-                transform: case when QPGR.A_DATUM in ('00000000', ' ') THEN NULL ELSE TO_DATE(QPGR.A_DATUM) end
+                  - columnCounter: 90150
+                    stepCounter: "257"
+                transform: case when "QPGR"."A_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPGR"."A_DATUM") end
           - columnReference:
-              columnCounter: 2000004609
-              stepCounter: "200000055"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: dc43855a-71a1-46f7-b654-ae0096008d56
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: IS_USED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001665
-                    stepCounter: "200000017"
+                  - columnCounter: 90151
+                    stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004610
-              stepCounter: "200000055"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: c2d1fa83-b59e-4cb0-9fe5-3901f9810074
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: RECORD_INACTIVE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001666
-                    stepCounter: "200000017"
+                  - columnCounter: 90152
+                    stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004611
-              stepCounter: "200000055"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: ba77dc3f-f07b-4130-93fc-f1b112d363b2
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: STATUS
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001667
-                    stepCounter: "200000017"
+                  - columnCounter: 90153
+                    stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004612
-              stepCounter: "200000055"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 92848ddb-a968-477d-be7c-050e59b29c00
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: BOOLEAN
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90155
                     stepCounter: "257"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004613
-              stepCounter: "200000055"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: b3117423-cd08-475e-b8d6-8032a4b31387
+              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90156
                     stepCounter: "257"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -186,6 +202,7 @@ steps:
             noLinkRefs: []
       name: INSPECTION_CATALOG_CODE_GROUP
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000055"
+    stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee

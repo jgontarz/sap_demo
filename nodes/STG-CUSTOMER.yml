@@ -381,7 +381,7 @@ steps:
           - columnReference:
               columnCounter: 2000003315
               stepCounter: "200000043"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: CREATED_ON_DATE
@@ -390,7 +390,7 @@ steps:
               - columnReferences:
                   - columnCounter: 86392
                     stepCounter: "214"
-                transform: case when KNA1.ERDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.ERDAT) end
+                transform: case when "KNA1"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("KNA1"."ERDAT") end
           - columnReference:
               columnCounter: 2000003316
               stepCounter: "200000043"
@@ -1798,7 +1798,7 @@ steps:
           - columnReference:
               columnCounter: 2000003424
               stepCounter: "200000043"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: CONFIRMATION_DATE
@@ -1807,7 +1807,7 @@ steps:
               - columnReferences:
                   - columnCounter: 86501
                     stepCounter: "214"
-                transform: case when KNA1.UPDAT in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.UPDAT) end
+                transform: case when "KNA1"."UPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("KNA1"."UPDAT") end
           - columnReference:
               columnCounter: 2000003425
               stepCounter: "200000043"
@@ -1915,7 +1915,7 @@ steps:
           - columnReference:
               columnCounter: 2000003433
               stepCounter: "200000043"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: RG_ISSUING_DATE
@@ -1924,7 +1924,7 @@ steps:
               - columnReferences:
                   - columnCounter: 86510
                     stepCounter: "214"
-                transform: case when KNA1.RGDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.RGDATE) end
+                transform: case when "KNA1"."RGDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("KNA1"."RGDATE") end
           - columnReference:
               columnCounter: 2000003434
               stepCounter: "200000043"
@@ -1954,7 +1954,7 @@ steps:
           - columnReference:
               columnCounter: 2000003436
               stepCounter: "200000043"
-            dataType: char(8)
+            dataType: DATE
             defaultValue: ""
             description: ""
             name: RNE_ISSUING_DATE
@@ -1963,7 +1963,7 @@ steps:
               - columnReferences:
                   - columnCounter: 86513
                     stepCounter: "214"
-                transform: case when KNA1.RNEDATE in ('00000000', ' ') THEN NULL ELSE TO_DATE(KNA1.RNEDATE) end
+                transform: case when "KNA1"."RNEDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("KNA1"."RNEDATE") end
           - columnReference:
               columnCounter: 2000003437
               stepCounter: "200000043"

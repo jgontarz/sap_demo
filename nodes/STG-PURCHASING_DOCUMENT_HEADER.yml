@@ -131,7 +131,7 @@ steps:
           - columnReference:
               columnCounter: 56917
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -141,7 +141,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87822
                     stepCounter: "226"
-                transform: ""
+                transform: case when "EKKO"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."AEDAT") end
           - columnReference:
               columnCounter: 56918
               stepCounter: "167"
@@ -369,7 +369,7 @@ steps:
           - columnReference:
               columnCounter: 56934
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -379,11 +379,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87839
                     stepCounter: "226"
-                transform: CASE when EKKO."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."BEDAT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BEDAT") end
           - columnReference:
               columnCounter: 56935
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -393,11 +393,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87840
                     stepCounter: "226"
-                transform: CASE when "EKKO"."KDATB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATB", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."KDATB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATB") end
           - columnReference:
               columnCounter: 56936
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -407,11 +407,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87841
                     stepCounter: "226"
-                transform: CASE when "EKKO"."KDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATE", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."KDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATE") end
           - columnReference:
               columnCounter: 56937
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -421,11 +421,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87842
                     stepCounter: "226"
-                transform: CASE when EKKO."BWBDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."BWBDT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."BWBDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BWBDT") end
           - columnReference:
               columnCounter: 56938
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -435,11 +435,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87843
                     stepCounter: "226"
-                transform: CASE when EKKO."ANGDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."ANGDT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."ANGDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."ANGDT") end
           - columnReference:
               columnCounter: 56939
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -449,11 +449,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87844
                     stepCounter: "226"
-                transform: CASE when EKKO."BNDDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."BNDDT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."BNDDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BNDDT") end
           - columnReference:
               columnCounter: 56940
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -463,7 +463,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87845
                     stepCounter: "226"
-                transform: CASE when EKKO."GWLDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."GWLDT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."GWLDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."GWLDT") end
           - columnReference:
               columnCounter: 56941
               stepCounter: "167"
@@ -495,7 +495,7 @@ steps:
           - columnReference:
               columnCounter: 56943
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -505,7 +505,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87848
                     stepCounter: "226"
-                transform: CASE when EKKO."IHRAN" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."IHRAN", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."IHRAN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."IHRAN") end
           - columnReference:
               columnCounter: 56944
               stepCounter: "167"
@@ -747,7 +747,7 @@ steps:
           - columnReference:
               columnCounter: 56961
               stepCounter: "167"
-            dataType: VARCHAR(6)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -757,7 +757,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87866
                     stepCounter: "226"
-                transform: ""
+                transform: case when "EKKO"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."STAFO") end
           - columnReference:
               columnCounter: 56962
               stepCounter: "167"
@@ -1195,7 +1195,7 @@ steps:
           - columnReference:
               columnCounter: 56993
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1205,7 +1205,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87898
                     stepCounter: "226"
-                transform: CASE when EKKO."DPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."DPDAT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."DPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."DPDAT") end
           - columnReference:
               columnCounter: 56994
               stepCounter: "167"
@@ -1279,7 +1279,7 @@ steps:
           - columnReference:
               columnCounter: 56999
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1289,7 +1289,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87904
                     stepCounter: "226"
-                transform: CASE when "EKKO"."RELEASE_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."RELEASE_DATE", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."RELEASE_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."RELEASE_DATE") end
           - columnReference:
               columnCounter: 57000
               stepCounter: "167"
@@ -1545,7 +1545,7 @@ steps:
           - columnReference:
               columnCounter: 57018
               stepCounter: "167"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1555,7 +1555,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87923
                     stepCounter: "226"
-                transform: CASE when EKKO."EQ_EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE(EKKO."EQ_EINDT", 'YYYYMMDD' ) END
+                transform: case when "EKKO"."EQ_EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."EQ_EINDT") end
           - columnReference:
               columnCounter: 57019
               stepCounter: "167"
@@ -1643,7 +1643,7 @@ steps:
           - columnReference:
               columnCounter: 57025
               stepCounter: "167"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1653,7 +1653,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87930
                     stepCounter: "226"
-                transform: ""
+                transform: case when "EKKO"."FIXPO_ALLOW" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."FIXPO_ALLOW") end
           - columnReference:
               columnCounter: 57026
               stepCounter: "167"
@@ -1699,7 +1699,7 @@ steps:
           - columnReference:
               columnCounter: 57029
               stepCounter: "167"
-            dataType: VARCHAR(1)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1709,7 +1709,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87934
                     stepCounter: "226"
-                transform: ""
+                transform: case when "EKKO"."EINDT_ALLOW" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."EINDT_ALLOW") end
           - columnReference:
               columnCounter: 57030
               stepCounter: "167"

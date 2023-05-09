@@ -1,97 +1,107 @@
 steps:
-  MATERIAL_PRODUCT_HIERARCHY_TXT-200000061:
+  MATERIAL_PRODUCT_HIERARCHY_TXT-e915c7f9-be77-4099-8bc1-11065455d282:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: "Materials: Product hierarchies: Texts"
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004844
-              stepCounter: "200000061"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: 63e2cf54-caad-4cf4-bce3-c12f20337d00
+              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CLIENT_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001900
-                    stepCounter: "200000023"
+                  - columnCounter: 90052
+                    stepCounter: "253"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004845
-              stepCounter: "200000061"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 460cef03-9b9a-4d97-8c04-347237e7efb0
+              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+            dataType: VARCHAR(256)
             description: ""
-            name: LANGUAGE_KEY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001901
-                    stepCounter: "200000023"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004846
-              stepCounter: "200000061"
-            dataType: char(18)
-            defaultValue: ""
-            description: ""
+            hashColumns: []
+            hashDetails: null
             name: PRODUCT_HIERARCHY_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001902
-                    stepCounter: "200000023"
+                  - columnCounter: 90053
+                    stepCounter: "253"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004847
-              stepCounter: "200000061"
-            dataType: char(40)
-            defaultValue: ""
+              columnCounter: fe8c18d5-ba60-4791-be9e-ceb279046421
+              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+            dataType: VARCHAR(256)
             description: ""
-            name: DESCRIPTION
+            hashColumns: []
+            hashDetails: null
+            name: LANGUAGE_KEY_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001903
-                    stepCounter: "200000023"
+                  - columnCounter: 90054
+                    stepCounter: "253"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004848
-              stepCounter: "200000061"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: 696866d1-9461-4c33-b852-041660fc0bd6
+              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DESCRIPTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 90055
+                    stepCounter: "253"
+                transform: ""
+          - columnReference:
+              columnCounter: 1b1653aa-0e30-492d-a734-2e8e27198302
+              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+            dataType: BOOLEAN
+            description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90057
                     stepCounter: "253"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004849
-              stepCounter: "200000061"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: 8d2b6136-3937-4bad-b608-413891bba9ad
+              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90058
                     stepCounter: "253"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -108,6 +118,7 @@ steps:
             noLinkRefs: []
       name: MATERIAL_PRODUCT_HIERARCHY_TXT
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000061"
+    stepCounter: e915c7f9-be77-4099-8bc1-11065455d282

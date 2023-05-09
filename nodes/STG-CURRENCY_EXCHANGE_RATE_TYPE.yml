@@ -1,162 +1,177 @@
 steps:
-  CURRENCY_EXCHANGE_RATE_TYPE-200000064:
+  CURRENCY_EXCHANGE_RATE_TYPE-7e5e62d6-1595-48cb-ab0a-33b013d537b8:
     operation:
       config:
         insertStrategy: UNION
         selectDistinct: false
-      customOverride: false
+      database: ""
       dependencies: []
-      deployEnabled: false
-      description: Exchange rate types for currency translation
+      deployEnabled: true
+      description: ""
+      isDataVault: false
       isMultisource: false
-      locationID: 2
+      locationID: ""
       locationName: STG
       materializationType: view
       metadata:
+        appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 2000004865
-              stepCounter: "200000064"
-            dataType: char(3)
-            defaultValue: ""
+              columnCounter: cfa4e181-a6be-44c7-8aa3-ab99fe67077f
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000001921
-                    stepCounter: "200000026"
-                transform: ""
-          - columnReference:
-              columnCounter: 2000004866
-              stepCounter: "200000064"
-            dataType: char(4)
-            defaultValue: ""
-            description: ""
+            hashColumns: []
+            hashDetails: null
             name: EXCHANGE_RATE_TYPE_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001922
-                    stepCounter: "200000026"
+                  - columnCounter: 90023
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004867
-              stepCounter: "200000064"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 9a6d9de5-485e-48f0-b0b6-2525f8b4813f
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CLIENT_ID
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 90024
+                    stepCounter: "250"
+                transform: ""
+          - columnReference:
+              columnCounter: 68f36138-234a-4a17-8a17-48fb609573e4
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
+            description: ""
+            hashColumns: []
+            hashDetails: null
             name: INVERSE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001923
-                    stepCounter: "200000026"
+                  - columnCounter: 90025
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004868
-              stepCounter: "200000064"
-            dataType: char(5)
-            defaultValue: ""
+              columnCounter: 4a1a70f5-dbc2-48c3-9ac6-eab00f36db68
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: REFERENCE_CURRENCY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001924
-                    stepCounter: "200000026"
-                transform: case when "TCURV"."BWAER" in ('DEM','FRF') then 'EUR' else "TCURV"."BWAER" end
+                  - columnCounter: 90026
+                    stepCounter: "250"
+                transform: ""
           - columnReference:
-              columnCounter: 2000004869
-              stepCounter: "200000064"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 669ffacc-9263-41b5-a183-4b9381ee62c8
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: BASE_CUR_=_FROM_CUR
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001925
-                    stepCounter: "200000026"
+                  - columnCounter: 90027
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004870
-              stepCounter: "200000064"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: e2c65977-85ac-459e-a71e-154cd050717a
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: BUYING_RATE_AT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001926
-                    stepCounter: "200000026"
+                  - columnCounter: 90028
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004871
-              stepCounter: "200000064"
-            dataType: char(4)
-            defaultValue: ""
+              columnCounter: e1b2816f-3b80-4596-9b4f-379aaa998b7d
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: SELLING_RATE_AT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001927
-                    stepCounter: "200000026"
+                  - columnCounter: 90029
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004872
-              stepCounter: "200000064"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 5329ecb6-f7c8-4a5a-82e2-042e57c9f85a
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: FIXED_EXCHANGE_RATES
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001928
-                    stepCounter: "200000026"
+                  - columnCounter: 90030
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004873
-              stepCounter: "200000064"
-            dataType: char(1)
-            defaultValue: ""
+              columnCounter: 64cf33ae-fdfc-4b7a-afba-8ddc7dcc14d2
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: VARCHAR(256)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: CONVERSION_ACC_TO_EMU
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000001929
-                    stepCounter: "200000026"
+                  - columnCounter: 90031
+                    stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004874
-              stepCounter: "200000064"
-            dataType: NUMBER(38,0)
-            defaultValue: ""
+              columnCounter: b6f24068-3753-4f88-b615-98665595af07
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: BOOLEAN
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90033
                     stepCounter: "250"
                 transform: ""
           - columnReference:
-              columnCounter: 2000004875
-              stepCounter: "200000064"
-            dataType: TIMESTAMP_TZ(3)
-            defaultValue: ""
+              columnCounter: 059bd165-496f-4261-a9fc-00fac98bf7b5
+              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+            dataType: TIMESTAMP_TZ(9)
             description: ""
+            hashColumns: []
+            hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 90034
                     stepCounter: "250"
                 transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
         sourceMapping:
           - aliases: {}
             customSQL:
@@ -173,6 +188,7 @@ steps:
             noLinkRefs: []
       name: CURRENCY_EXCHANGE_RATE_TYPE
       overrideSQL: false
+      schema: ""
       sqlType: "1"
       type: sql
-    stepCounter: "200000064"
+    stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8

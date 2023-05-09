@@ -257,7 +257,7 @@ steps:
           - columnReference:
               columnCounter: eb195299-de59-456c-8d64-2439e556eb01
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -267,7 +267,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87649
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."XFMCA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFMCA") end
           - columnReference:
               columnCounter: da30e66a-75a8-447a-ae20-7d8be9f83224
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
@@ -285,7 +285,7 @@ steps:
           - columnReference:
               columnCounter: fed188c8-bdc7-4445-adb0-29b3797a01d8
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -295,7 +295,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87651
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."FMHRDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."FMHRDATE") end
           - columnReference:
               columnCounter: 352f2bb0-d1ae-4c98-9fc0-bc284df872ed
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
@@ -341,7 +341,7 @@ steps:
           - columnReference:
               columnCounter: 5720bf3c-0f6b-4b83-8760-34859ea7ba44
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -351,7 +351,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87655
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."XVALV" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XVALV") end
           - columnReference:
               columnCounter: 61810a2a-364f-4c84-a235-58870484ad53
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
@@ -523,7 +523,7 @@ steps:
           - columnReference:
               columnCounter: 021e9050-4ab7-4d71-b112-38514085ad09
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -533,11 +533,11 @@ steps:
               - columnReferences:
                   - columnCounter: 87668
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."XFDMM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFDMM") end
           - columnReference:
               columnCounter: 026d2860-3b58-43ba-b573-5143a7a7a091
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -547,7 +547,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87669
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."XFDSD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFDSD") end
           - columnReference:
               columnCounter: 650b97c2-ea33-4e17-a9c1-0d6dbc4b7ce5
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
@@ -747,7 +747,7 @@ steps:
           - columnReference:
               columnCounter: 8283cb53-f089-4c14-8865-0caeba1bda01
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -757,7 +757,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87684
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."XSTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XSTDT") end
           - columnReference:
               columnCounter: afa58127-29d9-4837-b249-da6baa7d83f6
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
@@ -845,7 +845,7 @@ steps:
           - columnReference:
               columnCounter: 01c72650-85ce-4e05-9b3c-4ff296326c95
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -855,7 +855,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87691
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."PP_PDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."PP_PDATE") end
           - columnReference:
               columnCounter: 324e8eab-e200-4ca5-b879-6b71750c7b25
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
@@ -1069,7 +1069,7 @@ steps:
           - columnReference:
               columnCounter: 4d55ed76-6162-422f-a163-67d84a3f0055
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1079,7 +1079,7 @@ steps:
               - columnReferences:
                   - columnCounter: 87707
                     stepCounter: "220"
-                transform: ""
+                transform: case when "T001"."XVATDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XVATDATE") end
           - columnReference:
               columnCounter: 8bc15fd3-3321-4d0c-89e7-adfd9f898842
               stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792

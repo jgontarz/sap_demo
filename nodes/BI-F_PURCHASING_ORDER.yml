@@ -16,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: table
+      materializationType: view
       metadata:
         appliedNodeTests: []
         columns:
@@ -82,8 +82,8 @@ steps:
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 2000004619
-                    stepCounter: "200000056"
+                  - columnCounter: "0"
+                    stepCounter: "0"
                 transform: ""
           - columnReference:
               columnCounter: 82600
@@ -572,6 +572,22 @@ steps:
                   		END
             systemColumnType: None
             transform: ""
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: cffb3a5e-e7e9-4f6b-a7ba-f2b7aa38e6cb
+              stepCounter: "196"
+            dataType: VARCHAR(1)
+            description: ""
+            name: CONTROL_INDICATOR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 56914
+                    stepCounter: "167"
+                transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
@@ -585,15 +601,15 @@ steps:
               customSQL: ""
             dependencies:
               - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
-              - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_HEADER
+              - locationName: STG
+                nodeName: COMPANY
+              - locationName: STG
+                nodeName: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
               - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_ITEM
               - locationName: STG
                 nodeName: PURCHASING_DOCUMENT_OVERVIEW
-              - locationName: STG
-                nodeName: COMPANY
             join:
               joinCondition: |-
                 FROM {{ ref('STG', 'PURCHASING_DOCUMENT_ITEM') }} "PURCHASING_DOCUMENT_ITEM"
