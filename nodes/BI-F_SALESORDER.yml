@@ -28,7 +28,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_NUMBER
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 1df09e05-3c3d-46ba-89b4-95a104ddf3ee
@@ -79,12 +79,12 @@ steps:
           - columnReference:
               columnCounter: 13327
               stepCounter: "77"
-            dataType: char(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
             name: CREATED_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: c3ed2638-d3b5-41c6-9d1f-9c96592be28b
@@ -98,7 +98,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: CREATED_BY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 86e17f64-6e98-4451-b3ff-8d0017fbb427
@@ -107,12 +107,12 @@ steps:
           - columnReference:
               columnCounter: 13332
               stepCounter: "77"
-            dataType: char(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
             name: DOCUMENT_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: fd64c212-79c8-4da1-af11-32375fa972ae
@@ -126,7 +126,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SD_DOCUMENT_CATEGORY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: cdcf03da-64e3-4ff1-863f-bfbb66a583af
@@ -140,7 +140,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_TYPE_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 10db367f-70ef-4c2a-99a9-21c94d7a8afe
@@ -154,7 +154,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: ORDER_REASON_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 73157452-07d8-4f11-8ba1-dbb3a181ce06
@@ -168,7 +168,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: DELIVERY_BLOCK_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2344ed3d-d066-4044-b71a-9d3af5b0c0c3
@@ -182,7 +182,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_ORGANIZATION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 4f111c90-c2a7-4b4e-afeb-32ab0fb31c60
@@ -196,7 +196,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: DISTRIBUTION_CHANNEL_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 6bf9b80e-7939-4371-aa25-e8781eb3fc60
@@ -210,7 +210,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: DIVISION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: c7cc93f9-6b0d-4fea-a728-4c63904a8ea2
@@ -219,12 +219,12 @@ steps:
           - columnReference:
               columnCounter: 13353
               stepCounter: "77"
-            dataType: char(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
             name: REQUESTED_DELIVERY_DATE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: f98ca311-bec2-4b4d-aeb3-119b2e4f0340
@@ -238,7 +238,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: d56373c3-c8e1-4c40-93ac-6bfbb86693fc
@@ -252,7 +252,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_ITEM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 54343343-633f-4795-9e0c-453ffc2a1c9d
@@ -266,7 +266,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: MATERIAL_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 138c4ace-2b55-4b38-89d5-3cbd0f81745e
@@ -280,7 +280,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: MATERIAL_GROUP_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 88555701-cd46-4aca-ba47-67f71a82fd43
@@ -294,7 +294,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_DOCUMENT_ITEM_CATEGORY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: c0ecbda6-6279-47b9-98f2-2a100b474090
@@ -308,7 +308,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: REASON_REJECTION_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 888f2f9b-8d55-4eb1-909b-35f59cbc1a72
@@ -322,7 +322,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: PRODUCT_HIERARCHY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: fc1392d3-4e42-44e0-8a93-512421711a4d
@@ -336,7 +336,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: BASE_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 3e8b69ff-7af6-4909-98cf-104d22c0f3da
@@ -350,7 +350,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: NET_VALUE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 58841c8e-0f99-428f-949d-9418220e77ab
@@ -364,7 +364,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SD_DOCUMENT_CURRENCY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: d51fcb41-5218-4d32-b69e-d889647cc2f6
@@ -378,7 +378,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: ORDER_QUANTITY
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 3b40da7d-5e0d-4c06-a223-fbc87169c779
@@ -392,7 +392,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: SALES_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2034a89d-6997-4a97-972a-1f166c9937be
@@ -406,7 +406,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: GROSS_WEIGHT
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: d6e9dadc-c6b3-4d31-a483-2fc2af899d5f
@@ -420,7 +420,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: WEIGHT_UOM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 0f117208-b7f4-4907-b7df-87efa6aa72dd
@@ -434,7 +434,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: PLANT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: bf15f6dd-8525-4ee7-9afd-732cb28b5c8a
@@ -448,7 +448,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: NET_PRICE
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 22b075e7-93d3-4f97-b2bb-f6139ff9e776
@@ -462,7 +462,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: RETURNS_ITEM
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 2f91e1eb-9356-4a15-b80a-042ee3cb63ae
@@ -476,7 +476,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: _FIVETRAN_DELETED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: c23e05a4-e565-462a-96ba-11fa754d0d9a
@@ -490,7 +490,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: _FIVETRAN_SYNCED
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: c5e364a0-e622-48b6-9076-c640f2f81928

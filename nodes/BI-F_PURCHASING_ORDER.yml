@@ -16,7 +16,7 @@ steps:
       isMultisource: false
       locationID: ""
       locationName: BI
-      materializationType: view
+      materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
@@ -28,7 +28,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: PURCHASE_DELIVER_LATE_DAYS
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 56910
@@ -79,11 +79,11 @@ steps:
             dataType: char(5)
             description: ""
             name: CURRENCY_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: "0"
-                    stepCounter: "0"
+                  - columnCounter: 56931
+                    stepCounter: "167"
                 transform: ""
           - columnReference:
               columnCounter: 82600
@@ -171,7 +171,7 @@ steps:
           - columnReference:
               columnCounter: 82613
               stepCounter: "196"
-            dataType: VARCHAR(8)
+            dataType: DATE
             description: ""
             hashColumns: []
             hashDetails: null
@@ -190,7 +190,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: PURCHASING_DOCUMENT_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 57435
@@ -204,7 +204,7 @@ steps:
             hashColumns: []
             hashDetails: null
             name: PURCHASING_DOCUMENT_ITEM_ID
-            nullable: false
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
                   - columnCounter: 57436

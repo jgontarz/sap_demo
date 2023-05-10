@@ -607,7 +607,7 @@ steps:
           - columnReference:
               columnCounter: b77e24a4-3bc2-4693-a61f-271844751100
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
-            dataType: DATE
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -617,7 +617,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90579
                     stepCounter: "265"
-                transform: case when "LIPS"."UPFLU" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LIPS"."UPFLU") end
+                transform: ""
           - columnReference:
               columnCounter: 990a00e3-61ab-400f-9d35-f2e7a5dcf63f
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
@@ -1097,7 +1097,7 @@ steps:
           - columnReference:
               columnCounter: d0dbf2d2-67a9-4dbb-bee2-4fa287cdf44b
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
-            dataType: DATE
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1107,7 +1107,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90614
                     stepCounter: "265"
-                transform: case when "LIPS"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LIPS"."STAFO") end
+                transform: ""
           - columnReference:
               columnCounter: f529f649-daf0-40f6-8fcf-8933b009afd3
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
@@ -3617,7 +3617,7 @@ steps:
           - columnReference:
               columnCounter: 414a0e12-8bc3-44a0-ad0e-f2e44d42f718
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
-            dataType: DATE
+            dataType: NUMBER(15,0)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -3627,11 +3627,11 @@ steps:
               - columnReferences:
                   - columnCounter: 90794
                     stepCounter: "265"
-                transform: case when "LIPS"."SPE_EXP_DATE_EXT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LIPS"."SPE_EXP_DATE_EXT") end
+                transform: ""
           - columnReference:
               columnCounter: 1521ffb7-fc47-456a-8d15-6052486c050a
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
-            dataType: DATE
+            dataType: NUMBER(15,0)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -3641,7 +3641,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90795
                     stepCounter: "265"
-                transform: case when "LIPS"."SPE_EXP_DATE_INT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LIPS"."SPE_EXP_DATE_INT") end
+                transform: ""
           - columnReference:
               columnCounter: 5e119dd6-bd0f-4057-9d4e-669275722cdc
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
@@ -3855,7 +3855,7 @@ steps:
           - columnReference:
               columnCounter: 5f22e6ea-06b0-4c6b-a67c-51c7a41ee09e
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8
-            dataType: DATE
+            dataType: NUMBER(15,0)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -3865,7 +3865,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90811
                     stepCounter: "265"
-                transform: case when "LIPS"."SPE_BXP_DATE_EXT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LIPS"."SPE_BXP_DATE_EXT") end
+                transform: ""
           - columnReference:
               columnCounter: d38a72af-be0c-49bb-b6ab-05c9fe81e43f
               stepCounter: 11b9a136-a1f3-40da-85a1-2200f29899a8

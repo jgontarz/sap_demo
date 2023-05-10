@@ -93,7 +93,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: PERIOD_PERFORMANCE_END_DATE
+            name: SALES_UOM_ID
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -163,7 +163,7 @@ steps:
             description: ""
             hashColumns: []
             hashDetails: null
-            name: _FIVETRAN_SYNCED
+            name: BILLING_QTY_IN_SKU
             nullable: true
             sourceColumnReferences:
               - columnReferences:
@@ -1069,7 +1069,7 @@ steps:
           - columnReference:
               columnCounter: 8c5d2add-4db3-48b3-b88a-c7429d522731
               stepCounter: c97c6504-edde-4ed9-8f30-615c048c7b8a
-            dataType: DATE
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1079,7 +1079,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89676
                     stepCounter: "243"
-                transform: case when "VBRP"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRP"."STAFO") end
+                transform: ""
           - columnReference:
               columnCounter: 3edb38c2-862c-4930-adda-fa7eab62c4b9
               stepCounter: c97c6504-edde-4ed9-8f30-615c048c7b8a
@@ -1545,7 +1545,7 @@ steps:
           - columnReference:
               columnCounter: 2004d585-2a67-48e3-94b7-4869eb815254
               stepCounter: c97c6504-edde-4ed9-8f30-615c048c7b8a
-            dataType: DATE
+            dataType: VARCHAR(256)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -1555,7 +1555,7 @@ steps:
               - columnReferences:
                   - columnCounter: 89710
                     stepCounter: "243"
-                transform: case when "VBRP"."KOUPD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBRP"."KOUPD") end
+                transform: ""
           - columnReference:
               columnCounter: 5d5210d5-3a57-4fd7-b3e6-5fac256f98e3
               stepCounter: c97c6504-edde-4ed9-8f30-615c048c7b8a

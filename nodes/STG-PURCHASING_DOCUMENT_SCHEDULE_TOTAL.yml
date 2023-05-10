@@ -57,7 +57,7 @@ steps:
               - columnReferences:
                   - columnCounter: 57899
                     stepCounter: "171"
-                transform: case when "PURCHASING_DOCUMENT_SCHEDULE_LINE"."ITEM_DELIVERY_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("PURCHASING_DOCUMENT_SCHEDULE_LINE"."ITEM_DELIVERY_DATE") end
+                transform: ""
           - columnReference:
               columnCounter: 82520
               stepCounter: "195"
@@ -85,7 +85,8 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('STG', 'PURCHASING_DOCUMENT_SCHEDULE_LINE') }} "PURCHASING_DOCUMENT_SCHEDULE_LINE"
-                group by "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ID", "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ITEM_ID"
+                group by "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ID", "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ITEM_ID", "PURCHASING_DOCUMENT_SCHEDULE_LINE"."ITEM_DELIVERY_DATE"
+                  
             name: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
             noLinkRefs: []
       name: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
