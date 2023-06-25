@@ -1578,6 +1578,7 @@ stepTypes:
             {% set targetTableColumnNames = columns | map(attribute='name') | list %}
             {% set targetTableMergeUpdateColumn = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
             {% set targetTableDmlIdentifierColumn = config.dmlCol.name %}
+            {% set targetTableDmlIdentifierColumnDatatype = config.dmlCol.dataType %}
             {% set targetTableDmlIdentifierColumnQuotes = '"' + targetTableDmlIdentifierColumn + '"' %}
 
             {# Merge partition by and order by #}
@@ -1633,17 +1634,17 @@ stepTypes:
             {% endif %}
 
             {# DML Identifier Quoting #}
-            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
-                {% set insertValue = "'" + config.dmlInsert + "'" %}
-                {% set deleteValue = "'" + config.dmlDelete + "'" %}
-                {% if config.capUpdate == true %}
-                    {% set updateValue = "'" + config.dmlUpdate + "'" %}
-                {% endif %}
-            {% else %}
+            {% if ((targetTableDmlIdentifierColumnDatatype in ('FLOAT','BOOLEAN')) or (targetTableDmlIdentifierColumnDatatype[:6] == 'NUMBER')) %}
                 {% set insertValue = config.dmlInsert %}
                 {% set deleteValue = config.dmlDelete %}
                 {% if config.capUpdate == true %}
                     {% set updateValue = config.dmlUpdate %}
+                {% endif %}
+            {% else %}
+                {% set insertValue = "'" + config.dmlInsert + "'" %}
+                {% set deleteValue = "'" + config.dmlDelete + "'" %}
+                {% if config.capUpdate == true %}
+                    {% set updateValue = "'" + config.dmlUpdate + "'" %}
                 {% endif %}
             {% endif %}
 
@@ -1749,7 +1750,7 @@ stepTypes:
                                     "{{ col.name }}" as "{{ col.name }}",
                                 {% endif %}
                             {%- endfor %}
-                            case when {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}then 0 else 1 end as load_flag
+                            case when {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }} then 0 else 1 end as load_flag
                     FROM {{ fullyQualifiedStreamName }}
                     QUALIFY {{ nsVariables.rowNumber }} = 1)
                     {% if config.softDeleteFlag == false %}
@@ -1782,7 +1783,7 @@ stepTypes:
                 QUALIFY {{ nsVariables.rowNumber }} = 1)
 
                 SELECT {%- for col in columns %}
-                            {{ col.name }}
+                            "{{ col.name }}"
                         {%- if not loop.last -%}, {% endif %}
                     {%- endfor %}
                 FROM {{ fullyQualifiedTargetTableName }} a
@@ -1794,7 +1795,7 @@ stepTypes:
                                         {%- endfor %})
                 UNION ALL
                 SELECT {%- for col in columns %}
-                            {{ col.name }}
+                            "{{ col.name }}"
                         {%- if not loop.last -%}, {% endif %}
                     {%- endfor %}
                 FROM delta d
@@ -1920,13 +1921,13 @@ stepTypes:
                     {{ nsVariables.hybridMergeSortFilter | replace('alias','d') }} > {{ nsVariables.hybridMergeSortFilter | replace('alias','a') }}
                 UNION ALL
                 SELECT {%- for col in columns %}
-                        {{ col.name }}
+                        "{{ col.name }}"
                         {%- if not loop.last -%}, {% endif %}
                     {%- endfor %}
                 FROM ods_d
                 UNION ALL
                 SELECT {%- for col in columns %}
-                            {{ col.name }}
+                            "{{ col.name }}"
                             {%- if not loop.last -%}, {% endif %}
                         {%- endfor %}
                 FROM {{ fullyQualifiedTargetTableName }} d
@@ -2034,13 +2035,13 @@ stepTypes:
                     WHERE load_flag = 1
                     UNION ALL
                     SELECT {%- for col in columns %}
-                            {{ col.name }}
+                            "{{ col.name }}"
                             {%- if not loop.last -%}, {% endif %}
                         {%- endfor %}
                     FROM ods_d
                     UNION ALL
                     SELECT {%- for col in columns %}
-                                {{ col.name }}
+                                "{{ col.name }}"
                                 {%- if not loop.last -%}, {% endif %}
                             {%- endfor %}
                     FROM {{ fullyQualifiedTargetTableName }} d
@@ -2150,7 +2151,10 @@ stepTypes:
                 THEN DELETE
             {% endif %}
         run:
-          templateString: ""
+          templateString: |
+            {% if ((targetTableDmlIdentifierColumnDatatype == 'FLOAT') or (targetTableDmlIdentifierColumnDatatype[:6] == 'NUMBER')) %}
+                        {% set colIsAvgMetricCalc = colIsAvgMetricCalc.append(col.name) %}
+                    {% endif %}
     name: Deferred Merge - Append Stream
     version: 1
   StepType-Dimension:
