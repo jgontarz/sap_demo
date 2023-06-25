@@ -1,5 +1,5 @@
 steps:
-  D_PLANT-67:
+  STG_PURCHASING_ORGANIZATION-192:
     operation:
       config:
         insertStrategy: UNION
@@ -11,74 +11,72 @@ steps:
       database: ""
       dependencies: []
       deployEnabled: true
-      description: Plants/Branches
+      description: ""
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
         columns:
           - columnReference:
-              columnCounter: 12081
-              stepCounter: "67"
-            dataType: char(4)
+              columnCounter: 82141
+              stepCounter: "192"
+            dataType: VARCHAR(4)
             description: ""
             hashColumns: []
             hashDetails: null
-            name: PLANT_ID
+            name: PURCHASING_ORGANIZATION_ID
             nullable: false
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: e4bdc2b4-aa09-4a50-a439-2a7d30dac890
-                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
+                  - columnCounter: 65852
+                    stepCounter: "181"
                 transform: ""
           - columnReference:
-              columnCounter: 12082
-              stepCounter: "67"
-            dataType: char(30)
+              columnCounter: 82142
+              stepCounter: "192"
+            dataType: VARCHAR(20)
             description: ""
             hashColumns: []
             hashDetails: null
-            name: PLANT_NAME
-            nullable: false
+            name: DESCRIPTION
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: df134d42-93c3-44a3-af99-3ac5fd716ea6
-                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
+                  - columnCounter: 65853
+                    stepCounter: "181"
                 transform: ""
           - columnReference:
-              columnCounter: 12101
-              stepCounter: "67"
-            dataType: char(4)
+              columnCounter: 82143
+              stepCounter: "192"
+            dataType: VARCHAR(4)
             description: ""
             hashColumns: []
             hashDetails: null
-            name: CITY_CODE_ID
-            nullable: false
+            name: COMPANY_CODE_ID
+            nullable: true
             sourceColumnReferences:
               - columnReferences:
-                  - columnCounter: 68d62827-7d88-4861-9a15-db0d9de26132
-                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
+                  - columnCounter: 65854
+                    stepCounter: "181"
                 transform: ""
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              PLANT: "200000057"
-            customSQL:
+          - customSQL:
               customSQL: ""
             dependencies:
               - locationName: STG
-                nodeName: PLANT
+                nodeName: PURCHASING_ORGANIZATON
             join:
-              joinCondition: FROM {{ ref('STG', 'PLANT') }} "PLANT"
-            name: D_PLANT
+              joinCondition: FROM {{ ref('STG', 'PURCHASING_ORGANIZATON') }} "PURCHASING_ORGANIZATON"
+            name: STG_PURCHASING_ORGANIZATION
             noLinkRefs: []
-      name: D_PLANT
+      name: STG_PURCHASING_ORGANIZATION
       overrideSQL: false
       schema: ""
       sqlType: Stage
       type: sql
-    stepCounter: "67"
+    stepCounter: "192"

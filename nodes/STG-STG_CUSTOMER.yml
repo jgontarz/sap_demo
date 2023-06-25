@@ -1,5 +1,5 @@
 steps:
-  D_CUSTOMER-58:
+  STG_CUSTOMER-58:
     operation:
       config:
         insertStrategy: UNION
@@ -15,7 +15,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -23,7 +23,7 @@ steps:
           - columnReference:
               columnCounter: 11197
               stepCounter: "58"
-            dataType: char(3)
+            dataType: char(20)
             description: ""
             hashColumns: []
             hashDetails: null
@@ -102,9 +102,9 @@ steps:
                 nodeName: CUSTOMER
             join:
               joinCondition: FROM {{ ref('STG', 'CUSTOMER') }} "CUSTOMER"
-            name: D_CUSTOMER
+            name: STG_CUSTOMER
             noLinkRefs: []
-      name: D_CUSTOMER
+      name: STG_CUSTOMER
       overrideSQL: false
       schema: ""
       sqlType: Stage

@@ -1,5 +1,5 @@
 steps:
-  D_SALES_ORGANIZATION-71:
+  STG_SALES_ORGANIZATION-71:
     operation:
       config:
         insertStrategy: UNION
@@ -15,7 +15,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -86,9 +86,9 @@ steps:
                 nodeName: SALES_ORGANIZATION
             join:
               joinCondition: FROM {{ ref('STG', 'SALES_ORGANIZATION') }} "SALES_ORGANIZATION"
-            name: D_SALES_ORGANIZATION
+            name: STG_SALES_ORGANIZATION
             noLinkRefs: []
-      name: D_SALES_ORGANIZATION
+      name: STG_SALES_ORGANIZATION
       overrideSQL: false
       schema: ""
       sqlType: Stage

@@ -1,5 +1,5 @@
 steps:
-  D_PURCHASING_ORDER-193:
+  STG_PURCHASING_ORDER_DIM-193:
     operation:
       config:
         insertStrategy: UNION
@@ -238,9 +238,9 @@ steps:
                 ON "PURCHASING_GROUP"."PURCHASING_GROUP_ID"  = "PURCHASING_DOCUMENT_HEADER"."PURCHASING_GROUP_ID"
                 LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_STATUS') }} "PURCHASING_DOCUMENT_STATUS"
                 ON  "PURCHASING_DOCUMENT_STATUS".PURCHASING_DOCUMENT_STATUS_ID  = "PURCHASING_DOCUMENT_HEADER"."STATUS_PURCHASING_DOCUMENT"
-            name: D_PURCHASING_ORDER
+            name: STG_PURCHASING_ORDER_DIM
             noLinkRefs: []
-      name: D_PURCHASING_ORDER
+      name: STG_PURCHASING_ORDER_DIM
       overrideSQL: false
       schema: ""
       sqlType: Stage

@@ -3,21 +3,21 @@ jobs:
   Job-1:
     excludeSelector: ""
     id: 1
-    includeSelector: "+{ location: BI name: D_* }"
+    includeSelector: "+{ location: BI name: DIM_* }"
     name: Dimension Load
     steps: []
     subgraphs: []
   Job-2:
     excludeSelector: ""
     id: 2
-    includeSelector: "+{ location: BI name: F_SALESORDER }"
+    includeSelector: "+{ location: BI name: FCT_SALESORDER }"
     name: Fact Salesorder
     steps: []
     subgraphs: []
   Job-3:
     excludeSelector: ""
     id: 3
-    includeSelector: "+{ location: BI name: F_PURCHASING_ORDER }"
+    includeSelector: "+{ location: BI name: FCT_PURCHASING_ORDER }"
     name: Fact Purchase Order
     steps: []
     subgraphs: []
@@ -38,7 +38,16 @@ macros:
   Macro-1:
     id: "1"
     macroString: |-
-      {%- macro get_source_transform1(col) -%}
+
+      {%- macro sap_dateformat() -%}
+      case when {{SRC}} in ('00000000', ' ') THEN NULL ELSE TO_DATE({{SRC}}) end
+      {%- endmacro -%}
+
+      {%- macro sap_simplename(col) -%}
+      {{ parameters.srcMapping.tbl | selectattr('name','equalto',(sources[0].columns | selectattr('id','equalto',column.id) | map(attribute='sourceColumns') | first | map(attribute='node') | map(attribute='name') | first)) | map(attribute='columns') | first | selectattr('sapName','equalto',sources[0].columns | selectattr('id','equalto',column.id) | map(attribute='sourceColumns') | first | map(attribute='column') | map(attribute='name') | first) | map(attribute='simpleName') | first }}
+      {%- endmacro -%}
+
+      {%- macro transform_string_date(col) -%}
           {% if col.hashDetails %}
               {{ hash(col.hashDetails.columns, algo=col.hashDetails.algorithm, datatype=col.dataType) }}
           {% elif col.transform | trim != '' -%}
@@ -49,6 +58,43 @@ macros:
               NULL
           {% endif %}
       {%- endmacro -%}
+
+      {#-- This macro will drop a table / view / dynamic table if it already exists as a different or the same object type #}
+      {#-- Errors can occur when creating a same named object of a different type #}
+
+      {% macro dropTblView() %}
+        {%- set db = ref_no_link(node.location.name, node.name).split('.')[0]  %} 
+        {%- set sch = ref_no_link(node.location.name, node.name).split('.')[1]  %} 
+        {%- set obj = "{{ node.name }}"  %} 
+
+          begin
+              let db varchar := '{{db}}';
+              let sch varchar := '{{sch}}';
+              let obj varchar := '{{obj}}';
+
+              begin
+                  execute immediate 'drop table if exists ' || db || '.' || sch || '.' || obj;    
+              exception
+                  when statement_error then
+                      null;
+              end;
+
+              begin
+                  execute immediate 'drop view if exists ' || db || '.' || sch || '.' || obj;    
+              exception
+                  when statement_error then
+                      null;
+              end;
+
+              begin
+                  execute immediate 'drop dynamic table if exists ' || db || '.' || sch || '.' || obj;    
+              exception
+                  when statement_error then
+                      null;
+              end;
+
+          end;
+      {% endmacro %}
 packages: {}
 projects: {}
 stepTypes:
@@ -131,6 +177,364 @@ stepTypes:
         run:
           templateString: ""
     name: View
+    version: 1
+  StepType-17:
+    id: "17"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |-
+        capitalized: Dynamic Table Star Join
+        short: DTSTAR
+        plural: Dynamic Table Star Join
+        tagColor: brown
+
+        config:
+        - groupName: Materialization Type
+          items:
+          - type: dropdownSelector
+            attributeName: matType
+            default: dynamic table
+            options:
+            - dynamic table
+            - view
+            isRequired: true
+            
+          - displayName: Warehouse on which to execute Dynamic Table
+            attributeName: whName
+            type: textBox
+            default: 'dev_xs_wh'
+            isRequired: false
+            enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+
+          - type: tabular
+            displayName: 'Lag Specification'
+            attributeName: lagSpecification
+            columns:
+          
+            -  type: textBox
+               displayName: Time Value
+               attributeName: lagNumber
+               default: 60
+               isRequired: false
+               enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+            
+            -  type: dropdownSelector
+               displayName: Time Period
+               attributeName: lagType
+               default: Minutes
+               options:
+               - Seconds
+               - Minutes
+               - Hours
+               - Days
+               isRequired: false
+               enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+            
+            isRequired: false
+            enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+      templates:
+        create:
+          templateString: |-
+            {# Dynamic Table Specific Options #}
+            {%- if config.matType == 'dynamic table' %} 
+            {% set dtLagNumber = config.lagSpecification.get('items') | map(attribute='lagNumber') | first %}
+            {% set dtLagType = config.lagSpecification.get('items') | map(attribute='lagType') | first %}
+
+            	{{ stage('Try Drop View') }}
+                    {{dropTblView()}}
+
+
+
+                {{ stage('Create Dynamic Table') }}
+
+                    CREATE OR REPLACE DYNAMIC TABLE {{ ref_no_link(node.location.name, node.name) }}
+                        LAG = '{{ dtLagNumber }} {{ dtLagType }}'
+                        WAREHOUSE = {{config.whName}}
+                        {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+
+                    AS
+                    SELECT 
+                    {%- for col in sources[0].columns -%}
+                        {{ get_source_transform(col) }} AS "{{ col.name -}}"
+                        {%- if not loop.last -%}, {%- endif %}
+                    {% endfor %}
+                {{- sources[0].join }}
+
+            {% endif %}
+
+            {%- if config.matType == 'view' %} 
+
+            	{{ stage('Try Drop Dynamic Table') }}
+                    {{dropTblView()}}
+
+
+                {{ stage('Create Stage View') }}
+
+                CREATE OR REPLACE VIEW {{ ref_no_link(node.location.name, node.name) }}
+                (
+                    {% for col in columns -%}
+                        "{{ col.name }}"
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                        {%- if not loop.last -%}, {%- endif %}
+                    {% endfor -%}
+                )
+                {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+                AS
+                    SELECT 
+                    {%- for col in sources[0].columns -%}
+                        {{ get_source_transform(col) }} AS "{{ col.name -}}"
+                        {%- if not loop.last -%}, {%- endif %}
+                    {% endfor %}
+                {{- sources[0].join }}
+
+            {% endif %}
+        run:
+          templateString: ""
+    name: Star Join Dynamic Table
+    version: 1
+  StepType-18:
+    id: "18"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |
+        capitalized: Copy of Dynamic Table Type 2 SCD
+        short: DTSCD2
+        plural: Dynamic Table Type 2 SCD
+        tagColor: green
+
+        config:
+        - groupName: Materialization Type
+          items:
+          - type: dropdownSelector
+            attributeName: matType
+            default: dynamic table
+            options:
+            - dynamic table
+            - view
+            isRequired: true
+            
+          - displayName: Warehouse on which to execute Dynamic Table
+            attributeName: whName
+            type: textBox
+            default: 'dev_wh_xs'
+            isRequired: false
+            enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+
+          - type: tabular
+            displayName: 'Lag Specification'
+            attributeName: lagSpecification
+            columns:
+          
+            -  type: textBox
+               displayName: Time Value
+               attributeName: lagNumber
+               default: 60
+               isRequired: false
+               enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+            
+            -  type: dropdownSelector
+               displayName: Time Period
+               attributeName: lagType
+               default: Minutes
+               options:
+               - Seconds
+               - Minutes
+               - Hours
+               - Days
+               isRequired: false
+               enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+            
+            isRequired: false
+            enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+
+
+          - displayName: Current Values Only
+            attributeName: isCurVal
+            type: toggleButton
+            default: false
+
+        - groupName: Change Tracking Options
+          items:
+          - displayName: Propagate Last Non-Delete
+            attributeName: propNonDelete
+            type: toggleButton
+            default: false
+
+          - displayName: Table Key Column(s)
+            attributeName: tblKey
+            type: columnSelector
+            isRequired: true
+
+          - displayName: Row Update Timestamp Column
+            attributeName: tblChgTS
+            type: columnSelector
+            isRequired: true
+
+          - displayName: DML Identifier Column
+            attributeName: colDML
+            type: columnSelector
+            isRequired: true
+
+          - displayName: DML Insert Indentifier
+            attributeName: dmlInsert
+            type: textBox
+            default: 'I'
+            isRequired: true
+         
+          - displayName: DML Update Indentifier
+            attributeName: dmlUpdate
+            type: textBox
+            default: 'U'
+            isRequired: true
+         
+          - displayName: DML Delete Indentifier
+            attributeName: dmlDelete
+            type: textBox
+            default: 'D'
+            isRequired: true
+         
+        - groupName: Other Options
+          items:
+          - displayName: Enable Tests
+            attributeName: testsEnabled
+            type: toggleButton
+            default: true
+            
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+      templates:
+        create:
+          templateString: |-
+            {# Create various lists of columns to work with #}
+            {% set tblColLs = columns | map(attribute='name') | list %}
+            {% set tblKeyColLs = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
+            {% set tblChgTSColLs = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | list %}
+            {% set tblColDMLLs = columns | selectattr('colDML', 'defined') | map(attribute='name') | list %}
+            {% set tblColExcludeLs = (tblChgTSColLs + tblColDMLLs) | unique | list %}
+            {% set tblColIncludeLs = tblColLs | reject('in', tblColExcludeLs) | list %}
+
+            {# Turn lists of columns into strings or joined strings where needed#}
+            {% set tblKeyColStr = '"'+tblKeyColLs | join('", "')+'"' %}
+            {% set tblChgTSColStr = tblChgTSColLs | first %}
+            {% set tblColDMLStr = tblColDMLLs | first %}
+            {% set tblColDMLDelete = config.dmlDelete %}
+            {% set dtLagNumber = config.lagSpecification.get('items') | map(attribute='lagNumber') | first %}
+            {% set dtLagType = config.lagSpecification.get('items') | map(attribute='lagType') | first %}
+
+            {%- if config.matType == 'dynamic table' %} 
+
+            	{{ stage('Try Drop View') }}
+                    {{dropTblView()}}
+
+                {{ stage('Create Dynamic Table') }}
+            {{ tst }}
+                    CREATE OR REPLACE DYNAMIC TABLE {{ ref_no_link(node.location.name, node.name) }}
+                        LAG = '{{ dtLagNumber }} {{ dtLagType }}'
+                        WAREHOUSE = {{config.whName}}
+                    AS
+                        SELECT
+                        {% for col in tblColIncludeLs %}
+                            {% set colTransform = sources[0].columns | selectattr('name', 'equalto', col) | map(attribute='transform') | first %}
+                            {% set colDesc = columns | selectattr('name', 'equalto', col) | map(attribute='description') | first %}
+
+
+                            {% if colTransform == "" %}
+                                {% set colVal = '"' + col + '"' %}
+                            {% else %}
+                                {% set colVal = colTransform %}
+                            {% endif %}
+
+                            {% if config.propNonDelete == false %}
+                                {{ colVal }} as {{ col }}
+                            {% else %}
+                                case when "{{ tblColDMLStr }}" = '{{tblColDMLDelete}}' then lead({{colVal}}) over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) else {{colVal}} end as {{ col }}
+                            {% endif %}
+                            ,
+                        {% endfor %}
+
+                        {{ tblChgTSColStr }} as "START_TIME",
+                        lag("{{ tblChgTSColStr }}") over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) as "END_TIME",
+                        case when (row_number() over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) = 1) then 1 else 0 end as "CURRENT_FLAG",
+                        "{{ tblColDMLStr }}" as "LAST_DML_OPERATION"
+
+                        {{ sources[0].join }}
+
+                        {% if config.isCurVal == true %}
+                            QUALIFY "CURRENT_FLAG" = 1
+                        {% endif %}
+            {% endif %}
+
+            {%- if config.matType == 'view' %} 
+            	{{ stage('Try Drop Table') }}
+                    {{dropTblView()}}
+
+                {{ stage('Create Stage View') }}
+
+                    CREATE OR REPLACE VIEW {{ ref_no_link(node.location.name, node.name) }}
+                    (
+                        {% for col in tblColIncludeLs %}
+                            "{{ columns | selectattr('name', 'equalto', col) | map(attribute='name') | first }}"
+                            {% set colDesc = columns | selectattr('name', 'equalto', col) | map(attribute='description') | first %}
+                            {%- if colDesc | length > 0 %} COMMENT '{{ colDesc }}'{% endif %}
+                            ,
+                        {% endfor %}
+
+                        "START_TIME",
+                        "END_TIME",
+                        "CURRENT_FLAG",
+                        "LAST_DML_OPERATION"
+                    )
+                    {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+
+                    AS
+                        SELECT
+                        {% for col in tblColIncludeLs %}
+                            {% set colTransform = sources[0].columns | selectattr('name', 'equalto', col) | map(attribute='transform') | first %}
+                            {% set colDesc = columns | selectattr('name', 'equalto', col) | map(attribute='description') | first %}
+
+
+                            {% if colTransform == "" %}
+                                {% set colVal = '"' + col + '"' %}
+                            {% else %}
+                                {% set colVal = colTransform %}
+                            {% endif %}
+
+                            {% if config.propNonDelete == false %}
+                                {{ colVal }} as {{ col }}
+                            {% else %}
+                                case when "{{ tblColDMLStr }}" = '{{tblColDMLDelete}}' then lead({{colVal}}) over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) else {{colVal}} end as {{ col }}
+                            {% endif %}
+                            ,
+                        {% endfor %}
+
+                        {{ tblChgTSColStr }} as "START_TIME",
+                        lag("{{ tblChgTSColStr }}") over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) as "END_TIME",
+                        case when (row_number() over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) = 1) then 1 else 0 end as "CURRENT_FLAG",
+                        "{{ tblColDMLStr }}" as "LAST_DML_OPERATION"
+
+                        {{ sources[0].join }}
+
+                        {% if config.isCurVal == true %}
+                            QUALIFY "CURRENT_FLAG" = 1
+                        {% endif %}
+
+            {% endif %}
+        run:
+          templateString: ""
+    name: Copy of Star Join Dynamic Table
     version: 1
   StepType-3:
     id: "3"
@@ -2607,7 +3011,7 @@ stepTypes:
 subgraphs:
   Subgraph-1:
     id: "1"
-    name: D_PURCHASING_ORDER
+    name: DIM_PURCHASING_ORDER
     steps:
       - "193"
       - "165"
@@ -2615,13 +3019,13 @@ subgraphs:
       - "172"
       - "175"
       - "179"
-      - "193"
       - "221"
       - "222"
       - "223"
       - "224"
       - "225"
       - "226"
+      - 4bc5e259-bcb2-43bb-83b8-ffddc532e3c6
   Subgraph-10:
     id: "10"
     name: Dimensions and Facts
@@ -2638,7 +3042,7 @@ subgraphs:
       - "196"
   Subgraph-2:
     id: "2"
-    name: F_PURCHASING_ORDER
+    name: FCT_PURCHASING_ORDER
     steps:
       - "171"
       - "177"
@@ -2650,54 +3054,30 @@ subgraphs:
       - "220"
       - 100cc3c7-b800-47a0-9575-5721229fe792
       - "169"
-      - "171"
-      - "177"
-      - "191"
-      - "195"
-      - "196"
-      - "218"
-      - "219"
-      - "220"
       - "227"
-      - 100cc3c7-b800-47a0-9575-5721229fe792
       - "167"
-      - "169"
-      - "171"
-      - "177"
-      - "191"
-      - "195"
-      - "196"
-      - "218"
-      - "219"
-      - "220"
       - "226"
-      - "227"
-      - 100cc3c7-b800-47a0-9575-5721229fe792
+      - d37c699a-7eb3-47ac-80dc-e0087adb42aa
   Subgraph-3:
     id: "3"
-    name: D_VENDOR
+    name: DIM_VENDOR
     steps:
       - "188"
       - "194"
       - "228"
+      - a5a46b10-0494-4ad2-995b-6aacb26362fa
   Subgraph-4:
     id: "4"
-    name: D_PURCHASING_ORGANIZATION
+    name: DIM_PURCHASING_ORGANIZATION
     steps:
       - "181"
       - "192"
       - "229"
+      - 2139b36f-e7c6-46cc-8074-b22b2946af04
   Subgraph-5:
     id: "5"
-    name: F_SALESORDER
+    name: FCT_SALESORDER
     steps:
-      - "73"
-      - "75"
-      - "77"
-      - "230"
-      - "231"
-      - "232"
-      - "233"
       - "73"
       - "75"
       - "77"
@@ -2707,40 +3087,36 @@ subgraphs:
       - "233"
       - 88574f17-b192-4deb-b81f-518e413f7e1e
       - 639b81a9-9261-4b29-b225-802a26ea2fb2
+      - 300331a5-167d-481f-b933-28c6f7c3be35
   Subgraph-6:
     id: "6"
-    name: D_SALES_ORGANIZATION
+    name: DIM_SALES_ORGANIZATION
     steps:
-      - "71"
-      - "234"
-      - "235"
       - "71"
       - "234"
       - "235"
       - 509e30cc-207f-43d0-b0a8-1543eef07779
+      - 1c757e6c-7e7e-47c6-ae89-65c603c435b3
   Subgraph-7:
     id: "7"
-    name: D_REJECTION_REASON
+    name: DIM_REJECTION_REASON
     steps:
-      - "69"
-      - "236"
-      - "237"
       - "69"
       - "236"
       - "237"
       - 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+      - 429909d4-352f-4c44-80cc-8d0af1c4c6a2
   Subgraph-8:
     id: "8"
-    name: D_PLANT
+    name: DIM_PLANT
     steps:
       - "67"
       - "238"
-      - "67"
-      - "238"
       - 070fae3a-602f-404e-916c-fba19188c4bb
+      - cf9a9d91-d7ce-43da-a4c5-9682c3919a7c
   Subgraph-9:
     id: "9"
-    name: D_MATERIAL
+    name: DIM_MATERIAL
     steps:
       - "66"
       - "239"
@@ -2748,11 +3124,7 @@ subgraphs:
       - "241"
       - "242"
       - "200000047"
-      - "66"
-      - "239"
-      - "240"
-      - "241"
-      - "242"
       - e88d1955-f895-45ff-b2fa-fcc23d49f4ad
       - e60374d2-0371-4d1d-bf90-0cb33306682e
+      - 98f7a334-1b64-4ee4-a3af-a8ed566fc8df
 version: 1

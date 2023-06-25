@@ -1,5 +1,5 @@
 steps:
-  F_PURCHASING_ORDER-196:
+  STG_PURCHASING_ORDER_FCT-196:
     operation:
       config:
         insertStrategy: UNION
@@ -15,7 +15,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -623,9 +623,9 @@ steps:
                 LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_SCHEDULE_TOTAL') }} "PURCHASING_DOCUMENT_SCHEDULE_TOTAL"
                 ON "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ID" = "PURCHASING_DOCUMENT_SCHEDULE_TOTAL"."PURCHASING_DOCUMENT_ID"
                 AND "PURCHASING_DOCUMENT_ITEM"."PURCHASING_DOCUMENT_ITEM_ID" = "PURCHASING_DOCUMENT_SCHEDULE_TOTAL"."PURCHASING_DOCUMENT_ITEM_ID"
-            name: F_PURCHASING_ORDER
+            name: STG_PURCHASING_ORDER_FCT
             noLinkRefs: []
-      name: F_PURCHASING_ORDER
+      name: STG_PURCHASING_ORDER_FCT
       overrideSQL: false
       schema: ""
       sqlType: Stage

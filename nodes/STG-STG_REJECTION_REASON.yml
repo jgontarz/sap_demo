@@ -1,5 +1,5 @@
 steps:
-  D_REJECTION_REASON-69:
+  STG_REJECTION_REASON-69:
     operation:
       config:
         insertStrategy: UNION
@@ -15,7 +15,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -60,9 +60,9 @@ steps:
                 nodeName: SALES_DOCUMENT_REJECTION_REASON
             join:
               joinCondition: FROM {{ ref('STG', 'SALES_DOCUMENT_REJECTION_REASON') }} "SALES_DOCUMENT_REJECTION_REASON"
-            name: D_REJECTION_REASON
+            name: STG_REJECTION_REASON
             noLinkRefs: []
-      name: D_REJECTION_REASON
+      name: STG_REJECTION_REASON
       overrideSQL: false
       schema: ""
       sqlType: Stage

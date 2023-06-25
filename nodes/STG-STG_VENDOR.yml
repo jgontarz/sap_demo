@@ -1,5 +1,5 @@
 steps:
-  D_VENDOR-194:
+  STG_VENDOR-194:
     operation:
       config:
         insertStrategy: UNION
@@ -15,7 +15,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -172,9 +172,9 @@ steps:
                 nodeName: VENDOR
             join:
               joinCondition: FROM {{ ref('STG', 'VENDOR') }} "VENDOR"
-            name: D_VENDOR
+            name: STG_VENDOR
             noLinkRefs: []
-      name: D_VENDOR
+      name: STG_VENDOR
       overrideSQL: false
       schema: ""
       sqlType: Stage

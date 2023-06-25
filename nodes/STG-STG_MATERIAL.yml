@@ -1,5 +1,5 @@
 steps:
-  D_MATERIAL-66:
+  STG_MATERIAL-66:
     operation:
       config:
         insertStrategy: UNION
@@ -15,7 +15,7 @@ steps:
       isDataVault: false
       isMultisource: false
       locationID: ""
-      locationName: BI
+      locationName: STG
       materializationType: table
       metadata:
         appliedNodeTests: []
@@ -144,9 +144,9 @@ steps:
                 FROM {{ ref('STG', 'MATERIAL') }} "MATERIAL"
                 LEFT OUTER JOIN {{ ref('STG', 'MATERIAL_TYPE') }} "MATERIAL_TYPE"
                 ON "MATERIAL"."MATERIAL_TYPE_ID" = "MATERIAL_TYPE"."MATERIAL_TYPE_ID"
-            name: D_MATERIAL
+            name: STG_MATERIAL
             noLinkRefs: []
-      name: D_MATERIAL
+      name: STG_MATERIAL
       overrideSQL: false
       schema: ""
       sqlType: Stage
