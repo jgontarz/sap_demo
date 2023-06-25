@@ -200,7 +200,7 @@ stepTypes:
     id: "17"
     isDisabled: false
     metadata:
-      defaultStorageLocation: null
+      defaultStorageLocation: BI
       error: null
       nodeMetadataSpec: |-
         capitalized: Dynamic Table Star Join
@@ -312,295 +312,140 @@ stepTypes:
           templateString: ""
     name: Star Join Dynamic Table
     version: 1
-  StepType-18:
-    id: "18"
-    isDisabled: false
-    metadata:
-      defaultStorageLocation: null
-      error: null
-      nodeMetadataSpec: |
-        capitalized: Copy of Dynamic Table Type 2 SCD
-        short: DTSCD2
-        plural: Dynamic Table Type 2 SCD
-        tagColor: green
-
-        config:
-        - groupName: Materialization Type
-          items:
-          - type: dropdownSelector
-            attributeName: matType
-            default: dynamic table
-            options:
-            - dynamic table
-            - view
-            isRequired: true
-            
-          - displayName: Warehouse on which to execute Dynamic Table
-            attributeName: whName
-            type: textBox
-            default: 'dev_wh_xs'
-            isRequired: false
-            enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
-
-          - type: tabular
-            displayName: 'Lag Specification'
-            attributeName: lagSpecification
-            columns:
-          
-            -  type: textBox
-               displayName: Time Value
-               attributeName: lagNumber
-               default: 60
-               isRequired: false
-               enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
-            
-            -  type: dropdownSelector
-               displayName: Time Period
-               attributeName: lagType
-               default: Minutes
-               options:
-               - Seconds
-               - Minutes
-               - Hours
-               - Days
-               isRequired: false
-               enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
-            
-            isRequired: false
-            enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
-
-
-          - displayName: Current Values Only
-            attributeName: isCurVal
-            type: toggleButton
-            default: false
-
-        - groupName: Change Tracking Options
-          items:
-          - displayName: Propagate Last Non-Delete
-            attributeName: propNonDelete
-            type: toggleButton
-            default: false
-
-          - displayName: Table Key Column(s)
-            attributeName: tblKey
-            type: columnSelector
-            isRequired: true
-
-          - displayName: Row Update Timestamp Column
-            attributeName: tblChgTS
-            type: columnSelector
-            isRequired: true
-
-          - displayName: DML Identifier Column
-            attributeName: colDML
-            type: columnSelector
-            isRequired: true
-
-          - displayName: DML Insert Indentifier
-            attributeName: dmlInsert
-            type: textBox
-            default: 'I'
-            isRequired: true
-         
-          - displayName: DML Update Indentifier
-            attributeName: dmlUpdate
-            type: textBox
-            default: 'U'
-            isRequired: true
-         
-          - displayName: DML Delete Indentifier
-            attributeName: dmlDelete
-            type: textBox
-            default: 'D'
-            isRequired: true
-         
-        - groupName: Other Options
-          items:
-          - displayName: Enable Tests
-            attributeName: testsEnabled
-            type: toggleButton
-            default: true
-            
-          - displayName: Pre-SQL
-            attributeName: preSQL
-            type: textBox
-            syntax: sql
-            isRequired: false
-
-          - displayName: Post-SQL
-            attributeName: postSQL
-            type: textBox
-            syntax: sql
-            isRequired: false
-      templates:
-        create:
-          templateString: |-
-            {# Create various lists of columns to work with #}
-            {% set tblColLs = columns | map(attribute='name') | list %}
-            {% set tblKeyColLs = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
-            {% set tblChgTSColLs = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | list %}
-            {% set tblColDMLLs = columns | selectattr('colDML', 'defined') | map(attribute='name') | list %}
-            {% set tblColExcludeLs = (tblChgTSColLs + tblColDMLLs) | unique | list %}
-            {% set tblColIncludeLs = tblColLs | reject('in', tblColExcludeLs) | list %}
-
-            {# Turn lists of columns into strings or joined strings where needed#}
-            {% set tblKeyColStr = '"'+tblKeyColLs | join('", "')+'"' %}
-            {% set tblChgTSColStr = tblChgTSColLs | first %}
-            {% set tblColDMLStr = tblColDMLLs | first %}
-            {% set tblColDMLDelete = config.dmlDelete %}
-            {% set dtLagNumber = config.lagSpecification.get('items') | map(attribute='lagNumber') | first %}
-            {% set dtLagType = config.lagSpecification.get('items') | map(attribute='lagType') | first %}
-
-            {%- if config.matType == 'dynamic table' %} 
-
-            	{{ stage('Try Drop View') }}
-                    {{dropTblView()}}
-
-                {{ stage('Create Dynamic Table') }}
-            {{ tst }}
-                    CREATE OR REPLACE DYNAMIC TABLE {{ ref_no_link(node.location.name, node.name) }}
-                        LAG = '{{ dtLagNumber }} {{ dtLagType }}'
-                        WAREHOUSE = {{config.whName}}
-                    AS
-                        SELECT
-                        {% for col in tblColIncludeLs %}
-                            {% set colTransform = sources[0].columns | selectattr('name', 'equalto', col) | map(attribute='transform') | first %}
-                            {% set colDesc = columns | selectattr('name', 'equalto', col) | map(attribute='description') | first %}
-
-
-                            {% if colTransform == "" %}
-                                {% set colVal = '"' + col + '"' %}
-                            {% else %}
-                                {% set colVal = colTransform %}
-                            {% endif %}
-
-                            {% if config.propNonDelete == false %}
-                                {{ colVal }} as {{ col }}
-                            {% else %}
-                                case when "{{ tblColDMLStr }}" = '{{tblColDMLDelete}}' then lead({{colVal}}) over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) else {{colVal}} end as {{ col }}
-                            {% endif %}
-                            ,
-                        {% endfor %}
-
-                        {{ tblChgTSColStr }} as "START_TIME",
-                        lag("{{ tblChgTSColStr }}") over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) as "END_TIME",
-                        case when (row_number() over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) = 1) then 1 else 0 end as "CURRENT_FLAG",
-                        "{{ tblColDMLStr }}" as "LAST_DML_OPERATION"
-
-                        {{ sources[0].join }}
-
-                        {% if config.isCurVal == true %}
-                            QUALIFY "CURRENT_FLAG" = 1
-                        {% endif %}
-            {% endif %}
-
-            {%- if config.matType == 'view' %} 
-            	{{ stage('Try Drop Table') }}
-                    {{dropTblView()}}
-
-                {{ stage('Create Stage View') }}
-
-                    CREATE OR REPLACE VIEW {{ ref_no_link(node.location.name, node.name) }}
-                    (
-                        {% for col in tblColIncludeLs %}
-                            "{{ columns | selectattr('name', 'equalto', col) | map(attribute='name') | first }}"
-                            {% set colDesc = columns | selectattr('name', 'equalto', col) | map(attribute='description') | first %}
-                            {%- if colDesc | length > 0 %} COMMENT '{{ colDesc }}'{% endif %}
-                            ,
-                        {% endfor %}
-
-                        "START_TIME",
-                        "END_TIME",
-                        "CURRENT_FLAG",
-                        "LAST_DML_OPERATION"
-                    )
-                    {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
-
-                    AS
-                        SELECT
-                        {% for col in tblColIncludeLs %}
-                            {% set colTransform = sources[0].columns | selectattr('name', 'equalto', col) | map(attribute='transform') | first %}
-                            {% set colDesc = columns | selectattr('name', 'equalto', col) | map(attribute='description') | first %}
-
-
-                            {% if colTransform == "" %}
-                                {% set colVal = '"' + col + '"' %}
-                            {% else %}
-                                {% set colVal = colTransform %}
-                            {% endif %}
-
-                            {% if config.propNonDelete == false %}
-                                {{ colVal }} as {{ col }}
-                            {% else %}
-                                case when "{{ tblColDMLStr }}" = '{{tblColDMLDelete}}' then lead({{colVal}}) over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) else {{colVal}} end as {{ col }}
-                            {% endif %}
-                            ,
-                        {% endfor %}
-
-                        {{ tblChgTSColStr }} as "START_TIME",
-                        lag("{{ tblChgTSColStr }}") over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) as "END_TIME",
-                        case when (row_number() over (partition by {{ tblKeyColStr }} order by "{{ tblChgTSColStr }}" desc) = 1) then 1 else 0 end as "CURRENT_FLAG",
-                        "{{ tblColDMLStr }}" as "LAST_DML_OPERATION"
-
-                        {{ sources[0].join }}
-
-                        {% if config.isCurVal == true %}
-                            QUALIFY "CURRENT_FLAG" = 1
-                        {% endif %}
-
-            {% endif %}
-        run:
-          templateString: ""
-    name: Copy of Star Join Dynamic Table
-    version: 1
-  StepType-3:
-    id: "3"
+  StepType-19:
+    id: "19"
     isDisabled: false
     metadata:
       defaultStorageLocation: null
       error: null
       nodeMetadataSpec: |-
-        capitalized: Hybrid Merge
-        short: HM
+        capitalized: Deferred Merge - Delta Stream
+        short: DM_VIEW
         tagColor: black
-        plural: Hybrid Merges
+        plural: Deferred Merge
 
         config:
         - groupName: Stream Options
           items:
+          - displayName: Source Object
+            attributeName: sourceType
+            type: dropdownSelector
+            default: Table
+            options:
+              - Table
+              - External Table
+              - View
+            isRequired: false
+
           - displayName: Append Only Stream
             attributeName: appendOnly
-            type: toggleButton
-            default: true
+            type: dropdownSelector
+            default: "false"
+            options:
+              - "false"
             isRequired: true
+            enableIf: "{% if config.sourceType == 'Table' or config.sourceType == 'View' %} true {% else %} false {% endif %}"
 
           - displayName: Show Initial Rows
             attributeName: initialRows
             type: toggleButton
             default: true
             isRequired: true
+            enableIf: "{% if config.sourceType == 'Table' or config.sourceType == 'View' %} true {% else %} false {% endif %}"
+
+          - displayName: Insert Only
+            attributeName: insertOnly
+            type: toggleButton
+            default: false
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'External Table' %} true {% else %} false {% endif %}"
 
         - groupName: Target Loading Options
           items:
-          - displayName: Table Key Column(s)
-            attributeName: tblKey
-            type: columnSelector
+          - type: tabular
+            displayName: 'Table Key(s)'
+            attributeName: partitionBy
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Column Name
+               attributeName: partColName
+               isRequired: true
+                
+            isRequired: false
+
+          - displayName: Record Versioning
+            attributeName: recordVersioning
+            type: dropdownSelector
+            default: Datetime Column
+            options:
+              - Datetime Column
+              - Date Column and Time Column
+              - Numeric Column
             isRequired: true
 
-          - displayName: Row Update Timestamp Column
-            attributeName: tblChgTS
-            type: columnSelector
-            isRequired: true
-         
+          - type: tabular
+            displayName: 'Timestamp or Sequence'
+            attributeName: orderBy
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Column Name
+               attributeName: colName
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Datetime Column','Numeric Column') %} true {% else %} false {% endif %}"
+            
+            -  type: dropdownSelector
+               displayName: Sort Order
+               attributeName: sortOrd
+               default: desc
+               options:
+               - desc
+               - asc
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Datetime Column','Numeric Column') %} true {% else %} false {% endif %}"
+            
+            isRequired: false
+            enableIf: "{% if config.recordVersioning in ('Datetime Column','Numeric Column') %} true {% else %} false {% endif %}"
+
+          - type: tabular
+            displayName: 'Date / Timestamp Columns'
+            attributeName: orderByDateTime
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Date Column
+               attributeName: colNameDate
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+            
+            -  type: columnDropdownSelector
+               displayName: Timestamp Column
+               attributeName: colNameTimestamp
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+            
+            -  type: dropdownSelector
+               displayName: Sort Order
+               attributeName: sortOrdDateTimestamp
+               default: desc
+               options:
+               - desc
+               - asc
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+            
+            isRequired: false
+            enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+
         - groupName: Target Row DML Operations
           items:
           - displayName: Column that Identifies DML Operations
             attributeName: dmlCol
-            type: columnSelector
-            isRequired: true
+            type: columnDropdownSelector
+            isRequired: false
 
-          - displayName: Include Field for Update
+          - displayName: Include Value for Update
             attributeName: capUpdate
             type: toggleButton
             default: false
@@ -628,13 +473,13 @@ stepTypes:
         - groupName: Target Delete Options
           items:
           - displayName: Soft Delete
-            attributeName: deleleteOption
+            attributeName: softDeleteFlag
             type: toggleButton
             default: false
             isRequired: false
 
           - displayName: Retain Last Non-Deleted Values
-            attributeName: retainOption
+            attributeName: retainLastNonDeleteFlag
             type: toggleButton
             default: false
             isRequired: false
@@ -648,30 +493,23 @@ stepTypes:
             options:
               - None
               - Table Key
-              - Cluster Key from Source
               - Primary Key from Source
               - Row Update Timestamp
               - Primary Key and Update Timestamp from Source
               - Update Timestamp and Primary Key from Source
               - Custom Cluster Columns
               - Custom Cluster Key
-            isRequired: true
-
-          - displayName: Custom Cluster Columns
-            attributeName: clsKeyCol
-            type: columnSelector
             isRequired: false
-            enableIf: "{% if config.clsKey == 'Custom Cluster Columns' %} true {% else %} false {% endif %}"
-         
+
           - displayName: Custom Cluster Key (ex. col1, left(col2,3), coln)
             attributeName: clsKeyCus
             type: textBox
             isRequired: false
             enableIf: "{% if config.clsKey == 'Custom Cluster Key' %} true {% else %} false {% endif %}"
          
-        - groupName: Sceduling Options
+        - groupName: Scheduling Options
           items:
-          - displayName: Sceduling Options
+          - displayName: Scheduling Options
             attributeName: schedulingMode
             type: dropdownSelector
             default: Warehouse Task
@@ -713,6 +551,7 @@ stepTypes:
             options:
               - Minutes
               - CRON
+              - Predecessor
             isRequired: TRUE
 
           - displayName: Enter task schedule using minutes
@@ -729,6 +568,20 @@ stepTypes:
             isRequired: false
             enableIf: "{% if config.schedulePeriodOption == 'CRON' %} true {% else %} false {% endif %}"
 
+          - displayName: Enter predecessor task(s) seperated by a comma 
+            attributeName: predTask
+            type: textBox
+            default: ""
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Predecessor' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter root task name
+            attributeName: rootTask
+            type: textBox
+            default: ""
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Predecessor' %} true {% else %} false {% endif %}"
+
         - groupName: "Pre/Post SQL"
           items: 
           - displayName: Pre-SQL
@@ -744,59 +597,175 @@ stepTypes:
             isRequired: false
 
         systemColumns:
-        - displayName: 'HM_UPDATE_TIMESTAMP'
-          transform: "current_timestamp::timestamp_tz(3)"
+        - displayName: 'DM_UPDATE_TIMESTAMP'
+          transform: "current_timestamp::timestamp_ntz"
           dataType: timestamp
           placement: end
           attributeName: hmUpdTs
       templates:
         create:
-          templateString: |
-            {# Source Stream Location and Name #}
+          templateString: |-
+            {# Set Namespace Variables #}
+            {% set nsVariables = namespace(taskWhenRun="") %}
+            {% set nsVariables = namespace(partition="") %}
+            {% set nsVariables = namespace(orderBy="") %}
+            {% set nsVariables = namespace(rowNumber="") %}
+            {% set nsVariables = namespace(tableKey=[]) %}
+            {% set nsVariables = namespace(sortKey=[]) %}
+            {% set nsVariables = namespace(tableKeySort=[]) %}
+            {% set nsVariables = namespace(hybridMergeSortFilter=[]) %}
 
-            {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
-            {% set srcDb = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='database') | first %}
-            {% set srcSch = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='schema') | first %}
-            {% set srcTbl = sources[0].dependencies[0].node.name %}
-            {% set strName = srcTbl + '_STREAM' %}
-            {% set fqSrcTblName = '"' + srcDb + '"."' + srcSch + '"."' + srcTbl + '"' %}
-            {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
-            {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
+            {# Source Object Location and Name #}
+            {% set sourceStorageLocation = sources[0].dependencies[0].node.location.name %}
+            {% set sourceDatabaseName = storageLocations | selectattr('name', 'equalto', sourceStorageLocation) | map(attribute='database') | first %}
+            {% set sourceSchemaName = storageLocations | selectattr('name', 'equalto', sourceStorageLocation) | map(attribute='schema') | first %}
+            {% set sourceTableName = sources[0].dependencies[0].node.name %}
+            {% set fullyQualifiedSourceTableName = '"' + sourceDatabaseName + '"."' + sourceSchemaName + '"."' + sourceTableName + '"' %}
 
-            {# When Stream has data logic #}
-            {%- if config.flagSrcStream == true -%} 
-                {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
-            {%- endif -%}
+            {# Target Stream Location and Name #}
+            {% set streamTargetLocationName = node.location.name %}
+            {% set streamTargetDatabaseName = storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='database') | first %}
+            {% set streamTargetSchemaName = storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='schema') | first %}
+            {% set streamName = node.name + '_STREAM' %}
+            {% set fullyQualifiedStreamName = '"' + streamTargetDatabaseName + '"."' + streamTargetSchemaName + '"."' + streamName + '"' %}
+            {% set changesClauseAt = 'AT(stream => \'' + fullyQualifiedStreamName + '\')' %}
+
+            {# Target Table Info #}
+            {% set targetTableDatabase = ref_no_link(node.location.name, node.name).split('.')[0] %} 
+            {% set targetTableSchema = ref_no_link(node.location.name, node.name).split('.')[1] %} 
+            {% set fullyQualifiedTargetTableName = ref_no_link(node.location.name, node.name).replace('DM_VIEW_','DM_TABLE_') %}
+            {% set targetTableName = node.name %}
+
+            {% set targetTableColumnIds = columns | map(attribute='id') | list %}
+            {% set targetTableColumnNames = columns | map(attribute='name') | list %}
+            {% set targetTableMergeUpdateColumn = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
+            {% set targetTableDmlIdentifierColumn = config.dmlCol.name %}
+            {% set targetTableDmlIdentifierColumnQuotes = '"' + targetTableDmlIdentifierColumn + '"' %}
+
+            {# Merge partition by and order by #}
+            {% set targetTableColumnNamesUpdate = targetTableColumnNames | reject('in', config.partitionBy.get('items') | map(attribute='partColName.name')) | list %}
+
+            {% for i in config.partitionBy.get('items') %}
+                {%- if loop.first -%}
+                    {% set nsVariables.partition = '"' + i.partColName.name + '"' %}
+                {% else %}
+                    {% set nsVariables.partition = nsVariables.partition + ', "' + i.partColName.name + '"' %}
+                {%- endif -%}
+
+                {% set targetTableColumnNamesUpdate = targetTableColumnNames | reject('in', i.partColName.name) | list %}
+
+            {% endfor %}
+
+            {% if config.recordVersioning in ('Datetime Column','Numeric Column') %}
+                {% set datetimeNumericColSort = config.orderBy.get('items') %}
+                {% set nsVariables.orderBy = '"' + datetimeNumericColSort  | map(attribute='colName.name') | first + '" ' + datetimeNumericColSort  | map(attribute='sortOrd') | first %}
+                {% set nsVariables.rowNumber = 'ROW_NUMBER() OVER (PARTITION BY ' + nsVariables.partition + ' ORDER BY ' + nsVariables.orderBy + ')' %}
+                {% set nsVariables.hybridMergeSortFilter = 'alias."' + datetimeNumericColSort  | map(attribute='colName.name') | first + '"' %}
+
+                {%- set nsVariables.sortKey = config.orderBy.get('items') %}
+                {% set nsVariables.sortKey = nsVariables.sortKey | map(attribute='colName.name') | list %}
+            {% else %}
+                {% set dateTimeColSort = config.orderByDateTime.get('items') %}
+                {% set dateCol = dateTimeColSort | map(attribute='colNameDate.name') | first %}
+                {% set timeCol = dateTimeColSort | map(attribute='colNameTimestamp.name') | first %}
+                {% set sortOrdDateTimestamp = dateTimeColSort | map(attribute='sortOrdDateTimestamp') | first %}
+                {% set nsVariables.orderBy = 'to_timestamp("' + dateCol + '" || ' + '\'T\'' + ' ||"' + timeCol + '") ' + sortOrdDateTimestamp %}
+                {% set nsVariables.rowNumber = 'ROW_NUMBER() OVER (PARTITION BY ' + nsVariables.partition + ' ORDER BY ' + nsVariables.orderBy + ')' %}
+                {% set nsVariables.hybridMergeSortFilter = 'to_timestamp(alias."' + dateCol + '" || ' + '\'T\'' + ' || alias."' + timeCol + '")' %}
+
+                {%- set nsVariables.sortKey = config.orderByDateTime.get('items') %}
+                {% set nsVariables.sortKey = nsVariables.sortKey | map(attribute='colNameDate.name') | list + nsVariables.sortKey | map(attribute='colNameTimestamp.name') | list %}
+            {% endif %}
+
+            {%- set nsVariables.tableKey = config.partitionBy.get('items') %}
+            {% set nsVariables.tableKey = nsVariables.tableKey | map(attribute='partColName.name') | list %}
+
+            {%- set nsVariables.tableKeySort = nsVariables.tableKey + nsVariables.sortKey %}
+
+            {# Stream Type #}
+            {% if config.sourceType == 'Table' %} 
+                {% set streamType = 'TABLE' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% elif config.sourceType == 'External Table' %} 
+                {% set streamType = 'EXTERNAL TABLE' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% else %} 
+                {% set streamType = 'VIEW' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% endif %}
+
+            {# DML Identifier Quoting #}
+            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
+                {% set insertValue = "'" + config.dmlInsert + "'" %}
+                {% set deleteValue = "'" + config.dmlDelete + "'" %}
+                {% if config.capUpdate == true %}
+                    {% set updateValue = "'" + config.dmlUpdate + "'" %}
+                {% endif %}
+            {% else %}
+                {% set insertValue = config.dmlInsert %}
+                {% set deleteValue = config.dmlDelete %}
+                {% if config.capUpdate == true %}
+                    {% set updateValue = config.dmlUpdate %}
+                {% endif %}
+            {% endif %}
 
             {# Stream Append Behavior #}
-            {% if config.appendOnly == true %} 
-                {% set strAppend = 'APPEND_ONLY = TRUE' %}
-            {% else %} 
-                {% set strAppend = 'APPEND_ONLY = FALSE' %}
+            {% if streamType == 'TABLE' or streamType == 'VIEW' %} 
+                {% set streamAppendMode = 'APPEND_ONLY = FALSE' %}
+                {% set changesClauseMode = 'CHANGES(information => default)' %}
+                {% set updateStreamFilter = '' %}
+                {% set insertStreamFilter = '(metadata$action = \'INSERT\' and metadata$isupdate = false)' %}
+                {% if config.capUpdate == true %}
+                    {% set updateStreamFilter = 'OR (metadata$action = \'INSERT\' and metadata$isupdate = true)' %}
+                {% endif %}
+                {% set deleteStreamFilter = 'OR (metadata$action = \'DELETE\' and metadata$isupdate = false)' %}
+                {% set whereStreamFilter = 'WHERE (' + insertStreamFilter + updateStreamFilter + deleteStreamFilter + ')' %}
+                {% set andStreamFilter = 'AND (' + insertStreamFilter + updateStreamFilter + deleteStreamFilter + ')' %}
+                {% set identifyDefaultInsertRow = 'WHEN ' + targetTableDmlIdentifierColumnQuotes + ' = ' + insertValue + ' OR ' + insertStreamFilter + ' THEN ' + insertValue %}
+                {% set identifyDefaultDeleteRow = ' WHEN ' + targetTableDmlIdentifierColumnQuotes + ' = ' + deleteValue + deleteStreamFilter + ' THEN ' + deleteValue %}
+                {% set identifyDefaultUpdateRow = '' %}
+                {% if config.capUpdate == true %}
+                    {% set identifyDefaultUpdateRow = ' WHEN ' + targetTableDmlIdentifierColumnQuotes + ' = ' + updateValue + updateStreamFilter + ' THEN ' + updateValue %}
+                {% endif %}
+
+                {% set identifyDefaultStreamDeletedRow = 'CASE ' + identifyDefaultInsertRow + identifyDefaultDeleteRow + identifyDefaultUpdateRow + ' END' %}
+                {% set identifyDefaultStreamDeletedRowLoadFlag = 'CASE WHEN (CASE ' + identifyDefaultInsertRow + identifyDefaultDeleteRow + identifyDefaultUpdateRow + ' END) = ' + deleteValue + ' THEN 1 ELSE 0 END' %}
+            {% else %}
+                {% set streamAppendMode = '' %}
             {% endif %}
 
             {# Stream Initial Row Behavior #}
-            {% if config.initialRows == true %} 
-                {% set strInitialRows = 'SHOW_INITIAL_ROWS = TRUE' %}
-            {% else %} 
-                {% set strInitialRows = 'SHOW_INITIAL_ROWS = FALSE' %}
+            {% if streamType == 'TABLE' or streamType == 'VIEW' %} 
+                {% if config.initialRows == true %} 
+                    {% set streamInitialRowsMode = 'SHOW_INITIAL_ROWS = TRUE' %}
+                {% else %} 
+                    {% set streamInitialRowsMode = 'SHOW_INITIAL_ROWS = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamInitialRowsMode = '' %}
             {% endif %}
 
-            {# Target Table Info #}
-            {% set tgtStrLoc = node.location.name %}
-            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
-            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
-            {% set tgtTbl = node.name %}
-            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
+            {# Stream Insert Only Behavior #}
+            {% if streamType == 'EXTERNAL TABLE' %} 
+                {% if config.insertOnly == true %} 
+                    {% set streamInsertOnlyMode = 'INSERT_ONLY = TRUE' %}
+                {% else %} 
+                    {% set streamInsertOnlyMode = 'INSERT_ONLY = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamInsertOnlyMode = '' %}
+            {% endif %}
 
             {# Hybrid View Info #}
             {# View created in same schema as Target Table #}
-            {% set tgtView = node.name + '_HYBRID_VIEW'  %}
-            {%- set fqTgtViewName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtView + '"' -%} 
+            {% set targetHybridViewDatabase = targetTableDatabase %} 
+            {% set targetHybridViewSchema = targetTableSchema %} 
+            {% set targetHybridViewName = node.name  %}
+            {% set fullyQualifiedHybridViewName = targetHybridViewDatabase + '.' + targetHybridViewSchema + '."' + targetHybridViewName + '"' %}
 
             {# Task Info #}
             {% set taskName = node.name + '_TASK'  %}
-            {%- set fqTgtTaskName = '"' + tgtDb + '"."' + tgtSch + '"."' + taskName + '"' -%} 
+            {%- set fullyQualifiedTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + taskName + '"' -%} 
 
             {# Task Type #}
             {%- if config.schedulingMode == 'Warehouse Task' -%} 
@@ -807,242 +776,917 @@ stepTypes:
 
             {# Schedule Type #}
             {%- if config.schedulePeriodOption == 'Minutes' -%} 
-                {%- set whenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
+                {%- set nsVariables.taskWhenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
+            {% elif config.schedulePeriodOption == 'CRON' %}
+                {%- set nsVariables.taskWhenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
             {%- else -%}
-                {%- set whenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
+                {%- set nsVariables.taskWhenRun = 'AFTER ' -%}
+                {%- set predecessorTasks = (config.predTask).split(",") -%}
+
+                {%- for p in predecessorTasks -%}
+                    {%- set nsVariables.taskWhenRun = nsVariables.taskWhenRun + targetTableDatabase + '.' + targetTableSchema + '.' + p -%}
+                    {%- if not loop.last -%} 
+                        {%- set nsVariables.taskWhenRun = nsVariables.taskWhenRun + ',' -%}
+                    {%- endif %}
+                {% endfor %}    
             {%- endif -%}
 
             {# When Stream has data logic #}
             {%- if config.flagSrcStream == true -%} 
-                {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
+                {%- set streamPoll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fullyQualifiedStreamName + "')" -%} 
             {%- endif -%}
 
-
-            {# Table Column Info #}
-            {% set tblColid = columns | map(attribute='id') | list %}
-            {% set tblCol = columns | map(attribute='name') | list %}
-            {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
-            {% set tblKeyColStr = '"'+tblKey | join('", "')+'"' %}
-            {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
-            {% set tblColHmUpdTs = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
-            {% set tblDmlCol = columns | selectattr('dmlCol','defined') | map(attribute='name') | first %}
-            {% set tblColNoUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | rejectattr('hmUpdTs','defined') | map(attribute='name') | list %}
-
-            {# DML Identifier Quoting #}
-            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
-                {% set insCode = "'" + config.dmlInsert + "'" %}
-                {% set delCode = "'" + config.dmlDelete + "'" %}
-                {% set updCode = "'" + config.dmlUpdate + "'" %}
-            {% else %}
-                {% set insCode = config.dmlInsert %}
-                {% set delCode = config.dmlDelete %}
-                {% set updCode = config.dmlUpdate %}
-            {% endif %}
-
-
             {{ stage('Create Stream') }}
-            CREATE OR REPLACE STREAM {{ fqStrName }}
-                ON TABLE {{ fqSrcTblName }}
-                {{ strAppend }}
-                {{ strInitialRows }}
-
+            CREATE OR REPLACE STREAM {{ fullyQualifiedStreamName }}
+                ON {{ streamType }} {{ streamSourceObjectName }}
+                {{ streamAppendMode }}
+                {{ streamInitialRowsMode }}
+                {{ streamInsertOnlyMode }}
                 
             {{ stage('Create Target Table') }}
-            CREATE OR REPLACE TABLE {{ fqTgtTblName }}
+            CREATE OR REPLACE TABLE {{ fullyQualifiedTargetTableName }}
                 (
                 {%- for col in columns %}
-                    "{{ col.name }}" {{ col.dataType }}
-                    {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
-                    {%- if not loop.last -%}, {% endif %}
+                        "{{ col.name }}" {{ col.dataType }}
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                        {%- if not loop.last -%}, {% endif %}
                 {%- endfor %}
                 )
 
+            {% if config.initialRows == true %}
+                {{ stage('Target Table Initial Load') }}
+                INSERT INTO {{ fullyQualifiedTargetTableName }}
+                SELECT
+                {%- for col in columns %}
+                    "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                FROM (SELECT {%- for col in columns %}
+                                {% if col.name == targetTableMergeUpdateColumn %}
+                                    {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                                {% else %}
+                                    "{{ col.name }}" as "{{ col.name }}"
+                                {% endif %}
+                                {%- if not loop.last -%}, {% endif %}
+                            {%- endfor %}
+                            {% if config.softDeleteFlag == false %}
+                                ,{{ identifyDefaultStreamDeletedRowLoadFlag }} as load_flag
+                            {% endif %}
+                    FROM {{ fullyQualifiedStreamName }}
+                    QUALIFY {{ nsVariables.rowNumber }} = 1)
+                    {% if config.softDeleteFlag == false %}
+                        WHERE load_flag = 1
+                    {% endif %}
+            {% endif %}
+
             {{ stage('Create Hybrid View') }}
-            CREATE OR REPLACE VIEW {{ fqTgtViewName }} (
+            CREATE OR REPLACE VIEW {{ fullyQualifiedHybridViewName }} (
                 {%- for col in columns %}
                     "{{ col.name }}"
                     {%- if not loop.last -%}, {% endif %}
                 {%- endfor %} ) AS
-            WITH delta AS 
-            (
-            SELECT {%- for col in columns %}
-                        {% if col.name == tblColHmUpdTs %}
-                            {{ sources[0].columns | selectattr('name','equalto',tblColHmUpdTs) | map(attribute='transform') | first }} as "{{ col.name }}"
-                        {% else %}
-                            "{{ col.name }}"
-                        {% endif %}
+
+            {% if config.softDeleteFlag == true and config.retainLastNonDeleteFlag == false %}
+                /* SOFT_DELETE = true RETAIN_LAST_NON_DELETE = false */
+                WITH delta AS 
+                (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn %}
+                                {{ identifyDefaultStreamDeletedRow }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                {{ whereStreamFilter }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1)
+
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
                         {%- if not loop.last -%}, {% endif %}
-                   {%- endfor %}
-            FROM {{ fqSrcTblName }}
-            CHANGES(information => append_only)
-            AT(stream => '{{ fqStrName }}' )
-            QUALIFY 1 = ROW_NUMBER() OVER (PARTITION BY {{ tblKeyColStr }} ORDER BY {{ recTS }} DESC)
-            )
-            SELECT {%- for col in columns %}
-                        {% if col.name == tblColHmUpdTs %}
-                            {{ sources[0].columns | selectattr('name','equalto',tblColHmUpdTs) | map(attribute='transform') | first }} as "{{ col.name }}"
-                        {% else %}
-                            "{{ col.name }}"
-                        {% endif %}
-                       {%- if not loop.last -%}, {% endif %}
-                   {%- endfor %}
-            FROM {{ fqSrcTblName }} a
-            WHERE NOT EXISTS (SELECT 1
-                              FROM delta d
-                              WHERE {%- for col in tblKey %}
-                                        a."{{ col }}" = d."{{ col }}"
-                                        {% if not loop.last -%}AND {% endif %}
-                                    {%- endfor %})
-            UNION ALL
-            SELECT {%- for col in columns %}
-                      "{{ col.name }}"
-                       {%- if not loop.last -%}, {% endif %}
-                   {%- endfor %}
-            FROM delta d
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                WHERE NOT EXISTS (SELECT 1
+                                FROM delta d
+                                WHERE {%- for col in (nsVariables.partition).split(",") %}
+                                            a.{{ col }} = d.{{ col }}
+                                            {% if not loop.last -%}AND {% endif %}
+                                        {%- endfor %})
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM delta d
+
+            {% elif config.softDeleteFlag == false and config.retainLastNonDeleteFlag == false %} 
+                /* SOFT_DELETE = false RETAIN_LAST_NON_DELETE = false */
+                WITH delta AS 
+                (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn %}
+                                {{ identifyDefaultStreamDeletedRow }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            , 
+                        {%- endfor %}
+                            CASE WHEN {{ identifyDefaultStreamDeletedRow }} = {{ deleteValue }} THEN 0 ELSE 1 END AS LOAD_FLAG
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                {{ whereStreamFilter }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1)
+
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                WHERE NOT EXISTS (SELECT 1
+                                FROM delta d
+                                WHERE {%- for col in (nsVariables.partition).split(",") %}
+                                            a.{{ col }} = d.{{ col }}
+                                            {% if not loop.last -%}AND {% endif %}
+                                        {%- endfor %})
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM delta d
+                WHERE LOAD_FLAG = 1
+
+            {% elif config.softDeleteFlag == true and config.retainLastNonDeleteFlag == true %} 
+                /* SOFT_DELETE = true RETAIN_LAST_NON_DELETE = true */
+                WITH 
+                a AS (
+                SELECT {%- for col in columns %}
+                            {%- if col.name == targetTableMergeUpdateColumn -%}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn %}
+                                {{ identifyDefaultStreamDeletedRow }} as "{{ col.name }}_CALC"
+                            {%- else -%}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {%- endif -%}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE "{{ targetTableDmlIdentifierColumn }}_CALC" != {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                d AS (
+                SELECT {%- for col in columns %}
+                            {%- if col.name == targetTableMergeUpdateColumn -%}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn %}
+                                {{ identifyDefaultStreamDeletedRow }} as "{{ col.name }}_CALC"
+                            {%- else -%}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {%- endif -%}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE "{{ targetTableDmlIdentifierColumn }}_CALC" = {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                ods_d as (
+                SELECT {% for col in columns -%}
+                            {% if col.name == targetTableMergeUpdateColumn -%}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name in nsVariables.orderBy  -%} 
+                                d."{{ col.name }}" as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn  -%} 
+                                {{ deleteValue }} as "{{ col.name }}"
+                            {% else -%}
+                                a."{{ col.name }}" as "{{ col.name }}"
+                            {% endif -%}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                INNER JOIN (
+                         SELECT {%- for col in nsVariables.tableKeySort %}
+                                        "{{ col }}",
+                                {%- endfor %}
+                                        {{ identifyDefaultStreamDeletedRow }} as "{{ col }}"
+                            FROM {{ fullyQualifiedSourceTableName }}
+                            {{ changesClauseMode }}
+                            {{ changesClauseAt }}
+                            WHERE {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}) d
+                ON 
+                {% for col in nsVariables.tableKey %}
+                    a."{{col}}" = d."{{col}}"
+                    {%- if not loop.last -%} AND {% endif %}
+                    {%- if loop.last -%} ) {% endif %}
+                {% endfor %}
+
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name in nsVariables.orderBy  %} 
+                                coalesce(d."{{ col.name }}", a."{{ col.name }}") as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn  %} 
+                                coalesce(d."{{targetTableDmlIdentifierColumn}}_CALC", a."{{targetTableDmlIdentifierColumn}}_CALC") as "{{ col.name }}"
+                            {% else %}
+                                a."{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM a
+                LEFT OUTER JOIN d
+                ON 
+                    {%- for col in nsVariables.tableKey %}
+                            a."{{ col }}" = d."{{ col }}" AND
+                    {%- endfor %}
+                    {{ nsVariables.hybridMergeSortFilter | replace('alias','d') }} > {{ nsVariables.hybridMergeSortFilter | replace('alias','a') }}
+                UNION ALL
+                SELECT {%- for col in columns %}
+                        {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM ods_d
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                            {%- if not loop.last -%}, {% endif %}
+                        {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} d
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM {{ fullyQualifiedSourceTableName }}
+                    {{ changesClauseMode }}
+                    {{ changesClauseAt }} a
+                    WHERE 
+                    {%- for col in nsVariables.tableKey %}
+                            a."{{ col }}" = d."{{ col }}"
+                        {%- if not loop.last -%} AND {% endif %}
+                    {%- endfor %}
+                     {{ andStreamFilter }})
+
+            {% elif config.softDeleteFlag == false and config.retainLastNonDeleteFlag == true %} 
+                /* SOFT_DELETE = false RETAIN_LAST_NON_DELETE = true */
+                WITH 
+                a AS (
+                SELECT {%- for col in columns %}
+                            {%- if col.name == targetTableMergeUpdateColumn -%}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn %}
+                                {{ identifyDefaultStreamDeletedRow }} as "{{ col.name }}_CALC"
+                            {%- else -%}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {%- endif -%}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE "{{ targetTableDmlIdentifierColumn }}_CALC" != {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                d AS (
+                SELECT {%- for col in columns %}
+                            {%- if col.name == targetTableMergeUpdateColumn -%}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn %}
+                                {{ identifyDefaultStreamDeletedRow }} as "{{ col.name }}_CALC"
+                            {%- else -%}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {%- endif -%}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE "{{ targetTableDmlIdentifierColumn }}_CALC" = {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                ods_d as (
+                SELECT {% for col in columns -%}
+                            {% if col.name == targetTableMergeUpdateColumn -%}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name in nsVariables.orderBy  -%} 
+                                d."{{ col.name }}" as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn  -%} 
+                                {{ deleteValue }} as "{{ col.name }}"
+                            {% else -%}
+                                a."{{ col.name }}" as "{{ col.name }}"
+                            {% endif -%}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                INNER JOIN (
+                         SELECT {%- for col in nsVariables.tableKeySort %}
+                                        "{{ col }}",
+                                {%- endfor %}
+                                        {{ identifyDefaultStreamDeletedRow }} as "{{ col }}"
+                            FROM {{ fullyQualifiedSourceTableName }}
+                            {{ changesClauseMode }}
+                            {{ changesClauseAt }}
+                            WHERE {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}) d
+                ON 
+                {% for col in nsVariables.tableKey %}
+                    a."{{col}}" = d."{{col}}"
+                    {%- if not loop.last -%} AND {% endif %}
+                    {%- if loop.last -%} ) {% endif %}
+                {% endfor %}
+
+                SELECT 
+                {%- for col in columns %}
+                    "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                FROM (
+                    SELECT {%- for col in columns %}
+                                {% if col.name == targetTableMergeUpdateColumn %}
+                                    {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                                {% elif col.name in nsVariables.orderBy  %} 
+                                    coalesce(d."{{ col.name }}", a."{{ col.name }}") as "{{ col.name }}"
+                                {% elif col.name == targetTableDmlIdentifierColumn  %} 
+                                    coalesce(d."{{ targetTableDmlIdentifierColumn }}_CALC", a."{{ targetTableDmlIdentifierColumn }}_CALC") as "{{ col.name }}"
+                                {% else %}
+                                    a."{{ col.name }}" as "{{ col.name }}"
+                                {% endif %}
+                                , 
+                        {%- endfor %}
+                                CASE WHEN {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }} THEN 0 ELSE 1 END AS LOAD_FLAG
+                    FROM a
+                    LEFT OUTER JOIN d
+                    ON 
+                        {%- for col in nsVariables.tableKey %}
+                                a."{{ col }}" = d."{{ col }}" AND
+                        {%- endfor %}
+                        {{ nsVariables.hybridMergeSortFilter | replace('alias','d') }} > {{ nsVariables.hybridMergeSortFilter | replace('alias','a') }})
+                WHERE LOAD_FLAG = 1
+                UNION ALL
+                SELECT {%- for col in columns %}
+                        {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM ods_d
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                            {%- if not loop.last -%}, {% endif %}
+                        {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} d
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM {{ fullyQualifiedSourceTableName }}
+                    {{ changesClauseMode }}
+                    {{ changesClauseAt }} a
+                    WHERE 
+                    {%- for col in nsVariables.tableKey %}
+                            a."{{ col }}" = d."{{ col }}"
+                        {%- if not loop.last -%} AND {% endif %}
+                    {%- endfor %}
+                     {{ andStreamFilter }})
+
+            {% endif %}
 
             {{ stage('Create Task') }}
             CREATE OR REPLACE TASK 
-                {{ fqTgtTaskName }} 
-                {{ taskType }} 
-                {{ whenRun }} 
-                {{ poll }} 
+                {{ fullyQualifiedTaskName }} 
+                {{ taskType}} 
+                {{ nsVariables.taskWhenRun }} 
+                {% if nsVariables.poll != 'WHEN ' %} {{ nsVariables.poll }} {% endif %}
             AS 
-            MERGE INTO {{ fqTgtTblName }} a USING (
-            SELECT {%- for col in columns %}
-                        {% if col.name == tblColHmUpdTs %}
-                            {{ sources[0].columns | selectattr('name','equalto',tblColHmUpdTs) | map(attribute='transform') | first }} as "{{ col.name }}"
+            MERGE INTO {{ fullyQualifiedTargetTableName }}
+            USING (SELECT
+            {%- for col in columns %}
+                        {% if col.name == targetTableMergeUpdateColumn %}
+                            {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
                         {% else %}
-                            "{{ col.name }}"
+                            "{{ col.name }}" as "{{ col.name }}"
                         {% endif %}
-                       {%- if not loop.last -%}, {% endif %}
-                   {%- endfor %}
-            FROM {{ fqSrcTblName }}
-            QUALIFY 1 = row_number() over (partition by {{ tblKeyColStr }} order by {{ recTS }} desc)) d
+                        {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+            FROM {{ fullyQualifiedStreamName }}
+            {{ whereStreamFilter }}
+            QUALIFY {{ nsVariables.rowNumber }} = 1) d
             ON 
-            {% for col in tblKey -%}
-                a."{{ col }}" = d."{{ col }}"
-                {% if not loop.last %} AND {% endif %}
-            {%- endfor -%}
-            WHEN NOT MATCHED AND d."{{ tblDmlCol }}" = {{ insCode }} then insert
-            (
-            {%- for col in columns -%}
-                a."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
+            {% for col in nsVariables.tableKey %}
+                a."{{col}}" = d."{{col}}"
+                {%- if not loop.last -%} AND {% endif %}
             {% endfor %}
-            )
+
+            WHEN NOT MATCHED and d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ insertValue }} THEN INSERT (
+                {% for col in columns %}
+                    a."{{ col.name }}"
+                    {% if not loop.last %}, {% endif -%}
+                {%- endfor -%}
+                )
             VALUES (
-            {%- for col in columns -%}
-                d."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
-            )
-
-            {% if config.capUpdate == true %} 
-            WHEN NOT MATCHED AND d."{{ tblDmlCol }}" = {{ updCode }} then insert
-            (
-            {%- for col in columns -%}
-                a."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
-            )
+                {% for col in columns %}
+                    d."{{ col.name }}"
+                    {% if not loop.last %}, {%- endif -%}
+                {%- endfor -%}
+                )
+            {% if config.capUpdate == true %}
+                WHEN NOT MATCHED and d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ updateValue }} THEN INSERT (
+                    {% for col in columns %}
+                        a."{{ col.name }}"
+                        {% if not loop.last %}, {% endif -%}
+                    {%- endfor -%}
+                    )
+                VALUES (
+                    {% for col in columns %}
+                        d."{{ col.name }}"
+                        {% if not loop.last %}, {%- endif -%}
+                    {%- endfor -%}
+                    )
+            {% endif %}
+            WHEN NOT MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }} AND /* softDeleteFlag True */ {{ config.softDeleteFlag }} = True THEN INSERT (
+                {% for col in columns %}
+                    a."{{ col.name }}"
+                    {% if not loop.last %}, {% endif -%}
+                {%- endfor -%}
+                )
             VALUES (
-            {%- for col in columns -%}
-                d."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
-            )
+                {% for col in columns %}
+                    d."{{ col.name }}"
+                    {% if not loop.last %}, {%- endif -%}
+                {%- endfor -%}
+                )
+            {% if config.capUpdate == true %}
+                /* Update DML value selected */
+                WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ updateValue }} THEN UPDATE SET
+                    {% for col in targetTableColumnNamesUpdate %}
+                        a."{{ col }}" = d."{{ col }}"
+                        {% if not loop.last %}, {% endif -%}
+                    {%- endfor -%}
             {% endif %}
-
-            WHEN NOT MATCHED AND d."{{ tblDmlCol }}" = {{ delCode }} then insert
-            (
-            {%- for col in columns -%}
-                a."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
-            )
-            VALUES (
-            {%- for col in columns -%}
-                d."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
-            )
-
-            {% if config.capUpdate == false %} 
-            WHEN MATCHED AND d."{{ tblDmlCol }}" = {{ insCode }} then update
-            SET 
-            {% for col in columns -%}
-                a."{{ col.name }}" = d."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
+            WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ insertValue }} THEN UPDATE SET
+                {% for col in targetTableColumnNamesUpdate %}
+                    a."{{ col }}" = d."{{ col }}"
+                    {% if not loop.last %}, {% endif -%}
+                {%- endfor -%}
+            {% if config.softDeleteFlag == true %}
+                /* Soft Delete */
+                WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}
+                THEN UPDATE SET
+                    {% for col in (targetTableColumnNamesUpdate) %}
+                        {% if (col in (targetTableMergeUpdateColumn, targetTableDmlIdentifierColumn)) or col in (nsVariables.sortKey) %}
+                            a."{{ col }}" = d."{{ col }}"
+                            {% if not loop.last %}, {% endif -%}
+                        {% endif %}
+                    {%- endfor -%}
+            {% else %}
+                /* Hard Delete */
+                WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}
+                THEN DELETE
             {% endif %}
-
-            {% if config.capUpdate == true %} 
-            WHEN MATCHED AND d."{{ tblDmlCol }}" = {{ updCode }} then update
-            SET 
-            {% for col in columns -%}
-                a."{{ col.name }}" = d."{{ col.name }}"
-                {%- if not loop.last -%}, {% endif %}
-            {% endfor %}
-            {% endif %}
-
-            WHEN MATCHED AND d."{{ tblDmlCol }}" = {{ delCode }} then update
-            SET 
-            {% for col in columns -%}
-                {% if col.name not in tblColNoUpd %}
-                    a."{{ col.name }}" = d."{{ col.name }}"
-                    {%- if not loop.last -%}, {% endif %}
-                {% endif %}
-            {% endfor %}
-
-            {{ stage('Resume Task') }}
-                ALTER TASK {{ fqTgtTaskName }} RESUME;
         run:
-          templateString: |+
-            {# Source Stream Location and Name #}
+          templateString: ""
+    name: Deferred Merge - Delta Stream
+    version: 1
+  StepType-3:
+    id: "3"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: STG
+      error: null
+      nodeMetadataSpec: |-
+        capitalized: Deferred Merge - Append Stream
+        short: DM_VIEW
+        tagColor: black
+        plural: Deferred Merge
 
-            {% set srcStrLoc = sources[0].dependencies[0].node.location.name %}
-            {% set srcDb = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='database') | first %}
-            {% set srcSch = storageLocations | selectattr('name', 'equalto', srcStrLoc) | map(attribute='schema') | first %}
-            {% set srcTbl = sources[0].dependencies[0].node.name %}
-            {% set strName = srcTbl + '_STREAM' %}
-            {% set fqSrcTblName = '"' + srcDb + '"."' + srcSch + '"."' + srcTbl + '"' %}
-            {% set fqStrName = '"' + srcDb + '"."' + srcSch + '"."' + strName + '"' %}
-            {% set strFrom = sources[0].join | replace(srcTbl, strName) %}
+        config:
+        - groupName: Stream Options
+          items:
+          - displayName: Source Object
+            attributeName: sourceType
+            type: dropdownSelector
+            default: Table
+            options:
+              - Table
+              - External Table
+              - View
+            isRequired: false
 
-            {# When Stream has data logic #}
-            {%- if config.flagSrcStream == true -%} 
-                {%- set poll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fqStrName + "')" -%} 
-            {%- endif -%}
+          - displayName: Append Only Stream
+            attributeName: appendOnly
+            type: dropdownSelector
+            default: "true"
+            options:
+              - "true"
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'Table' or config.sourceType == 'View' %} true {% else %} false {% endif %}"
+
+          - displayName: Show Initial Rows
+            attributeName: initialRows
+            type: toggleButton
+            default: true
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'Table' or config.sourceType == 'View' %} true {% else %} false {% endif %}"
+
+          - displayName: Insert Only
+            attributeName: insertOnly
+            type: toggleButton
+            default: false
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'External Table' %} true {% else %} false {% endif %}"
+
+        - groupName: Target Loading Options
+          items:
+          - type: tabular
+            displayName: 'Table Key(s)'
+            attributeName: partitionBy
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Column Name
+               attributeName: partColName
+               isRequired: true
+                
+            isRequired: false
+
+          - displayName: Record Versioning
+            attributeName: recordVersioning
+            type: dropdownSelector
+            default: Datetime Column
+            options:
+              - Datetime Column
+              - Date Column and Time Column
+              - Numeric Column
+            isRequired: true
+
+          - type: tabular
+            displayName: 'Timestamp or Sequence'
+            attributeName: orderBy
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Column Name
+               attributeName: colName
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Datetime Column','Numeric Column') %} true {% else %} false {% endif %}"
+            
+            -  type: dropdownSelector
+               displayName: Sort Order
+               attributeName: sortOrd
+               default: desc
+               options:
+               - desc
+               - asc
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Datetime Column','Numeric Column') %} true {% else %} false {% endif %}"
+            
+            isRequired: false
+            enableIf: "{% if config.recordVersioning in ('Datetime Column','Numeric Column') %} true {% else %} false {% endif %}"
+
+          - type: tabular
+            displayName: 'Date / Timestamp Columns'
+            attributeName: orderByDateTime
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Date Column
+               attributeName: colNameDate
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+            
+            -  type: columnDropdownSelector
+               displayName: Timestamp Column
+               attributeName: colNameTimestamp
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+            
+            -  type: dropdownSelector
+               displayName: Sort Order
+               attributeName: sortOrdDateTimestamp
+               default: desc
+               options:
+               - desc
+               - asc
+               isRequired: true
+               enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+            
+            isRequired: false
+            enableIf: "{% if config.recordVersioning in ('Date Column and Time Column') %} true {% else %} false {% endif %}"
+
+        - groupName: Target Row DML Operations
+          items:
+          - displayName: Column that Identifies DML Operations
+            attributeName: dmlCol
+            type: columnDropdownSelector
+            isRequired: false
+
+          - displayName: Include Value for Update
+            attributeName: capUpdate
+            type: toggleButton
+            default: false
+            isRequired: false
+         
+          - displayName: Insert Value
+            attributeName: dmlInsert
+            type: textBox
+            default: I
+            isRequired: true
+         
+          - displayName: Update Value
+            attributeName: dmlUpdate
+            type: textBox
+            default: U
+            isRequired: true
+            enableIf: "{% if config.capUpdate == true %} true {% else %} false {% endif %}"
+         
+          - displayName: Delete Value
+            attributeName: dmlDelete
+            type: textBox
+            default: D
+            isRequired: true
+         
+        - groupName: Target Delete Options
+          items:
+          - displayName: Soft Delete
+            attributeName: softDeleteFlag
+            type: toggleButton
+            default: false
+            isRequired: false
+
+          - displayName: Retain Last Non-Deleted Values
+            attributeName: retainLastNonDeleteFlag
+            type: toggleButton
+            default: false
+            isRequired: false
+         
+        - groupName: Target Clustering Options
+          items:
+          - displayName: Cluster Key
+            attributeName: clsKey
+            type: dropdownSelector
+            default: None
+            options:
+              - None
+              - Table Key
+              - Primary Key from Source
+              - Row Update Timestamp
+              - Primary Key and Update Timestamp from Source
+              - Update Timestamp and Primary Key from Source
+              - Custom Cluster Columns
+              - Custom Cluster Key
+            isRequired: false
+
+          - displayName: Custom Cluster Key (ex. col1, left(col2,3), coln)
+            attributeName: clsKeyCus
+            type: textBox
+            isRequired: false
+            enableIf: "{% if config.clsKey == 'Custom Cluster Key' %} true {% else %} false {% endif %}"
+         
+        - groupName: Scheduling Options
+          items:
+          - displayName: Scheduling Options
+            attributeName: schedulingMode
+            type: dropdownSelector
+            default: Warehouse Task
+            options:
+              - Warehouse Task
+              - Serverless Task
+            isRequired: true
+
+          - displayName: When Source Stream has Data Flag
+            attributeName: flagSrcStream
+            type: toggleButton
+            isRequired: true
+
+          - displayName: Select Warehouse on which to run task
+            attributeName: whName
+            type: textBox
+            default: '<WAREHOUSE_NAME>'
+            isRequired: false
+            enableIf: "{% if config.schedulingMode == 'Warehouse Task' %} true {% else %} false {% endif %}"
+
+          - displayName: Select initial serverless Warehouse size
+            attributeName: serverlessSize
+            type: dropdownSelector
+            default: 'MEDIUM'
+            options:
+              - XSMALL
+              - SMALL
+              - MEDIUM
+              - LARGE
+              - XLARGE
+              - XXLARGE
+            isRequired: false
+            enableIf: "{% if config.schedulingMode == 'Serverless Task' %} true {% else %} false {% endif %}"
+
+          - displayName: Task Schedule
+            attributeName: schedulePeriodOption
+            type: dropdownSelector
+            default: Minutes
+            options:
+              - Minutes
+              - CRON
+              - Predecessor
+            isRequired: TRUE
+
+          - displayName: Enter task schedule using minutes
+            attributeName: schedulePeriod
+            type: textBox
+            default: '60'
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Minutes' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter task schedule using CRON
+            attributeName: scheduleCRON
+            type: textBox
+            default: '5 0-23 * * * America/Los_Angeles'
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'CRON' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter predecessor task(s) seperated by a comma 
+            attributeName: predTask
+            type: textBox
+            default: ""
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Predecessor' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter root task name
+            attributeName: rootTask
+            type: textBox
+            default: ""
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Predecessor' %} true {% else %} false {% endif %}"
+
+        - groupName: "Pre/Post SQL"
+          items: 
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+        systemColumns:
+        - displayName: 'DM_UPDATE_TIMESTAMP'
+          transform: "current_timestamp::timestamp_ntz"
+          dataType: timestamp
+          placement: end
+          attributeName: hmUpdTs
+      templates:
+        create:
+          templateString: |-
+            {# Set Namespace Variables #}
+            {% set nsVariables = namespace(taskWhenRun="") %}
+            {% set nsVariables = namespace(partition="") %}
+            {% set nsVariables = namespace(orderBy="") %}
+            {% set nsVariables = namespace(rowNumber="") %}
+            {% set nsVariables = namespace(tableKey=[]) %}
+            {% set nsVariables = namespace(sortKey=[]) %}
+            {% set nsVariables = namespace(tableKeySort=[]) %}
+            {% set nsVariables = namespace(hybridMergeSortFilter=[]) %}
+
+            {# Source Object Location and Name #}
+            {% set sourceStorageLocation = sources[0].dependencies[0].node.location.name %}
+            {% set sourceDatabaseName = storageLocations | selectattr('name', 'equalto', sourceStorageLocation) | map(attribute='database') | first %}
+            {% set sourceSchemaName = storageLocations | selectattr('name', 'equalto', sourceStorageLocation) | map(attribute='schema') | first %}
+            {% set sourceTableName = sources[0].dependencies[0].node.name %}
+            {% set fullyQualifiedSourceTableName = '"' + sourceDatabaseName + '"."' + sourceSchemaName + '"."' + sourceTableName + '"' %}
+
+            {# Target Stream Location and Name #}
+            {% set streamTargetLocationName = node.location.name %}
+            {% set streamTargetDatabaseName = storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='database') | first %}
+            {% set streamTargetSchemaName = storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='schema') | first %}
+            {% set streamName = node.name + '_STREAM' %}
+            {% set fullyQualifiedStreamName = '"' + streamTargetDatabaseName + '"."' + streamTargetSchemaName + '"."' + streamName + '"' %}
+            {% set changesClauseAt = 'AT(stream => \'' + fullyQualifiedStreamName + '\')' %}
+
+            {# Target Table Info #}
+            {% set targetTableDatabase = ref_no_link(node.location.name, node.name).split('.')[0] %} 
+            {% set targetTableSchema = ref_no_link(node.location.name, node.name).split('.')[1] %} 
+            {% set fullyQualifiedTargetTableName = ref_no_link(node.location.name, node.name).replace('DM_VIEW_','DM_TABLE_') %}
+            {% set targetTableName = node.name %}
+
+            {% set targetTableColumnIds = columns | map(attribute='id') | list %}
+            {% set targetTableColumnNames = columns | map(attribute='name') | list %}
+            {% set targetTableMergeUpdateColumn = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
+            {% set targetTableDmlIdentifierColumn = config.dmlCol.name %}
+            {% set targetTableDmlIdentifierColumnQuotes = '"' + targetTableDmlIdentifierColumn + '"' %}
+
+            {# Merge partition by and order by #}
+            {% set targetTableColumnNamesUpdate = targetTableColumnNames | reject('in', config.partitionBy.get('items') | map(attribute='partColName.name')) | list %}
+
+            {% for i in config.partitionBy.get('items') %}
+                {%- if loop.first -%}
+                    {% set nsVariables.partition = '"' + i.partColName.name + '"' %}
+                {% else %}
+                    {% set nsVariables.partition = nsVariables.partition + ', "' + i.partColName.name + '"' %}
+                {%- endif -%}
+
+                {% set targetTableColumnNamesUpdate = targetTableColumnNames | reject('in', i.partColName.name) | list %}
+
+            {% endfor %}
+
+            {% if config.recordVersioning in ('Datetime Column','Numeric Column') %}
+                {% set datetimeNumericColSort = config.orderBy.get('items') %}
+                {% set nsVariables.orderBy = '"' + datetimeNumericColSort  | map(attribute='colName.name') | first + '" ' + datetimeNumericColSort  | map(attribute='sortOrd') | first %}
+                {% set nsVariables.rowNumber = 'ROW_NUMBER() OVER (PARTITION BY ' + nsVariables.partition + ' ORDER BY ' + nsVariables.orderBy + ')' %}
+                {% set nsVariables.hybridMergeSortFilter = 'alias."' + datetimeNumericColSort  | map(attribute='colName.name') | first + '"' %}
+
+                {%- set nsVariables.sortKey = config.orderBy.get('items') %}
+                {% set nsVariables.sortKey = nsVariables.sortKey | map(attribute='colName.name') | list %}
+            {% else %}
+                {% set dateTimeColSort = config.orderByDateTime.get('items') %}
+                {% set dateCol = dateTimeColSort | map(attribute='colNameDate.name') | first %}
+                {% set timeCol = dateTimeColSort | map(attribute='colNameTimestamp.name') | first %}
+                {% set sortOrdDateTimestamp = dateTimeColSort | map(attribute='sortOrdDateTimestamp') | first %}
+                {% set nsVariables.orderBy = 'to_timestamp("' + dateCol + '" || ' + '\'T\'' + ' ||"' + timeCol + '") ' + sortOrdDateTimestamp %}
+                {% set nsVariables.rowNumber = 'ROW_NUMBER() OVER (PARTITION BY ' + nsVariables.partition + ' ORDER BY ' + nsVariables.orderBy + ')' %}
+                {% set nsVariables.hybridMergeSortFilter = 'to_timestamp(alias."' + dateCol + '" || ' + '\'T\'' + ' || alias."' + timeCol + '")' %}
+
+                {%- set nsVariables.sortKey = config.orderByDateTime.get('items') %}
+                {% set nsVariables.sortKey = nsVariables.sortKey | map(attribute='colNameDate.name') | list + nsVariables.sortKey | map(attribute='colNameTimestamp.name') | list %}
+            {% endif %}
+
+            {%- set nsVariables.tableKey = config.partitionBy.get('items') %}
+            {% set nsVariables.tableKey = nsVariables.tableKey | map(attribute='partColName.name') | list %}
+
+            {%- set nsVariables.tableKeySort = nsVariables.tableKey + nsVariables.sortKey %}
+
+            {# Stream Type #}
+            {% if config.sourceType == 'Table' %} 
+                {% set streamType = 'TABLE' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% elif config.sourceType == 'External Table' %} 
+                {% set streamType = 'EXTERNAL TABLE' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% else %} 
+                {% set streamType = 'VIEW' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% endif %}
+
+            {# DML Identifier Quoting #}
+            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
+                {% set insertValue = "'" + config.dmlInsert + "'" %}
+                {% set deleteValue = "'" + config.dmlDelete + "'" %}
+                {% if config.capUpdate == true %}
+                    {% set updateValue = "'" + config.dmlUpdate + "'" %}
+                {% endif %}
+            {% else %}
+                {% set insertValue = config.dmlInsert %}
+                {% set deleteValue = config.dmlDelete %}
+                {% if config.capUpdate == true %}
+                    {% set updateValue = config.dmlUpdate %}
+                {% endif %}
+            {% endif %}
 
             {# Stream Append Behavior #}
-            {% if config.appendOnly == true %} 
-                {% set strAppend = 'APPEND_ONLY = TRUE' %}
-            {% else %} 
-                {% set strAppend = 'APPEND_ONLY = FALSE' %}
+            {% if streamType == 'TABLE' or streamType == 'VIEW' %} 
+                    {% set streamAppendMode = 'APPEND_ONLY = TRUE' %}
+                    {% set changesClauseMode = 'CHANGES(information => append_only)' %}
+            {% else %}
+                {% set streamAppendMode = '' %}
             {% endif %}
 
             {# Stream Initial Row Behavior #}
-            {% if config.initialRows == true %} 
-                {% set strInitialRows = 'SHOW_INITIAL_ROWS = TRUE' %}
-            {% else %} 
-                {% set strInitialRows = 'SHOW_INITIAL_ROWS = FALSE' %}
+            {% if streamType == 'TABLE' or streamType == 'VIEW' %} 
+                {% if config.initialRows == true %} 
+                    {% set streamInitialRowsMode = 'SHOW_INITIAL_ROWS = TRUE' %}
+                {% else %} 
+                    {% set streamInitialRowsMode = 'SHOW_INITIAL_ROWS = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamInitialRowsMode = '' %}
             {% endif %}
 
-            {# Target Table Info #}
-            {% set tgtStrLoc = node.location.name %}
-            {% set tgtDb = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='database') | first %}
-            {% set tgtSch = storageLocations | selectattr('name', 'equalto', tgtStrLoc) | map(attribute='schema') | first %}
-            {% set tgtTbl = node.name %}
-            {%- set fqTgtTblName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtTbl + '"' -%} 
+            {# Stream Insert Only Behavior #}
+            {% if streamType == 'EXTERNAL TABLE' %} 
+                {% if config.insertOnly == true %} 
+                    {% set streamInsertOnlyMode = 'INSERT_ONLY = TRUE' %}
+                {% else %} 
+                    {% set streamInsertOnlyMode = 'INSERT_ONLY = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamInsertOnlyMode = '' %}
+            {% endif %}
 
             {# Hybrid View Info #}
             {# View created in same schema as Target Table #}
-            {% set tgtView = node.name + '_HYBRID_VIEW'  %}
-            {%- set fqTgtViewName = '"' + tgtDb + '"."' + tgtSch + '"."' + tgtView + '"' -%} 
+            {% set targetHybridViewDatabase = targetTableDatabase %} 
+            {% set targetHybridViewSchema = targetTableSchema %} 
+            {% set targetHybridViewName = node.name  %}
+            {% set fullyQualifiedHybridViewName = targetHybridViewDatabase + '.' + targetHybridViewSchema + '."' + targetHybridViewName + '"' %}
 
             {# Task Info #}
             {% set taskName = node.name + '_TASK'  %}
-            {%- set fqTgtTaskName = '"' + tgtDb + '"."' + tgtSch + '"."' + taskName + '"' -%} 
+            {%- set fullyQualifiedTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + taskName + '"' -%} 
 
             {# Task Type #}
             {%- if config.schedulingMode == 'Warehouse Task' -%} 
@@ -1053,46 +1697,467 @@ stepTypes:
 
             {# Schedule Type #}
             {%- if config.schedulePeriodOption == 'Minutes' -%} 
-                {%- set whenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
+                {%- set nsVariables.taskWhenRun = 'SCHEDULE = ' + "'" + config.schedulePeriod + ' MINUTE' + "'" -%} 
             {% elif config.schedulePeriodOption == 'CRON' %}
-                {%- set whenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
+                {%- set nsVariables.taskWhenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + config.scheduleCRON %}
             {%- else -%}
-                {%- set whenRun = 'AFTER ' + config.predTask -%} 
+                {%- set nsVariables.taskWhenRun = 'AFTER ' -%}
+                {%- set predecessorTasks = (config.predTask).split(",") -%}
+
+                {%- for p in predecessorTasks -%}
+                    {%- set nsVariables.taskWhenRun = nsVariables.taskWhenRun + targetTableDatabase + '.' + targetTableSchema + '.' + p -%}
+                    {%- if not loop.last -%} 
+                        {%- set nsVariables.taskWhenRun = nsVariables.taskWhenRun + ',' -%}
+                    {%- endif %}
+                {% endfor %}    
             {%- endif -%}
 
-            {# Table Column Info #}
-            {% set tblColid = columns | map(attribute='id') | list %}
-            {% set tblCol = columns | map(attribute='name') | list %}
-            {% set tblKey = columns | selectattr('tblKey', 'defined') | map(attribute='name') | list %}
-            {% set tblKeyColStr = '"'+tblKey | join('", "')+'"' %}
-            {% set recTS = columns | selectattr('tblChgTS', 'defined') | map(attribute='name') | first %}
-            {% set tblColHmUpdTs = columns | selectattr('hmUpdTs', 'defined') | map(attribute='name') | first %}
-            {% set tblColUpd = columns | rejectattr('dmlCol','defined') | rejectattr('tblChgTS','defined') | map(attribute='name') | list %}
+            {# When Stream has data logic #}
+            {%- if config.flagSrcStream == true -%} 
+                {%- set streamPoll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fullyQualifiedStreamName + "')" -%} 
+            {%- endif -%}
 
-            {# DML Identifier Quoting #}
-            {% if config.dmlInsert|int("notNumber") == 'notNumber' %} 
-                {% set insCode = "'" + config.dmlInsert + "'" %}
-                {% set delCode = "'" + config.dmlDelete + "'" %}
-                {% set updCode = "'" + config.dmlUpdate + "'" %}
-            {% else %}
-                {% set insCode = config.dmlInsert %}
-                {% set delCode = config.dmlDelete %}
-                {% set updCode = config.dmlUpdate %}
+            {{ stage('Create Stream') }}
+            CREATE OR REPLACE STREAM {{ fullyQualifiedStreamName }}
+                ON {{ streamType }} {{ streamSourceObjectName }}
+                {{ streamAppendMode }}
+                {{ streamInitialRowsMode }}
+                {{ streamInsertOnlyMode }}
+                
+            {{ stage('Create Target Table') }}
+            CREATE OR REPLACE TABLE {{ fullyQualifiedTargetTableName }}
+                (
+                {%- for col in columns %}
+                        "{{ col.name }}" {{ col.dataType }}
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                )
+
+            {% if config.initialRows == true %}
+                {{ stage('Target Table Initial Load') }}
+                INSERT INTO {{ fullyQualifiedTargetTableName }}
+                SELECT
+                {%- for col in columns %}
+                    "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                FROM (SELECT {%- for col in columns %}
+                                {% if col.name == targetTableMergeUpdateColumn %}
+                                    {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}",
+                                {% else %}
+                                    "{{ col.name }}" as "{{ col.name }}",
+                                {% endif %}
+                            {%- endfor %}
+                            case when {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}then 0 else 1 end as load_flag
+                    FROM {{ fullyQualifiedStreamName }}
+                    QUALIFY {{ nsVariables.rowNumber }} = 1)
+                    {% if config.softDeleteFlag == false %}
+                        WHERE load_flag = 1
+                    {% endif %}
             {% endif %}
 
-            {{ stage('Testing') }}
+            {{ stage('Create Hybrid View') }}
+            CREATE OR REPLACE VIEW {{ fullyQualifiedHybridViewName }} (
+                {%- for col in columns %}
+                    "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {%- endfor %} ) AS
 
-            {%- for col in sources.columns %}
-                {{ get_source_transform(col) }}
-            {%- endfor %} ) AS
+            {% if config.softDeleteFlag == true and config.retainLastNonDeleteFlag == false %}
+                /* SOFT_DELETE = true RETAIN_LAST_NON_DELETE = false */
+                WITH delta AS 
+                (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1)
 
-    name: Hybrid Merge
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                WHERE NOT EXISTS (SELECT 1
+                                FROM delta d
+                                WHERE {%- for col in (nsVariables.partition).split(",") %}
+                                            a.{{ col }} = d.{{ col }}
+                                            {% if not loop.last -%}AND {% endif %}
+                                        {%- endfor %})
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM delta d
+
+            {% elif config.softDeleteFlag == false and config.retainLastNonDeleteFlag == false %} 
+                /* SOFT_DELETE = false RETAIN_LAST_NON_DELETE = false */
+                WITH delta AS 
+                (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            ,
+                    {%- endfor %}
+                            CASE WHEN {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }} THEN 0 ELSE 1 END AS LOAD_FLAG
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1)
+
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                WHERE NOT EXISTS (SELECT 1
+                                FROM delta d
+                                WHERE {%- for col in (nsVariables.partition).split(",") %}
+                                            a.{{ col }} = d.{{ col }}
+                                            {% if not loop.last -%}AND {% endif %}
+                                        {%- endfor %})
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM delta d
+                WHERE LOAD_FLAG = 1
+
+            {% elif config.softDeleteFlag == true and config.retainLastNonDeleteFlag == true %} 
+                /* SOFT_DELETE = true RETAIN_LAST_NON_DELETE = true */
+                WITH 
+                a AS (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE {{ targetTableDmlIdentifierColumnQuotes }} != {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                d AS (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                ods_d as (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name in nsVariables.orderBy  %} 
+                                d."{{ col.name }}" as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn  %} 
+                                {{ deleteValue }} as "{{ col.name }}"
+                            {% else %}
+                                a."{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                INNER JOIN (
+                         SELECT {%- for col in nsVariables.tableKeySort %}
+                                        "{{ col }}"
+                                    {%- if not loop.last -%}, {% endif %}
+                                {%- endfor %}
+                            FROM {{ fullyQualifiedSourceTableName }}
+                            {{ changesClauseMode }}
+                            {{ changesClauseAt }}
+                            WHERE {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}) d
+                ON 
+                {% for col in nsVariables.tableKey %}
+                    a."{{col}}" = d."{{col}}"
+                    {%- if not loop.last -%} AND {% endif %}
+                    {%- if loop.last -%} ) {% endif %}
+                {% endfor %}
+
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name in nsVariables.orderBy  %} 
+                                coalesce(d."{{ col.name }}", a."{{ col.name }}") as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn  %} 
+                                coalesce(d."{{ col.name }}", a."{{ col.name }}") as "{{ col.name }}"
+                            {% else %}
+                                a."{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM a
+                LEFT OUTER JOIN d
+                ON 
+                    {%- for col in nsVariables.tableKey %}
+                            a."{{ col }}" = d."{{ col }}" AND
+                    {%- endfor %}
+                    {{ nsVariables.hybridMergeSortFilter | replace('alias','d') }} > {{ nsVariables.hybridMergeSortFilter | replace('alias','a') }}
+                UNION ALL
+                SELECT {%- for col in columns %}
+                        {{ col.name }}
+                        {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM ods_d
+                UNION ALL
+                SELECT {%- for col in columns %}
+                            {{ col.name }}
+                            {%- if not loop.last -%}, {% endif %}
+                        {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} d
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM {{ fullyQualifiedSourceTableName }}
+                    {{ changesClauseMode }}
+                    {{ changesClauseAt }} a
+                    WHERE 
+                    {%- for col in nsVariables.tableKey %}
+                            a."{{ col }}" = d."{{ col }}"
+                        {%- if not loop.last -%} AND {% endif %}
+                    {%- endfor %})
+
+            {% elif config.softDeleteFlag == false and config.retainLastNonDeleteFlag == true %} 
+                /* SOFT_DELETE = false RETAIN_LAST_NON_DELETE = true */
+                WITH 
+                a AS (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                        {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE {{ targetTableDmlIdentifierColumnQuotes }} != {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                d AS (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% else %}
+                                "{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedSourceTableName }}
+                {{ changesClauseMode }}
+                {{ changesClauseAt }}
+                WHERE {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}
+                QUALIFY {{ nsVariables.rowNumber }} = 1),
+
+                ods_d as (
+                SELECT {%- for col in columns %}
+                            {% if col.name == targetTableMergeUpdateColumn %}
+                                {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                            {% elif col.name in nsVariables.orderBy  %} 
+                                d."{{ col.name }}" as "{{ col.name }}"
+                            {% elif col.name == targetTableDmlIdentifierColumn  %} 
+                                {{ deleteValue }} as "{{ col.name }}"
+                            {% else %}
+                                a."{{ col.name }}" as "{{ col.name }}"
+                            {% endif %}
+                            {%- if not loop.last -%}, {% endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedTargetTableName }} a
+                INNER JOIN (
+                         SELECT {%- for col in nsVariables.tableKeySort %}
+                                        "{{ col }}"
+                                    {%- if not loop.last -%}, {% endif %}
+                                {%- endfor %}
+                            FROM {{ fullyQualifiedSourceTableName }}
+                            {{ changesClauseMode }}
+                            {{ changesClauseAt }}
+                            WHERE {{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}) d
+                ON 
+                {% for col in nsVariables.tableKey %}
+                    a."{{col}}" = d."{{col}}"
+                    {%- if not loop.last -%} AND {% endif %}
+                    {%- if loop.last -%} ) {% endif %}
+                {% endfor %}
+
+                SELECT 
+                {%- for col in columns %}
+                        "{{ col.name }}"
+                        {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                FROM (
+                    SELECT {%- for col in columns %}
+                                {% if col.name == targetTableMergeUpdateColumn %}
+                                    {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                                {% elif col.name in nsVariables.orderBy  %} 
+                                    coalesce(d."{{ col.name }}", a."{{ col.name }}") as "{{ col.name }}"
+                                {% elif col.name == targetTableDmlIdentifierColumn  %} 
+                                    coalesce(d."{{ col.name }}", a."{{ col.name }}") as "{{ col.name }}"
+                                {% else %}
+                                    a."{{ col.name }}" as "{{ col.name }}"
+                                {% endif %}
+                                ,
+                        {%- endfor %}
+                        case when coalesce(d.{{ targetTableDmlIdentifierColumnQuotes }}, a.{{ targetTableDmlIdentifierColumnQuotes }}) = {{ deleteValue }}then 0 else 1 end as load_flag
+                    FROM a
+                    LEFT OUTER JOIN d
+                    ON 
+                        {%- for col in nsVariables.tableKey %}
+                                a."{{ col }}" = d."{{ col }}" AND
+                        {%- endfor %}
+                        {{ nsVariables.hybridMergeSortFilter | replace('alias','d') }} > {{ nsVariables.hybridMergeSortFilter | replace('alias','a') }}
+                    )
+                    WHERE load_flag = 1
+                    UNION ALL
+                    SELECT {%- for col in columns %}
+                            {{ col.name }}
+                            {%- if not loop.last -%}, {% endif %}
+                        {%- endfor %}
+                    FROM ods_d
+                    UNION ALL
+                    SELECT {%- for col in columns %}
+                                {{ col.name }}
+                                {%- if not loop.last -%}, {% endif %}
+                            {%- endfor %}
+                    FROM {{ fullyQualifiedTargetTableName }} d
+                    WHERE NOT EXISTS (
+                        SELECT 1
+                        FROM {{ fullyQualifiedSourceTableName }}
+                        {{ changesClauseMode }}
+                        {{ changesClauseAt }} a
+                        WHERE 
+                        {%- for col in nsVariables.tableKey %}
+                                a."{{ col }}" = d."{{ col }}"
+                            {%- if not loop.last -%} AND {% endif %}
+                        {%- endfor %})
+
+            {% endif %}
+
+            {{ stage('Create Task') }}
+            CREATE OR REPLACE TASK 
+                {{ fullyQualifiedTaskName }} 
+                {{ taskType}} 
+                {{ nsVariables.taskWhenRun }} 
+                {% if nsVariables.poll != 'WHEN ' %} {{ nsVariables.poll }} {% endif %}
+            AS 
+            MERGE INTO {{ fullyQualifiedTargetTableName }}
+            USING (SELECT
+            {%- for col in columns %}
+                        {% if col.name == targetTableMergeUpdateColumn %}
+                            {{ sources[0].columns | selectattr('name','equalto',targetTableMergeUpdateColumn) | map(attribute='transform') | first }} as "{{ col.name }}"
+                        {% else %}
+                            "{{ col.name }}" as "{{ col.name }}"
+                        {% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+            FROM {{ fullyQualifiedStreamName }}
+            {{ whereStreamFilter }}
+            QUALIFY {{ nsVariables.rowNumber }} = 1) d
+            ON 
+            {% for col in nsVariables.tableKey %}
+                a."{{col}}" = d."{{col}}"
+                {%- if not loop.last -%} AND {% endif %}
+            {% endfor %}
+
+            WHEN NOT MATCHED and d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ insertValue }} THEN INSERT (
+                {% for col in columns %}
+                    a."{{ col.name }}"
+                    {% if not loop.last %}, {% endif -%}
+                {%- endfor -%}
+                )
+            VALUES (
+                {% for col in columns %}
+                    d."{{ col.name }}"
+                    {% if not loop.last %}, {%- endif -%}
+                {%- endfor -%}
+                )
+            {% if config.capUpdate == true %}
+                WHEN NOT MATCHED and d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ updateValue }} THEN INSERT (
+                    {% for col in columns %}
+                        a."{{ col.name }}"
+                        {% if not loop.last %}, {% endif -%}
+                    {%- endfor -%}
+                    )
+                VALUES (
+                    {% for col in columns %}
+                        d."{{ col.name }}"
+                        {% if not loop.last %}, {%- endif -%}
+                    {%- endfor -%}
+                    )
+            {% endif %}
+            WHEN NOT MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }} AND /* softDeleteFlag True */ {{ config.softDeleteFlag }} = True THEN INSERT (
+                {% for col in columns %}
+                    a."{{ col.name }}"
+                    {% if not loop.last %}, {% endif -%}
+                {%- endfor -%}
+                )
+            VALUES (
+                {% for col in columns %}
+                    d."{{ col.name }}"
+                    {% if not loop.last %}, {%- endif -%}
+                {%- endfor -%}
+                )
+            {% if config.capUpdate == true %}
+                /* Update DML value selected */
+                WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ updateValue }} THEN UPDATE SET
+                    {% for col in targetTableColumnNamesUpdate %}
+                        a."{{ col }}" = d."{{ col }}"
+                        {% if not loop.last %}, {% endif -%}
+                    {%- endfor -%}
+            {% endif %}
+            WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ insertValue }} THEN UPDATE SET
+                {% for col in targetTableColumnNamesUpdate %}
+                    a."{{ col }}" = d."{{ col }}"
+                    {% if not loop.last %}, {% endif -%}
+                {%- endfor -%}
+            {% if config.softDeleteFlag == true %}
+                /* Soft Delete */
+                WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}
+                THEN UPDATE SET
+                    {% for col in (targetTableColumnNamesUpdate) %}
+                        {% if (col in (targetTableMergeUpdateColumn, targetTableDmlIdentifierColumn)) or col in (nsVariables.sortKey) %}
+                            a."{{ col }}" = d."{{ col }}"
+                            {% if not loop.last %}, {% endif -%}
+                        {% endif %}
+                    {%- endfor -%}
+            {% else %}
+                /* Hard Delete */
+                WHEN MATCHED AND d.{{ targetTableDmlIdentifierColumnQuotes }} = {{ deleteValue }}
+                THEN DELETE
+            {% endif %}
+        run:
+          templateString: ""
+    name: Deferred Merge - Append Stream
     version: 1
   StepType-Dimension:
     id: Dimension
     isDisabled: false
     metadata:
-      defaultStorageLocation: null
+      defaultStorageLocation: BI
       error: null
       nodeMetadataSpec: |-
         capitalized: Dimension
@@ -1539,7 +2604,7 @@ stepTypes:
     id: Fact
     isDisabled: false
     metadata:
-      defaultStorageLocation: null
+      defaultStorageLocation: BI
       error: null
       nodeMetadataSpec: |
         capitalized: Fact
@@ -2276,7 +3341,7 @@ stepTypes:
     id: Stage
     isDisabled: false
     metadata:
-      defaultStorageLocation: null
+      defaultStorageLocation: STG
       error: null
       nodeMetadataSpec: |
         capitalized: Stage
@@ -2481,7 +3546,7 @@ stepTypes:
     id: View
     isDisabled: false
     metadata:
-      defaultStorageLocation: null
+      defaultStorageLocation: STG
       error: null
       nodeMetadataSpec: |
         capitalized: View
@@ -2561,7 +3626,7 @@ stepTypes:
     id: persistentStage
     isDisabled: false
     metadata:
-      defaultStorageLocation: null
+      defaultStorageLocation: STG
       error: null
       nodeMetadataSpec: |
         capitalized: Persistent Stage

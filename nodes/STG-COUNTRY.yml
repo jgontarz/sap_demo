@@ -729,7 +729,7 @@ steps:
               - columnReferences:
                   - columnCounter: 90126
                     stepCounter: "256"
-                transform: case when "T005"."DATFM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T005"."DATFM") end
+                transform: case when "T005"."DATFM" in ('00000000', '') THEN NULL ELSE TO_DATE("T005"."DATFM") end
           - columnReference:
               columnCounter: b94af2aa-3798-4c7f-b32c-49518f5e6a19
               stepCounter: 93270e11-7030-492a-9605-649365eba457
