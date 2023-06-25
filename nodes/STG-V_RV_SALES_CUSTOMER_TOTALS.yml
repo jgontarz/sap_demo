@@ -1,0 +1,80 @@
+steps:
+  V_RV_SALES_CUSTOMER_TOTALS-95f8a01b-5188-44fa-946a-49ded8185616:
+    operation:
+      config:
+        insertStrategy: UNION
+        selectDistinct: false
+      database: ""
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationName: STG
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8d148e11-6150-4d6c-82c7-b604e307a4d6
+              stepCounter: 95f8a01b-5188-44fa-946a-49ded8185616
+            dataType: char(35)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CUSTOMER_NAME
+            nullable: false
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d94dd73b-f826-4d97-858a-cfebc2a7b9a6
+                    stepCounter: 8983a6e0-24aa-4dac-bdd1-05f198757aa8
+                transform: ""
+          - columnReference:
+              columnCounter: dfeb61cb-e4f7-4121-b237-15a55dbce0f6
+              stepCounter: 95f8a01b-5188-44fa-946a-49ded8185616
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NET_VALUE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97689a3e-9212-4f8a-b28f-2daa5211601b
+                    stepCounter: 8983a6e0-24aa-4dac-bdd1-05f198757aa8
+                transform: SUM("DTSTAR_SALESORDER"."NET_VALUE")
+          - columnReference:
+              columnCounter: 94f80a43-9227-4c10-b9bc-c29d69d91328
+              stepCounter: 95f8a01b-5188-44fa-946a-49ded8185616
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ORDER_QUANTITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b8f51353-34fc-41aa-adeb-fffee1a2eeeb
+                    stepCounter: 8983a6e0-24aa-4dac-bdd1-05f198757aa8
+                transform: SUM("DTSTAR_SALESORDER"."ORDER_QUANTITY")
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DTSTAR_SALESORDER: 8983a6e0-24aa-4dac-bdd1-05f198757aa8
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: BI
+                nodeName: DTSTAR_SALESORDER
+            join:
+              joinCondition: |-
+                FROM {{ ref('BI', 'DTSTAR_SALESORDER') }} "DTSTAR_SALESORDER"
+                GROUP BY "DTSTAR_SALESORDER"."CUSTOMER_NAME"
+            name: V_RV_SALES_CUSTOMER_TOTALS
+            noLinkRefs: []
+      name: V_RV_SALES_CUSTOMER_TOTALS
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: 95f8a01b-5188-44fa-946a-49ded8185616
