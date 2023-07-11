@@ -75,8 +75,7 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              PURCHASING_DOCUMENT_SCHEDULE_LINE: "171"
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
@@ -85,7 +84,7 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('STG', 'PURCHASING_DOCUMENT_SCHEDULE_LINE') }} "PURCHASING_DOCUMENT_SCHEDULE_LINE"
-                group by "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ID", "PURCHASING_DOCUMENT_SCHEDULE_LINE"."PURCHASING_DOCUMENT_ITEM_ID", "PURCHASING_DOCUMENT_SCHEDULE_LINE"."ITEM_DELIVERY_DATE"
+                GROUP BY ALL
                   
             name: PURCHASING_DOCUMENT_SCHEDULE_TOTAL
             noLinkRefs: []

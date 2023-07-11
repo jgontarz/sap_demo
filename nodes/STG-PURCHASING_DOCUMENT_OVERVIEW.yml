@@ -19,6 +19,8 @@ steps:
           - columnReference:
               columnCounter: 82044
               stepCounter: "191"
+            config:
+              columnType: Attribute
             dataType: VARCHAR(10)
             description: ""
             hashColumns: []
@@ -33,6 +35,8 @@ steps:
           - columnReference:
               columnCounter: 82045
               stepCounter: "191"
+            config:
+              columnType: Attribute
             dataType: VARCHAR(5)
             description: ""
             hashColumns: []
@@ -47,6 +51,8 @@ steps:
           - columnReference:
               columnCounter: 82130
               stepCounter: "191"
+            config:
+              columnType: Measure
             dataType: VARCHAR(1)
             description: ""
             name: DELIVERY_COMPLETED
@@ -63,7 +69,8 @@ steps:
             columnReference:
               columnCounter: 82131
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: DATE
             defaultValue: ""
             description: ""
@@ -84,7 +91,8 @@ steps:
             columnReference:
               columnCounter: 82132
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: DATE
             defaultValue: ""
             description: ""
@@ -105,7 +113,8 @@ steps:
             columnReference:
               columnCounter: 82133
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: NUMBER
             defaultValue: ""
             description: ""
@@ -126,7 +135,8 @@ steps:
             columnReference:
               columnCounter: 82134
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: NUMBER
             defaultValue: ""
             description: ""
@@ -147,7 +157,8 @@ steps:
             columnReference:
               columnCounter: 82135
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: NUMBER
             defaultValue: ""
             description: ""
@@ -168,7 +179,8 @@ steps:
             columnReference:
               columnCounter: 82136
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: NUMBER
             defaultValue: ""
             description: ""
@@ -189,7 +201,8 @@ steps:
             columnReference:
               columnCounter: 82137
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: NUMBER
             defaultValue: ""
             description: ""
@@ -210,7 +223,8 @@ steps:
             columnReference:
               columnCounter: 82138
               stepCounter: "191"
-            config: {}
+            config:
+              columnType: Measure
             dataType: NUMBER
             defaultValue: ""
             description: ""
@@ -227,8 +241,7 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              PURCHASING_DOCUMENT_HISTORY: "177"
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
@@ -237,7 +250,7 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('STG', 'PURCHASING_DOCUMENT_HISTORY') }} "PURCHASING_DOCUMENT_HISTORY"
-                GROUP BY "PURCHASING_DOCUMENT_HISTORY"."PURCHASING_DOCUMENT_ID", "PURCHASING_DOCUMENT_ITEM_ID"
+                GROUP BY ALL
             name: PURCHASING_DOCUMENT_OVERVIEW
             noLinkRefs: []
       name: PURCHASING_DOCUMENT_OVERVIEW
