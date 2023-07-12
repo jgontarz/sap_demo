@@ -2570,7 +2570,9 @@ steps:
               - locationName: RAW_NEW
                 nodeName: KNA1
             join:
-              joinCondition: FROM {{ ref('RAW_NEW', 'KNA1') }} "KNA1" WHERE 1=1 AND "KNA1"."MANDT" in ({{ parameters.fltrMandt }})
+              joinCondition: |-
+                FROM {{ ref('RAW_NEW', 'KNA1') }} "KNA1" 
+                WHERE 1=1 AND "KNA1"."MANDT" in ({{ parameters.fltrMandt }})
             name: CUSTOMER
             noLinkRefs: []
       name: CUSTOMER
