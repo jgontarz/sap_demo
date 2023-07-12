@@ -20,7 +20,8 @@ steps:
       metadata:
         appliedNodeTests: []
         columns:
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82589
               stepCounter: "196"
             dataType: NUMBER
@@ -34,7 +35,8 @@ steps:
                   - columnCounter: 56910
                     stepCounter: "167"
                 transform: CAST((PURCHASING_DOCUMENT_OVERVIEW.LATEST_GOODS_RECEIVE_DATE - PURCHASING_DOCUMENT_HEADER."PURCHASING_DOCUMENT_DATE") AS DECIMAL(15, 2))
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82590
               stepCounter: "196"
             dataType: VARCHAR(4)
@@ -48,7 +50,8 @@ steps:
                   - columnCounter: 56911
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82591
               stepCounter: "196"
             dataType: NUMBER
@@ -73,7 +76,8 @@ steps:
                   					)
                   		ELSE CAST(0 AS DECIMAL(15, 2))
                   		END
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 83213
               stepCounter: "196"
             dataType: char(5)
@@ -85,7 +89,8 @@ steps:
                   - columnCounter: 56931
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82600
               stepCounter: "196"
             dataType: VARCHAR(10)
@@ -99,7 +104,8 @@ steps:
                   - columnCounter: 56921
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82608
               stepCounter: "196"
             dataType: VARCHAR(4)
@@ -113,7 +119,8 @@ steps:
                   - columnCounter: 56929
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82609
               stepCounter: "196"
             dataType: VARCHAR(3)
@@ -127,7 +134,8 @@ steps:
                   - columnCounter: 56930
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82610
               stepCounter: "196"
             dataType: VARCHAR(5)
@@ -141,7 +149,8 @@ steps:
                   - columnCounter: 56931
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82611
               stepCounter: "196"
             dataType: NUMBER(9,5)
@@ -168,7 +177,8 @@ steps:
                   					)
                   				) - PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_VALUE_IN_LOCAL_CURR
                   		END
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82613
               stepCounter: "196"
             dataType: DATE
@@ -182,7 +192,8 @@ steps:
                   - columnCounter: 56934
                     stepCounter: "167"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82729
               stepCounter: "196"
             dataType: VARCHAR(10)
@@ -196,7 +207,8 @@ steps:
                   - columnCounter: 57435
                     stepCounter: "169"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82730
               stepCounter: "196"
             dataType: VARCHAR(5)
@@ -210,7 +222,8 @@ steps:
                   - columnCounter: 57436
                     stepCounter: "169"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82735
               stepCounter: "196"
             dataType: VARCHAR(18)
@@ -224,7 +237,8 @@ steps:
                   - columnCounter: 57441
                     stepCounter: "169"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82738
               stepCounter: "196"
             dataType: VARCHAR(4)
@@ -238,7 +252,8 @@ steps:
                   - columnCounter: 57444
                     stepCounter: "169"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82746
               stepCounter: "196"
             dataType: VARCHAR(3)
@@ -252,7 +267,8 @@ steps:
                   - columnCounter: 57452
                     stepCounter: "169"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82754
               stepCounter: "196"
             dataType: NUMBER(13,2)
@@ -266,7 +282,8 @@ steps:
                   - columnCounter: 57460
                     stepCounter: "169"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 83289
               stepCounter: "196"
             dataType: NUMBER(13,2)
@@ -285,7 +302,8 @@ steps:
                   				THEN - 1 / PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
                   			ELSE PURCHASING_DOCUMENT_HEADER."EXCHANGE_RATE"
                   			END AS DECIMAL(15, 2))
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82773
               stepCounter: "196"
             dataType: NUMBER
@@ -304,7 +322,8 @@ steps:
                   			THEN PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
                   		ELSE CAST(0 AS DECIMAL(15, 3))
                   		END
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82775
               stepCounter: "196"
             dataType: NUMBER
@@ -323,7 +342,8 @@ steps:
                   			THEN CAST(0 AS DECIMAL(15, 3))
                   		ELSE (PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY" - COALESCE(PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_QUANTITY,0))
                   		END
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 82891
               stepCounter: "196"
             dataType: NUMBER
@@ -342,7 +362,8 @@ steps:
                   			THEN PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
                   		ELSE - 1 * PURCHASING_DOCUMENT_ITEM."PURCHASE_ORDER_QUANTITY"
                   		END
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 83115
               stepCounter: "196"
             dataType: NUMBER
@@ -361,7 +382,8 @@ steps:
                   			THEN PURCHASING_DOCUMENT_OVERVIEW.RECEIVED_QUANTITY
                   		ELSE CAST(0 AS DECIMAL(15, 3))
                   		END
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 83117
               stepCounter: "196"
             dataType: NUMBER
@@ -375,7 +397,8 @@ steps:
                   - columnCounter: 82133
                     stepCounter: "191"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 83118
               stepCounter: "196"
             dataType: NUMBER
@@ -389,7 +412,8 @@ steps:
                   - columnCounter: 82134
                     stepCounter: "191"
                 transform: ""
-          - columnReference:
+          - appliedColumnTests: {}
+            columnReference:
               columnCounter: 83125
               stepCounter: "196"
             dataType: NUMBER
