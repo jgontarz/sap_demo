@@ -21,6 +21,13 @@ jobs:
     name: Fact Purchase Order
     steps: []
     subgraphs: []
+  Job-4:
+    excludeSelector: ""
+    id: 4
+    includeSelector: "+{ location: BI name: DIM_VENDOR }"
+    name: DIM_VENDOR
+    steps: []
+    subgraphs: []
 locations:
   ADMIN:
     mappingDefinitions:
@@ -6341,6 +6348,13 @@ subgraphs:
       - "194"
       - "228"
       - a5a46b10-0494-4ad2-995b-6aacb26362fa
+  Subgraph-38:
+    id: "38"
+    name: Cancel Reason
+    steps:
+      - "159"
+      - "274"
+      - "275"
   Subgraph-4:
     id: "4"
     name: DIM_PURCHASING_ORGANIZATION
