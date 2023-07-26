@@ -59,8 +59,7 @@ steps:
         cteString: ""
         enabledColumnTestIDs: []
         sourceMapping:
-          - aliases:
-              DTSTAR_SALESORDER: 8983a6e0-24aa-4dac-bdd1-05f198757aa8
+          - aliases: {}
             customSQL:
               customSQL: ""
             dependencies:
@@ -69,7 +68,7 @@ steps:
             join:
               joinCondition: |-
                 FROM {{ ref('BI', 'DTSTAR_SALESORDER') }} "DTSTAR_SALESORDER"
-                GROUP BY "DTSTAR_SALESORDER"."SALES_DOCUMENT_NUMBER"
+                GROUP BY ALL
             name: RV_SALES_DOCUMENT_TOTALS
             noLinkRefs: []
       name: RV_SALES_DOCUMENT_TOTALS

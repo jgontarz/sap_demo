@@ -379,7 +379,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88521
                     stepCounter: "230"
-                transform: case when "VBAP"."ABDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."ABDAT") end
+                transform: to_date("VBAP"."ABDAT")
           - columnReference:
               columnCounter: 31f8d019-3022-499f-ad64-1fc3f25210ff
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -939,7 +939,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88561
                     stepCounter: "230"
-                transform: case when "VBAP"."UPFLU" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."UPFLU") end
+                transform: to_date("VBAP"."UPFLU")
           - columnReference:
               columnCounter: 1cdde791-5c45-4879-b6c9-a16cae715ac9
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -1051,7 +1051,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88569
                     stepCounter: "230"
-                transform: case when "VBAP"."STDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."STDAT") end
+                transform: to_date("VBAP"."STDAT")
           - columnReference:
               columnCounter: 1d709570-454a-4005-aa48-5ffea6d9b846
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -1107,7 +1107,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88573
                     stepCounter: "230"
-                transform: case when "VBAP"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."ERDAT") end
+                transform: to_date("VBAP"."ERDAT")
           - columnReference:
               columnCounter: 967d948e-7577-4354-a4e0-b53746512847
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -1569,7 +1569,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88606
                     stepCounter: "230"
-                transform: case when "VBAP"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."STAFO") end
+                transform: to_date("VBAP"."STAFO")
           - columnReference:
               columnCounter: ccdd37d9-c91f-4d35-8e83-411341c2f7a9
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -1695,7 +1695,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88615
                     stepCounter: "230"
-                transform: case when "VBAP"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."AEDAT") end
+                transform: to_date("VBAP"."AEDAT")
           - columnReference:
               columnCounter: 6fb0e8e5-ee47-4948-9871-58eacaaad2d7
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -1723,7 +1723,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88617
                     stepCounter: "230"
-                transform: case when "VBAP"."FIXMG" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."FIXMG") end
+                transform: to_date("VBAP"."FIXMG")
           - columnReference:
               columnCounter: 20bbff7a-5b4b-45be-a59c-4d971c086d60
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -2157,7 +2157,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88648
                     stepCounter: "230"
-                transform: case when "VBAP"."KOUPD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."KOUPD") end
+                transform: to_date("VBAP"."KOUPD")
           - columnReference:
               columnCounter: 47a3dc9e-5c0b-4996-8713-9f1531c229ce
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -2339,7 +2339,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88661
                     stepCounter: "230"
-                transform: case when "VBAP"."STADAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."STADAT") end
+                transform: to_date("VBAP"."STADAT")
           - columnReference:
               columnCounter: aee22315-0403-4d5e-8d6a-241d52113d04
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -3081,7 +3081,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88714
                     stepCounter: "230"
-                transform: case when "VBAP"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."HANDOVERDATE") end
+                transform: to_date("VBAP"."HANDOVERDATE")
           - columnReference:
               columnCounter: 9d58faa5-8b06-4f35-9932-3692c4fa321a
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -3249,7 +3249,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88726
                     stepCounter: "230"
-                transform: case when "VBAP"."_DATAAGING" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."_DATAAGING") end
+                transform: to_date("VBAP"."_DATAAGING")
           - columnReference:
               columnCounter: ea2f839a-1f47-4884-a630-70212bf6db47
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -3487,7 +3487,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88743
                     stepCounter: "230"
-                transform: case when "VBAP"."_XLSO_COURSE_BDA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."_XLSO_COURSE_BDA") end
+                transform: to_date("VBAP"."_XLSO_COURSE_BDA")
           - columnReference:
               columnCounter: 064241cf-7c87-4816-b8e9-d1e3623cd989
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -3501,7 +3501,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88744
                     stepCounter: "230"
-                transform: case when "VBAP"."_XLSO_COURSE_EDA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."_XLSO_COURSE_EDA") end
+                transform: to_date("VBAP"."_XLSO_COURSE_EDA")
           - columnReference:
               columnCounter: 3a393545-73d1-4f4b-b53c-dcd9a037e743
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -3613,7 +3613,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88752
                     stepCounter: "230"
-                transform: case when "VBAP"."FSH_CANDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."FSH_CANDATE") end
+                transform: to_date("VBAP"."FSH_CANDATE")
           - columnReference:
               columnCounter: 6f54bf57-894a-42d2-aca0-4023b95c1d00
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -4495,7 +4495,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88815
                     stepCounter: "230"
-                transform: case when "VBAP"."OIFEEDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."OIFEEDT") end
+                transform: to_date("VBAP"."OIFEEDT")
           - columnReference:
               columnCounter: adf656db-e8d9-444b-99f2-97dd3cbc2a75
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
@@ -4691,7 +4691,7 @@ steps:
               - columnReferences:
                   - columnCounter: 88829
                     stepCounter: "230"
-                transform: case when "VBAP"."OIDMSG_DAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("VBAP"."OIDMSG_DAT") end
+                transform: to_date("VBAP"."OIDMSG_DAT")
           - columnReference:
               columnCounter: fd7a1033-fdec-4d19-b1eb-9b93943fba73
               stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
