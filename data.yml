@@ -2071,6 +2071,12 @@ stepTypes:
 
                 {% endif %}
 
+                {%- if desiredState.config.schedulePeriodOption == 'Predecessor' -%} 
+                    {%- set fullyQualifiedRootTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + desiredState.config.rootTask + '"' -%} 
+                    {{ stage('Suspend Root Task', true, "sql") }}
+                    ALTER TASK {{ fullyQualifiedRootTaskName }} SUSPEND
+                {%- endif -%}
+
                 {{ stage('Create Task') }}
                 CREATE OR REPLACE TASK 
                     {{ fullyQualifiedTaskName }} 
@@ -2078,7 +2084,7 @@ stepTypes:
                     {{ nsVariables.taskWhenRun }} 
                     {% if nsVariables.poll != 'WHEN ' %} {{ nsVariables.poll }} {% endif %}
                 AS 
-                MERGE INTO {{ fullyQualifiedTargetTableName }}
+                MERGE INTO {{ fullyQualifiedTargetTableName }} a
                 USING (SELECT
                 {%- for col in desiredState.columns %}
                             {% if col.name == targetTableMergeUpdateColumn %}
@@ -2164,6 +2170,11 @@ stepTypes:
                     THEN DELETE
                 {% endif %}
 
+                {%- if desiredState.config.schedulePeriodOption != 'Predecessor' -%} 
+                    {{ stage('Resume Task', true, "sql") }}
+                    ALTER TASK {{ fullyQualifiedTaskName }} RESUME;
+                {%- endif -%}
+
             {% elif currentState != undefined and desiredState == undefined %}
 
                 {# Target Stream Location and Name #}
@@ -2199,8 +2210,15 @@ stepTypes:
                 {{ stage('Drop View') }}
                 DROP VIEW IF EXISTS {{ fullyQualifiedHybridViewName }}
 
-                {{ stage('Drop Task') }}
-                DROP VIEW IF EXISTS {{ fullyQualifiedTaskName }}
+                {%- if currentState.config.schedulingPeriodOption == 'Predecessor' -%} 
+                {{ stage('Suspend Root Task', true, "sql") }}
+                    ALTER TASK IF EXISTS {{ fullyQualifiedRootTaskName }} SUSPEND
+                {{ stage('Drop Current Task', true, "sql") }}
+                    DROP TASK IF EXISTS {{ fullyQualifiedTaskName }} 
+                {%- else -%}
+                {{ stage('Drop Current Task', true, "sql") }}
+                    DROP TASK IF EXISTS {{ fullyQualifiedTaskName }} 
+                {%- endif -%}
 
             {%- else -%}
 
@@ -3060,6 +3078,12 @@ stepTypes:
 
                 {% endif %}
 
+                {%- if desiredState.config.schedulePeriodOption == 'Predecessor' -%} 
+                    {%- set fullyQualifiedRootTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + desiredState.config.rootTask + '"' -%} 
+                    {{ stage('Suspend Root Task', true, "sql") }}
+                    ALTER TASK {{ fullyQualifiedRootTaskName }} SUSPEND
+                {%- endif -%}
+
                 {{ stage('Create Task') }}
                 CREATE OR REPLACE TASK 
                     {{ fullyQualifiedTaskName }} 
@@ -3067,7 +3091,7 @@ stepTypes:
                     {{ nsVariables.taskWhenRun }} 
                     {% if nsVariables.poll != 'WHEN ' %} {{ nsVariables.poll }} {% endif %}
                 AS 
-                MERGE INTO {{ fullyQualifiedTargetTableName }}
+                MERGE INTO {{ fullyQualifiedTargetTableName }} a
                 USING (SELECT
                 {%- for col in desiredState.columns %}
                             {% if col.name == targetTableMergeUpdateColumn %}
@@ -3153,6 +3177,11 @@ stepTypes:
                     THEN DELETE
                 {% endif %}
 
+                {%- if desiredState.config.schedulePeriodOption != 'Predecessor' -%} 
+                    {{ stage('Resume Task', true, "sql") }}
+                    ALTER TASK {{ fullyQualifiedTaskName }} RESUME;
+                {%- endif -%}
+
             {% elif currentState != undefined and desiredState == undefined %}
 
                 {# Target Stream Location and Name #}
@@ -3188,8 +3217,15 @@ stepTypes:
                 {{ stage('Drop View') }}
                 DROP VIEW IF EXISTS {{ fullyQualifiedHybridViewName }}
 
-                {{ stage('Drop Task') }}
-                DROP VIEW IF EXISTS {{ fullyQualifiedTaskName }}
+                {%- if currentState.config.schedulingPeriodOption == 'Predecessor' -%} 
+                {{ stage('Suspend Root Task', true, "sql") }}
+                    ALTER TASK IF EXISTS {{ fullyQualifiedRootTaskName }} SUSPEND
+                {{ stage('Drop Current Task', true, "sql") }}
+                    DROP TASK IF EXISTS {{ fullyQualifiedTaskName }} 
+                {%- else -%}
+                {{ stage('Drop Current Task', true, "sql") }}
+                    DROP TASK IF EXISTS {{ fullyQualifiedTaskName }} 
+                {%- endif -%}
 
             {%- else -%}
 
@@ -3574,6 +3610,469 @@ stepTypes:
             	{% endfor %}
             {% endif %}
     name: Copy of Stage
+    version: 1
+  StepType-29:
+    id: "29"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |-
+        capitalized: Stream and Insert or Merge
+        short: SIM
+        tagColor: black
+        plural: Streams and Merges
+
+        deployStrategy: advanced
+
+        config:
+        - groupName: Stream Options
+          items:
+          - displayName: Source Object
+            attributeName: sourceType
+            type: dropdownSelector
+            default: Table
+            options:
+              - Table
+              - External Table
+              - View
+            isRequired: true
+
+          - displayName: Append Only Stream
+            attributeName: appendOnly
+            type: toggleButton
+            default: false
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'Table' or config.sourceType == 'View' %} true {% else %} false {% endif %}"
+
+          - displayName: Show Initial Rows
+            attributeName: initialRows
+            type: toggleButton
+            default: true
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'Table' or config.sourceType == 'View' %} true {% else %} false {% endif %}"
+
+          - displayName: Insert Only
+            attributeName: insertOnly
+            type: toggleButton
+            default: false
+            isRequired: true
+            enableIf: "{% if config.sourceType == 'External Table' %} true {% else %} false {% endif %}"
+
+        - groupName: Target Loading Options
+          items:
+          - displayName: Load Type
+            attributeName: loadType
+            type: dropdownSelector
+            default: Insert
+            options:
+              - Insert
+              - Merge
+            isRequired: true
+
+          - type: tabular
+            displayName: 'Table Key(s)'
+            attributeName: partitionBy
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Column Name
+               attributeName: partColName
+               isRequired: false
+                
+            isRequired: false
+            enableIf: "{% if config.loadType == 'Merge' %} true {% else %} false {% endif %}"
+
+          - type: tabular
+            displayName: 'Record Date / Timestamp'
+            attributeName: orderBy
+            columns:
+          
+            -  type: columnDropdownSelector
+               displayName: Column Name
+               attributeName: colName
+               isRequired: false
+            
+            -  type: dropdownSelector
+               displayName: Sort Order
+               attributeName: sortOrd
+               default: desc
+               options:
+               - desc
+               - asc
+               isRequired: false
+            
+            isRequired: false
+            enableIf: "{% if config.loadType == 'Merge' %} true {% else %} false {% endif %}"
+
+        - groupName: Sceduling Options
+          items:
+          - displayName: Sceduling Options
+            attributeName: schedulingMode
+            type: dropdownSelector
+            default: Warehouse Task
+            options:
+              - Warehouse Task
+              - Serverless Task
+            isRequired: true
+
+          - displayName: When Source Stream has Data Flag
+            attributeName: flagSrcStream
+            type: toggleButton
+            isRequired: true
+
+          - displayName: Select Warehouse on which to run task
+            attributeName: whName
+            type: textBox
+            default: '<WAREHOUSE_NAME>'
+            isRequired: false
+            enableIf: "{% if config.schedulingMode == 'Warehouse Task' %} true {% else %} false {% endif %}"
+
+          - displayName: Select initial serverless Warehouse size
+            attributeName: serverlessSize
+            type: dropdownSelector
+            default: 'MEDIUM'
+            options:
+              - XSMALL
+              - SMALL
+              - MEDIUM
+              - LARGE
+              - XLARGE
+              - XXLARGE
+            isRequired: false
+            enableIf: "{% if config.schedulingMode == 'Serverless Task' %} true {% else %} false {% endif %}"
+
+          - displayName: Task Schedule
+            attributeName: schedulePeriodOption
+            type: dropdownSelector
+            default: Minutes
+            options:
+              - Minutes
+              - CRON
+              - Predecessor
+            isRequired: TRUE
+
+          - displayName: Enter task schedule using minutes
+            attributeName: schedulePeriod
+            type: textBox
+            default: '60'
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Minutes' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter task schedule using CRON
+            attributeName: scheduleCRON
+            type: textBox
+            default: '5 0-23 * * * America/Los_Angeles'
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'CRON' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter predecessor task(s) seperated by a comma 
+            attributeName: predTask
+            type: textBox
+            default: ""
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Predecessor' %} true {% else %} false {% endif %}"
+
+          - displayName: Enter root task name
+            attributeName: rootTask
+            type: textBox
+            default: ""
+            isRequired: false
+            enableIf: "{% if config.schedulePeriodOption == 'Predecessor' %} true {% else %} false {% endif %}"
+
+        - groupName: "Pre/Post SQL"
+          items: 
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+      templates:
+        create:
+          templateString: |+
+            {% if (currentState == undefined and desiredState != undefined) or (currentState != undefined and desiredState != undefined ) %}
+
+            {# Source Object Location and Name #}
+            {% set sourceStorageLocation = desiredState.sources[0].dependencies[0].node.location.name %}
+            {% set sourceDatabaseName = desiredState.storageLocations | selectattr('name', 'equalto', sourceStorageLocation) | map(attribute='database') | first %}
+            {% set sourceSchemaName = desiredState.storageLocations | selectattr('name', 'equalto', sourceStorageLocation) | map(attribute='schema') | first %}
+            {% set sourceTableName = desiredState.sources[0].dependencies[0].node.name %}
+            {% set fullyQualifiedSourceTableName = '"' + sourceDatabaseName + '"."' + sourceSchemaName + '"."' + sourceTableName + '"' %}
+
+            {# Target Stream Location and Name #}
+            {% set streamTargetLocationName = desiredState.node.location.name %}
+            {% set streamTargetDatabaseName = desiredState.storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='database') | first %}
+            {% set streamTargetSchemaName = desiredState.storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='schema') | first %}
+            {% set streamName = desiredState.node.name + '_STREAM' %}
+            {% set fullyQualifiedStreamName = '"' + streamTargetDatabaseName + '"."' + streamTargetSchemaName + '"."' + streamName + '"' %}
+
+            {# Target Table Info #}
+            {% set targetTableDatabase = ref_no_link(desiredState.node.location.name, desiredState.node.name).split('.')[0] %} 
+            {% set targetTableSchema = ref_no_link(desiredState.node.location.name, desiredState.node.name).split('.')[1] %} 
+            {% set fullyQualifiedTargetTableName = ref_no_link(desiredState.node.location.name, desiredState.node.name) %}
+            {% set targetTableName = desiredState.node.name %}
+
+            {# Stream Type #}
+            {% if desiredState.config.sourceType == 'Table' %} 
+                {% set streamType = 'TABLE' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% elif desiredState.config.sourceType == 'External Table' %} 
+                {% set streamType = 'EXTERNAL TABLE' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% elif desiredState.config.sourceType == 'Directory Table' %} 
+                {% set streamType = 'STAGE' %}
+                {% set streamSourceObjectName = desiredState.config.stageName %}
+            {% else %} 
+                {% set streamType = 'VIEW' %}
+                {% set streamSourceObjectName = fullyQualifiedSourceTableName %}
+            {% endif %}
+
+            {# Stream Append Behavior #}
+            {% if streamType == 'TABLE' or streamType == 'VIEW' %} 
+                {% if desiredState.config.appendOnly == true %} 
+                    {% set streamAppendMode = 'APPEND_ONLY = TRUE' %}
+                {% else %} 
+                    {% set streamAppendMode = 'APPEND_ONLY = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamAppendMode = '' %}
+            {% endif %}
+
+            {# Stream Initial Row Behavior #}
+            {% if streamType == 'TABLE' or streamType == 'VIEW' %} 
+                {% if desiredState.config.initialRows == true %} 
+                    {% set streamInitialRowsMode = 'SHOW_INITIAL_ROWS = TRUE' %}
+                {% else %} 
+                    {% set streamInitialRowsMode = 'SHOW_INITIAL_ROWS = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamInitialRowsMode = '' %}
+            {% endif %}
+
+            {# Stream Insert Only Behavior #}
+            {% if streamType == 'EXTERNAL TABLE' %} 
+                {% if desiredState.config.insertOnly == true %} 
+                    {% set streamInsertOnlyMode = 'INSERT_ONLY = TRUE' %}
+                {% else %} 
+                    {% set streamInsertOnlyMode = 'INSERT_ONLY = FALSE' %}
+                {% endif %}
+            {% else %}
+                {% set streamInsertOnlyMode = '' %}
+            {% endif %}
+
+            {# Task Info #}
+            {% set taskName = desiredState.node.name + '_TASK'  %}
+            {%- set fullyQualifiedTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + taskName + '"' -%} 
+
+            {% set tableColumnIds = desiredState.columns | map(attribute='id') | list %}
+            {% set tableColumnNames = desiredState.columns | map(attribute='name') | list %}
+
+            {%- if desiredState.config.schedulePeriodOption == 'Predecessor' -%} 
+                {%- set fullyQualifiedRootTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + desiredState.config.rootTask + '"' -%} 
+                {{ stage('Suspend Root Task') }}
+                ALTER TASK {{ fullyQualifiedRootTaskName }} SUSPEND
+            {%- endif -%}
+
+            {{ stage('Create Stream') }}
+            CREATE OR REPLACE STREAM {{ fullyQualifiedStreamName }}
+                ON {{ streamType }} {{ streamSourceObjectName }}
+                {{ streamAppendMode }}
+                {{ streamInitialRowsMode }}
+                {{ streamInsertOnlyMode }}
+                
+            {{ stage('Create Target Table') }}
+            CREATE OR REPLACE TABLE {{ fullyQualifiedTargetTableName }}
+                (
+                {%- for col in desiredState.columns %}
+                        "{{ col.name }}" {{ col.dataType }}
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                {%- endfor %}
+                )
+
+            {{ stage('Create Task') }}
+                {# Set Namespace Variables #}
+                {% set nsVariables = namespace(taskWhenRun="") %}
+                {% set nsVariables = namespace(partition="") %}
+                {% set nsVariables = namespace(orderBy="") %}
+                {% set nsVariables = namespace(rowNumber="") %}
+                {% set nsVariables = namespace(tableKey=[]) %}
+
+                {# Task Type #}
+                {%- if desiredState.config.schedulingMode == 'Warehouse Task' -%} 
+                    {%- set taskType = 'WAREHOUSE = ' + desiredState.config.whName -%} 
+                {%- else -%}
+                    {%- set taskType = 'USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE = ' + desiredState.config.serverlessSize -%} 
+                {%- endif -%}
+
+                {# Schedule Type #}
+                {%- if desiredState.config.schedulePeriodOption == 'Minutes' -%} 
+                    {%- set nsVariables.taskWhenRun = 'SCHEDULE = ' + "'" + desiredState.config.schedulePeriod + ' MINUTE' + "'" -%} 
+                {% elif desiredState.config.schedulePeriodOption == 'CRON' %}
+                    {%- set nsVariables.taskWhenRun = 'SCHEDULE = ' + "'" + 'USING CRON ' + desiredState.config.scheduleCRON %}
+                {%- else -%}
+                    {%- set nsVariables.taskWhenRun = 'AFTER ' -%}
+                    {%- set predecessorTasks = (desiredState.config.predTask).split(",") -%}
+
+                    {%- for p in predecessorTasks -%}
+                        {%- set nsVariables.taskWhenRun = nsVariables.taskWhenRun + targetTableDatabase + '.' + targetTableSchema + '.' + p -%}
+                        {%- if not loop.last -%} 
+                            {%- set nsVariables.taskWhenRun = nsVariables.taskWhenRun + ',' -%}
+                        {%- endif %}
+                    {% endfor %}    
+                {%- endif -%}
+
+                {# When Stream has data logic #}
+                {%- if desiredState.config.flagSrcStream == true -%} 
+                    {%- set streamPoll = "WHEN SYSTEM$STREAM_HAS_DATA('" + fullyQualifiedStreamName + "')" -%} 
+                {%- endif -%}
+                
+                {# Merge partition by and order by #}
+                {%- if desiredState.config.loadType == 'Merge' -%} 
+                    {% set tableColumnNamesUpdate = tableColumnNames | reject('in', desiredState.config.partitionBy.get('items') | map(attribute='partColName.name')) | list %}
+                    
+                    {% for i in desiredState.config.partitionBy.get('items') %}
+                        {%- if loop.first -%}
+                            {% set nsVariables.partition = '"' + i.partColName.name + '"' %}
+                        {% else %}
+                            {% set nsVariables.partition = nsVariables.partition + ', "' + i.partColName.name + '"' %}
+                        {%- endif -%}
+
+                        {% set tableColumnNamesUpdate = tableColumnNames | reject('in', i.partColName.name) | list %}
+
+                    {% endfor %}
+
+                    {% for i in desiredState.config.orderBy.get('items') %}
+                        {%- if loop.first -%}
+                            {% set nsVariables.orderBy = '"' + i.colName.name + '" ' + i.sortOrd %}
+                        {% else %}
+                            {% set nsVariables.orderBy = nsVariables.orderBy + ', "' + i.colName.name + '" ' + i.sortOrd %}
+                        {%- endif -%}
+                    {% endfor %}
+                    {% set nsVariables.rowNumber = 'ROW_NUMBER() OVER (PARTITION BY ' + nsVariables.partition + ' ORDER BY ' + nsVariables.orderBy + ')' %}
+
+                    {%- set nsVariables.tableKey = desiredState.config.partitionBy.get('items') %}
+                    {% set nsVariables.tableKey = nsVariables.tableKey | map(attribute='partColName.name') | list %}
+                {%- endif -%}
+
+                CREATE OR REPLACE TASK 
+                    {{ fullyQualifiedTaskName }} 
+                    {{ taskType}} 
+                    {{ nsVariables.taskWhenRun }} 
+                    {{ streamPoll }} 
+                AS 
+                {% if desiredState.config.loadType == 'Insert' -%} 
+                INSERT INTO {{ fullyQualifiedTargetTableName }}
+                SELECT {% for id in tableColumnIds %}
+                        {% set col = desiredState.sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='name') | first -%}
+                        {% set columnTransformation = desiredState.sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='transform') | first -%}
+                        {%- if columnTransformation == "" -%}
+                          "{{ col }}" as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- else -%}
+                          {{ columnTransformation | replace(sourceTableName, streamName) }} as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- endif %}
+                    {%- endfor %}
+                FROM {{ fullyQualifiedStreamName }}
+                {% else -%}
+                MERGE INTO {{ fullyQualifiedTargetTableName }} tgt USING
+                -- Select Statement Preparing Data for Merge
+                (SELECT {% for id in tableColumnIds %}
+                        {% set col = desiredState.sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='name') | first -%}
+                        {% set columnTransformation = desiredState.sources[0].columns | selectattr('id', 'equalto', id) | map(attribute='transform') | first -%}
+                        {%- if columnTransformation == "" -%}
+                          "{{ col }}" as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- else -%}
+                          {{ columnTransformation | replace(sourceTableName, streamName) }} as "{{ col }}" {%- if not loop.last -%}, {%- endif -%}
+                        {%- endif %}
+                    {%- endfor %}
+                 FROM {{ fullyQualifiedStreamName }}
+                 QUALIFY {{ nsVariables.rowNumber }} = 1) src
+                 -- Join Condition
+                 ON {% for col in nsVariables.tableKey -%}
+                     src."{{ col }}" = tgt."{{ col }}"
+                {% if not loop.last %} AND {% endif %}
+                    {%- endfor -%}
+                -- What to do if data is matched based on table key
+                WHEN MATCHED THEN UPDATE SET 
+                    {%- for col in tableColumnNamesUpdate %}
+                            tgt."{{ col }}" = src."{{ col }}"
+                            {%- if not loop.last -%}, {%- endif %}
+                    {%- endfor %}
+                -- What to do with new records based on table key
+                WHEN NOT MATCHED THEN INSERT 
+                    (
+                    {%- for col in desiredState.columns -%}
+                            "{{ col.name }}"
+                            {%- if not loop.last -%}, {% endif %}
+                    {% endfor %}) 
+                VALUES (
+                    {%- for col in desiredState.columns -%}
+                            src."{{ col.name }}"
+                            {%- if not loop.last -%}, {% endif %}
+                    {% endfor %})
+                {%- endif -%}
+
+            {{ stage('Resume Task') }}
+            {%- if desiredState.config.schedulePeriodOption != 'Predecessor' -%} 
+                ALTER TASK {{ fullyQualifiedTaskName }} RESUME;
+            {%- endif -%}
+
+            {% elif currentState != undefined and desiredState == undefined %}
+
+            {# Source Stream Location and Name #}
+            {% set streamTargetLocationName = currentState.node.location.name %}
+            {% set streamTargetDatabaseName = currentState.storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='database') | first %}
+            {% set streamTargetSchemaName = currentState.storageLocations | selectattr('name', 'equalto', streamTargetLocationName) | map(attribute='schema') | first %}
+            {% set streamName = currentState.node.name + '_STREAM' %} %}
+            {% set fullyQualifiedStreamName = '"' + streamTargetDatabaseName + '"."' + streamTargetSchemaName + '"."' + streamName + '"' %}
+
+            {# Target Table Info #}
+            {% set targetTableDatabase = ref_no_link(currentState.node.location.name, currentState.node.name).split('.')[0] %} 
+            {% set targetTableSchema = ref_no_link(currentState.node.location.name, currentState.node.name).split('.')[1] %} 
+            {% set fullyQualifiedTargetTableName = ref_no_link(currentState.node.location.name, currentState.node.name) %}
+            {% set targetTableName = currentState.node.name %}
+
+            {# Task Info #}
+            {% set taskName = currentState.node.name + '_TASK'  %}
+            {%- set fullyQualifiedTaskName = streamTargetDatabaseName + '.' + streamTargetSchemaName + '."' + taskName + '"' -%} 
+
+
+            {{ stage('Drop Stream') }}
+            DROP STREAM IF EXISTS {{ fullyQualifiedStreamName }}
+
+            {{ stage('Drop Table') }}
+            DROP TABLE IF EXISTS {{ fullyQualifiedTargetTableName }}
+
+            {%- if currentState.config.schedulingPeriodOption == 'Predecessor' -%} 
+                {%- set fullyQualifiedRootTaskName = targetTableDatabase + '.' + targetTableSchema + '."' + currentState.config.rootTask + '"' -%} 
+
+            {{ stage('Suspend Root Task') }}
+                ALTER TASK IF EXISTS {{ fullyQualifiedRootTaskName }} SUSPEND
+            {{ stage('Drop Current Task Task') }}
+                DROP TASK IF EXISTS {{ fullyQualifiedTaskName }} 
+            {{ stage('Resume Root Task') }}
+                select system$task_dependents_enable('{{ fullyQualifiedRootTaskName }}');
+            {%- else -%}
+            {{ stage('Drop Current Task') }}
+                DROP TASK IF EXISTS {{ fullyQualifiedTaskName }} 
+            {%- endif -%}
+
+            {%- else -%}
+
+            {{ stage('Nothing to do.') }}
+            select 1 = 0
+
+            {% endif %}
+
+        run:
+          templateString: ""
+    name: Stream and Insert or Merge - v0
     version: 1
   StepType-3:
     id: "3"
@@ -6572,6 +7071,7 @@ subgraphs:
       - 88574f17-b192-4deb-b81f-518e413f7e1e
       - 639b81a9-9261-4b29-b225-802a26ea2fb2
       - 300331a5-167d-481f-b933-28c6f7c3be35
+      - c8e244d4-4e08-46d6-970d-07f728ef9590
   Subgraph-6:
     id: "6"
     name: DIM_SALES_ORGANIZATION
@@ -6611,4 +7111,4 @@ subgraphs:
       - e88d1955-f895-45ff-b2fa-fcc23d49f4ad
       - e60374d2-0371-4d1d-bf90-0cb33306682e
       - 98f7a334-1b64-4ee4-a3af-a8ed566fc8df
-version: 1
+version: 2
