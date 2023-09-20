@@ -61,7 +61,7 @@ steps:
               - columnReferences:
                   - columnCounter: 65745
                     stepCounter: "177"
-                transform: max("PURCHASING_DOCUMENT_HISTORY"."DELIVERY_COMPLETED")
+                transform: MAX("PURCHASING_DOCUMENT_HISTORY"."DELIVERY_COMPLETED")
           - acceptedValues:
               strictMatch: true
               values: []
@@ -147,7 +147,16 @@ steps:
               - columnReferences:
                   - columnCounter: 0
                     stepCounter: "0"
-                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" ELSE "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" end ELSE NULL end)
+                transform: |-
+                  SUM(CASE 
+                  WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' 
+                  THEN CASE 
+                      WHEN "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' 
+                      THEN -1 * "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" 
+                      ELSE "PURCHASING_DOCUMENT_HISTORY"."LOCCUR_AMOUNT" 
+                  END 
+                  ELSE NULL 
+                  END)
             systemColumnType: None
             transform: ""
           - acceptedValues:
@@ -169,7 +178,17 @@ steps:
               - columnReferences:
                   - columnCounter: 0
                     stepCounter: "0"
-                transform: SUM(CASE WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' then CASE when "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' THEN -1* "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" ELSE "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" end ELSE NULL end)
+                transform: |-
+                  SUM(
+                  CASE 
+                  WHEN "PURCHASING_DOCUMENT_HISTORY"."TRANS_EVENT_TYPE_ID" = '1' 
+                  THEN CASE 
+                      WHEN "PURCHASING_DOCUMENT_HISTORY"."DEBITCREDIT_INDICATOR" = 'H' 
+                      THEN -1 * "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" 
+                      ELSE "PURCHASING_DOCUMENT_HISTORY"."AMOUNT_DOCUMENT_CURRENCY_VAL" 
+                  END 
+                  ELSE NULL 
+                  END)
             systemColumnType: None
             transform: ""
           - acceptedValues:
