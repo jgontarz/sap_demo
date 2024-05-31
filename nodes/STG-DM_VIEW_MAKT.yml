@@ -1,0 +1,215 @@
+fileVersion: 1
+id: 1a500dab-7253-4aad-ad3b-0d057343ceba
+name: DM_VIEW_MAKT
+operation:
+  config:
+    appendOnly: "true"
+    capUpdate: false
+    clsKey: None
+    clsKeyCus: ""
+    dmlCol:
+      columnCounter: 09ab1dab-5b0f-4f1c-b206-c5aa2be6b3fc
+      stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+    dmlDelete: "true"
+    dmlInsert: "false"
+    dmlUpdate: U
+    flagSrcStream: true
+    initialRows: true
+    insertOnly: false
+    orderBy:
+      items:
+        - colName:
+            columnCounter: 259ca6b7-0aaa-4e35-a2cb-49e42f294e32
+            stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+          sortOrd: desc
+    orderByDateTime:
+      items:
+        - {}
+    partitionBy:
+      items:
+        - partColName:
+            columnCounter: 963b1677-74af-4626-9148-b0cdfdaf03bb
+            stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        - partColName:
+            columnCounter: c30f1ee4-adee-4d52-abf0-19faaed8b02c
+            stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+    postSQL: ""
+    preSQL: ""
+    predTask: ""
+    recordVersioning: Datetime Column
+    retainLastNonDeleteFlag: false
+    rootTask: ""
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "60"
+    schedulePeriodOption: Minutes
+    schedulingMode: Serverless Task
+    serverlessSize: XSMALL
+    softDeleteFlag: false
+    sourceType: Table
+    whName: <WAREHOUSE_NAME>
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 963b1677-74af-4626-9148-b0cdfdaf03bb
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MANDT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89303"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c30f1ee4-adee-4d52-abf0-19faaed8b02c
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MATNR
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89304"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aef1f888-3751-46a5-8799-c09509a2ad6c
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SPRAS
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89305"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5d3f4a4-9cc0-4b7e-ba48-4a1280fe070b
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MAKTX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89306"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce61bc54-14f2-4334-b841-413ef342dc0c
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MAKTG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89307"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2137946-1512-49c9-b871-9fea542a969f
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_ROWID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89308"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09ab1dab-5b0f-4f1c-b206-c5aa2be6b3fc
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89309"
+                stepCounter: "239"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 259ca6b7-0aaa-4e35-a2cb-49e42f294e32
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89310"
+                stepCounter: "239"
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b14d6e38-0736-41d2-bb3d-a8524d143bc0
+          stepCounter: 1a500dab-7253-4aad-ad3b-0d057343ceba
+        config: {}
+        dataType: timestamp
+        defaultValue: ""
+        description: ""
+        hmUpdTs: true
+        name: DM_UPDATE_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: current_timestamp::timestamp_ntz
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: MAKT
+        join:
+          joinCondition: FROM {{ ref('RAW_NEW', 'MAKT') }} "MAKT"
+        name: DM_VIEW_MAKT
+        noLinkRefs: []
+  name: DM_VIEW_MAKT
+  overrideSQL: false
+  schema: ""
+  sqlType: "3"
+  type: sql
+  version: 1
+type: Node

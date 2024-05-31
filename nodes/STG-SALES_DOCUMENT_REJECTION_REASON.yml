@@ -169,12 +169,36 @@ operation:
     sourceMapping:
       - aliases: {}
         customSQL:
-          customSQL: ""
+          customSQL: |-
+            {{ stage('Override Create SQL') }}
+            	CREATE OR REPLACE VIEW {{ ref('STG', 'SALES_DOCUMENT_REJECTION_REASON')}} AS (
+            		SELECT 
+             ABGRU AS ABGRU,
+             MANDT AS MANDT,
+             DRAGR AS DRAGR,
+             EP_OFF AS EP_OFF,
+             FK_ERL AS FK_ERL,
+             KOWRR AS KOWRR,
+             FSH_PQR_SPEC AS FSH_PQR_SPEC,
+             _FIVETRAN_ROWID AS _FIVETRAN_ROWID,
+             _FIVETRAN_DELETED AS _FIVETRAN_DELETED,
+             _FIVETRAN_SYNCED AS _FIVETRAN_SYNCED
+             ABGRU AS ABGRU,
+             MANDT AS MANDT,
+             SPRAS AS SPRAS,
+             BEZEI AS BEZEI,
+             _FIVETRAN_ROWID AS _FIVETRAN_ROWID,
+             _FIVETRAN_DELETED AS _FIVETRAN_DELETED,
+             _FIVETRAN_SYNCED AS _FIVETRAN_SYNCED
+             FROM {{ ref('RAW_NEW', 'TVAG') }}
+            INNER JOIN {{ ref('RAW_NEW', 'TVAGT') }} "TVAGT"
+            ON "{{ ref('RAW_NEW', 'TVAG') }}"./*COLUMN*/ = "TVAGT"./*COLUMN*/
+            	)
         dependencies:
           - locationName: RAW_NEW
-            nodeName: TVAGT
-          - locationName: RAW_NEW
             nodeName: TVAG
+          - locationName: RAW_NEW
+            nodeName: TVAGT
         join:
           joinCondition: |-
             FROM {{ ref('RAW_NEW', 'TVAG') }} "TVAG"
