@@ -1,124 +1,129 @@
-steps:
-  SALES_DOCUMENTS_ORDER_REASON_TXT-63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 38b9338d-fa43-4bc9-a586-d57a90dce6a2
-              stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_REASON_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89949
-                    stepCounter: "245"
-                transform: ""
-          - columnReference:
-              columnCounter: 4a085457-c108-4f63-beaf-042b5c5411c8
-              stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89950
-                    stepCounter: "245"
-                transform: ""
-          - columnReference:
-              columnCounter: dc02075f-fa83-4f72-b3d9-cc3abf897fcd
-              stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89951
-                    stepCounter: "245"
-                transform: ""
-          - columnReference:
-              columnCounter: 59448151-4ca8-455d-ba73-ca5a2794cbc5
-              stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DESCRIPTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89952
-                    stepCounter: "245"
-                transform: ""
-          - columnReference:
-              columnCounter: 14db5dbf-a607-4874-b454-8c4563fa6a01
-              stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89954
-                    stepCounter: "245"
-                transform: ""
-          - columnReference:
-              columnCounter: 8d15b11d-2a85-4584-a4d9-a41b53429377
-              stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89955
-                    stepCounter: "245"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: TVAUT
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'TVAUT') }} "TVAUT" 
-                WHERE 1=1 
-                AND "TVAUT"."MANDT" in ({{ parameters.fltrMandt }})
-            name: SALES_DOCUMENTS_ORDER_REASON_TXT
-            noLinkRefs: []
-      name: SALES_DOCUMENTS_ORDER_REASON_TXT
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+fileVersion: 1
+id: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+name: SALES_DOCUMENTS_ORDER_REASON_TXT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38b9338d-fa43-4bc9-a586-d57a90dce6a2
+          stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ORDER_REASON_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89949"
+                stepCounter: "245"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a085457-c108-4f63-beaf-042b5c5411c8
+          stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89950"
+                stepCounter: "245"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc02075f-fa83-4f72-b3d9-cc3abf897fcd
+          stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89951"
+                stepCounter: "245"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59448151-4ca8-455d-ba73-ca5a2794cbc5
+          stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89952"
+                stepCounter: "245"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 14db5dbf-a607-4874-b454-8c4563fa6a01
+          stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89954"
+                stepCounter: "245"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d15b11d-2a85-4584-a4d9-a41b53429377
+          stepCounter: 63f6b7e8-8d63-4a9f-be68-0a30fdd8cdbf
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89955"
+                stepCounter: "245"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: TVAUT
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'TVAUT') }} "TVAUT" 
+            WHERE 1=1 
+            AND "TVAUT"."MANDT" in ({{ parameters.fltrMandt }})
+        name: SALES_DOCUMENTS_ORDER_REASON_TXT
+        noLinkRefs: []
+  name: SALES_DOCUMENTS_ORDER_REASON_TXT
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

@@ -1,551 +1,586 @@
-steps:
-  STG_SALESORDER-77:
-    operation:
-      config:
-        insertStrategy: UNION
-        postSQL: ""
-        preSQL: ""
-        selectDistinct: false
-        testsEnabled: true
-        truncateBefore: true
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 13326
-              stepCounter: "77"
-            dataType: char(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 1df09e05-3c3d-46ba-89b4-95a104ddf3ee
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: trim("SALES_DOCUMENT_HEADER"."SALES_DOCUMENT_ID" , '0')
-          - columnReference:
-              columnCounter: e623b1f4-152a-4435-a80b-1fd7633aeb32
-              stepCounter: "77"
-            dataType: VARCHAR(256)
-            description: ""
-            name: SOLD_TO_PARTY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: d56373c3-c8e1-4c40-93ac-6bfbb86693fc
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13197
-              stepCounter: "77"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12332
-                    stepCounter: "73"
-                transform: ""
-          - columnReference:
-              columnCounter: 13204
-              stepCounter: "77"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OVERALL_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12339
-                    stepCounter: "73"
-                transform: ""
-          - columnReference:
-              columnCounter: 13285
-              stepCounter: "77"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM_DELIVERY_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12467
-                    stepCounter: "75"
-                transform: ""
-          - columnReference:
-              columnCounter: 13327
-              stepCounter: "77"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: c3ed2638-d3b5-41c6-9d1f-9c96592be28b
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13329
-              stepCounter: "77"
-            dataType: char(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 86e17f64-6e98-4451-b3ff-8d0017fbb427
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13332
-              stepCounter: "77"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: fd64c212-79c8-4da1-af11-32375fa972ae
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13333
-              stepCounter: "77"
-            dataType: char(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SD_DOCUMENT_CATEGORY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: cdcf03da-64e3-4ff1-863f-bfbb66a583af
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13335
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 10db367f-70ef-4c2a-99a9-21c94d7a8afe
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13336
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_REASON_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 73157452-07d8-4f11-8ba1-dbb3a181ce06
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13339
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_BLOCK_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2344ed3d-d066-4044-b71a-9d3af5b0c0c3
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13343
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_ORGANIZATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 4f111c90-c2a7-4b4e-afeb-32ab0fb31c60
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13344
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DISTRIBUTION_CHANNEL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 6bf9b80e-7939-4371-aa25-e8781eb3fc60
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13345
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DIVISION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: c7cc93f9-6b0d-4fea-a728-4c63904a8ea2
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13353
-              stepCounter: "77"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REQUESTED_DELIVERY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: f98ca311-bec2-4b4d-aeb3-119b2e4f0340
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13372
-              stepCounter: "77"
-            dataType: char(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: d56373c3-c8e1-4c40-93ac-6bfbb86693fc
-                    stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
-                transform: ""
-          - columnReference:
-              columnCounter: 13487
-              stepCounter: "77"
-            dataType: char(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ITEM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 54343343-633f-4795-9e0c-453ffc2a1c9d
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ltrim("SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ITEM_ID"  , '0')
-          - columnReference:
-              columnCounter: 13488
-              stepCounter: "77"
-            dataType: char(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 138c4ace-2b55-4b38-89d5-3cbd0f81745e
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13492
-              stepCounter: "77"
-            dataType: char(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88555701-cd46-4aca-ba47-67f71a82fd43
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13494
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ITEM_CATEGORY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: c0ecbda6-6279-47b9-98f2-2a100b474090
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13500
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REASON_REJECTION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 888f2f9b-8d55-4eb1-909b-35f59cbc1a72
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13501
-              stepCounter: "77"
-            dataType: char(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PRODUCT_HIERARCHY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: fc1392d3-4e42-44e0-8a93-512421711a4d
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13507
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BASE_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 3e8b69ff-7af6-4909-98cf-104d22c0f3da
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13528
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NET_VALUE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 58841c8e-0f99-428f-949d-9418220e77ab
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: CASE WHEN "SALES_DOCUMENT_HEADER"."SD_DOCUMENT_CATEGORY"  = 'C' THEN "SALES_DOCUMENT_ITEM"."NET_VAL" ELSE "SALES_DOCUMENT_ITEM"."NET_VAL"  * -1 END
-          - columnReference:
-              columnCounter: 13529
-              stepCounter: "77"
-            dataType: char(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SD_DOCUMENT_CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: d51fcb41-5218-4d32-b69e-d889647cc2f6
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13533
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 3b40da7d-5e0d-4c06-a223-fbc87169c779
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: CASE WHEN "SALES_DOCUMENT_HEADER"."SD_DOCUMENT_CATEGORY"  = 'C' THEN "SALES_DOCUMENT_ITEM"."ORDER_QUANTITY" ELSE "SALES_DOCUMENT_ITEM"."ORDER_QUANTITY"  * -1 END
-          - columnReference:
-              columnCounter: 13537
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2034a89d-6997-4a97-972a-1f166c9937be
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13540
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: GROSS_WEIGHT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: d6e9dadc-c6b3-4d31-a483-2fc2af899d5f
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13542
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: WEIGHT_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 0f117208-b7f4-4907-b7df-87efa6aa72dd
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13553
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: bf15f6dd-8525-4ee7-9afd-732cb28b5c8a
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13577
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NET_PRICE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 22b075e7-93d3-4f97-b2bb-f6139ff9e776
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13580
-              stepCounter: "77"
-            dataType: char(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RETURNS_ITEM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2f91e1eb-9356-4a15-b80a-042ee3cb63ae
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13871
-              stepCounter: "77"
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: c23e05a4-e565-462a-96ba-11fa754d0d9a
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: ""
-          - columnReference:
-              columnCounter: 13872
-              stepCounter: "77"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: c5e364a0-e622-48b6-9076-c640f2f81928
-                    stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
-                transform: LEAST("SALES_DOCUMENT_HEADER"."_FIVETRAN_SYNCED","SALES_DOCUMENT_HEADER_STATUS"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM_STATUS"."_FIVETRAN_SYNCED")
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              SALES_DOCUMENT_HEADER: 639b81a9-9261-4b29-b225-802a26ea2fb2
-              SALES_DOCUMENT_HEADER_STATUS: "73"
-              SALES_DOCUMENT_ITEM: 88574f17-b192-4deb-b81f-518e413f7e1e
-              SALES_DOCUMENT_ITEM_STATUS: "75"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: STG
-                nodeName: SALES_DOCUMENT_HEADER
-              - locationName: STG
-                nodeName: SALES_DOCUMENT_HEADER_STATUS
-              - locationName: STG
-                nodeName: SALES_DOCUMENT_ITEM
-              - locationName: STG
-                nodeName: SALES_DOCUMENT_ITEM_STATUS
-            join:
-              joinCondition: |-
-                FROM {{ ref('STG', 'SALES_DOCUMENT_HEADER') }} "SALES_DOCUMENT_HEADER"
-                INNER JOIN {{ ref('STG', 'SALES_DOCUMENT_ITEM') }} "SALES_DOCUMENT_ITEM"
-                ON "SALES_DOCUMENT_HEADER"."SALES_DOCUMENT_ID" = "SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ID"
-                INNER JOIN {{ ref('STG', 'SALES_DOCUMENT_HEADER_STATUS') }} "SALES_DOCUMENT_HEADER_STATUS"
-                ON "SALES_DOCUMENT_HEADER"."SALES_DOCUMENT_ID" = "SALES_DOCUMENT_HEADER_STATUS"."SALES_DOCUMENT_ID"
-                INNER JOIN {{ ref('STG', 'SALES_DOCUMENT_ITEM_STATUS') }} "SALES_DOCUMENT_ITEM_STATUS"
-                ON "SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ID" = "SALES_DOCUMENT_ITEM_STATUS"."SALES_DOCUMENT_ID"
-                AND "SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ITEM_ID" = "SALES_DOCUMENT_ITEM_STATUS"."SD_ITEM_ID"
-                AND "SALES_DOCUMENT_HEADER"."SD_DOCUMENT_CATEGORY" IN ('C', 'H')
-                AND LEAST("SALES_DOCUMENT_HEADER"."_FIVETRAN_SYNCED","SALES_DOCUMENT_HEADER_STATUS"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM_STATUS"."_FIVETRAN_SYNCED") > (SELECT NVL(MAX("_FIVETRAN_SYNCED"),'1900-01-01'::timestamp_tz(9)) from {{ ref_no_link('BI', 'FCT_SALESORDER') }})
-            name: STG_SALESORDER
-            noLinkRefs:
-              - locationName: BI
-                nodeName: FCT_SALESORDER
-      name: STG_SALESORDER
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "77"
+fileVersion: 1
+id: "77"
+name: STG_SALESORDER
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13326"
+          stepCounter: "77"
+        config: {}
+        dataType: char(10)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1df09e05-3c3d-46ba-89b4-95a104ddf3ee
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: trim("SALES_DOCUMENT_HEADER"."SALES_DOCUMENT_ID" , '0')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e623b1f4-152a-4435-a80b-1fd7633aeb32
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SOLD_TO_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d56373c3-c8e1-4c40-93ac-6bfbb86693fc
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13197"
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12332"
+                stepCounter: "73"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13204"
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: OVERALL_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12339"
+                stepCounter: "73"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13285"
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: ITEM_DELIVERY_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12467"
+                stepCounter: "75"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13327"
+          stepCounter: "77"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3ed2638-d3b5-41c6-9d1f-9c96592be28b
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13329"
+          stepCounter: "77"
+        config: {}
+        dataType: char(12)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86e17f64-6e98-4451-b3ff-8d0017fbb427
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13332"
+          stepCounter: "77"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd64c212-79c8-4da1-af11-32375fa972ae
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13333"
+          stepCounter: "77"
+        config: {}
+        dataType: char(1)
+        description: ""
+        hashDetails: null
+        name: SD_DOCUMENT_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cdcf03da-64e3-4ff1-863f-bfbb66a583af
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13335"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 10db367f-70ef-4c2a-99a9-21c94d7a8afe
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13336"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: ORDER_REASON_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 73157452-07d8-4f11-8ba1-dbb3a181ce06
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13339"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_BLOCK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2344ed3d-d066-4044-b71a-9d3af5b0c0c3
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13343"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: SALES_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f111c90-c2a7-4b4e-afeb-32ab0fb31c60
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13344"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: DISTRIBUTION_CHANNEL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6bf9b80e-7939-4371-aa25-e8781eb3fc60
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13345"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: DIVISION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7cc93f9-6b0d-4fea-a728-4c63904a8ea2
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13353"
+          stepCounter: "77"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: REQUESTED_DELIVERY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f98ca311-bec2-4b4d-aeb3-119b2e4f0340
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13372"
+          stepCounter: "77"
+        config: {}
+        dataType: char(10)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d56373c3-c8e1-4c40-93ac-6bfbb86693fc
+                stepCounter: 639b81a9-9261-4b29-b225-802a26ea2fb2
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13487"
+          stepCounter: "77"
+        config: {}
+        dataType: char(6)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 54343343-633f-4795-9e0c-453ffc2a1c9d
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ltrim("SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ITEM_ID"  , '0')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13488"
+          stepCounter: "77"
+        config: {}
+        dataType: char(18)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 138c4ace-2b55-4b38-89d5-3cbd0f81745e
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13492"
+          stepCounter: "77"
+        config: {}
+        dataType: char(9)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88555701-cd46-4aca-ba47-67f71a82fd43
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13494"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ITEM_CATEGORY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0ecbda6-6279-47b9-98f2-2a100b474090
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13500"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: REASON_REJECTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 888f2f9b-8d55-4eb1-909b-35f59cbc1a72
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13501"
+          stepCounter: "77"
+        config: {}
+        dataType: char(18)
+        description: ""
+        hashDetails: null
+        name: PRODUCT_HIERARCHY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc1392d3-4e42-44e0-8a93-512421711a4d
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13507"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: BASE_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e8b69ff-7af6-4909-98cf-104d22c0f3da
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13528"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: NET_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58841c8e-0f99-428f-949d-9418220e77ab
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: CASE WHEN "SALES_DOCUMENT_HEADER"."SD_DOCUMENT_CATEGORY"  = 'C' THEN "SALES_DOCUMENT_ITEM"."NET_VAL" ELSE "SALES_DOCUMENT_ITEM"."NET_VAL"  * -1 END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13529"
+          stepCounter: "77"
+        config: {}
+        dataType: char(5)
+        description: ""
+        hashDetails: null
+        name: SD_DOCUMENT_CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d51fcb41-5218-4d32-b69e-d889647cc2f6
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13533"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: ORDER_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b40da7d-5e0d-4c06-a223-fbc87169c779
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: CASE WHEN "SALES_DOCUMENT_HEADER"."SD_DOCUMENT_CATEGORY"  = 'C' THEN "SALES_DOCUMENT_ITEM"."ORDER_QUANTITY" ELSE "SALES_DOCUMENT_ITEM"."ORDER_QUANTITY"  * -1 END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13537"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: SALES_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2034a89d-6997-4a97-972a-1f166c9937be
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13540"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: GROSS_WEIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6e9dadc-c6b3-4d31-a483-2fc2af899d5f
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13542"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: WEIGHT_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f117208-b7f4-4907-b7df-87efa6aa72dd
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13553"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: PLANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bf15f6dd-8525-4ee7-9afd-732cb28b5c8a
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13577"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: NET_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22b075e7-93d3-4f97-b2bb-f6139ff9e776
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13580"
+          stepCounter: "77"
+        config: {}
+        dataType: char(1)
+        description: ""
+        hashDetails: null
+        name: RETURNS_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f91e1eb-9356-4a15-b80a-042ee3cb63ae
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13871"
+          stepCounter: "77"
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c23e05a4-e565-462a-96ba-11fa754d0d9a
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13872"
+          stepCounter: "77"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c5e364a0-e622-48b6-9076-c640f2f81928
+                stepCounter: 88574f17-b192-4deb-b81f-518e413f7e1e
+            transform: LEAST("SALES_DOCUMENT_HEADER"."_FIVETRAN_SYNCED","SALES_DOCUMENT_HEADER_STATUS"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM_STATUS"."_FIVETRAN_SYNCED")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALES_DOCUMENT_HEADER: 639b81a9-9261-4b29-b225-802a26ea2fb2
+          SALES_DOCUMENT_HEADER_STATUS: "73"
+          SALES_DOCUMENT_ITEM: 88574f17-b192-4deb-b81f-518e413f7e1e
+          SALES_DOCUMENT_ITEM_STATUS: "75"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STG
+            nodeName: SALES_DOCUMENT_HEADER
+          - locationName: STG
+            nodeName: SALES_DOCUMENT_HEADER_STATUS
+          - locationName: STG
+            nodeName: SALES_DOCUMENT_ITEM
+          - locationName: STG
+            nodeName: SALES_DOCUMENT_ITEM_STATUS
+        join:
+          joinCondition: |-
+            FROM {{ ref('STG', 'SALES_DOCUMENT_HEADER') }} "SALES_DOCUMENT_HEADER"
+            INNER JOIN {{ ref('STG', 'SALES_DOCUMENT_ITEM') }} "SALES_DOCUMENT_ITEM"
+            ON "SALES_DOCUMENT_HEADER"."SALES_DOCUMENT_ID" = "SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ID"
+            INNER JOIN {{ ref('STG', 'SALES_DOCUMENT_HEADER_STATUS') }} "SALES_DOCUMENT_HEADER_STATUS"
+            ON "SALES_DOCUMENT_HEADER"."SALES_DOCUMENT_ID" = "SALES_DOCUMENT_HEADER_STATUS"."SALES_DOCUMENT_ID"
+            INNER JOIN {{ ref('STG', 'SALES_DOCUMENT_ITEM_STATUS') }} "SALES_DOCUMENT_ITEM_STATUS"
+            ON "SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ID" = "SALES_DOCUMENT_ITEM_STATUS"."SALES_DOCUMENT_ID"
+            AND "SALES_DOCUMENT_ITEM"."SALES_DOCUMENT_ITEM_ID" = "SALES_DOCUMENT_ITEM_STATUS"."SD_ITEM_ID"
+            AND "SALES_DOCUMENT_HEADER"."SD_DOCUMENT_CATEGORY" IN ('C', 'H')
+            AND LEAST("SALES_DOCUMENT_HEADER"."_FIVETRAN_SYNCED","SALES_DOCUMENT_HEADER_STATUS"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM"."_FIVETRAN_SYNCED","SALES_DOCUMENT_ITEM_STATUS"."_FIVETRAN_SYNCED") > (SELECT NVL(MAX("_FIVETRAN_SYNCED"),'1900-01-01'::timestamp_tz(9)) from {{ ref_no_link('BI', 'FCT_SALESORDER') }})
+        name: STG_SALESORDER
+        noLinkRefs:
+          - locationName: BI
+            nodeName: FCT_SALESORDER
+  name: STG_SALESORDER
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

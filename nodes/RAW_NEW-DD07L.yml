@@ -1,169 +1,170 @@
-steps:
-  DD07L-224:
-    operation:
-      database: ""
-      dataset: ""
-      deployEnabled: true
-      description: ""
-      locationID: ""
-      locationName: RAW_NEW
-      metadata:
-        columns:
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87792
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: AS4LOCAL
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87793
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: AS4VERS
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87794
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: DOMNAME
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87795
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: VALPOS
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87796
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: DOMVALUE_L
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87797
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: DOMVALUE_H
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87798
-              stepCounter: 224
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: APPVAL
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87799
-              stepCounter: 224
-            config: {}
-            dataType: NUMBER(38,0)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_ROWID
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87800
-              stepCounter: 224
-            config: {}
-            dataType: BOOLEAN
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_DELETED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 87801
-              stepCounter: 224
-            config: {}
-            dataType: TIMESTAMP_TZ(9)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-        join:
-          joinCondition: FROM {{ ref('RAW_NEW', 'DD07L') }}
-      name: DD07L
-      schema: ""
-      sqlType: Source
-      table: DD07L
-      type: sourceInput
-    stepCounter: "224"
+fileVersion: 1
+id: "224"
+name: DD07L
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: RAW_NEW
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87792"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: AS4LOCAL
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87793"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: AS4VERS
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87794"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: DOMNAME
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87795"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VALPOS
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87796"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: DOMVALUE_L
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87797"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: DOMVALUE_H
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87798"
+          stepCounter: "224"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: APPVAL
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87799"
+          stepCounter: "224"
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_ROWID
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87800"
+          stepCounter: "224"
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "87801"
+          stepCounter: "224"
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('RAW_NEW', 'DD07L') }}
+  name: DD07L
+  schema: ""
+  sqlType: Source
+  table: DD07L
+  type: sourceInput
+  version: 1
+type: Node

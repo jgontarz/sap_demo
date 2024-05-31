@@ -1,207 +1,218 @@
-steps:
-  PURCHASING_GROUP-179:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 65823
-              stepCounter: "179"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HVR_ROWID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87723
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65824
-              stepCounter: "179"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87715
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65825
-              stepCounter: "179"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_GROUP_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87714
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65826
-              stepCounter: "179"
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DESCRIPTION_PURCHASING_GROUP
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87716
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65827
-              stepCounter: "179"
-            dataType: VARCHAR(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TEL_NO_PURCH_GROUP
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87717
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65828
-              stepCounter: "179"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SPOOL_OUTPUT_DEVICE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87718
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65829
-              stepCounter: "179"
-            dataType: VARCHAR(31)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FAX_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87719
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65830
-              stepCounter: "179"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TELEPHONE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87720
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65831
-              stepCounter: "179"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TELEPHONE_NO_EXTENSION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87721
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65832
-              stepCounter: "179"
-            dataType: VARCHAR(241)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: E_MAIL_ADDRESS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87722
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65833
-              stepCounter: "179"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87724
-                    stepCounter: "221"
-                transform: ""
-          - columnReference:
-              columnCounter: 65834
-              stepCounter: "179"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87725
-                    stepCounter: "221"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: T024
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'T024') }} "T024"
-                WHERE "T024"."MANDT" in ({{ parameters.fltrMandt }})
-            name: PURCHASING_GROUP
-            noLinkRefs: []
-      name: PURCHASING_GROUP
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "179"
+fileVersion: 1
+id: "179"
+name: PURCHASING_GROUP
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65823"
+          stepCounter: "179"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: HVR_ROWID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87723"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65824"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87715"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65825"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_GROUP_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87714"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65826"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: DESCRIPTION_PURCHASING_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87716"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65827"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        hashDetails: null
+        name: TEL_NO_PURCH_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87717"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65828"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: SPOOL_OUTPUT_DEVICE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87718"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65829"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(31)
+        description: ""
+        hashDetails: null
+        name: FAX_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87719"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65830"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: TELEPHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87720"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65831"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: TELEPHONE_NO_EXTENSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87721"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65832"
+          stepCounter: "179"
+        config: {}
+        dataType: VARCHAR(241)
+        description: ""
+        hashDetails: null
+        name: E_MAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87722"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65833"
+          stepCounter: "179"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87724"
+                stepCounter: "221"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65834"
+          stepCounter: "179"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87725"
+                stepCounter: "221"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: T024
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'T024') }} "T024"
+            WHERE "T024"."MANDT" in ({{ parameters.fltrMandt }})
+        name: PURCHASING_GROUP
+        noLinkRefs: []
+  name: PURCHASING_GROUP
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

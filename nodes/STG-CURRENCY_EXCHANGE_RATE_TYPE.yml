@@ -1,194 +1,204 @@
-steps:
-  CURRENCY_EXCHANGE_RATE_TYPE-7e5e62d6-1595-48cb-ab0a-33b013d537b8:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: cfa4e181-a6be-44c7-8aa3-ab99fe67077f
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EXCHANGE_RATE_TYPE_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90023
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 9a6d9de5-485e-48f0-b0b6-2525f8b4813f
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90024
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 68f36138-234a-4a17-8a17-48fb609573e4
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INVERSE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90025
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 4a1a70f5-dbc2-48c3-9ac6-eab00f36db68
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REFERENCE_CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90026
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 669ffacc-9263-41b5-a183-4b9381ee62c8
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BASE_CUR_=_FROM_CUR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90027
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: e2c65977-85ac-459e-a71e-154cd050717a
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BUYING_RATE_AT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90028
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: e1b2816f-3b80-4596-9b4f-379aaa998b7d
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SELLING_RATE_AT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90029
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 5329ecb6-f7c8-4a5a-82e2-042e57c9f85a
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FIXED_EXCHANGE_RATES
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90030
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 64cf33ae-fdfc-4b7a-afba-8ddc7dcc14d2
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONVERSION_ACC_TO_EMU
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90031
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: b6f24068-3753-4f88-b615-98665595af07
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90033
-                    stepCounter: "250"
-                transform: ""
-          - columnReference:
-              columnCounter: 059bd165-496f-4261-a9fc-00fac98bf7b5
-              stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90034
-                    stepCounter: "250"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: TCURV
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'TCURV') }} "TCURV" 
-                WHERE 1=1 
-                AND "TCURV"."MANDT" in ({{ parameters.fltrMandt }})
-            name: CURRENCY_EXCHANGE_RATE_TYPE
-            noLinkRefs: []
-      name: CURRENCY_EXCHANGE_RATE_TYPE
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+fileVersion: 1
+id: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+name: CURRENCY_EXCHANGE_RATE_TYPE
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cfa4e181-a6be-44c7-8aa3-ab99fe67077f
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: EXCHANGE_RATE_TYPE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90023"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a6d9de5-485e-48f0-b0b6-2525f8b4813f
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90024"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68f36138-234a-4a17-8a17-48fb609573e4
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INVERSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90025"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a1a70f5-dbc2-48c3-9ac6-eab00f36db68
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: REFERENCE_CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90026"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 669ffacc-9263-41b5-a183-4b9381ee62c8
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: BASE_CUR_=_FROM_CUR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90027"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2c65977-85ac-459e-a71e-154cd050717a
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: BUYING_RATE_AT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90028"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1b2816f-3b80-4596-9b4f-379aaa998b7d
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SELLING_RATE_AT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90029"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5329ecb6-f7c8-4a5a-82e2-042e57c9f85a
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FIXED_EXCHANGE_RATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90030"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64cf33ae-fdfc-4b7a-afba-8ddc7dcc14d2
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CONVERSION_ACC_TO_EMU
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90031"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6f24068-3753-4f88-b615-98665595af07
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90033"
+                stepCounter: "250"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 059bd165-496f-4261-a9fc-00fac98bf7b5
+          stepCounter: 7e5e62d6-1595-48cb-ab0a-33b013d537b8
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90034"
+                stepCounter: "250"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: TCURV
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'TCURV') }} "TCURV" 
+            WHERE 1=1 
+            AND "TCURV"."MANDT" in ({{ parameters.fltrMandt }})
+        name: CURRENCY_EXCHANGE_RATE_TYPE
+        noLinkRefs: []
+  name: CURRENCY_EXCHANGE_RATE_TYPE
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

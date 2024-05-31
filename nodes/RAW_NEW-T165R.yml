@@ -1,94 +1,95 @@
-steps:
-  T165R-275:
-    operation:
-      database: ""
-      dataset: ""
-      deployEnabled: true
-      description: ""
-      locationID: ""
-      locationName: RAW_NEW
-      metadata:
-        columns:
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91550
-              stepCounter: 275
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: ABSGR
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91551
-              stepCounter: 275
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: MANDT
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91552
-              stepCounter: 275
-            config: {}
-            dataType: NUMBER(38,0)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_ROWID
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91553
-              stepCounter: 275
-            config: {}
-            dataType: BOOLEAN
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_DELETED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91554
-              stepCounter: 275
-            config: {}
-            dataType: TIMESTAMP_TZ(9)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-        join:
-          joinCondition: FROM {{ ref('RAW_NEW', 'T165R') }}
-      name: T165R
-      schema: ""
-      sqlType: Source
-      table: T165R
-      type: sourceInput
-    stepCounter: "275"
+fileVersion: 1
+id: "275"
+name: T165R
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: RAW_NEW
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91550"
+          stepCounter: "275"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: ABSGR
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91551"
+          stepCounter: "275"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: MANDT
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91552"
+          stepCounter: "275"
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_ROWID
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91553"
+          stepCounter: "275"
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91554"
+          stepCounter: "275"
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('RAW_NEW', 'T165R') }}
+  name: T165R
+  schema: ""
+  sqlType: Source
+  table: T165R
+  type: sourceInput
+  version: 1
+type: Node

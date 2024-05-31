@@ -1,110 +1,114 @@
-steps:
-  SALES_DOCUMENTS_ORDER_REASON-ae59dd15-e733-478c-aa96-2e98efd78e93:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: bc757bc5-20f1-44e6-9af6-d935e8603191
-              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_REASON_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89956
-                    stepCounter: "246"
-                transform: ""
-          - columnReference:
-              columnCounter: 57de3e17-f79e-4229-b793-77f86cdbc0a5
-              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89957
-                    stepCounter: "246"
-                transform: ""
-          - columnReference:
-              columnCounter: ef449337-1829-4e6a-a349-29d9e9ae8b85
-              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RETRO_BILLING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89958
-                    stepCounter: "246"
-                transform: ""
-          - columnReference:
-              columnCounter: 47e64718-4090-42a0-940a-da23da835ec5
-              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89960
-                    stepCounter: "246"
-                transform: ""
-          - columnReference:
-              columnCounter: aa0af1db-9d03-4a5e-8970-94c72b0230fa
-              stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89961
-                    stepCounter: "246"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: TVAU
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'TVAU') }} "TVAU" 
-                WHERE 1=1 
-                AND "TVAU"."MANDT" in ({{ parameters.fltrMandt }})
-            name: SALES_DOCUMENTS_ORDER_REASON
-            noLinkRefs: []
-      name: SALES_DOCUMENTS_ORDER_REASON
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+fileVersion: 1
+id: ae59dd15-e733-478c-aa96-2e98efd78e93
+name: SALES_DOCUMENTS_ORDER_REASON
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc757bc5-20f1-44e6-9af6-d935e8603191
+          stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ORDER_REASON_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89956"
+                stepCounter: "246"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57de3e17-f79e-4229-b793-77f86cdbc0a5
+          stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89957"
+                stepCounter: "246"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef449337-1829-4e6a-a349-29d9e9ae8b85
+          stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: RETRO_BILLING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89958"
+                stepCounter: "246"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47e64718-4090-42a0-940a-da23da835ec5
+          stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89960"
+                stepCounter: "246"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa0af1db-9d03-4a5e-8970-94c72b0230fa
+          stepCounter: ae59dd15-e733-478c-aa96-2e98efd78e93
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89961"
+                stepCounter: "246"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: TVAU
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'TVAU') }} "TVAU" 
+            WHERE 1=1 
+            AND "TVAU"."MANDT" in ({{ parameters.fltrMandt }})
+        name: SALES_DOCUMENTS_ORDER_REASON
+        noLinkRefs: []
+  name: SALES_DOCUMENTS_ORDER_REASON
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

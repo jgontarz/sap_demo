@@ -1,110 +1,114 @@
-steps:
-  MATERIAL_PRODUCT_HIERARCHY-8eb02a7c-db36-4fa6-8f35-42e3df098227:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 0f13e2ca-c2f8-4f2e-990d-21715c429a95
-              stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90059
-                    stepCounter: "254"
-                transform: ""
-          - columnReference:
-              columnCounter: c8dc1f5a-bfc1-4290-9002-d2ffd13f87c3
-              stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PRODUCT_HIERARCHY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90060
-                    stepCounter: "254"
-                transform: ""
-          - columnReference:
-              columnCounter: 52beada6-da2c-4743-8486-982f1e9a2d99
-              stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LEVEL_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90061
-                    stepCounter: "254"
-                transform: ""
-          - columnReference:
-              columnCounter: 961455de-3705-4a66-948f-9631a259e5e8
-              stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90063
-                    stepCounter: "254"
-                transform: ""
-          - columnReference:
-              columnCounter: a189c878-d34d-4f55-9801-a2de180615d1
-              stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90064
-                    stepCounter: "254"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: T179
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'T179') }} "T179" 
-                WHERE 1=1 
-                AND "T179"."MANDT" in ({{ parameters.fltrMandt }})
-            name: MATERIAL_PRODUCT_HIERARCHY
-            noLinkRefs: []
-      name: MATERIAL_PRODUCT_HIERARCHY
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+fileVersion: 1
+id: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+name: MATERIAL_PRODUCT_HIERARCHY
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f13e2ca-c2f8-4f2e-990d-21715c429a95
+          stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90059"
+                stepCounter: "254"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8dc1f5a-bfc1-4290-9002-d2ffd13f87c3
+          stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PRODUCT_HIERARCHY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90060"
+                stepCounter: "254"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52beada6-da2c-4743-8486-982f1e9a2d99
+          stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LEVEL_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90061"
+                stepCounter: "254"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 961455de-3705-4a66-948f-9631a259e5e8
+          stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90063"
+                stepCounter: "254"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a189c878-d34d-4f55-9801-a2de180615d1
+          stepCounter: 8eb02a7c-db36-4fa6-8f35-42e3df098227
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90064"
+                stepCounter: "254"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: T179
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'T179') }} "T179" 
+            WHERE 1=1 
+            AND "T179"."MANDT" in ({{ parameters.fltrMandt }})
+        name: MATERIAL_PRODUCT_HIERARCHY
+        noLinkRefs: []
+  name: MATERIAL_PRODUCT_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

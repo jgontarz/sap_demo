@@ -1,0 +1,58 @@
+fileVersion: 1
+id: "17"
+isDisabled: false
+metadata:
+  defaultStorageLocation: BI
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: Dynamic Table Star Join
+    short: DTSTAR
+    plural: Dynamic Table Star Join
+    tagColor: brown
+
+    config:
+    - groupName: Materialization Type
+      items:
+      - type: dropdownSelector
+        attributeName: matType
+        default: dynamic table
+        options:
+        - dynamic table
+        - view
+        isRequired: true
+        
+      - displayName: Warehouse on which to execute Dynamic Table
+        attributeName: whName
+        type: textBox
+        default: 'dev_xs_wh'
+        isRequired: false
+        enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+
+      - type: tabular
+        displayName: 'Lag Specification'
+        attributeName: lagSpecification
+        columns:
+      
+        -  type: textBox
+           displayName: Time Value
+           attributeName: lagNumber
+           default: 60
+           isRequired: false
+           enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+        
+        -  type: dropdownSelector
+           displayName: Time Period
+           attributeName: lagType
+           default: Minutes
+           options:
+           - Seconds
+           - Minutes
+           - Hours
+           - Days
+           isRequired: false
+           enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+        
+        isRequired: false
+        enableIf: "{% if config.matType == 'dynamic table' %} true {% else %} false {% endif %}"
+name: Star Join Dynamic Table
+type: NodeType

@@ -1,782 +1,834 @@
-steps:
-  QUALITY_NOTIFICATION_TASK-19c6df7c-225b-47e7-aa05-57f03c76e8c6:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: d2e32c73-40d4-4e47-b121-e92d5605c09e
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90189
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: b2f1f21b-638d-410a-9b5a-9e8d881c1624
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SEQUENTIAL_TASK_NUMBER_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90190
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 11aa81b5-1c2d-434c-a17b-e9bd6eccde5c
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NOTIFICATION_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90191
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: fb0edc7a-2988-44fa-bee4-204c1c01f027
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CATALOG_TYPE_TASKS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90192
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 89b521cd-205e-4003-8f2d-3485895dbe23
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CODE_GROUP_TASKS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90193
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 6c91fe65-278e-425c-8ea0-4790e986e02a
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TASK_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90194
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: b0961e16-ec9d-4243-8219-5bcf2a236c86
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VERSION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90195
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 3e271e10-0f87-4cc1-a33b-d3fe4936cc97
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FOLLOW_UP_ACTION_TASK_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90196
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 3c728f5a-bf4d-42a7-9675-3a5692c879da
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LOG_FOLLOW_UP_ACTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90197
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 73e899f1-8aa7-428f-9011-222910024e3b
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SHORT_TEXT_TASK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90198
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 6074b7c3-1d56-468f-918e-e0185f14a0ad
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90199
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: da7c70b8-2f7b-4ce6-bc49-2447274f4b9d
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90200
-                    stepCounter: "260"
-                transform: case when "QMSM"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."ERDAT") end
-          - columnReference:
-              columnCounter: bc3c6e9e-a7c2-4fbd-b463-24ac94197643
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90201
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: e24952f8-969b-4959-a0ba-ba25dd3fc990
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGED_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90202
-                    stepCounter: "260"
-                transform: case when "QMSM"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."AEDAT") end
-          - columnReference:
-              columnCounter: 39c4574e-52f9-4fc6-a455-25785cca06fe
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANNED_START_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90203
-                    stepCounter: "260"
-                transform: case when "QMSM"."PSTER" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."PSTER") end
-          - columnReference:
-              columnCounter: ce8a4da4-6370-49f5-a8d9-929c4d64ad69
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANNED_FINISH_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90204
-                    stepCounter: "260"
-                transform: case when "QMSM"."PETER" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."PETER") end
-          - columnReference:
-              columnCounter: f8aa40e9-bd38-42c2-9c01-4dbd58439518
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OBJECT_NUMBER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90205
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 17995430-9ce2-4791-bd27-19ee31935960
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OBJECT_LONG_TEXT_AVAILABLE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90206
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 4f5dd2c1-e6e1-4124-a3fc-4acb0d6c7ab7
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PRIMARY_LANGUAGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90207
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 29a8cdb7-c074-467f-935e-8fecd5c8f05e
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANNED_START_TASK_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90208
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 7b99b9ce-d717-4352-897a-a538f4e34304
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANNED_FINISH_TASK_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90209
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 6783deb3-6e08-4d3b-a347-6277a4d4b3a7
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PERSON_WHO_COMPLETED_THE_TASK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90210
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 890ae716-c68e-44be-b47d-b80597455a1e
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPLETION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90211
-                    stepCounter: "260"
-                transform: case when "QMSM"."ERLDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."ERLDAT") end
-          - columnReference:
-              columnCounter: 32b583db-0fc3-4c8f-9b9c-82934745a983
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: AT_WHICH_TASK_WAS_COMPLETED_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90212
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 753e75cd-619f-4c94-a5b8-9f42d26b1cf3
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RESUBMISSION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90213
-                    stepCounter: "260"
-                transform: case when "QMSM"."WDVDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."WDVDAT") end
-          - columnReference:
-              columnCounter: 7a0ab8fc-9e18-466f-b6f1-4a9170335bbc
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM_NUMBER_IN_ITEM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90214
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 9bbd3f91-a3d5-4148-8220-3652513420b8
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SEQUENTIAL_NUMBER_CAUSE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90215
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 12cc1442-e3ab-40f4-9f82-3d3a01a55c57
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: AT_WHICH_WAS_ADDED_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90216
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: ebb5ffac-55cf-4280-8d63-b848ae7d7c42
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGE_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90217
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 4e67f1e1-c9fb-4822-a42b-381dae4f5679
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TASK_PROCESSOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90218
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 859b2c89-9a8c-42f2-95d7-7827c885e0ea
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RESPONSIBLE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90219
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 07208352-6b7c-4a36-849e-524d96257e1b
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: NUMBER(13,3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90220
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 4c209dac-e3d2-4d37-abdf-87b3d04ba189
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90221
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 58bc3150-fd23-4cf5-9ac3-b6ace2896987
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ASSEMBLY_AFFECTED_BY_THE_TASK_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90222
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 5a6dc2f8-3672-4fb2-8979-5023c1cd1435
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELETE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90223
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 7400343a-8369-4fe1-b178-e026906ecd16
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SORT_NUMBER_TASK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90224
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 00467c63-275f-4254-889f-3eacca0527b1
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OBJECT_CREATED_AUTOM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90225
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: af83fc78-c708-4e27-a172-af424fa5312b
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HANDLE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90226
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: c2d5d462-f497-49d3-85a9-cef5228d53d3
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TIME_SEGMENT_EXISTS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90227
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: f781a9fc-26cd-45c2-bf2a-ef4c3008c293
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TEMPLATE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90228
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 0d78e95a-fd2d-4e34-9730-8199d26ba5e2
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TIME_ZONE_NOTIFICATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90229
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: fd2bd7aa-de5c-4d91-9957-82624b8c4d17
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TIME_ZONE_TASK_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90230
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 5a3e1f57-f647-43a8-9674-255e29959eb0
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TIME_ZONE_ORIGIN
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90231
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 548729ec-534f-45f9-8497-67e1dff8bc20
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_USING_ACTION_BOX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90232
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 410a6bb9-d01b-4dbb-9db7-2f2561616091
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: KEY_FUNCTION_IN_ACTION_BOX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90233
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 4d4c5e23-34d1-4090-a228-f2032314a2be
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SAPSMOSS_NOTE_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90234
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 383bd826-69b1-49f9-9643-0b1b79ecbb21
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SAPSMOSS_NOTE_CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90235
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: d8703577-0cde-449c-94ef-99e41945ab85
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SAPSMOSS_TIME_STAMP_DATE_TIME
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90236
-                    stepCounter: "260"
-                transform: case when "QMSM"."_SAPSMOSS_MTSTMP" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."_SAPSMOSS_MTSTMP") end
-          - columnReference:
-              columnCounter: 7980414b-9bcc-4487-8c94-96284eb92bc9
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ABC_TEMPL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90237
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 05a0f6af-f83a-4e07-b6a2-a0d1774f3567
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EFFECT_IN_PERCENTAGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90238
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 92f42aee-af5a-439b-9ea6-89060063747a
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EFFECT_TEXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90239
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: b7222716-8374-46c7-9aaa-21c72bc98725
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90241
-                    stepCounter: "260"
-                transform: ""
-          - columnReference:
-              columnCounter: 8a9e35d0-390f-4d85-84c5-23a44b99df53
-              stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90242
-                    stepCounter: "260"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: QMSM
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'QMSM') }} "QMSM" 
-                WHERE 1=1 
-                AND "QMSM"."MANDT" in ({{ parameters.fltrMandt }})
-            name: QUALITY_NOTIFICATION_TASK
-            noLinkRefs: []
-      name: QUALITY_NOTIFICATION_TASK
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+fileVersion: 1
+id: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+name: QUALITY_NOTIFICATION_TASK
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2e32c73-40d4-4e47-b121-e92d5605c09e
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90189"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2f1f21b-638d-410a-9b5a-9e8d881c1624
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SEQUENTIAL_TASK_NUMBER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90190"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11aa81b5-1c2d-434c-a17b-e9bd6eccde5c
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NOTIFICATION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90191"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb0edc7a-2988-44fa-bee4-204c1c01f027
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CATALOG_TYPE_TASKS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90192"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 89b521cd-205e-4003-8f2d-3485895dbe23
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CODE_GROUP_TASKS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90193"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c91fe65-278e-425c-8ea0-4790e986e02a
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TASK_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90194"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0961e16-ec9d-4243-8219-5bcf2a236c86
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90195"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e271e10-0f87-4cc1-a33b-d3fe4936cc97
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FOLLOW_UP_ACTION_TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90196"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c728f5a-bf4d-42a7-9675-3a5692c879da
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LOG_FOLLOW_UP_ACTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90197"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73e899f1-8aa7-428f-9011-222910024e3b
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SHORT_TEXT_TASK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90198"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6074b7c3-1d56-468f-918e-e0185f14a0ad
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90199"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da7c70b8-2f7b-4ce6-bc49-2447274f4b9d
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90200"
+                stepCounter: "260"
+            transform: case when "QMSM"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."ERDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc3c6e9e-a7c2-4fbd-b463-24ac94197643
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CHANGED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90201"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e24952f8-969b-4959-a0ba-ba25dd3fc990
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CHANGED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90202"
+                stepCounter: "260"
+            transform: case when "QMSM"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."AEDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39c4574e-52f9-4fc6-a455-25785cca06fe
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: PLANNED_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90203"
+                stepCounter: "260"
+            transform: case when "QMSM"."PSTER" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."PSTER") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce8a4da4-6370-49f5-a8d9-929c4d64ad69
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: PLANNED_FINISH_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90204"
+                stepCounter: "260"
+            transform: case when "QMSM"."PETER" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."PETER") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8aa40e9-bd38-42c2-9c01-4dbd58439518
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: OBJECT_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90205"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17995430-9ce2-4791-bd27-19ee31935960
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: OBJECT_LONG_TEXT_AVAILABLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90206"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f5dd2c1-e6e1-4124-a3fc-4acb0d6c7ab7
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PRIMARY_LANGUAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90207"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29a8cdb7-c074-467f-935e-8fecd5c8f05e
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PLANNED_START_TASK_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90208"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b99b9ce-d717-4352-897a-a538f4e34304
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PLANNED_FINISH_TASK_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90209"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6783deb3-6e08-4d3b-a347-6277a4d4b3a7
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PERSON_WHO_COMPLETED_THE_TASK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90210"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 890ae716-c68e-44be-b47d-b80597455a1e
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: COMPLETION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90211"
+                stepCounter: "260"
+            transform: case when "QMSM"."ERLDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."ERLDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32b583db-0fc3-4c8f-9b9c-82934745a983
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: AT_WHICH_TASK_WAS_COMPLETED_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90212"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 753e75cd-619f-4c94-a5b8-9f42d26b1cf3
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: RESUBMISSION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90213"
+                stepCounter: "260"
+            transform: case when "QMSM"."WDVDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."WDVDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a0ab8fc-9e18-466f-b6f1-4a9170335bbc
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ITEM_NUMBER_IN_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90214"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9bbd3f91-a3d5-4148-8220-3652513420b8
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SEQUENTIAL_NUMBER_CAUSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90215"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12cc1442-e3ab-40f4-9f82-3d3a01a55c57
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: AT_WHICH_WAS_ADDED_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90216"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebb5ffac-55cf-4280-8d63-b848ae7d7c42
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CHANGE_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90217"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e67f1e1-c9fb-4822-a42b-381dae4f5679
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TASK_PROCESSOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90218"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 859b2c89-9a8c-42f2-95d7-7827c885e0ea
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: RESPONSIBLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90219"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07208352-6b7c-4a36-849e-524d96257e1b
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: NUMBER(13,3)
+        description: ""
+        hashDetails: null
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90220"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c209dac-e3d2-4d37-abdf-87b3d04ba189
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ITEM_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90221"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58bc3150-fd23-4cf5-9ac3-b6ace2896987
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ASSEMBLY_AFFECTED_BY_THE_TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90222"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a6dc2f8-3672-4fb2-8979-5023c1cd1435
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DELETE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90223"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7400343a-8369-4fe1-b178-e026906ecd16
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SORT_NUMBER_TASK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90224"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00467c63-275f-4254-889f-3eacca0527b1
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: OBJECT_CREATED_AUTOM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90225"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af83fc78-c708-4e27-a172-af424fa5312b
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: HANDLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90226"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2d5d462-f497-49d3-85a9-cef5228d53d3
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TIME_SEGMENT_EXISTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90227"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f781a9fc-26cd-45c2-bf2a-ef4c3008c293
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TEMPLATE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90228"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d78e95a-fd2d-4e34-9730-8199d26ba5e2
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TIME_ZONE_NOTIFICATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90229"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd2bd7aa-de5c-4d91-9957-82624b8c4d17
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TIME_ZONE_TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90230"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a3e1f57-f647-43a8-9674-255e29959eb0
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TIME_ZONE_ORIGIN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90231"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 548729ec-534f-45f9-8497-67e1dff8bc20
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CREATED_USING_ACTION_BOX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90232"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 410a6bb9-d01b-4dbb-9db7-2f2561616091
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: KEY_FUNCTION_IN_ACTION_BOX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90233"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d4c5e23-34d1-4090-a228-f2032314a2be
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SAPSMOSS_NOTE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90234"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 383bd826-69b1-49f9-9643-0b1b79ecbb21
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SAPSMOSS_NOTE_CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90235"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8703577-0cde-449c-94ef-99e41945ab85
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: SAPSMOSS_TIME_STAMP_DATE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90236"
+                stepCounter: "260"
+            transform: case when "QMSM"."_SAPSMOSS_MTSTMP" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QMSM"."_SAPSMOSS_MTSTMP") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7980414b-9bcc-4487-8c94-96284eb92bc9
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ABC_TEMPL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90237"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 05a0f6af-f83a-4e07-b6a2-a0d1774f3567
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: EFFECT_IN_PERCENTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90238"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92f42aee-af5a-439b-9ea6-89060063747a
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: EFFECT_TEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90239"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7222716-8374-46c7-9aaa-21c72bc98725
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90241"
+                stepCounter: "260"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a9e35d0-390f-4d85-84c5-23a44b99df53
+          stepCounter: 19c6df7c-225b-47e7-aa05-57f03c76e8c6
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90242"
+                stepCounter: "260"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: QMSM
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'QMSM') }} "QMSM" 
+            WHERE 1=1 
+            AND "QMSM"."MANDT" in ({{ parameters.fltrMandt }})
+        name: QUALITY_NOTIFICATION_TASK
+        noLinkRefs: []
+  name: QUALITY_NOTIFICATION_TASK
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

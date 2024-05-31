@@ -1,278 +1,294 @@
-steps:
-  INSPECTION_CATALOG_CODE-d18421d1-ae9d-42ec-a1de-995d361e0858:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 361b645c-41f2-4413-8ccd-cfb7fd4dcbcf
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CODE_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90171
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 9380f077-9132-4839-8dcc-a15d8c2e4352
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CODE_GROUP_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90172
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 13efba03-29e1-447b-af21-c173a23722b5
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CATALOG_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90173
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 54d3a702-c528-4bda-9bcb-e914598f3903
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90174
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: d5d2b82d-ba66-4cbe-885b-0f219d228654
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VERSION_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90175
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 08551d42-9951-4af8-b0a7-d74e6cd6fa10
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VALID_FROM_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90176
-                    stepCounter: "259"
-                transform: case when "QPCD"."GUELTIGAB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPCD"."GUELTIGAB") end
-          - columnReference:
-              columnCounter: 0a7c3ffb-82eb-41a2-a74a-23516622d437
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DEFECT_CLASS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90177
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 1f5bccd1-fb3d-4f37-8df6-b5f9fb9029cf
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90178
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 4a307fef-ff74-41fb-ae62-21e54627620d
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_ON_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90179
-                    stepCounter: "259"
-                transform: case when "QPCD"."E_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPCD"."E_DATUM") end
-          - columnReference:
-              columnCounter: a9430cc2-28ac-4576-8012-5dfc5f9b531c
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90180
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: f1113b64-bc6a-4b21-a32d-d24a36662e01
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGED_ON_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90181
-                    stepCounter: "259"
-                transform: case when "QPCD"."A_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPCD"."A_DATUM") end
-          - columnReference:
-              columnCounter: 0f6c2f10-5005-448b-aee1-ec2c01d55b53
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RECORD_INACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90182
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: dc7c2248-6d35-4090-8304-762ba7ba6b7a
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: IS_USED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90183
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: bc7afed0-6347-4019-a370-f933599fc42f
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: WAS_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90184
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: aee0144b-73b3-4030-be05-44fd82e873c7
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FOLLOW_UP_ACTION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90185
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: 86e8145e-2275-4d94-84ef-5203ac23388a
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90187
-                    stepCounter: "259"
-                transform: ""
-          - columnReference:
-              columnCounter: b5b7c1b6-9759-44e3-bfc2-44b95f512dc0
-              stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90188
-                    stepCounter: "259"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: QPCD
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'QPCD') }} "QPCD" 
-                WHERE 1=1 
-                AND "QPCD"."MANDT" in ({{ parameters.fltrMandt }})
-            name: INSPECTION_CATALOG_CODE
-            noLinkRefs: []
-      name: INSPECTION_CATALOG_CODE
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+fileVersion: 1
+id: d18421d1-ae9d-42ec-a1de-995d361e0858
+name: INSPECTION_CATALOG_CODE
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 361b645c-41f2-4413-8ccd-cfb7fd4dcbcf
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CODE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90171"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9380f077-9132-4839-8dcc-a15d8c2e4352
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CODE_GROUP_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90172"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13efba03-29e1-447b-af21-c173a23722b5
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CATALOG_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90173"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54d3a702-c528-4bda-9bcb-e914598f3903
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90174"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5d2b82d-ba66-4cbe-885b-0f219d228654
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: VERSION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90175"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08551d42-9951-4af8-b0a7-d74e6cd6fa10
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: VALID_FROM_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90176"
+                stepCounter: "259"
+            transform: case when "QPCD"."GUELTIGAB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPCD"."GUELTIGAB") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a7c3ffb-82eb-41a2-a74a-23516622d437
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DEFECT_CLASS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90177"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f5bccd1-fb3d-4f37-8df6-b5f9fb9029cf
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90178"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a307fef-ff74-41fb-ae62-21e54627620d
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_ON_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90179"
+                stepCounter: "259"
+            transform: case when "QPCD"."E_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPCD"."E_DATUM") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9430cc2-28ac-4576-8012-5dfc5f9b531c
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CHANGED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90180"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1113b64-bc6a-4b21-a32d-d24a36662e01
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CHANGED_ON_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90181"
+                stepCounter: "259"
+            transform: case when "QPCD"."A_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPCD"."A_DATUM") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f6c2f10-5005-448b-aee1-ec2c01d55b53
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: RECORD_INACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90182"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc7c2248-6d35-4090-8304-762ba7ba6b7a
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: IS_USED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90183"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc7afed0-6347-4019-a370-f933599fc42f
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: WAS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90184"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aee0144b-73b3-4030-be05-44fd82e873c7
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FOLLOW_UP_ACTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90185"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86e8145e-2275-4d94-84ef-5203ac23388a
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90187"
+                stepCounter: "259"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5b7c1b6-9759-44e3-bfc2-44b95f512dc0
+          stepCounter: d18421d1-ae9d-42ec-a1de-995d361e0858
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90188"
+                stepCounter: "259"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: QPCD
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'QPCD') }} "QPCD" 
+            WHERE 1=1 
+            AND "QPCD"."MANDT" in ({{ parameters.fltrMandt }})
+        name: INSPECTION_CATALOG_CODE
+        noLinkRefs: []
+  name: INSPECTION_CATALOG_CODE
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

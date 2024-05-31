@@ -1,88 +1,90 @@
-steps:
-  RELEVANT_BILLING-182:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 65865
-              stepCounter: "182"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEVANT_BILLING_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87796
-                    stepCounter: "224"
-                transform: ""
-          - columnReference:
-              columnCounter: 65866
-              stepCounter: "182"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87801
-                    stepCounter: "224"
-                transform: ""
-          - columnReference:
-              columnCounter: 65867
-              stepCounter: "182"
-            dataType: VARCHAR(60)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEVANT_BILLING_TXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87807
-                    stepCounter: "225"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: DD07T
-              - locationName: RAW_NEW
-                nodeName: DD07L
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
-                LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
-                ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
-                and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
-                and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}
-                where "DD07L"."DOMNAME" = 'FKREL'
-                and "DD07L"."AS4VERS" = {{ parameters.fltrAsVers }}
-            name: RELEVANT_BILLING
-            noLinkRefs: []
-      name: RELEVANT_BILLING
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "182"
+fileVersion: 1
+id: "182"
+name: RELEVANT_BILLING
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65865"
+          stepCounter: "182"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: RELEVANT_BILLING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87796"
+                stepCounter: "224"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65866"
+          stepCounter: "182"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87801"
+                stepCounter: "224"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65867"
+          stepCounter: "182"
+        config: {}
+        dataType: VARCHAR(60)
+        description: ""
+        hashDetails: null
+        name: RELEVANT_BILLING_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87807"
+                stepCounter: "225"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: DD07T
+          - locationName: RAW_NEW
+            nodeName: DD07L
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
+            LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
+            ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
+            and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
+            and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}
+            where "DD07L"."DOMNAME" = 'FKREL'
+            and "DD07L"."AS4VERS" = {{ parameters.fltrAsVers }}
+        name: RELEVANT_BILLING
+        noLinkRefs: []
+  name: RELEVANT_BILLING
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

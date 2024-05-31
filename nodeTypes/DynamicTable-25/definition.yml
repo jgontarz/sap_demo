@@ -1,0 +1,45 @@
+fileVersion: 1
+id: "25"
+isDisabled: false
+metadata:
+  defaultStorageLocation: STG
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: Dynamic Table
+    short: DT
+    tagColor: '#C4C4C4'
+    isDisabled: true
+    plural: Dynamic Tables
+
+    config:
+      - groupName: Options
+        items: 
+        - type: toggleButton
+          attributeName: selectDistinct
+          displayName: Distinct
+
+        - type: multisourceToggle
+
+        - type: overrideSQLToggle
+
+        - displayName: Multi Source Strategy
+          attributeName: insertStrategy
+          type: dropdownSelector
+          default: UNION
+          options:
+          - "UNION"
+          - "UNION ALL" 
+          isRequired: true
+          enableIf: "{% if node.isMultisource %} true {% else %} false {% endif %}"
+
+      - groupName: Hidden Config
+        enableIf: "false"
+        items:
+        - displayName: Type
+          type: materializationSelector
+          default: Dynamic Table
+          options:
+          - Dynamic Table
+          isRequired: false
+name: Dynamic Table
+type: NodeType

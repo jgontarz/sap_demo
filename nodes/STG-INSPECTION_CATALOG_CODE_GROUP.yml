@@ -1,208 +1,219 @@
-steps:
-  INSPECTION_CATALOG_CODE_GROUP-1ccb588c-2738-4e15-892d-c2b32f7ae3ee:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 20bab6fc-50a9-4063-9363-249851b814d5
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CODE_GROUP_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90144
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: db875a43-f62f-4177-9c5c-fda6173220b4
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CATALOG_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90145
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: b814cacf-4b59-455f-aed6-278ebf461cd4
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90146
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: 5554fbce-4a82-40e4-8b34-820c7b941d3c
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90147
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: e87e6213-fe2e-49fe-b3c1-10405e442f62
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_ON_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90148
-                    stepCounter: "257"
-                transform: case when "QPGR"."E_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPGR"."E_DATUM") end
-          - columnReference:
-              columnCounter: d3cb9d8f-543d-414e-a915-b76dbe1a2df1
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90149
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: a5324e8d-be85-4fd4-9c5d-6c27ccf41eb0
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHANGED_ON_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90150
-                    stepCounter: "257"
-                transform: case when "QPGR"."A_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPGR"."A_DATUM") end
-          - columnReference:
-              columnCounter: dc43855a-71a1-46f7-b654-ae0096008d56
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: IS_USED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90151
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: c2d1fa83-b59e-4cb0-9fe5-3901f9810074
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RECORD_INACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90152
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: ba77dc3f-f07b-4130-93fc-f1b112d363b2
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90153
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: 92848ddb-a968-477d-be7c-050e59b29c00
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90155
-                    stepCounter: "257"
-                transform: ""
-          - columnReference:
-              columnCounter: b3117423-cd08-475e-b8d6-8032a4b31387
-              stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90156
-                    stepCounter: "257"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: QPGR
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'QPGR') }} "QPGR" 
-                WHERE 1=1 
-                AND "QPGR"."MANDT" in ({{ parameters.fltrMandt }})
-            name: INSPECTION_CATALOG_CODE_GROUP
-            noLinkRefs: []
-      name: INSPECTION_CATALOG_CODE_GROUP
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+fileVersion: 1
+id: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+name: INSPECTION_CATALOG_CODE_GROUP
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20bab6fc-50a9-4063-9363-249851b814d5
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CODE_GROUP_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90144"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db875a43-f62f-4177-9c5c-fda6173220b4
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CATALOG_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90145"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b814cacf-4b59-455f-aed6-278ebf461cd4
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90146"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5554fbce-4a82-40e4-8b34-820c7b941d3c
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90147"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e87e6213-fe2e-49fe-b3c1-10405e442f62
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_ON_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90148"
+                stepCounter: "257"
+            transform: case when "QPGR"."E_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPGR"."E_DATUM") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3cb9d8f-543d-414e-a915-b76dbe1a2df1
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CHANGED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90149"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5324e8d-be85-4fd4-9c5d-6c27ccf41eb0
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CHANGED_ON_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90150"
+                stepCounter: "257"
+            transform: case when "QPGR"."A_DATUM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("QPGR"."A_DATUM") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc43855a-71a1-46f7-b654-ae0096008d56
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: IS_USED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90151"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2d1fa83-b59e-4cb0-9fe5-3901f9810074
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: RECORD_INACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90152"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba77dc3f-f07b-4130-93fc-f1b112d363b2
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90153"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92848ddb-a968-477d-be7c-050e59b29c00
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90155"
+                stepCounter: "257"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3117423-cd08-475e-b8d6-8032a4b31387
+          stepCounter: 1ccb588c-2738-4e15-892d-c2b32f7ae3ee
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90156"
+                stepCounter: "257"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: QPGR
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'QPGR') }} "QPGR" 
+            WHERE 1=1 
+            AND "QPGR"."MANDT" in ({{ parameters.fltrMandt }})
+        name: INSPECTION_CATALOG_CODE_GROUP
+        noLinkRefs: []
+  name: INSPECTION_CATALOG_CODE_GROUP
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

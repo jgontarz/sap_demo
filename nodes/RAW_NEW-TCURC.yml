@@ -1,154 +1,155 @@
-steps:
-  TCURC-252:
-    operation:
-      database: ""
-      dataset: ""
-      deployEnabled: true
-      description: ""
-      locationID: ""
-      locationName: RAW_NEW
-      metadata:
-        columns:
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90043
-              stepCounter: 252
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: MANDT
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90044
-              stepCounter: 252
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: WAERS
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90045
-              stepCounter: 252
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: ISOCD
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90046
-              stepCounter: 252
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: ALTWR
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90047
-              stepCounter: 252
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: GDATU
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90048
-              stepCounter: 252
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: XPRIMARY
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90049
-              stepCounter: 252
-            config: {}
-            dataType: NUMBER(38,0)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_ROWID
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90050
-              stepCounter: 252
-            config: {}
-            dataType: BOOLEAN
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_DELETED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90051
-              stepCounter: 252
-            config: {}
-            dataType: TIMESTAMP_TZ(9)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-        join:
-          joinCondition: FROM {{ ref('RAW_NEW', 'TCURC') }}
-      name: TCURC
-      schema: ""
-      sqlType: Source
-      table: TCURC
-      type: sourceInput
-    stepCounter: "252"
+fileVersion: 1
+id: "252"
+name: TCURC
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: RAW_NEW
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90043"
+          stepCounter: "252"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: MANDT
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90044"
+          stepCounter: "252"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: WAERS
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90045"
+          stepCounter: "252"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: ISOCD
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90046"
+          stepCounter: "252"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: ALTWR
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90047"
+          stepCounter: "252"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: GDATU
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90048"
+          stepCounter: "252"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: XPRIMARY
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90049"
+          stepCounter: "252"
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_ROWID
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90050"
+          stepCounter: "252"
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90051"
+          stepCounter: "252"
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('RAW_NEW', 'TCURC') }}
+  name: TCURC
+  schema: ""
+  sqlType: Source
+  table: TCURC
+  type: sourceInput
+  version: 1
+type: Node

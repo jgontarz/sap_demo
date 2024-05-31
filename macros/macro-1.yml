@@ -1,0 +1,62 @@
+fileVersion: 1
+id: "1"
+macroString: |-
+
+  {%- macro sap_dateformat() -%}
+  case when {{SRC}} in ('00000000', ' ') THEN NULL ELSE TO_DATE({{SRC}}) end
+  {%- endmacro -%}
+
+  {%- macro sap_simplename(col) -%}
+  {{ parameters.srcMapping.tbl | selectattr('name','equalto',(sources[0].columns | selectattr('id','equalto',column.id) | map(attribute='sourceColumns') | first | map(attribute='node') | map(attribute='name') | first)) | map(attribute='columns') | first | selectattr('sapName','equalto',sources[0].columns | selectattr('id','equalto',column.id) | map(attribute='sourceColumns') | first | map(attribute='column') | map(attribute='name') | first) | map(attribute='simpleName') | first }}
+  {%- endmacro -%}
+
+  {%- macro transform_string_date(col) -%}
+      {% if col.hashDetails %}
+          {{ hash(col.hashDetails.columns, algo=col.hashDetails.algorithm, datatype=col.dataType) }}
+      {% elif col.transform | trim != '' -%}
+          {{- col.transform -}}
+      {% elif col.sourceColumns[0].node and col.sourceColumns[0].node.name and col.sourceColumns[0].column and col.sourceColumns[0].column.name -%}
+          "{{- col.sourceColumns[0].node.name }}"."{{ col.sourceColumns[0].column.name -}}"
+      {%- else -%}
+          NULL
+      {% endif %}
+  {%- endmacro -%}
+
+  {#-- This macro will drop a table / view / dynamic table if it already exists as a different or the same object type #}
+  {#-- Errors can occur when creating a same named object of a different type #}
+
+  {% macro dropTblView() %}
+    {%- set db = ref_no_link(node.location.name, node.name).split('.')[0]  %} 
+    {%- set sch = ref_no_link(node.location.name, node.name).split('.')[1]  %} 
+    {%- set obj = "{{ node.name }}"  %} 
+
+      begin
+          let db varchar := '{{db}}';
+          let sch varchar := '{{sch}}';
+          let obj varchar := '{{obj}}';
+
+          begin
+              execute immediate 'drop table if exists ' || db || '.' || sch || '.' || obj;    
+          exception
+              when statement_error then
+                  null;
+          end;
+
+          begin
+              execute immediate 'drop view if exists ' || db || '.' || sch || '.' || obj;    
+          exception
+              when statement_error then
+                  null;
+          end;
+
+          begin
+              execute immediate 'drop dynamic table if exists ' || db || '.' || sch || '.' || obj;    
+          exception
+              when statement_error then
+                  null;
+          end;
+
+      end;
+  {% endmacro %}
+name: macro
+type: Macro

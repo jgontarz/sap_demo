@@ -1,184 +1,185 @@
-steps:
-  T005T-255:
-    operation:
-      database: ""
-      dataset: ""
-      deployEnabled: true
-      description: ""
-      locationID: ""
-      locationName: RAW_NEW
-      metadata:
-        columns:
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90065
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: LAND1
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90066
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: MANDT
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90067
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: SPRAS
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90068
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: LANDX
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90069
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: NATIO
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90070
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: LANDX50
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90071
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: NATIO50
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90072
-              stepCounter: 255
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: PRQ_SPREGT
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90073
-              stepCounter: 255
-            config: {}
-            dataType: NUMBER(38,0)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_ROWID
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90074
-              stepCounter: 255
-            config: {}
-            dataType: BOOLEAN
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_DELETED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 90075
-              stepCounter: 255
-            config: {}
-            dataType: TIMESTAMP_TZ(9)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-        join:
-          joinCondition: FROM {{ ref('RAW_NEW', 'T005T') }}
-      name: T005T
-      schema: ""
-      sqlType: Source
-      table: T005T
-      type: sourceInput
-    stepCounter: "255"
+fileVersion: 1
+id: "255"
+name: T005T
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: RAW_NEW
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90065"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: LAND1
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90066"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: MANDT
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90067"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: SPRAS
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90068"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: LANDX
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90069"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: NATIO
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90070"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: LANDX50
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90071"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: NATIO50
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90072"
+          stepCounter: "255"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: PRQ_SPREGT
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90073"
+          stepCounter: "255"
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_ROWID
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90074"
+          stepCounter: "255"
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "90075"
+          stepCounter: "255"
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('RAW_NEW', 'T005T') }}
+  name: T005T
+  schema: ""
+  sqlType: Source
+  table: T005T
+  type: sourceInput
+  version: 1
+type: Node

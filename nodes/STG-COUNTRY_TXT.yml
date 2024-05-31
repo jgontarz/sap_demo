@@ -1,194 +1,204 @@
-steps:
-  COUNTRY_TXT-0ffd53d0-8155-45a4-9590-2d0527f84482:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 09d8d65b-56f3-43cc-b524-4dc5aaf14659
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LAND1
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90065
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: 1a3c2541-12a0-416a-9525-751c88f8e0e5
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MANDT
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90066
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: f818de23-9bf4-43e1-9a4e-28ad865b7f0f
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SPRAS
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90067
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: c23892fe-90e2-40de-bd75-c0ae539a3681
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANDX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90068
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: dd57e9f9-660b-4962-a7bf-7ce0aacde911
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NATIO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90069
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: 6e39bfdd-be45-4a68-a7c9-5485e6e6b27a
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANDX50
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90070
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: 9dbd9b97-910b-4364-8db5-ca9d18c26070
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NATIO50
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90071
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: a6bfb88d-fb9e-483f-9248-8234d5664954
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PRQ_SPREGT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90072
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: 0a058768-2fd8-4901-b32f-14927a8659c0
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_ROWID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90073
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: 50bc7ba0-fd57-43f4-b2ee-a357ae131fc9
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90074
-                    stepCounter: "255"
-                transform: ""
-          - columnReference:
-              columnCounter: 70b72575-87e0-498b-a5c5-a26291904998
-              stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90075
-                    stepCounter: "255"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: T005T
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'T005T') }} "T005T"
-                WHERE 1=1 
-                AND "T005T"."MANDT" in ({{ parameters.fltrMandt }})
-            name: COUNTRY_TXT
-            noLinkRefs: []
-      name: COUNTRY_TXT
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+fileVersion: 1
+id: 0ffd53d0-8155-45a4-9590-2d0527f84482
+name: COUNTRY_TXT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09d8d65b-56f3-43cc-b524-4dc5aaf14659
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LAND1
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90065"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a3c2541-12a0-416a-9525-751c88f8e0e5
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MANDT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90066"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f818de23-9bf4-43e1-9a4e-28ad865b7f0f
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SPRAS
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90067"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23892fe-90e2-40de-bd75-c0ae539a3681
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANDX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90068"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd57e9f9-660b-4962-a7bf-7ce0aacde911
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NATIO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90069"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e39bfdd-be45-4a68-a7c9-5485e6e6b27a
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANDX50
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90070"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9dbd9b97-910b-4364-8db5-ca9d18c26070
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NATIO50
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90071"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6bfb88d-fb9e-483f-9248-8234d5664954
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PRQ_SPREGT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90072"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a058768-2fd8-4901-b32f-14927a8659c0
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_ROWID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90073"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50bc7ba0-fd57-43f4-b2ee-a357ae131fc9
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90074"
+                stepCounter: "255"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70b72575-87e0-498b-a5c5-a26291904998
+          stepCounter: 0ffd53d0-8155-45a4-9590-2d0527f84482
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90075"
+                stepCounter: "255"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: T005T
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'T005T') }} "T005T"
+            WHERE 1=1 
+            AND "T005T"."MANDT" in ({{ parameters.fltrMandt }})
+        name: COUNTRY_TXT
+        noLinkRefs: []
+  name: COUNTRY_TXT
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

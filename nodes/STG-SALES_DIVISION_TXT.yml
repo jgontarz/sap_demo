@@ -1,124 +1,129 @@
-steps:
-  SALES_DIVISION_TXT-e69c88b8-c1de-48f2-9e85-5a178aa37f57:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 2667d9af-e6cc-41a7-a39b-a952695188ab
-              stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89962
-                    stepCounter: "247"
-                transform: ""
-          - columnReference:
-              columnCounter: 417fcecd-7ae6-4123-b142-d09cddeed7d4
-              stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DIVISION_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89963
-                    stepCounter: "247"
-                transform: ""
-          - columnReference:
-              columnCounter: cbe42707-9551-4287-b913-97f33b8c9d75
-              stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89964
-                    stepCounter: "247"
-                transform: ""
-          - columnReference:
-              columnCounter: e8db6ad6-4654-41e4-8533-984c26fbc5a2
-              stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89965
-                    stepCounter: "247"
-                transform: ""
-          - columnReference:
-              columnCounter: 1e1680da-d54c-4062-b3b3-155f6b4b77ca
-              stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89967
-                    stepCounter: "247"
-                transform: ""
-          - columnReference:
-              columnCounter: fba07fe8-6513-42b0-b885-48c6d8e76db2
-              stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89968
-                    stepCounter: "247"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: TSPAT
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'TSPAT') }} "TSPAT" 
-                WHERE 1=1 
-                AND "TSPAT"."MANDT" in ({{ parameters.fltrMandt }})
-            name: SALES_DIVISION_TXT
-            noLinkRefs: []
-      name: SALES_DIVISION_TXT
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+fileVersion: 1
+id: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+name: SALES_DIVISION_TXT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2667d9af-e6cc-41a7-a39b-a952695188ab
+          stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89962"
+                stepCounter: "247"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 417fcecd-7ae6-4123-b142-d09cddeed7d4
+          stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DIVISION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89963"
+                stepCounter: "247"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbe42707-9551-4287-b913-97f33b8c9d75
+          stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89964"
+                stepCounter: "247"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8db6ad6-4654-41e4-8533-984c26fbc5a2
+          stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89965"
+                stepCounter: "247"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e1680da-d54c-4062-b3b3-155f6b4b77ca
+          stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89967"
+                stepCounter: "247"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fba07fe8-6513-42b0-b885-48c6d8e76db2
+          stepCounter: e69c88b8-c1de-48f2-9e85-5a178aa37f57
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89968"
+                stepCounter: "247"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: TSPAT
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'TSPAT') }} "TSPAT" 
+            WHERE 1=1 
+            AND "TSPAT"."MANDT" in ({{ parameters.fltrMandt }})
+        name: SALES_DIVISION_TXT
+        noLinkRefs: []
+  name: SALES_DIVISION_TXT
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

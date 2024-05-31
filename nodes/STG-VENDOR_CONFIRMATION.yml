@@ -1,515 +1,548 @@
-steps:
-  VENDOR_CONFIRMATION-190:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 82008
-              stepCounter: "190"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_ROWID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91410
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82009
-              stepCounter: "190"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91382
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82010
-              stepCounter: "190"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91379
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82011
-              stepCounter: "190"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_ITEM_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91380
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82012
-              stepCounter: "190"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SEQUENTIAL_NUMBER_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91381
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82013
-              stepCounter: "190"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONFIRMATION_CATEGORY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91383
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82014
-              stepCounter: "190"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91384
-                    stepCounter: "270"
-                transform: case when "EKES"."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."EINDT") end
-          - columnReference:
-              columnCounter: 82015
-              stepCounter: "190"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIV_DATE_CATEGORY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91385
-                    stepCounter: "270"
-                transform: case when "EKES"."LPEIN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."LPEIN") end
-          - columnReference:
-              columnCounter: 82016
-              stepCounter: "190"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91386
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82017
-              stepCounter: "190"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATION_CONFIRMATION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91387
-                    stepCounter: "270"
-                transform: case when "EKES"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."ERDAT") end
-          - columnReference:
-              columnCounter: 82018
-              stepCounter: "190"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATION_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91388
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82019
-              stepCounter: "190"
-            dataType: NUMBER(13,3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91389
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82020
-              stepCounter: "190"
-            dataType: NUMBER(13,3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: QUANTITY_REDUCED_MRP
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91390
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82021
-              stepCounter: "190"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATION_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91391
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82022
-              stepCounter: "190"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELETION_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91392
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82023
-              stepCounter: "190"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MRP_RELEVANT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91393
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82024
-              stepCounter: "190"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REFERENCE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91394
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82025
-              stepCounter: "190"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91395
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82026
-              stepCounter: "190"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_ITEM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91396
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82027
-              stepCounter: "190"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MFR_PART_PROFILE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91397
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82028
-              stepCounter: "190"
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MPN_MATERIAL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91398
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82029
-              stepCounter: "190"
-            dataType: NUMBER(3,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NUMBER_REMINDERS_EXPEDITERS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91399
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82030
-              stepCounter: "190"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BATCH_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91400
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82031
-              stepCounter: "190"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HIGHERLEVELITEMBATCH_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91401
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82032
-              stepCounter: "190"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SEQUENTIAL_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91402
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82033
-              stepCounter: "190"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_HAS_STATUS_IN_PLANT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91403
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82034
-              stepCounter: "190"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VBELN_ST
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91404
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82035
-              stepCounter: "190"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VBELP_ST
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91405
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82036
-              stepCounter: "190"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HANDOVER_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91406
-                    stepCounter: "270"
-                transform: case when "EKES"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."HANDOVERDATE") end
-          - columnReference:
-              columnCounter: 82037
-              stepCounter: "190"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HANDOVER_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91407
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82038
-              stepCounter: "190"
-            dataType: VARCHAR(16)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STOCK_SEGMENT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91408
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82039
-              stepCounter: "190"
-            dataType: NUMBER(13,3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ALLOCATED_STOCK_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91409
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82040
-              stepCounter: "190"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91411
-                    stepCounter: "270"
-                transform: ""
-          - columnReference:
-              columnCounter: 82041
-              stepCounter: "190"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 91412
-                    stepCounter: "270"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: EKES
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'EKES') }} "EKES"
-                WHERE "EKES"."MANDT" in ({{ parameters.fltrMandt }})
-            name: VENDOR_CONFIRMATION
-            noLinkRefs: []
-      name: VENDOR_CONFIRMATION
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "190"
+fileVersion: 1
+id: "190"
+name: VENDOR_CONFIRMATION
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82008"
+          stepCounter: "190"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_ROWID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91410"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82009"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91382"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82010"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91379"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82011"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_ITEM_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91380"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82012"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: SEQUENTIAL_NUMBER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91381"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82013"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: CONFIRMATION_CATEGORY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91383"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82014"
+          stepCounter: "190"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: DELIVERY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91384"
+                stepCounter: "270"
+            transform: case when "EKES"."EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."EINDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82015"
+          stepCounter: "190"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: DELIV_DATE_CATEGORY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91385"
+                stepCounter: "270"
+            transform: case when "EKES"."LPEIN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."LPEIN") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82016"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91386"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82017"
+          stepCounter: "190"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATION_CONFIRMATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91387"
+                stepCounter: "270"
+            transform: case when "EKES"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."ERDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82018"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: CREATION_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91388"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82019"
+          stepCounter: "190"
+        config: {}
+        dataType: NUMBER(13,3)
+        description: ""
+        hashDetails: null
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91389"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82020"
+          stepCounter: "190"
+        config: {}
+        dataType: NUMBER(13,3)
+        description: ""
+        hashDetails: null
+        name: QUANTITY_REDUCED_MRP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91390"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82021"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CREATION_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91391"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82022"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DELETION_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91392"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82023"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: MRP_RELEVANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91393"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82024"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: REFERENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91394"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82025"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91395"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82026"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91396"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82027"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: MFR_PART_PROFILE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91397"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82028"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: MPN_MATERIAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91398"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82029"
+          stepCounter: "190"
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        hashDetails: null
+        name: NUMBER_REMINDERS_EXPEDITERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91399"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82030"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: BATCH_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91400"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82031"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: HIGHERLEVELITEMBATCH_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91401"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82032"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: SEQUENTIAL_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91402"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82033"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_HAS_STATUS_IN_PLANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91403"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82034"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: VBELN_ST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91404"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82035"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: VBELP_ST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91405"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82036"
+          stepCounter: "190"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: HANDOVER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91406"
+                stepCounter: "270"
+            transform: case when "EKES"."HANDOVERDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKES"."HANDOVERDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82037"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: HANDOVER_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91407"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82038"
+          stepCounter: "190"
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        hashDetails: null
+        name: STOCK_SEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91408"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82039"
+          stepCounter: "190"
+        config: {}
+        dataType: NUMBER(13,3)
+        description: ""
+        hashDetails: null
+        name: ALLOCATED_STOCK_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91409"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82040"
+          stepCounter: "190"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91411"
+                stepCounter: "270"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82041"
+          stepCounter: "190"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "91412"
+                stepCounter: "270"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: EKES
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'EKES') }} "EKES"
+            WHERE "EKES"."MANDT" in ({{ parameters.fltrMandt }})
+        name: VENDOR_CONFIRMATION
+        noLinkRefs: []
+  name: VENDOR_CONFIRMATION
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

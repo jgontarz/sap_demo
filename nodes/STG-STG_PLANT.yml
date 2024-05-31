@@ -1,84 +1,86 @@
-steps:
-  STG_PLANT-67:
-    operation:
-      config:
-        insertStrategy: UNION
-        postSQL: ""
-        preSQL: ""
-        selectDistinct: false
-        testsEnabled: true
-        truncateBefore: true
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: Plants/Branches
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 12081
-              stepCounter: "67"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: e4bdc2b4-aa09-4a50-a439-2a7d30dac890
-                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
-                transform: ""
-          - columnReference:
-              columnCounter: 12082
-              stepCounter: "67"
-            dataType: char(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANT_NAME
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: df134d42-93c3-44a3-af99-3ac5fd716ea6
-                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
-                transform: ""
-          - columnReference:
-              columnCounter: 12101
-              stepCounter: "67"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CITY_CODE_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 68d62827-7d88-4861-9a15-db0d9de26132
-                    stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              PLANT: "200000057"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: STG
-                nodeName: PLANT
-            join:
-              joinCondition: FROM {{ ref('STG', 'PLANT') }} "PLANT"
-            name: STG_PLANT
-            noLinkRefs: []
-      name: STG_PLANT
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "67"
+fileVersion: 1
+id: "67"
+name: STG_PLANT
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Plants/Branches
+  isMultisource: false
+  locationName: STG
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12081"
+          stepCounter: "67"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: PLANT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4bdc2b4-aa09-4a50-a439-2a7d30dac890
+                stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12082"
+          stepCounter: "67"
+        config: {}
+        dataType: char(30)
+        description: ""
+        hashDetails: null
+        name: PLANT_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df134d42-93c3-44a3-af99-3ac5fd716ea6
+                stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12101"
+          stepCounter: "67"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: CITY_CODE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68d62827-7d88-4861-9a15-db0d9de26132
+                stepCounter: 070fae3a-602f-404e-916c-fba19188c4bb
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PLANT: "200000057"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STG
+            nodeName: PLANT
+        join:
+          joinCondition: FROM {{ ref('STG', 'PLANT') }} "PLANT"
+        name: STG_PLANT
+        noLinkRefs: []
+  name: STG_PLANT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,1985 +1,2123 @@
-steps:
-  PURCHASING_DOCUMENT_HEADER-167:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 56909
-              stepCounter: "167"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87815
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56910
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87814
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56911
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87816
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56912
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_CATEGORY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87817
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56913
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87818
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56914
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONTROL_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87819
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56915
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELETION_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87820
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56916
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STATUS_PURCHASING_DOCUMENT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87821
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56917
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87822
-                    stepCounter: "226"
-                transform: case when "EKKO"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."AEDAT") end
-          - columnReference:
-              columnCounter: 56918
-              stepCounter: "167"
-            dataType: VARCHAR(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87823
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56919
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM_NUMBER_INTERVAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87824
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56920
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LAST_ITEM_NUMBER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87825
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56921
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87826
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56922
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87827
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56923
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PAYMENT_TERMS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87828
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56924
-              stepCounter: "167"
-            dataType: NUMBER(3,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PAYMENT_IN
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87829
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56925
-              stepCounter: "167"
-            dataType: NUMBER(3,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ZBD2T
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87830
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56926
-              stepCounter: "167"
-            dataType: NUMBER(3,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ZBD3T
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87831
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56927
-              stepCounter: "167"
-            dataType: NUMBER(5,3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CASH_DISCOUNT_PERCENTAGE_1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87832
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56928
-              stepCounter: "167"
-            dataType: NUMBER(5,3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CASH_DISCOUNT_PERCENTAGE_2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87833
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56929
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_ORGANIZATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87834
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56930
-              stepCounter: "167"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87835
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56931
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87836
-                    stepCounter: "226"
-                transform: case when "EKKO"."WAERS" in ('DEM','FRF') then 'EUR' else "EKKO"."WAERS" end
-          - columnReference:
-              columnCounter: 56932
-              stepCounter: "167"
-            dataType: NUMBER(9,5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EXCHANGE_RATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87837
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56933
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EXCHANGE_RATE_FIXED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87838
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56934
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87839
-                    stepCounter: "226"
-                transform: case when "EKKO"."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BEDAT") end
-          - columnReference:
-              columnCounter: 56935
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: START_VALIDITY_PERIOD_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87840
-                    stepCounter: "226"
-                transform: case when "EKKO"."KDATB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATB") end
-          - columnReference:
-              columnCounter: 56936
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: END_VALIDITY_PERIOD_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87841
-                    stepCounter: "226"
-                transform: case when "EKKO"."KDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATE") end
-          - columnReference:
-              columnCounter: 56937
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLOSING_APPLICATIONS_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87842
-                    stepCounter: "226"
-                transform: case when "EKKO"."BWBDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BWBDT") end
-          - columnReference:
-              columnCounter: 56938
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: QUOTATION_DEADLINE_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87843
-                    stepCounter: "226"
-                transform: case when "EKKO"."ANGDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."ANGDT") end
-          - columnReference:
-              columnCounter: 56939
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BINDING_PERIOD_QUOTATION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87844
-                    stepCounter: "226"
-                transform: case when "EKKO"."BNDDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BNDDT") end
-          - columnReference:
-              columnCounter: 56940
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: WARRANTY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87845
-                    stepCounter: "226"
-                transform: case when "EKKO"."GWLDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."GWLDT") end
-          - columnReference:
-              columnCounter: 56941
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BID_INVITATION_NUMBER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87846
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56942
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: QUOTATION_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87847
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56943
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: QUOTATION_SUBMISSION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87848
-                    stepCounter: "226"
-                transform: case when "EKKO"."IHRAN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."IHRAN") end
-          - columnReference:
-              columnCounter: 56944
-              stepCounter: "167"
-            dataType: VARCHAR(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: YOUR_REFERENCE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87849
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56945
-              stepCounter: "167"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALESPERSON
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87850
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56946
-              stepCounter: "167"
-            dataType: VARCHAR(16)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDORS_TELEPHONE_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87851
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56947
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SUPPLYING_VENDOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87852
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56948
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CUSTOMER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87853
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56949
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OUTLINE_AGREEMENT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87854
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56950
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FIELD_NOT_USED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87855
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56951
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPLETE_DELIVERY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87856
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56952
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDICATOR_GOODS_RECEIPT_MESSAGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87857
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56953
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SUPPLYING_PLANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87858
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56954
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FIELD_NOT_USED_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87859
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56955
-              stepCounter: "167"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INCOTERMS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87860
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56956
-              stepCounter: "167"
-            dataType: VARCHAR(28)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INCOTERMS_PART_2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87861
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56957
-              stepCounter: "167"
-            dataType: NUMBER(15,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TARGET_HEADER_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87862
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56958
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COLLECTIVE_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87863
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56959
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_CONDITION_NO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87864
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56960
-              stepCounter: "167"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PROCEDURE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87865
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56961
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: UPDATE_GROUP_STATS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87866
-                    stepCounter: "226"
-                transform: case when "EKKO"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."STAFO") end
-          - columnReference:
-              columnCounter: 56962
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DIFFERENT_INVOICING_PARTY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87867
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56963
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NUMBER_FOREIGN_TRADE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87868
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56964
-              stepCounter: "167"
-            dataType: VARCHAR(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OUR_REFERENCE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87869
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56965
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LOGICAL_SYSTEM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87870
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56966
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SUBITEM_INTERVAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87871
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56967
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TIME_DEP_CONDITIONS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87872
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56968
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEASE_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87873
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56969
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEASE_STRATEGY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87874
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56970
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEASE_INDICATOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87875
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56971
-              stepCounter: "167"
-            dataType: VARCHAR(8)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEASE_STATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87876
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56972
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SUBJECT_TO_RELEASE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87877
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56973
-              stepCounter: "167"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COUNTRY_TAX_RETURN_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87878
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56974
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REL_DOCUMENTATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87879
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56975
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ADDRESS_NUMBER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87880
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56976
-              stepCounter: "167"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COUNTRY_SALES_TAX_ID_NUMBER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87881
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56977
-              stepCounter: "167"
-            dataType: VARCHAR(20)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VAT_REGISTRATION_NO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87882
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56978
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REASON_CANCELLATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87883
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56979
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_NUMBER_ADDITIONAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87884
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56980
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CORR_MISC_PROVIS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87885
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56981
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ORDER_NOT_YET_COMPLETE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87886
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56982
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCH_DOC_PROC_STATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87887
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56983
-              stepCounter: "167"
-            dataType: NUMBER(15,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TOTAL_AT_TIME_RELEASE_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87888
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56984
-              stepCounter: "167"
-            dataType: VARCHAR(8)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VERSION_NUMBER_IN_PURCHASING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87889
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56985
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SCMPROC
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87890
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56986
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: GOODS_RECEIPT_REASON_CODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87891
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56987
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CATEGORY_INCOMPLETENESS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87892
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56988
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RETENTION_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87893
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56989
-              stepCounter: "167"
-            dataType: NUMBER(5,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RETENTION_IN_PERCENT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87894
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56990
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOWN_PAYMENT_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87895
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56991
-              stepCounter: "167"
-            dataType: NUMBER(5,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOWN_PAYMENT_PERCENTAGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87896
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56992
-              stepCounter: "167"
-            dataType: NUMBER(11,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOWN_PAYMENT_AMOUNT_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87897
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56993
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DUE_DOWN_PAYMENT_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87898
-                    stepCounter: "226"
-                transform: case when "EKKO"."DPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."DPDAT") end
-          - columnReference:
-              columnCounter: 56994
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PROCESS_IDENTIFICATION_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87899
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56995
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PART_CONTRACT_HIERARCHY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87900
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56996
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: THRESHOLD_VALUE_EXCHANGE_RATES
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87901
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56997
-              stepCounter: "167"
-            dataType: VARCHAR(40)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LEGAL_CONTRACT_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87902
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56998
-              stepCounter: "167"
-            dataType: VARCHAR(40)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONTRACT_NAME
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87903
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 56999
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEASE_CONTRACT_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87904
-                    stepCounter: "226"
-                transform: case when "EKKO"."RELEASE_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."RELEASE_DATE") end
-          - columnReference:
-              columnCounter: 57000
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SHIPPING_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87905
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57001
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HANDOVER_LOCATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87906
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57002
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SHIPPING_CONDITIONS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87907
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57003
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INCOTERMS_VERSION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87908
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57004
-              stepCounter: "167"
-            dataType: VARCHAR(70)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INCOTERMS_LOCATION_1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87909
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57005
-              stepCounter: "167"
-            dataType: VARCHAR(70)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INCOTERMS_LOCATION_2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87910
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57006
-              stepCounter: "167"
-            dataType: VARCHAR(32)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INTERNAL_KEY_FORCE_ELEMENT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87911
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57007
-              stepCounter: "167"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INTERNAL_VERSION_COUNTER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87912
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57008
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELOCATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87913
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57009
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELOCATION_STEP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87914
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57010
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SOURCE_LOGSYS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87915
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57011
-              stepCounter: "167"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TRANSACTION_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87916
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57012
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM_GROUP
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87917
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57013
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LAST_VAS_ITEM_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87918
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57014
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OS_STRATEGY_SPECIFIC_FIELDS_CHANGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87919
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57015
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INTEREST_CALCULATION_INDICATOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87920
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57016
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SNAPSHOT_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87921
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57017
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_CATEGORY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87922
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57018
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SAME_DELIVERY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87923
-                    stepCounter: "226"
-                transform: case when "EKKO"."EQ_EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."EQ_EINDT") end
-          - columnReference:
-              columnCounter: 57019
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SAME_PLANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87924
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57020
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FIRM_DEAL_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87925
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57021
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_PURCH_GROUP
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87926
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57022
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_PLANTS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87927
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57023
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_CONTRACTS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87928
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57024
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_ITEM_CATEGORIES
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87929
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57025
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_FIXED_DATE_PURCHASES
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87930
-                    stepCounter: "226"
-                transform: case when "EKKO"."FIXPO_ALLOW" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."FIXPO_ALLOW") end
-          - columnReference:
-              columnCounter: 57026
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONSIDER_BUDGET
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87931
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57027
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_ALLOC_TABLE_RELEVANCE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87932
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57028
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_DLVY_PERIOD
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87933
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57029
-              stepCounter: "167"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAKE_ACCOUNT_DELIVERY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87934
-                    stepCounter: "226"
-                transform: case when "EKKO"."EINDT_ALLOW" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."EINDT_ALLOW") end
-          - columnReference:
-              columnCounter: 57030
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INCLUDE_VENDOR_SUBRANGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87935
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57031
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OTB_CHECK_LEVEL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87936
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57032
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OTB_CONDITION_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87937
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57033
-              stepCounter: "167"
-            dataType: VARCHAR(16)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: UNIQUE_NUMBER_BUDGET
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87938
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57034
-              stepCounter: "167"
-            dataType: NUMBER(17,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REQUIRED_BUDGET_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87939
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57035
-              stepCounter: "167"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OTB_CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87940
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57036
-              stepCounter: "167"
-            dataType: NUMBER(17,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RESERVED_BUDGET_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87941
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57037
-              stepCounter: "167"
-            dataType: NUMBER(17,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SPECIAL_RELEASE_BUDGET_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87942
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57038
-              stepCounter: "167"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OTB_REASON_PROFILE_SPECIAL_RELEASE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87943
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57039
-              stepCounter: "167"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BUDGET_TYPE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87944
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57040
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OTB_CHECK_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87945
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57041
-              stepCounter: "167"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REASON
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87946
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57042
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TYPE_OTB_CHECK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87947
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57043
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OTB_RELEVANT_CONTRACT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87948
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57044
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDICATOR_LEVEL_CONTRACTS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87949
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57045
-              stepCounter: "167"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DISTRIB_USING_TARGET_VALUE_OR_ITEM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87950
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57046
-              stepCounter: "167"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87952
-                    stepCounter: "226"
-                transform: ""
-          - columnReference:
-              columnCounter: 57047
-              stepCounter: "167"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87953
-                    stepCounter: "226"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: EKKO
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'EKKO') }} "EKKO"
-                WHERE "EKKO"."MANDT" in ({{ parameters.fltrMandt }})
-            name: PURCHASING_DOCUMENT_HEADER
-            noLinkRefs: []
-      name: PURCHASING_DOCUMENT_HEADER
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "167"
+fileVersion: 1
+id: "167"
+name: PURCHASING_DOCUMENT_HEADER
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56909"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87815"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56910"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87814"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56911"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87816"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56912"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87817"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56913"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87818"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56914"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CONTROL_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87819"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56915"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DELETION_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87820"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56916"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: STATUS_PURCHASING_DOCUMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87821"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56917"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87822"
+                stepCounter: "226"
+            transform: case when "EKKO"."AEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."AEDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56918"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87823"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56919"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: ITEM_NUMBER_INTERVAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87824"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56920"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: LAST_ITEM_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87825"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56921"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87826"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56922"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87827"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56923"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PAYMENT_TERMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87828"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56924"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        hashDetails: null
+        name: PAYMENT_IN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87829"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56925"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        hashDetails: null
+        name: ZBD2T
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87830"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56926"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        hashDetails: null
+        name: ZBD3T
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87831"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56927"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(5,3)
+        description: ""
+        hashDetails: null
+        name: CASH_DISCOUNT_PERCENTAGE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87832"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56928"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(5,3)
+        description: ""
+        hashDetails: null
+        name: CASH_DISCOUNT_PERCENTAGE_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87833"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56929"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87834"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56930"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87835"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56931"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87836"
+                stepCounter: "226"
+            transform: case when "EKKO"."WAERS" in ('DEM','FRF') then 'EUR' else "EKKO"."WAERS" end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56932"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(9,5)
+        description: ""
+        hashDetails: null
+        name: EXCHANGE_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87837"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56933"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: EXCHANGE_RATE_FIXED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87838"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56934"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87839"
+                stepCounter: "226"
+            transform: case when "EKKO"."BEDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BEDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56935"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: START_VALIDITY_PERIOD_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87840"
+                stepCounter: "226"
+            transform: case when "EKKO"."KDATB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATB") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56936"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: END_VALIDITY_PERIOD_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87841"
+                stepCounter: "226"
+            transform: case when "EKKO"."KDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."KDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56937"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CLOSING_APPLICATIONS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87842"
+                stepCounter: "226"
+            transform: case when "EKKO"."BWBDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BWBDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56938"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: QUOTATION_DEADLINE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87843"
+                stepCounter: "226"
+            transform: case when "EKKO"."ANGDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."ANGDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56939"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: BINDING_PERIOD_QUOTATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87844"
+                stepCounter: "226"
+            transform: case when "EKKO"."BNDDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."BNDDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56940"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: WARRANTY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87845"
+                stepCounter: "226"
+            transform: case when "EKKO"."GWLDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."GWLDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56941"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: BID_INVITATION_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87846"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56942"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: QUOTATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87847"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56943"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: QUOTATION_SUBMISSION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87848"
+                stepCounter: "226"
+            transform: case when "EKKO"."IHRAN" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."IHRAN") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56944"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        hashDetails: null
+        name: YOUR_REFERENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87849"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56945"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: SALESPERSON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87850"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56946"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        hashDetails: null
+        name: VENDORS_TELEPHONE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87851"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56947"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: SUPPLYING_VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87852"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56948"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87853"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56949"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: OUTLINE_AGREEMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87854"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56950"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: FIELD_NOT_USED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87855"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56951"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: COMPLETE_DELIVERY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87856"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56952"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: INDICATOR_GOODS_RECEIPT_MESSAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87857"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56953"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: SUPPLYING_PLANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87858"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56954"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: FIELD_NOT_USED_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87859"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56955"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: INCOTERMS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87860"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56956"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(28)
+        description: ""
+        hashDetails: null
+        name: INCOTERMS_PART_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87861"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56957"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        hashDetails: null
+        name: TARGET_HEADER_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87862"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56958"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: COLLECTIVE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87863"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56959"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_CONDITION_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87864"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56960"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: PROCEDURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87865"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56961"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: UPDATE_GROUP_STATS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87866"
+                stepCounter: "226"
+            transform: case when "EKKO"."STAFO" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."STAFO") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56962"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: DIFFERENT_INVOICING_PARTY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87867"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56963"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: NUMBER_FOREIGN_TRADE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87868"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56964"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        hashDetails: null
+        name: OUR_REFERENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87869"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56965"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: LOGICAL_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87870"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56966"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: SUBITEM_INTERVAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87871"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56967"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TIME_DEP_CONDITIONS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87872"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56968"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: RELEASE_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87873"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56969"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: RELEASE_STRATEGY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87874"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56970"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: RELEASE_INDICATOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87875"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56971"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(8)
+        description: ""
+        hashDetails: null
+        name: RELEASE_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87876"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56972"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: SUBJECT_TO_RELEASE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87877"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56973"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: COUNTRY_TAX_RETURN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87878"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56974"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: REL_DOCUMENTATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87879"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56975"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: ADDRESS_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87880"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56976"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: COUNTRY_SALES_TAX_ID_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87881"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56977"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        hashDetails: null
+        name: VAT_REGISTRATION_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87882"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56978"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: REASON_CANCELLATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87883"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56979"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_NUMBER_ADDITIONAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87884"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56980"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CORR_MISC_PROVIS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87885"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56981"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ORDER_NOT_YET_COMPLETE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87886"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56982"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: PURCH_DOC_PROC_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87887"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56983"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        hashDetails: null
+        name: TOTAL_AT_TIME_RELEASE_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87888"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56984"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(8)
+        description: ""
+        hashDetails: null
+        name: VERSION_NUMBER_IN_PURCHASING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87889"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56985"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: SCMPROC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87890"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56986"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: GOODS_RECEIPT_REASON_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87891"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56987"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CATEGORY_INCOMPLETENESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87892"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56988"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: RETENTION_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87893"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56989"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(5,2)
+        description: ""
+        hashDetails: null
+        name: RETENTION_IN_PERCENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87894"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56990"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: DOWN_PAYMENT_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87895"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56991"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(5,2)
+        description: ""
+        hashDetails: null
+        name: DOWN_PAYMENT_PERCENTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87896"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56992"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(11,2)
+        description: ""
+        hashDetails: null
+        name: DOWN_PAYMENT_AMOUNT_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87897"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56993"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: DUE_DOWN_PAYMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87898"
+                stepCounter: "226"
+            transform: case when "EKKO"."DPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."DPDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56994"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PROCESS_IDENTIFICATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87899"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56995"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PART_CONTRACT_HIERARCHY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87900"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56996"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: THRESHOLD_VALUE_EXCHANGE_RATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87901"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56997"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(40)
+        description: ""
+        hashDetails: null
+        name: LEGAL_CONTRACT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87902"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56998"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(40)
+        description: ""
+        hashDetails: null
+        name: CONTRACT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87903"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "56999"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: RELEASE_CONTRACT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87904"
+                stepCounter: "226"
+            transform: case when "EKKO"."RELEASE_DATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."RELEASE_DATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57000"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: SHIPPING_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87905"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57001"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: HANDOVER_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87906"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57002"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: SHIPPING_CONDITIONS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87907"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57003"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: INCOTERMS_VERSION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87908"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57004"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(70)
+        description: ""
+        hashDetails: null
+        name: INCOTERMS_LOCATION_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87909"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57005"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(70)
+        description: ""
+        hashDetails: null
+        name: INCOTERMS_LOCATION_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87910"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57006"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(32)
+        description: ""
+        hashDetails: null
+        name: INTERNAL_KEY_FORCE_ELEMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87911"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57007"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: INTERNAL_VERSION_COUNTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87912"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57008"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: RELOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87913"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57009"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: RELOCATION_STEP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87914"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57010"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: SOURCE_LOGSYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87915"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57011"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: TRANSACTION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87916"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57012"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: ITEM_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87917"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57013"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: LAST_VAS_ITEM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87918"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57014"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: OS_STRATEGY_SPECIFIC_FIELDS_CHANGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87919"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57015"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: INTEREST_CALCULATION_INDICATOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87920"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57016"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: SNAPSHOT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87921"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57017"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87922"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57018"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: SAME_DELIVERY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87923"
+                stepCounter: "226"
+            transform: case when "EKKO"."EQ_EINDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."EQ_EINDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57019"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: SAME_PLANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87924"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57020"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: FIRM_DEAL_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87925"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57021"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_PURCH_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87926"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57022"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_PLANTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87927"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57023"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_CONTRACTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87928"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57024"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_ITEM_CATEGORIES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87929"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57025"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_FIXED_DATE_PURCHASES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87930"
+                stepCounter: "226"
+            transform: case when "EKKO"."FIXPO_ALLOW" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."FIXPO_ALLOW") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57026"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CONSIDER_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87931"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57027"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_ALLOC_TABLE_RELEVANCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87932"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57028"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_DLVY_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87933"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57029"
+          stepCounter: "167"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: TAKE_ACCOUNT_DELIVERY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87934"
+                stepCounter: "226"
+            transform: case when "EKKO"."EINDT_ALLOW" in ('00000000', ' ') THEN NULL ELSE TO_DATE("EKKO"."EINDT_ALLOW") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57030"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: INCLUDE_VENDOR_SUBRANGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87935"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57031"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: OTB_CHECK_LEVEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87936"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57032"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: OTB_CONDITION_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87937"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57033"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        hashDetails: null
+        name: UNIQUE_NUMBER_BUDGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87938"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57034"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(17,2)
+        description: ""
+        hashDetails: null
+        name: REQUIRED_BUDGET_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87939"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57035"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: OTB_CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87940"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57036"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(17,2)
+        description: ""
+        hashDetails: null
+        name: RESERVED_BUDGET_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87941"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57037"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(17,2)
+        description: ""
+        hashDetails: null
+        name: SPECIAL_RELEASE_BUDGET_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87942"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57038"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: OTB_REASON_PROFILE_SPECIAL_RELEASE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87943"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57039"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: BUDGET_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87944"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57040"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: OTB_CHECK_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87945"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57041"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: REASON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87946"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57042"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TYPE_OTB_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87947"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57043"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: OTB_RELEVANT_CONTRACT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87948"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57044"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: INDICATOR_LEVEL_CONTRACTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87949"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57045"
+          stepCounter: "167"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DISTRIB_USING_TARGET_VALUE_OR_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87950"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57046"
+          stepCounter: "167"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87952"
+                stepCounter: "226"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57047"
+          stepCounter: "167"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87953"
+                stepCounter: "226"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: EKKO
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'EKKO') }} "EKKO"
+            WHERE "EKKO"."MANDT" in ({{ parameters.fltrMandt }})
+        name: PURCHASING_DOCUMENT_HEADER
+        noLinkRefs: []
+  name: PURCHASING_DOCUMENT_HEADER
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

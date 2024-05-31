@@ -1,124 +1,125 @@
-steps:
-  T025T-273:
-    operation:
-      database: ""
-      dataset: ""
-      deployEnabled: true
-      description: ""
-      locationID: ""
-      locationName: RAW_NEW
-      metadata:
-        columns:
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91536
-              stepCounter: 273
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: BKLAS
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91537
-              stepCounter: 273
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: MANDT
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91538
-              stepCounter: 273
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: SPRAS
-            nullable: false
-            primaryKey: true
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91539
-              stepCounter: 273
-            config: {}
-            dataType: VARCHAR(256)
-            defaultValue: ""
-            description: ""
-            name: BKBEZ
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91540
-              stepCounter: 273
-            config: {}
-            dataType: NUMBER(38,0)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_ROWID
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91541
-              stepCounter: 273
-            config: {}
-            dataType: BOOLEAN
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_DELETED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 91542
-              stepCounter: 273
-            config: {}
-            dataType: TIMESTAMP_TZ(9)
-            defaultValue: ""
-            description: ""
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            primaryKey: false
-            uniqueKey: false
-        join:
-          joinCondition: FROM {{ ref('RAW_NEW', 'T025T') }}
-      name: T025T
-      schema: ""
-      sqlType: Source
-      table: T025T
-      type: sourceInput
-    stepCounter: "273"
+fileVersion: 1
+id: "273"
+name: T025T
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: RAW_NEW
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91536"
+          stepCounter: "273"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: BKLAS
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91537"
+          stepCounter: "273"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: MANDT
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91538"
+          stepCounter: "273"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: SPRAS
+        nullable: false
+        primaryKey: true
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91539"
+          stepCounter: "273"
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: BKBEZ
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91540"
+          stepCounter: "273"
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_ROWID
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91541"
+          stepCounter: "273"
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: "91542"
+          stepCounter: "273"
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('RAW_NEW', 'T025T') }}
+  name: T025T
+  schema: ""
+  sqlType: Source
+  table: T025T
+  type: sourceInput
+  version: 1
+type: Node

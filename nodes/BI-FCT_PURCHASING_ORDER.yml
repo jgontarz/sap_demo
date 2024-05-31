@@ -1,521 +1,553 @@
-steps:
-  FCT_PURCHASING_ORDER-d37c699a-7eb3-47ac-80dc-e0087adb42aa:
-    operation:
-      config:
-        postSQL: ""
-        preSQL: ""
-        testsEnabled: true
-      database: ""
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationName: BI
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 79dead88-bb38-47ae-aa08-a05fe2da11b9
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_DELIVER_LATE_DAYS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82589
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 9b29cc6f-050f-4d7f-8a6d-997b8b0ad32e
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82590
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 1011b2d6-b7d0-4d8d-9042-8f47031f8d36
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CANCEL_PURCHASE_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82591
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 3b323f29-21dc-4f7d-aef6-614974bf7694
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: char(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83213
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 6c152a12-bfbd-4d13-ae5a-411385eb728a
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82600
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: f7374918-f8ee-46f7-bd8c-f3ecf3205c11
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_ORGANIZATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82608
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 161db982-5e8e-4e1e-930f-a145c6d6e28f
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82609
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: c911f736-42fd-4d83-9437-590aaccc86be
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82610
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 10e77ccc-788a-4116-a101-c0a29e411081
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER(9,5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_OPEN_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82611
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 17373f4a-217c-41e9-a9b4-96695d120505
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82613
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: d65c9d60-cea9-409b-af91-781de40d682f
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            isBusinessKey: true
-            name: PURCHASING_DOCUMENT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82729
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: de987e42-9ae8-4559-b4e4-778b2695607b
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            isBusinessKey: true
-            name: PURCHASING_DOCUMENT_ITEM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82730
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: a9777a86-5e7b-4c4f-ae21-6c6141d34ba5
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82735
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: b8cd7646-b326-44d2-8dc4-c82aebf776e3
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82738
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 26ff2243-50d5-4e76-8e6a-cc4328330213
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82746
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 971929b1-da34-484a-bf82-f4730312262a
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER(13,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_CURRENCY_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82754
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: f5a5c9cf-655e-4215-8c96-8e080e0e2a22
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER(13,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ORDER_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83289
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 3ad04800-a10f-4cd0-a3bc-280f2146ee67
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CANCEL_PURCHASE_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82773
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: bff1f418-1c5c-48db-87f7-fc0059b5f8dd
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_OPEN_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82775
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 6e103b09-dd8e-4a36-922d-10065dbe7519
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ORDER_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 82891
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 64d4505d-2e8f-4cca-9a45-54c608765848
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_LATE_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83115
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 8367e153-9801-4139-ad50-27e3c2084c80
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DELIVERED_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83117
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: f13aca2e-301d-4a71-90ae-efc624310e1b
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_DELIVERED_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83118
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 1b643c0a-7657-4dcf-8ec6-20afb21e4378
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_LATE_LEAD_DAYS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83125
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 353134fa-e103-4d01-85ab-8f1c949509e3
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ORDER_ITEM_COUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83290
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 990c0e0a-66a2-4c3c-af86-ce620a160118
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ITEM_LATE_COUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83291
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 0e0d9dc9-d390-4885-856d-bb3acc8a1bd8
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ITEM_OPEN_COUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83292
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: dde18dd5-0da1-422b-9066-445da1e3a0e9
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ITEM_CLOSED_COUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83293
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: ac0ed6a1-bf6b-4d39-be3f-0ffba6efb58d
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_INVOICED_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83295
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 8dfd5bf2-e757-4fa2-b158-687a022c5c22
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SCHEDULED_DELIVERY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83296
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: f72fd877-689a-41b9-af4a-b42e853b1198
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: NUMBER
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_LATE_AMOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 83297
-                    stepCounter: "196"
-                transform: ""
-          - columnReference:
-              columnCounter: 0c647d05-6233-4d97-92b4-1a9c19518fed
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONTROL_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: cffb3a5e-e7e9-4f6b-a7ba-f2b7aa38e6cb
-                    stepCounter: "196"
-                transform: ""
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: d2e13148-a63a-4a33-ae8e-a731c1605d41
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            config: {}
-            dataType: TIMESTAMP
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemCreateDate: true
-            name: SYSTEM_CREATE_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 6fae3279-7d91-48aa-826b-ea73ff2f4d70
-              stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
-            config: {}
-            dataType: TIMESTAMP
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemUpdateDate: true
-            name: SYSTEM_UPDATE_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: STG
-                nodeName: STG_PURCHASING_ORDER_FCT
-            join:
-              joinCondition: FROM {{ ref('STG', 'STG_PURCHASING_ORDER_FCT') }} "STG_PURCHASING_ORDER_FCT"
-            name: FCT_PURCHASING_ORDER
-            noLinkRefs: []
-      name: FCT_PURCHASING_ORDER
-      overrideSQL: false
-      schema: ""
-      sqlType: Fact
-      type: sql
-    stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+fileVersion: 1
+id: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+name: FCT_PURCHASING_ORDER
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: BI
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79dead88-bb38-47ae-aa08-a05fe2da11b9
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_DELIVER_LATE_DAYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82589"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b29cc6f-050f-4d7f-8a6d-997b8b0ad32e
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82590"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1011b2d6-b7d0-4d8d-9042-8f47031f8d36
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: CANCEL_PURCHASE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82591"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b323f29-21dc-4f7d-aef6-614974bf7694
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: char(5)
+        description: ""
+        hashDetails: null
+        name: CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83213"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c152a12-bfbd-4d13-ae5a-411385eb728a
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82600"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7374918-f8ee-46f7-bd8c-f3ecf3205c11
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82608"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 161db982-5e8e-4e1e-930f-a145c6d6e28f
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82609"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c911f736-42fd-4d83-9437-590aaccc86be
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82610"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 10e77ccc-788a-4116-a101-c0a29e411081
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER(9,5)
+        description: ""
+        hashDetails: null
+        name: PURCHASE_OPEN_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82611"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17373f4a-217c-41e9-a9b4-96695d120505
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82613"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d65c9d60-cea9-409b-af91-781de40d682f
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        isBusinessKey: true
+        name: PURCHASING_DOCUMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82729"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de987e42-9ae8-4559-b4e4-778b2695607b
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        isBusinessKey: true
+        name: PURCHASING_DOCUMENT_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82730"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9777a86-5e7b-4c4f-ae21-6c6141d34ba5
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82735"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8cd7646-b326-44d2-8dc4-c82aebf776e3
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PLANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82738"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26ff2243-50d5-4e76-8e6a-cc4328330213
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: ORDER_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82746"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 971929b1-da34-484a-bf82-f4730312262a
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER(13,2)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_CURRENCY_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82754"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5a5c9cf-655e-4215-8c96-8e080e0e2a22
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER(13,2)
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ORDER_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83289"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ad04800-a10f-4cd0-a3bc-280f2146ee67
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: CANCEL_PURCHASE_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82773"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bff1f418-1c5c-48db-87f7-fc0059b5f8dd
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_OPEN_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82775"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e103b09-dd8e-4a36-922d-10065dbe7519
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ORDER_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "82891"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64d4505d-2e8f-4cca-9a45-54c608765848
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_LATE_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83115"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8367e153-9801-4139-ad50-27e3c2084c80
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DELIVERED_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83117"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f13aca2e-301d-4a71-90ae-efc624310e1b
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_DELIVERED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83118"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b643c0a-7657-4dcf-8ec6-20afb21e4378
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_LATE_LEAD_DAYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83125"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 353134fa-e103-4d01-85ab-8f1c949509e3
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ORDER_ITEM_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83290"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 990c0e0a-66a2-4c3c-af86-ce620a160118
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ITEM_LATE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83291"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e0d9dc9-d390-4885-856d-bb3acc8a1bd8
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ITEM_OPEN_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83292"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dde18dd5-0da1-422b-9066-445da1e3a0e9
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ITEM_CLOSED_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83293"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac0ed6a1-bf6b-4d39-be3f-0ffba6efb58d
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_INVOICED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83295"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8dfd5bf2-e757-4fa2-b158-687a022c5c22
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: SCHEDULED_DELIVERY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83296"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f72fd877-689a-41b9-af4a-b42e853b1198
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        hashDetails: null
+        name: PURCHASE_LATE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "83297"
+                stepCounter: "196"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c647d05-6233-4d97-92b4-1a9c19518fed
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CONTROL_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cffb3a5e-e7e9-4f6b-a7ba-f2b7aa38e6cb
+                stepCounter: "196"
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2e13148-a63a-4a33-ae8e-a731c1605d41
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6fae3279-7d91-48aa-826b-ea73ff2f4d70
+          stepCounter: d37c699a-7eb3-47ac-80dc-e0087adb42aa
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STG
+            nodeName: STG_PURCHASING_ORDER_FCT
+        join:
+          joinCondition: FROM {{ ref('STG', 'STG_PURCHASING_ORDER_FCT') }} "STG_PURCHASING_ORDER_FCT"
+        name: FCT_PURCHASING_ORDER
+        noLinkRefs: []
+  name: FCT_PURCHASING_ORDER
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

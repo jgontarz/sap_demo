@@ -1,124 +1,129 @@
-steps:
-  MATERIAL_PRODUCT_HIERARCHY_TXT-e915c7f9-be77-4099-8bc1-11065455d282:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 63e2cf54-caad-4cf4-bce3-c12f20337d00
-              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90052
-                    stepCounter: "253"
-                transform: ""
-          - columnReference:
-              columnCounter: 460cef03-9b9a-4d97-8c04-347237e7efb0
-              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PRODUCT_HIERARCHY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90053
-                    stepCounter: "253"
-                transform: ""
-          - columnReference:
-              columnCounter: fe8c18d5-ba60-4791-be9e-ceb279046421
-              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90054
-                    stepCounter: "253"
-                transform: ""
-          - columnReference:
-              columnCounter: 696866d1-9461-4c33-b852-041660fc0bd6
-              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DESCRIPTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90055
-                    stepCounter: "253"
-                transform: ""
-          - columnReference:
-              columnCounter: 1b1653aa-0e30-492d-a734-2e8e27198302
-              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90057
-                    stepCounter: "253"
-                transform: ""
-          - columnReference:
-              columnCounter: 8d2b6136-3937-4bad-b608-413891bba9ad
-              stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90058
-                    stepCounter: "253"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: T179T
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'T179T') }} "T179T" 
-                WHERE 1=1 
-                AND "T179T"."MANDT" in ({{ parameters.fltrMandt }})
-            name: MATERIAL_PRODUCT_HIERARCHY_TXT
-            noLinkRefs: []
-      name: MATERIAL_PRODUCT_HIERARCHY_TXT
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+fileVersion: 1
+id: e915c7f9-be77-4099-8bc1-11065455d282
+name: MATERIAL_PRODUCT_HIERARCHY_TXT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63e2cf54-caad-4cf4-bce3-c12f20337d00
+          stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90052"
+                stepCounter: "253"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 460cef03-9b9a-4d97-8c04-347237e7efb0
+          stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PRODUCT_HIERARCHY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90053"
+                stepCounter: "253"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe8c18d5-ba60-4791-be9e-ceb279046421
+          stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90054"
+                stepCounter: "253"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 696866d1-9461-4c33-b852-041660fc0bd6
+          stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90055"
+                stepCounter: "253"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b1653aa-0e30-492d-a734-2e8e27198302
+          stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90057"
+                stepCounter: "253"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d2b6136-3937-4bad-b608-413891bba9ad
+          stepCounter: e915c7f9-be77-4099-8bc1-11065455d282
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90058"
+                stepCounter: "253"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: T179T
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'T179T') }} "T179T" 
+            WHERE 1=1 
+            AND "T179T"."MANDT" in ({{ parameters.fltrMandt }})
+        name: MATERIAL_PRODUCT_HIERARCHY_TXT
+        noLinkRefs: []
+  name: MATERIAL_PRODUCT_HIERARCHY_TXT
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

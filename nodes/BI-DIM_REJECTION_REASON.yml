@@ -1,191 +1,188 @@
-steps:
-  DIM_REJECTION_REASON-429909d4-352f-4c44-80cc-8d0af1c4c6a2:
-    operation:
-      config:
-        postSQL: ""
-        preSQL: ""
-        testsEnabled: true
-      database: ""
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationName: BI
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 819cfe86-460e-45cd-8dd8-5fdb9afea99a
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: NUMBER
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSurrogateKey: true
-            name: DIM_REJECTION_REASON_KEY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: ""
-          - columnReference:
-              columnCounter: 6940c92b-e7b5-45d8-bf4e-85d7d40a4b70
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            isBusinessKey: true
-            name: REASON_REJECTION_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12163
-                    stepCounter: "69"
-                transform: ""
-          - columnReference:
-              columnCounter: 7aec0fd6-3e77-4041-9114-6f86cf2e1015
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            dataType: char(40)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            isChangeTracking: true
-            name: REJECTION_REASON_DESCRIPTION
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12171
-                    stepCounter: "69"
-                transform: ""
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 0a75c420-8dd7-4774-85d1-6adfb01b679a
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: NUMBER
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemVersion: true
-            name: SYSTEM_VERSION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: ""
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: eea9a5ba-7fca-46cd-8e57-54e215a6525b
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: VARCHAR
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemCurrentFlag: true
-            name: SYSTEM_CURRENT_FLAG
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: ""
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: a5bb0ef3-fe4f-4340-bc0a-82358ecbee76
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: TIMESTAMP
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemStartDate: true
-            name: SYSTEM_START_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 856e5269-2af7-4625-876b-5a6a0cd50af0
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: TIMESTAMP
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemEndDate: true
-            name: SYSTEM_END_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: 691107a1-4a7e-4041-9934-a739b42b685f
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: TIMESTAMP
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemCreateDate: true
-            name: SYSTEM_CREATE_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-          - acceptedValues:
-              strictMatch: true
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: d5945b1e-24b7-41df-833f-a2d51267c4d7
-              stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
-            config: {}
-            dataType: TIMESTAMP
-            defaultValue: ""
-            description: ""
-            hashColumns: []
-            isSystemUpdateDate: true
-            name: SYSTEM_UPDATE_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences: []
-                transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: STG
-                nodeName: STG_REJECTION_REASON
-            join:
-              joinCondition: FROM {{ ref('STG', 'STG_REJECTION_REASON') }} "STG_REJECTION_REASON"
-            name: DIM_REJECTION_REASON
-            noLinkRefs: []
-      name: DIM_REJECTION_REASON
-      overrideSQL: false
-      schema: ""
-      sqlType: Dimension
-      type: sql
-    stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+fileVersion: 1
+id: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+name: DIM_REJECTION_REASON
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: BI
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 819cfe86-460e-45cd-8dd8-5fdb9afea99a
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_REJECTION_REASON_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6940c92b-e7b5-45d8-bf4e-85d7d40a4b70
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        isBusinessKey: true
+        name: REASON_REJECTION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12163"
+                stepCounter: "69"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7aec0fd6-3e77-4041-9114-6f86cf2e1015
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: char(40)
+        description: ""
+        hashDetails: null
+        isChangeTracking: true
+        name: REJECTION_REASON_DESCRIPTION
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12171"
+                stepCounter: "69"
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a75c420-8dd7-4774-85d1-6adfb01b679a
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: eea9a5ba-7fca-46cd-8e57-54e215a6525b
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5bb0ef3-fe4f-4340-bc0a-82358ecbee76
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 856e5269-2af7-4625-876b-5a6a0cd50af0
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 691107a1-4a7e-4041-9934-a739b42b685f
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5945b1e-24b7-41df-833f-a2d51267c4d7
+          stepCounter: 429909d4-352f-4c44-80cc-8d0af1c4c6a2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STG
+            nodeName: STG_REJECTION_REASON
+        join:
+          joinCondition: FROM {{ ref('STG', 'STG_REJECTION_REASON') }} "STG_REJECTION_REASON"
+        name: DIM_REJECTION_REASON
+        noLinkRefs: []
+  name: DIM_REJECTION_REASON
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

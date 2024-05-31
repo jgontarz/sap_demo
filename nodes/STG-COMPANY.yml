@@ -1,1188 +1,1269 @@
-steps:
-  COMPANY-100cc3c7-b800-47a0-9575-5721229fe792:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 12e4e529-c7f1-4672-82d4-e233b6637b56
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87632
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 18e9b718-18a6-45fd-a374-e8bd6b4a33db
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87633
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 99bbddb1-39d9-4d39-93a2-c8df2bd740b6
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_TXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87634
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 8995412d-d623-46dd-9403-0b4bed199648
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87635
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 65f5e158-ce0c-4e3e-b50f-9d3c940cf8aa
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COUNTRY_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87636
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 5a6651c0-28ea-4cf6-ab4b-1a9deb7caf0f
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87637
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 3d7bfefe-7bb0-4348-86f3-99ad92aa2309
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87638
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 89503467-9691-4016-bbe0-12cb80df18f5
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHART_OF_ACCOUNTS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87639
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 243c1c72-45b6-4180-ba09-b03d9f51a585
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MAX_EXCHANGE_RATE_DEVIATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87640
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 9e042c87-4544-4520-b080-e015b5c3018c
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FISCAL_YEAR_VARIANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87641
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: edf63155-e1b4-4f61-84c7-d79e926aa515
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ALLOCATION_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87642
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: ef7489c7-9922-4473-845d-f75156005496
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87643
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: e343d322-2a26-4c0c-b550-b619873743db
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ADDRESS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87644
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: beba96d4-b19e-4fe9-8562-d98d247e2fee
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VAT_REGISTRATION_NO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87645
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 5f177d9e-7724-4278-8b66-ddf85b7f3ee2
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FINANCIAL_MANAGEMENT_AREA_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87646
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: c4553548-57c1-4cb0-8ad3-62fc0c8fff1b
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PROJECT_CASH_MGMT_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87647
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 12332485-6fe8-4de5-ad50-d59d3aaad2d9
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CSH_BDGT_MGT_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87648
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: eb195299-de59-456c-8d64-2439e556eb01
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: UPDATE_FM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87649
-                    stepCounter: "220"
-                transform: case when "T001"."XFMCA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFMCA") end
-          - columnReference:
-              columnCounter: da30e66a-75a8-447a-ae20-7d8be9f83224
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: JURISDICTION_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87650
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: fed188c8-bdc7-4445-adb0-29b3797a01d8
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FDS_CTR_ACTIVE_IN_HR_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87651
-                    stepCounter: "220"
-                transform: case when "T001"."FMHRDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."FMHRDATE") end
-          - columnReference:
-              columnCounter: 352f2bb0-d1ae-4c98-9fc0-bc284df872ed
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_VARIANT_SCREEN
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87652
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 818fdc85-a435-4588-91b5-7a61021beeab
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CASH_MANAGEMENT_COMPANY_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87653
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: fcaeadb6-edd7-4498-95ec-c436e3965a32
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CASH_MANAGEMENT_ACTIVATED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87654
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 5720bf3c-0f6b-4b83-8760-34859ea7ba44
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DEFINE_DEFAULT_VALUE_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87655
-                    stepCounter: "220"
-                transform: case when "T001"."XVALV" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XVALV") end
-          - columnReference:
-              columnCounter: 61810a2a-364f-4c84-a235-58870484ad53
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DISCOUNT_BASE_IS_NET_VALUE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87656
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: e15bb3db-51e4-4559-93e7-fb5f1f1b6b1c
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREDIT_CONTROL_AREA_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87657
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 895df56c-a70f-49a2-96f1-be5aa238f2dd
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_BASE_IS_NET_VALUE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87658
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 5662eba4-ed8e-40bf-aed0-08b5ba5c9d8d
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SAMPLE_ACCT_RULES_VAR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87659
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 7c28359b-a9f6-4a3b-97c5-95a0d93b9ed9
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BUSINESS_AREA_FIN_STATEMENTS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87660
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 7d8cc9ce-5e0c-411b-b924-9b27db74e111
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDICATOR_PROPOSE_FISCAL_YEAR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87661
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: cb2daec6-285e-4f83-9baf-f8c683fbcf86
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: POST_TRANSLATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87662
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: ee37e40a-05c7-452f-95f0-1fbd94415c00
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_IS_PRODUCTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87663
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: a83138c2-c761-4ded-b393-37fb7eac3b86
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_ACCT_PROC
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87664
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: cad2d0a2-3721-46c6-a000-b263f7075366
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDICATOR_JVA_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87665
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 7846a838-7768-4560-a4c9-1e7e94f6824b
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FINANCIAL_ASSETS_MGMT_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87666
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: ac564df4-0de1-4200-9065-918ceacdf0f0
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NO_FOREX_RATE_DIFF_WHEN_CLEARING_IN_LC
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87667
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 021e9050-4ab7-4d71-b112-38514085ad09
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: UPDATE_MM_IN_CMF
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87668
-                    stepCounter: "220"
-                transform: case when "T001"."XFDMM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFDMM") end
-          - columnReference:
-              columnCounter: 026d2860-3b58-43ba-b573-5143a7a7a091
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: UPDATE_SD_IN_CMF
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87669
-                    stepCounter: "220"
-                transform: case when "T001"."XFDSD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFDSD") end
-          - columnReference:
-              columnCounter: 650b97c2-ea33-4e17-a9c1-0d6dbc4b7ce5
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EXTERNAL_CO_CODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87670
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: cd015114-3044-4785-af2b-8dc8fd73b4ca
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORIGINAL_KEY_THE_COMPANY_CODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87671
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: d9f4ebc9-d3e8-4526-9075-799b91d9a144
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COUNTRY_CHART_ACCTS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87672
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 1e8b16a7-d9ec-4b57-90d3-d6e7c12f0f61
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_PURCHASES_TAX_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87673
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 2d9a2ada-fdc3-4b8a-a43d-e00dd1ef3e1c
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME_GLOBAL_COMPANY_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87674
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 0cad1e17-c0d5-47a7-8e46-74e114a1b570
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FIELD_STATUS_VARIANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87675
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 322039ff-63a5-4968-9c45-381e6cd20f42
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: POSTING_PERIOD_VARIANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87676
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 130100f0-bebd-483a-a02e-332691817364
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDICATOR_HEDGE_REQUEST_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87677
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: a2e61eab-17ab-43d9-805d-0327a25ac2fc
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CUR_TRANSL_TAX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87678
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: fde36023-c71c-4677-b65b-9040f213af69
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: WORKFLOW_VARIANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87679
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 1a7793d8-25e2-403e-aad5-7cd4c6417b5e
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INVENTORY_MANAGEMENT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87680
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: eaa62b9d-73e4-4210-b79a-c6e05f1cde8a
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PO_SCHEDULING_AGMT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87681
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: e3259903-79fd-48c7-b6b1-defecfc8f50f
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASE_REQUISITION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87682
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: d4ff12df-def3-4b18-b9cf-2a943d667d81
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONTRACT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87683
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 8283cb53-f089-4c14-8865-0caeba1bda01
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_DETERM_WITH_DOC_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87684
-                    stepCounter: "220"
-                transform: case when "T001"."XSTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XSTDT") end
-          - columnReference:
-              columnCounter: afa58127-29d9-4837-b249-da6baa7d83f6
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INPUT_TAX_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87685
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: e8659ae5-9b0f-4fe2-9a61-ffa7e9a036e0
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OUTPUT_TAX_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87686
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: c99d0076-ef0f-4cee-b14a-2aa793ed0c62
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: IMPORT_IN_PO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87687
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: ce764158-f889-410a-99a6-125d56616e4b
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NEGATIVE_POSTINGS_PERMITTED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87688
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: fd85ed16-f72a-41dc-bc1e-762d5a2627a0
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONTROL_AREA_CAN_BE_INPUT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87689
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: d8488425-1f36-47d9-8a77-eb56d2937d13
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EXTENDED_WITHHOLDING_TAX_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87690
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 01c72650-85ce-4e05-9b3c-4ff296326c95
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: POSTING_DATE_PARKING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87691
-                    stepCounter: "220"
-                transform: case when "T001"."PP_PDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."PP_PDATE") end
-          - columnReference:
-              columnCounter: 324e8eab-e200-4ca5-b879-6b71750c7b25
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INFLATION_METHOD_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87692
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: aa877bf6-b85a-42b3-809c-59bb29731e09
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FSTVARE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87693
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 04d7f54a-529d-4f5b-81f3-c8252ea8745b
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COPYING_CONTROL_GR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87694
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 25adad97-4b6b-4c42-b688-2c7cb29541a3
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: IMPORT_GR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87695
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: e53984b6-6180-45ad-a870-a1c738b8621f
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: METHOD_OFFSTTNG_ACCT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87696
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 14bad93c-1f5a-4374-bbb7-790af1f5bebc
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BA_VARIANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87697
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 63a02f46-c8e1-420c-9ffc-961401064387
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COST_SALES_ACCOUNTING_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87698
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 133c1e27-1f39-477c-86a7-62ffa4667b1d
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ACCTS_RECBLE_PLED_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87699
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: ee5ba24b-8491-42e1-9936-30904d54934e
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ENABLE_AMOUNT_SPLIT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87700
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 830af218-8b2a-4b16-bd62-205206648881
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SURCHARGE_CALCULATION_METHOD
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87701
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 18d9c101-6e01-47d2-920d-6a395e6cc27c
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_TYPE_PROVISIONS_TAXES_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87702
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: f7e0ad0c-fb84-449b-9e0e-10df89fd4b73
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_TYPE_JV_AMOUNT_CORRECTION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87703
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 0a03e5d3-1061-4e5a-aaf8-481e48f75978
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_TYPE_JV_TAX_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87704
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 5261cf59-81be-4442-8552-82276f20abd3
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REMITTANCE_CHALLAN_DOCUMENT_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87705
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: b1469612-3de4-436f-9075-46bf333a9bfb
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DEFERRED_TAX_RULE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87706
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 4d55ed76-6162-422f-a163-67d84a3f0055
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_REPORTING_DATE_ACTIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87707
-                    stepCounter: "220"
-                transform: case when "T001"."XVATDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XVATDATE") end
-          - columnReference:
-              columnCounter: 8bc15fd3-3321-4d0c-89e7-adfd9f898842
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MANAGE_POSTING_PERIOD_COCODE_LEDGER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87708
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 2957c0dc-ed6d-4422-bd0e-eaafca6eb725
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SHOPPING_CART
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87709
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 7c5be18f-c641-4fba-b64d-2180a721c851
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ACTIVATE_AA_DERIVATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87710
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 8770d786-8ace-4c60-8762-e59cf74e2679
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_ROWID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87711
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: fec0d937-bf18-42d4-8990-5e6342c03384
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87712
-                    stepCounter: "220"
-                transform: ""
-          - columnReference:
-              columnCounter: 97e4805a-878d-466d-98ee-c584cf5aa686
-              stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87713
-                    stepCounter: "220"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: T001
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'T001') }} "T001" 
-                WHERE 1=1 
-                AND "T001"."MANDT" in ({{ parameters.fltrMandt }})
-            name: COMPANY
-            noLinkRefs: []
-      name: COMPANY
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+fileVersion: 1
+id: 100cc3c7-b800-47a0-9575-5721229fe792
+name: COMPANY
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12e4e529-c7f1-4672-82d4-e233b6637b56
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87632"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18e9b718-18a6-45fd-a374-e8bd6b4a33db
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87633"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99bbddb1-39d9-4d39-93a2-c8df2bd740b6
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87634"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8995412d-d623-46dd-9403-0b4bed199648
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87635"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65f5e158-ce0c-4e3e-b50f-9d3c940cf8aa
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COUNTRY_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87636"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a6651c0-28ea-4cf6-ab4b-1a9deb7caf0f
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87637"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d7bfefe-7bb0-4348-86f3-99ad92aa2309
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87638"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 89503467-9691-4016-bbe0-12cb80df18f5
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CHART_OF_ACCOUNTS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87639"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 243c1c72-45b6-4180-ba09-b03d9f51a585
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MAX_EXCHANGE_RATE_DEVIATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87640"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e042c87-4544-4520-b080-e015b5c3018c
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FISCAL_YEAR_VARIANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87641"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: edf63155-e1b4-4f61-84c7-d79e926aa515
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ALLOCATION_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87642"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef7489c7-9922-4473-845d-f75156005496
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COMPANY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87643"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e343d322-2a26-4c0c-b550-b619873743db
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87644"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: beba96d4-b19e-4fe9-8562-d98d247e2fee
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: VAT_REGISTRATION_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87645"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f177d9e-7724-4278-8b66-ddf85b7f3ee2
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FINANCIAL_MANAGEMENT_AREA_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87646"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4553548-57c1-4cb0-8ad3-62fc0c8fff1b
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PROJECT_CASH_MGMT_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87647"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12332485-6fe8-4de5-ad50-d59d3aaad2d9
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CSH_BDGT_MGT_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87648"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb195299-de59-456c-8d64-2439e556eb01
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: UPDATE_FM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87649"
+                stepCounter: "220"
+            transform: case when "T001"."XFMCA" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFMCA") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da30e66a-75a8-447a-ae20-7d8be9f83224
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: JURISDICTION_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87650"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fed188c8-bdc7-4445-adb0-29b3797a01d8
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: FDS_CTR_ACTIVE_IN_HR_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87651"
+                stepCounter: "220"
+            transform: case when "T001"."FMHRDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."FMHRDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 352f2bb0-d1ae-4c98-9fc0-bc284df872ed
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_VARIANT_SCREEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87652"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 818fdc85-a435-4588-91b5-7a61021beeab
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CASH_MANAGEMENT_COMPANY_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87653"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fcaeadb6-edd7-4498-95ec-c436e3965a32
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CASH_MANAGEMENT_ACTIVATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87654"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5720bf3c-0f6b-4b83-8760-34859ea7ba44
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: DEFINE_DEFAULT_VALUE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87655"
+                stepCounter: "220"
+            transform: case when "T001"."XVALV" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XVALV") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61810a2a-364f-4c84-a235-58870484ad53
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DISCOUNT_BASE_IS_NET_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87656"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e15bb3db-51e4-4559-93e7-fb5f1f1b6b1c
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CREDIT_CONTROL_AREA_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87657"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 895df56c-a70f-49a2-96f1-be5aa238f2dd
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: TAX_BASE_IS_NET_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87658"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5662eba4-ed8e-40bf-aed0-08b5ba5c9d8d
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SAMPLE_ACCT_RULES_VAR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87659"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c28359b-a9f6-4a3b-97c5-95a0d93b9ed9
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: BUSINESS_AREA_FIN_STATEMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87660"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d8cc9ce-5e0c-411b-b924-9b27db74e111
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INDICATOR_PROPOSE_FISCAL_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87661"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb2daec6-285e-4f83-9baf-f8c683fbcf86
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: POST_TRANSLATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87662"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee37e40a-05c7-452f-95f0-1fbd94415c00
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_IS_PRODUCTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87663"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a83138c2-c761-4ded-b393-37fb7eac3b86
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PURCHASE_ACCT_PROC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87664"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cad2d0a2-3721-46c6-a000-b263f7075366
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INDICATOR_JVA_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87665"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7846a838-7768-4560-a4c9-1e7e94f6824b
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FINANCIAL_ASSETS_MGMT_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87666"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac564df4-0de1-4200-9065-918ceacdf0f0
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NO_FOREX_RATE_DIFF_WHEN_CLEARING_IN_LC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87667"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 021e9050-4ab7-4d71-b112-38514085ad09
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: UPDATE_MM_IN_CMF
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87668"
+                stepCounter: "220"
+            transform: case when "T001"."XFDMM" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFDMM") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 026d2860-3b58-43ba-b573-5143a7a7a091
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: UPDATE_SD_IN_CMF
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87669"
+                stepCounter: "220"
+            transform: case when "T001"."XFDSD" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XFDSD") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 650b97c2-ea33-4e17-a9c1-0d6dbc4b7ce5
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: EXTERNAL_CO_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87670"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd015114-3044-4785-af2b-8dc8fd73b4ca
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ORIGINAL_KEY_THE_COMPANY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87671"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9f4ebc9-d3e8-4526-9075-799b91d9a144
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COUNTRY_CHART_ACCTS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87672"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e8b16a7-d9ec-4b57-90d3-d6e7c12f0f61
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SALES_PURCHASES_TAX_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87673"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d9a2ada-fdc3-4b8a-a43d-e00dd1ef3e1c
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NAME_GLOBAL_COMPANY_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87674"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0cad1e17-c0d5-47a7-8e46-74e114a1b570
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FIELD_STATUS_VARIANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87675"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 322039ff-63a5-4968-9c45-381e6cd20f42
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: POSTING_PERIOD_VARIANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87676"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 130100f0-bebd-483a-a02e-332691817364
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INDICATOR_HEDGE_REQUEST_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87677"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2e61eab-17ab-43d9-805d-0327a25ac2fc
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CUR_TRANSL_TAX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87678"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fde36023-c71c-4677-b65b-9040f213af69
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: WORKFLOW_VARIANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87679"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a7793d8-25e2-403e-aad5-7cd4c6417b5e
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INVENTORY_MANAGEMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87680"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eaa62b9d-73e4-4210-b79a-c6e05f1cde8a
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PO_SCHEDULING_AGMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87681"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3259903-79fd-48c7-b6b1-defecfc8f50f
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: PURCHASE_REQUISITION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87682"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4ff12df-def3-4b18-b9cf-2a943d667d81
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CONTRACT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87683"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8283cb53-f089-4c14-8865-0caeba1bda01
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: TAX_DETERM_WITH_DOC_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87684"
+                stepCounter: "220"
+            transform: case when "T001"."XSTDT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XSTDT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: afa58127-29d9-4837-b249-da6baa7d83f6
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INPUT_TAX_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87685"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8659ae5-9b0f-4fe2-9a61-ffa7e9a036e0
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: OUTPUT_TAX_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87686"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c99d0076-ef0f-4cee-b14a-2aa793ed0c62
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: IMPORT_IN_PO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87687"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce764158-f889-410a-99a6-125d56616e4b
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NEGATIVE_POSTINGS_PERMITTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87688"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd85ed16-f72a-41dc-bc1e-762d5a2627a0
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CONTROL_AREA_CAN_BE_INPUT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87689"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8488425-1f36-47d9-8a77-eb56d2937d13
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: EXTENDED_WITHHOLDING_TAX_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87690"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01c72650-85ce-4e05-9b3c-4ff296326c95
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: POSTING_DATE_PARKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87691"
+                stepCounter: "220"
+            transform: case when "T001"."PP_PDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."PP_PDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 324e8eab-e200-4ca5-b879-6b71750c7b25
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: INFLATION_METHOD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87692"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa877bf6-b85a-42b3-809c-59bb29731e09
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: FSTVARE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87693"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04d7f54a-529d-4f5b-81f3-c8252ea8745b
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COPYING_CONTROL_GR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87694"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25adad97-4b6b-4c42-b688-2c7cb29541a3
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: IMPORT_GR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87695"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e53984b6-6180-45ad-a870-a1c738b8621f
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: METHOD_OFFSTTNG_ACCT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87696"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 14bad93c-1f5a-4374-bbb7-790af1f5bebc
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: BA_VARIANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87697"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63a02f46-c8e1-420c-9ffc-961401064387
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: COST_SALES_ACCOUNTING_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87698"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 133c1e27-1f39-477c-86a7-62ffa4667b1d
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ACCTS_RECBLE_PLED_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87699"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee5ba24b-8491-42e1-9936-30904d54934e
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ENABLE_AMOUNT_SPLIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87700"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 830af218-8b2a-4b16-bd62-205206648881
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SURCHARGE_CALCULATION_METHOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87701"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18d9c101-6e01-47d2-920d-6a395e6cc27c
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_TYPE_PROVISIONS_TAXES_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87702"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7e0ad0c-fb84-449b-9e0e-10df89fd4b73
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_TYPE_JV_AMOUNT_CORRECTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87703"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a03e5d3-1061-4e5a-aaf8-481e48f75978
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_TYPE_JV_TAX_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87704"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5261cf59-81be-4442-8552-82276f20abd3
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: REMITTANCE_CHALLAN_DOCUMENT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87705"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1469612-3de4-436f-9075-46bf333a9bfb
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DEFERRED_TAX_RULE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87706"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d55ed76-6162-422f-a163-67d84a3f0055
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: TAX_REPORTING_DATE_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87707"
+                stepCounter: "220"
+            transform: case when "T001"."XVATDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("T001"."XVATDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bc15fd3-3321-4d0c-89e7-adfd9f898842
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: MANAGE_POSTING_PERIOD_COCODE_LEDGER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87708"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2957c0dc-ed6d-4422-bd0e-eaafca6eb725
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SHOPPING_CART
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87709"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c5be18f-c641-4fba-b64d-2180a721c851
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: ACTIVATE_AA_DERIVATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87710"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8770d786-8ace-4c60-8762-e59cf74e2679
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_ROWID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87711"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fec0d937-bf18-42d4-8990-5e6342c03384
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87712"
+                stepCounter: "220"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97e4805a-878d-466d-98ee-c584cf5aa686
+          stepCounter: 100cc3c7-b800-47a0-9575-5721229fe792
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87713"
+                stepCounter: "220"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: T001
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'T001') }} "T001" 
+            WHERE 1=1 
+            AND "T001"."MANDT" in ({{ parameters.fltrMandt }})
+        name: COMPANY
+        noLinkRefs: []
+  name: COMPANY
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

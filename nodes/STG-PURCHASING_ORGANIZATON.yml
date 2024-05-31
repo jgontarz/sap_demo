@@ -1,249 +1,263 @@
-steps:
-  PURCHASING_ORGANIZATON-181:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 65850
-              stepCounter: "181"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_ROWID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88493
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65851
-              stepCounter: "181"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88482
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65852
-              stepCounter: "181"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_ORGANIZATION_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88481
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65853
-              stepCounter: "181"
-            dataType: VARCHAR(20)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DESCRIPTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88483
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65854
-              stepCounter: "181"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88484
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65855
-              stepCounter: "181"
-            dataType: VARCHAR(70)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TEXT_NAME_SENDER_LINE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88485
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65856
-              stepCounter: "181"
-            dataType: VARCHAR(70)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TEXT_NAME_LETTER_HEADING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88486
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65857
-              stepCounter: "181"
-            dataType: VARCHAR(70)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TEXT_NAME_FOOTER_LINES
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88487
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65858
-              stepCounter: "181"
-            dataType: VARCHAR(70)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TEXT_NAME_COMPLIMENTARY_CLOSE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88488
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65859
-              stepCounter: "181"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURORG_SCHEMA_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88489
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65860
-              stepCounter: "181"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MARKET_PRICE_SCHEMA_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88490
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65861
-              stepCounter: "181"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EFFECTIVE_PRICE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88491
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65862
-              stepCounter: "181"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COCDSUBSSTLMT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88492
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65863
-              stepCounter: "181"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88494
-                    stepCounter: "229"
-                transform: ""
-          - columnReference:
-              columnCounter: 65864
-              stepCounter: "181"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88495
-                    stepCounter: "229"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: T024E
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'T024E') }} "T024E"
-                WHERE "T024E"."MANDT" in ({{ parameters.fltrMandt }})
-            name: PURCHASING_ORGANIZATON
-            noLinkRefs: []
-      name: PURCHASING_ORGANIZATON
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "181"
+fileVersion: 1
+id: "181"
+name: PURCHASING_ORGANIZATON
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65850"
+          stepCounter: "181"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_ROWID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88493"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65851"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88482"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65852"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_ORGANIZATION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88481"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65853"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        hashDetails: null
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88483"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65854"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88484"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65855"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(70)
+        description: ""
+        hashDetails: null
+        name: TEXT_NAME_SENDER_LINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88485"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65856"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(70)
+        description: ""
+        hashDetails: null
+        name: TEXT_NAME_LETTER_HEADING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88486"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65857"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(70)
+        description: ""
+        hashDetails: null
+        name: TEXT_NAME_FOOTER_LINES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88487"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65858"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(70)
+        description: ""
+        hashDetails: null
+        name: TEXT_NAME_COMPLIMENTARY_CLOSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88488"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65859"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PURORG_SCHEMA_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88489"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65860"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: MARKET_PRICE_SCHEMA_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88490"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65861"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: EFFECTIVE_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88491"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65862"
+          stepCounter: "181"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: COCDSUBSSTLMT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88492"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65863"
+          stepCounter: "181"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88494"
+                stepCounter: "229"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "65864"
+          stepCounter: "181"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88495"
+                stepCounter: "229"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: T024E
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'T024E') }} "T024E"
+            WHERE "T024E"."MANDT" in ({{ parameters.fltrMandt }})
+        name: PURCHASING_ORGANIZATON
+        noLinkRefs: []
+  name: PURCHASING_ORGANIZATON
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

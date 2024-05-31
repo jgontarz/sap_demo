@@ -1,138 +1,144 @@
-steps:
-  CURRENCY_CODE_TXT-4cdb5de1-a8cb-4ade-bd64-2cb951f3b471:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: c2111066-8d29-4eac-a43b-8bf428d2892c
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90035
-                    stepCounter: "251"
-                transform: ""
-          - columnReference:
-              columnCounter: 96f6c752-c28c-4350-bd1d-90c7d5ceb639
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90036
-                    stepCounter: "251"
-                transform: ""
-          - columnReference:
-              columnCounter: 2479a0e0-22a8-43ef-9bfe-8e7961c1ae90
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CURRENCY_KEY_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90037
-                    stepCounter: "251"
-                transform: ""
-          - columnReference:
-              columnCounter: 6a1e5a5d-754f-4cbc-bf42-8000f85315c2
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LONG_TEXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90038
-                    stepCounter: "251"
-                transform: ""
-          - columnReference:
-              columnCounter: b12c4fd5-8fdf-4289-9cd8-2edb154c4a57
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SHORT_TEXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90039
-                    stepCounter: "251"
-                transform: ""
-          - columnReference:
-              columnCounter: 192bf35c-5419-4106-83b0-b686442212f2
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90041
-                    stepCounter: "251"
-                transform: ""
-          - columnReference:
-              columnCounter: 775f2bef-bfc9-4bb8-92e7-63b92f54d6b2
-              stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 90042
-                    stepCounter: "251"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: TCURT
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'TCURT') }} "TCURT" 
-                WHERE 1=1 
-                AND "TCURT"."MANDT" in ({{ parameters.fltrMandt }})
-            name: CURRENCY_CODE_TXT
-            noLinkRefs: []
-      name: CURRENCY_CODE_TXT
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+fileVersion: 1
+id: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+name: CURRENCY_CODE_TXT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2111066-8d29-4eac-a43b-8bf428d2892c
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90035"
+                stepCounter: "251"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96f6c752-c28c-4350-bd1d-90c7d5ceb639
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90036"
+                stepCounter: "251"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2479a0e0-22a8-43ef-9bfe-8e7961c1ae90
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CURRENCY_KEY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90037"
+                stepCounter: "251"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a1e5a5d-754f-4cbc-bf42-8000f85315c2
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: LONG_TEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90038"
+                stepCounter: "251"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b12c4fd5-8fdf-4289-9cd8-2edb154c4a57
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: SHORT_TEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90039"
+                stepCounter: "251"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 192bf35c-5419-4106-83b0-b686442212f2
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90041"
+                stepCounter: "251"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 775f2bef-bfc9-4bb8-92e7-63b92f54d6b2
+          stepCounter: 4cdb5de1-a8cb-4ade-bd64-2cb951f3b471
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "90042"
+                stepCounter: "251"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: TCURT
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'TCURT') }} "TCURT" 
+            WHERE 1=1 
+            AND "TCURT"."MANDT" in ({{ parameters.fltrMandt }})
+        name: CURRENCY_CODE_TXT
+        noLinkRefs: []
+  name: CURRENCY_CODE_TXT
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

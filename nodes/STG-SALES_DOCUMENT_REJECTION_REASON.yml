@@ -1,185 +1,194 @@
-steps:
-  SALES_DOCUMENT_REJECTION_REASON-371e1915-bb7a-4730-b5ed-1b84fa7e3baf:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: d007a104-134d-4c17-8630-54aff85e2f33
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REASON_REJECTION_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89218
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: 5e09660f-0a6d-45ed-a815-d5e8f53fb9b7
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89219
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: da06a609-6579-4f1b-ac01-1526fc027f62
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NOT_RELEVANT_PRINTING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89220
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: 167e90ef-fdf3-4539-8792-47ddef16fc9e
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RESOURCE_ITEM_OPEN_AGAIN
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89221
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: ae65a0fa-e996-4287-b6a2-daab6e0d0bf7
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NOT_RELEVANT_BILLING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89222
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: 2ce5de2a-cbf4-40b0-8d31-b4fb47979c83
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STATISTICAL_VALUES
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89223
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: 71d17d85-5e9e-4baf-b0cc-6ded753c770d
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEVANT_PARTIAL_QUANTITY_REJECTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89224
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: 871e8810-a382-486c-819a-5b6ee0844b17
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: BOOLEAN
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89226
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: f20f265f-0e8f-4429-94ad-77a5e6ca93df
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: TIMESTAMP_TZ(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89227
-                    stepCounter: "236"
-                transform: ""
-          - columnReference:
-              columnCounter: 465b8a70-9a0a-4b85-af04-b38729f9e01c
-              stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
-            dataType: VARCHAR(256)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DESCRIPTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 89231
-                    stepCounter: "237"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: TVAGT
-              - locationName: RAW_NEW
-                nodeName: TVAG
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'TVAG') }} "TVAG"
-                INNER JOIN {{ ref('RAW_NEW', 'TVAGT') }} "TVAGT"
-                ON "TVAG"."MANDT" = "TVAGT"."MANDT"
-                AND "TVAG"."ABGRU" = "TVAGT"."ABGRU"
-                AND "TVAGT"."SPRAS" = {{ parameters.fltrSpras }}
-                WHERE "TVAG"."MANDT" in ({{ parameters.fltrMandt }})
-            name: SALES_DOCUMENT_REJECTION_REASON
-            noLinkRefs: []
-      name: SALES_DOCUMENT_REJECTION_REASON
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+fileVersion: 1
+id: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+name: SALES_DOCUMENT_REJECTION_REASON
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d007a104-134d-4c17-8630-54aff85e2f33
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: REASON_REJECTION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89218"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e09660f-0a6d-45ed-a815-d5e8f53fb9b7
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89219"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da06a609-6579-4f1b-ac01-1526fc027f62
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NOT_RELEVANT_PRINTING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89220"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 167e90ef-fdf3-4539-8792-47ddef16fc9e
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: RESOURCE_ITEM_OPEN_AGAIN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89221"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae65a0fa-e996-4287-b6a2-daab6e0d0bf7
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: NOT_RELEVANT_BILLING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89222"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ce5de2a-cbf4-40b0-8d31-b4fb47979c83
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: STATISTICAL_VALUES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89223"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71d17d85-5e9e-4baf-b0cc-6ded753c770d
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: RELEVANT_PARTIAL_QUANTITY_REJECTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89224"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 871e8810-a382-486c-819a-5b6ee0844b17
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89226"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f20f265f-0e8f-4429-94ad-77a5e6ca93df
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89227"
+                stepCounter: "236"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 465b8a70-9a0a-4b85-af04-b38729f9e01c
+          stepCounter: 371e1915-bb7a-4730-b5ed-1b84fa7e3baf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        hashDetails: null
+        name: DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "89231"
+                stepCounter: "237"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: TVAGT
+          - locationName: RAW_NEW
+            nodeName: TVAG
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'TVAG') }} "TVAG"
+            INNER JOIN {{ ref('RAW_NEW', 'TVAGT') }} "TVAGT"
+            ON "TVAG"."MANDT" = "TVAGT"."MANDT"
+            AND "TVAG"."ABGRU" = "TVAGT"."ABGRU"
+            AND "TVAGT"."SPRAS" = {{ parameters.fltrSpras }}
+            WHERE "TVAG"."MANDT" in ({{ parameters.fltrMandt }})
+        name: SALES_DOCUMENT_REJECTION_REASON
+        noLinkRefs: []
+  name: SALES_DOCUMENT_REJECTION_REASON
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

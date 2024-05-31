@@ -1,248 +1,260 @@
-steps:
-  STG_PURCHASING_ORDER_DIM-193:
-    operation:
-      config:
-        insertStrategy: UNION
-        postSQL: ""
-        preSQL: ""
-        selectDistinct: false
-        testsEnabled: true
-        truncateBefore: true
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: BI
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 82156
-              stepCounter: "193"
-            dataType: VARCHAR(60)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_CATEGORY_TXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 50398
-                    stepCounter: "165"
-                transform: ""
-          - columnReference:
-              columnCounter: 82158
-              stepCounter: "193"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56910
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82159
-              stepCounter: "193"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56911
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82160
-              stepCounter: "193"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_CATEGORY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56912
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82161
-              stepCounter: "193"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56913
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82164
-              stepCounter: "193"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56916
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82171
-              stepCounter: "193"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PAYMENT_TERMS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56923
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82178
-              stepCounter: "193"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56930
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82226
-              stepCounter: "193"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REASON_CANCELLATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56978
-                    stepCounter: "167"
-                transform: ""
-          - columnReference:
-              columnCounter: 82298
-              stepCounter: "193"
-            dataType: VARCHAR(60)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_STATUS_TXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 57972
-                    stepCounter: "172"
-                transform: ""
-          - columnReference:
-              columnCounter: 82357
-              stepCounter: "193"
-            dataType: VARCHAR(20)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOC_TYPE_DESCRIPT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 65632
-                    stepCounter: "175"
-                transform: ""
-          - columnReference:
-              columnCounter: 82361
-              stepCounter: "193"
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DESCRIPTION_PURCHASING_GROUP
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 65826
-                    stepCounter: "179"
-                transform: ""
-          - acceptedValues:
-              strictMatch: false
-              values: []
-            appliedColumnTests: {}
-            columnReference:
-              columnCounter: cffb3a5e-e7e9-4f6b-a7ba-f2b7aa38e6cb
-              stepCounter: "193"
-            dataType: VARCHAR(1)
-            description: ""
-            name: CONTROL_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 56914
-                    stepCounter: "167"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              PURCHASING_DOCUMENT_CATEGORY: "165"
-              PURCHASING_DOCUMENT_HEADER: "167"
-              PURCHASING_DOCUMENT_STATUS: "172"
-              PURCHASING_DOCUMENT_TYPE: "175"
-              PURCHASING_GROUP: "179"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_HEADER
-              - locationName: STG
-                nodeName: PURCHASING_GROUP
-              - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_STATUS
-              - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_CATEGORY
-              - locationName: STG
-                nodeName: PURCHASING_DOCUMENT_TYPE
-            join:
-              joinCondition: |
-                FROM {{ ref('STG', 'PURCHASING_DOCUMENT_HEADER') }} "PURCHASING_DOCUMENT_HEADER"
-                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_CATEGORY') }} "PURCHASING_DOCUMENT_CATEGORY"
-                ON "PURCHASING_DOCUMENT_HEADER".PURCHASING_DOCUMENT_CATEGORY = "PURCHASING_DOCUMENT_CATEGORY"."PURCHASING_DOCUMENT_CATEGORY_ID"
-                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_TYPE') }} "PURCHASING_DOCUMENT_TYPE"
-                ON "PURCHASING_DOCUMENT_HEADER"."PURCHASING_DOCUMENT_TYPE_ID" = "PURCHASING_DOCUMENT_TYPE"."PURCHASING_DOCUMENT_TYPE_ID"
-                AND "PURCHASING_DOCUMENT_TYPE"."PURCH_DOC_CATEGORY_ID"  = "PURCHASING_DOCUMENT_HEADER"."PURCHASING_DOCUMENT_CATEGORY"
-                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_GROUP') }} "PURCHASING_GROUP"
-                ON "PURCHASING_GROUP"."PURCHASING_GROUP_ID"  = "PURCHASING_DOCUMENT_HEADER"."PURCHASING_GROUP_ID"
-                LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_STATUS') }} "PURCHASING_DOCUMENT_STATUS"
-                ON  "PURCHASING_DOCUMENT_STATUS".PURCHASING_DOCUMENT_STATUS_ID  = "PURCHASING_DOCUMENT_HEADER"."STATUS_PURCHASING_DOCUMENT"
-            name: STG_PURCHASING_ORDER_DIM
-            noLinkRefs: []
-      name: STG_PURCHASING_ORDER_DIM
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "193"
+fileVersion: 1
+id: "193"
+name: STG_PURCHASING_ORDER_DIM
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: BI
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82156"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(60)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_CATEGORY_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "50398"
+                stepCounter: "165"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82158"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56910"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82159"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: COMPANY_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56911"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82160"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56912"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82161"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56913"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82164"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56916"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82171"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PAYMENT_TERMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56923"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82178"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56930"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82226"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: REASON_CANCELLATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56978"
+                stepCounter: "167"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82298"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(60)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_STATUS_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "57972"
+                stepCounter: "172"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82357"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        hashDetails: null
+        name: DOC_TYPE_DESCRIPT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "65632"
+                stepCounter: "175"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "82361"
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: DESCRIPTION_PURCHASING_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "65826"
+                stepCounter: "179"
+            transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cffb3a5e-e7e9-4f6b-a7ba-f2b7aa38e6cb
+          stepCounter: "193"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CONTROL_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "56914"
+                stepCounter: "167"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PURCHASING_DOCUMENT_CATEGORY: "165"
+          PURCHASING_DOCUMENT_HEADER: "167"
+          PURCHASING_DOCUMENT_STATUS: "172"
+          PURCHASING_DOCUMENT_TYPE: "175"
+          PURCHASING_GROUP: "179"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STG
+            nodeName: PURCHASING_DOCUMENT_HEADER
+          - locationName: STG
+            nodeName: PURCHASING_GROUP
+          - locationName: STG
+            nodeName: PURCHASING_DOCUMENT_STATUS
+          - locationName: STG
+            nodeName: PURCHASING_DOCUMENT_CATEGORY
+          - locationName: STG
+            nodeName: PURCHASING_DOCUMENT_TYPE
+        join:
+          joinCondition: |
+            FROM {{ ref('STG', 'PURCHASING_DOCUMENT_HEADER') }} "PURCHASING_DOCUMENT_HEADER"
+            LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_CATEGORY') }} "PURCHASING_DOCUMENT_CATEGORY"
+            ON "PURCHASING_DOCUMENT_HEADER".PURCHASING_DOCUMENT_CATEGORY = "PURCHASING_DOCUMENT_CATEGORY"."PURCHASING_DOCUMENT_CATEGORY_ID"
+            LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_TYPE') }} "PURCHASING_DOCUMENT_TYPE"
+            ON "PURCHASING_DOCUMENT_HEADER"."PURCHASING_DOCUMENT_TYPE_ID" = "PURCHASING_DOCUMENT_TYPE"."PURCHASING_DOCUMENT_TYPE_ID"
+            AND "PURCHASING_DOCUMENT_TYPE"."PURCH_DOC_CATEGORY_ID"  = "PURCHASING_DOCUMENT_HEADER"."PURCHASING_DOCUMENT_CATEGORY"
+            LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_GROUP') }} "PURCHASING_GROUP"
+            ON "PURCHASING_GROUP"."PURCHASING_GROUP_ID"  = "PURCHASING_DOCUMENT_HEADER"."PURCHASING_GROUP_ID"
+            LEFT OUTER JOIN {{ ref('STG', 'PURCHASING_DOCUMENT_STATUS') }} "PURCHASING_DOCUMENT_STATUS"
+            ON  "PURCHASING_DOCUMENT_STATUS".PURCHASING_DOCUMENT_STATUS_ID  = "PURCHASING_DOCUMENT_HEADER"."STATUS_PURCHASING_DOCUMENT"
+        name: STG_PURCHASING_ORDER_DIM
+        noLinkRefs: []
+  name: STG_PURCHASING_ORDER_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

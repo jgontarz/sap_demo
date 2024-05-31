@@ -1,88 +1,90 @@
-steps:
-  DEBITCREDIT_INDICATOR-162:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 37645
-              stepCounter: "162"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DEBITCREDIT_INDICATOR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87796
-                    stepCounter: "224"
-                transform: ""
-          - columnReference:
-              columnCounter: 37649
-              stepCounter: "162"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87801
-                    stepCounter: "224"
-                transform: ""
-          - columnReference:
-              columnCounter: 37656
-              stepCounter: "162"
-            dataType: VARCHAR(60)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DEBITCREDIT_INDICATOR_TXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87807
-                    stepCounter: "225"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: DD07L
-              - locationName: RAW_NEW
-                nodeName: DD07T
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
-                LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
-                ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
-                and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
-                and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}
-                where "DD07L"."DOMNAME" = 'SHKZG'
-                and "DD07L"."AS4VERS" = {{ parameters.fltrAsVers }}
-            name: DEBITCREDIT_INDICATOR
-            noLinkRefs: []
-      name: DEBITCREDIT_INDICATOR
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "162"
+fileVersion: 1
+id: "162"
+name: DEBITCREDIT_INDICATOR
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "37645"
+          stepCounter: "162"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: DEBITCREDIT_INDICATOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87796"
+                stepCounter: "224"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "37649"
+          stepCounter: "162"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87801"
+                stepCounter: "224"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "37656"
+          stepCounter: "162"
+        config: {}
+        dataType: VARCHAR(60)
+        description: ""
+        hashDetails: null
+        name: DEBITCREDIT_INDICATOR_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87807"
+                stepCounter: "225"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: DD07L
+          - locationName: RAW_NEW
+            nodeName: DD07T
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
+            LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
+            ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
+            and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
+            and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}
+            where "DD07L"."DOMNAME" = 'SHKZG'
+            and "DD07L"."AS4VERS" = {{ parameters.fltrAsVers }}
+        name: DEBITCREDIT_INDICATOR
+        noLinkRefs: []
+  name: DEBITCREDIT_INDICATOR
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

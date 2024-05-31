@@ -1,88 +1,90 @@
-steps:
-  PURCHASING_DOCUMENT_STATUS-172:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 57970
-              stepCounter: "172"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_STATUS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87796
-                    stepCounter: "224"
-                transform: ""
-          - columnReference:
-              columnCounter: 57971
-              stepCounter: "172"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87801
-                    stepCounter: "224"
-                transform: ""
-          - columnReference:
-              columnCounter: 57972
-              stepCounter: "172"
-            dataType: VARCHAR(60)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PURCHASING_DOCUMENT_STATUS_TXT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 87807
-                    stepCounter: "225"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: DD07L
-              - locationName: RAW_NEW
-                nodeName: DD07T
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
-                LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
-                ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
-                and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
-                and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}
-                where "DD07L"."DOMNAME" = 'ESTAK'
-                and "DD07L"."AS4VERS" = {{ parameters.fltrAsVers }}
-            name: PURCHASING_DOCUMENT_STATUS
-            noLinkRefs: []
-      name: PURCHASING_DOCUMENT_STATUS
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "172"
+fileVersion: 1
+id: "172"
+name: PURCHASING_DOCUMENT_STATUS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57970"
+          stepCounter: "172"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87796"
+                stepCounter: "224"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57971"
+          stepCounter: "172"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87801"
+                stepCounter: "224"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "57972"
+          stepCounter: "172"
+        config: {}
+        dataType: VARCHAR(60)
+        description: ""
+        hashDetails: null
+        name: PURCHASING_DOCUMENT_STATUS_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "87807"
+                stepCounter: "225"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: DD07L
+          - locationName: RAW_NEW
+            nodeName: DD07T
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'DD07L') }} "DD07L"
+            LEFT JOIN {{ ref('RAW_NEW', 'DD07T') }} "DD07T"
+            ON "DD07L"."DOMNAME" = "DD07T"."DOMNAME"
+            and "DD07L"."AS4VERS" = "DD07T"."AS4VERS"
+            and "DD07T"."DDLANGUAGE" = {{ parameters.fltrSpras }}
+            where "DD07L"."DOMNAME" = 'ESTAK'
+            and "DD07L"."AS4VERS" = {{ parameters.fltrAsVers }}
+        name: PURCHASING_DOCUMENT_STATUS
+        noLinkRefs: []
+  name: PURCHASING_DOCUMENT_STATUS
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

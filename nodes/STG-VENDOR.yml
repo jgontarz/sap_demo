@@ -1,2027 +1,2168 @@
-steps:
-  VENDOR-188:
-    operation:
-      config:
-        insertStrategy: UNION
-        selectDistinct: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: view
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 81832
-              stepCounter: "188"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_ROWID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88478
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81833
-              stepCounter: "188"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CLIENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88340
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81834
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDOR_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88339
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81835
-              stepCounter: "188"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COUNTRY_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88341
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81836
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88342
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81837
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME_2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88343
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81838
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME_3
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88344
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81839
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME_4
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88345
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81840
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88346
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81841
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DISTRICT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88347
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81842
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PO_BOX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88348
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81843
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: P_O_BOX_POSTAL_CODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88349
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81844
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: POSTAL_CODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88350
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81845
-              stepCounter: "188"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REGION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88351
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81846
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SORT_FIELD
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88352
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81847
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STREET_AND_HOUSE_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88353
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81848
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ADDRESS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88354
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81849
-              stepCounter: "188"
-            dataType: VARCHAR(25)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SEARCH_TERM_MATCHCODE_SEARCH
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88355
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81850
-              stepCounter: "188"
-            dataType: VARCHAR(25)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MCOD2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88356
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81851
-              stepCounter: "188"
-            dataType: VARCHAR(25)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MCOD3
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88357
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81852
-              stepCounter: "188"
-            dataType: VARCHAR(15)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TITLE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88358
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81853
-              stepCounter: "188"
-            dataType: VARCHAR(25)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TRAIN_STATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88359
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81854
-              stepCounter: "188"
-            dataType: VARCHAR(7)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INT_LOCATION_NO_1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88360
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81855
-              stepCounter: "188"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INT_LOCATION_NO_2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88361
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81856
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: AUTHORIZATION_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88362
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81857
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDUSTRY_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88363
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81858
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CHECK_DIGIT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88364
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81859
-              stepCounter: "188"
-            dataType: VARCHAR(14)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMMUNICATION_LINE_NO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88365
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81860
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DME_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88366
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81861
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INSTRUCTION_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88367
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81862
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_ON_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88368
-                    stepCounter: "228"
-                transform: case when "LFA1"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."ERDAT") end
-          - columnReference:
-              columnCounter: 81863
-              stepCounter: "188"
-            dataType: VARCHAR(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88369
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81864
-              stepCounter: "188"
-            dataType: VARCHAR(11)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: POR_SUBSCRIBER_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88370
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81865
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: GROUP_KEY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88371
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81866
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDOR_ACCOUNT_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88372
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81867
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CUSTOMER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88373
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81868
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ALTERNATIVE_PAYEE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88374
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81869
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CENTRAL_DELETION_FLAG
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88375
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81870
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CENTRAL_POSTING_BLOCK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88376
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81871
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CENTRAL_PURCHASING_BLOCK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88377
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81872
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LANGUAGE_KEY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88378
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81873
-              stepCounter: "188"
-            dataType: VARCHAR(16)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88379
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81874
-              stepCounter: "188"
-            dataType: VARCHAR(11)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88380
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81875
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_EQUALIZATN_TAX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88381
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81876
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LIABLE_VAT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88382
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81877
-              stepCounter: "188"
-            dataType: VARCHAR(15)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TELEBOX_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88383
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81878
-              stepCounter: "188"
-            dataType: VARCHAR(16)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TELEPHONE_1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88384
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81879
-              stepCounter: "188"
-            dataType: VARCHAR(16)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SECOND_TELEPHONE_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88385
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81880
-              stepCounter: "188"
-            dataType: VARCHAR(31)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FAX_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88386
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81881
-              stepCounter: "188"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TELETEX_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88387
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81882
-              stepCounter: "188"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TELEX_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88388
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81883
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ONE_TIME_ACCOUNT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88389
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81884
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PAYEE_IN_DOCUMENT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88390
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81885
-              stepCounter: "188"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TRADING_PARTNER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88391
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81886
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FISCAL_ADDRESS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88392
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81887
-              stepCounter: "188"
-            dataType: VARCHAR(20)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VAT_REGISTRATION_NO
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88393
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81888
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NATURAL_PERSON
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88394
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81889
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FUNCTION_THAT_WILL_BE_BLOCKED_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88395
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81890
-              stepCounter: "188"
-            dataType: VARCHAR(25)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLACE_BIRTH
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88396
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81891
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BIRTH_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88397
-                    stepCounter: "228"
-                transform: case when "LFA1"."GBDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."GBDAT") end
-          - columnReference:
-              columnCounter: 81892
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SEX
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88398
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81893
-              stepCounter: "188"
-            dataType: VARCHAR(11)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREDIT_INFORMATION_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88399
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81894
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LAST_REVIEW_EXTERNAL_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88400
-                    stepCounter: "228"
-                transform: case when "LFA1"."REVDB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."REVDB") end
-          - columnReference:
-              columnCounter: 81895
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDORS_QM_SYSTEM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88401
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81896
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REFERENCE_ACCT_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88402
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81897
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PO_BOX_CITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88403
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81898
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANT_OWN_OR_EXTERNAL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88404
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81899
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDOR_SUB_RANGE_RELEVANT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88405
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81900
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDICATOR_PLANT_LEVEL_RELEVANT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88406
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81901
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FACTORY_CALENDAR_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88407
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81902
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STATUS_TRANSFER_TO_NEXT_RELEASE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88408
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81903
-              stepCounter: "188"
-            dataType: VARCHAR(15)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_JURISDICTION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88409
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81904
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PAYMENT_BLOCK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88410
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81905
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STANDARD_CARRIER_ACCESS_CODE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88411
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81906
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FORWARDING_AGENT_FREIGHT_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88412
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81907
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TRANSPORTATION_ZONE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88413
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81908
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ACCTS_ALT_PAYEE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88414
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81909
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SERVICE_AGENT_PROCEDURE_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88415
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81910
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88416
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81911
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88417
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81912
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REGISTERED_SOCIAL_INSURANCE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88418
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81913
-              stepCounter: "188"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SOCIAL_INS_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88419
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81914
-              stepCounter: "188"
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_3
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88420
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81915
-              stepCounter: "188"
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_4
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88421
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81916
-              stepCounter: "188"
-            dataType: VARCHAR(60)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_5
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88422
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81917
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_SPLIT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88423
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81918
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_BASE_IN_PERCENTAGE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88424
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81919
-              stepCounter: "188"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PROFESSION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88425
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81920
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STAT_GRP_SERVICE_AGENT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88426
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81921
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: EXT_MANUFACTURER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88427
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81922
-              stepCounter: "188"
-            dataType: VARCHAR(132)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: UNIFORM_RESOURCE_LOCATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88428
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81923
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NAME_REPRESENTATIVE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88429
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81924
-              stepCounter: "188"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TYPE_BUSINESS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88430
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81925
-              stepCounter: "188"
-            dataType: VARCHAR(30)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TYPE_INDUSTRY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88431
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81926
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONFIRMATION_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88432
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81927
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CONFIRMATION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88433
-                    stepCounter: "228"
-                transform: case when "LFA1"."UPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."UPDAT") end
-          - columnReference:
-              columnCounter: 81928
-              stepCounter: "188"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LAST_CHANGE_CONFIRMATION_TIM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88434
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81929
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CENTRAL_DEL_BLOCK
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88435
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81930
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VALIDITY_CERTIFICATION_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88436
-                    stepCounter: "228"
-                transform: case when "LFA1"."QSSYSDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."QSSYSDAT") end
-          - columnReference:
-              columnCounter: 81931
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RELEVANT_POD
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88437
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81932
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_OFFICE_RESPONSIBLE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88438
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81933
-              stepCounter: "188"
-            dataType: VARCHAR(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_NUMBER_AT_RESPONSIBLE_TAX_AUTHORITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88439
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81934
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CARRIER_CONFIRMATION_IS_EXPECTED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88440
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81935
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MICRO_COMPANY_INDICATOR
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88441
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81936
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TERMS_LIABILITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88442
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81937
-              stepCounter: "188"
-            dataType: VARCHAR(25)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CRC_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88443
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81938
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BUSINESS_PURPOSE_COMPLETED_FLAG
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88444
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81939
-              stepCounter: "188"
-            dataType: VARCHAR(11)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RG_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88445
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81940
-              stepCounter: "188"
-            dataType: VARCHAR(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ISSUED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88446
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81941
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88447
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81942
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RG_ISSUING_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88448
-                    stepCounter: "228"
-                transform: case when "LFA1"."RGDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RGDATE") end
-          - columnReference:
-              columnCounter: 81943
-              stepCounter: "188"
-            dataType: VARCHAR(11)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RIC_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88449
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81944
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FOREIGN_NATIONAL_REGISTRATION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88450
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81945
-              stepCounter: "188"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RNE_ISSUING_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88451
-                    stepCounter: "228"
-                transform: case when "LFA1"."RNEDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RNEDATE") end
-          - columnReference:
-              columnCounter: 81946
-              stepCounter: "188"
-            dataType: VARCHAR(7)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CNAE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88452
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81947
-              stepCounter: "188"
-            dataType: VARCHAR(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: LEGAL_NATURE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88453
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81948
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CRT_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88454
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81949
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ICMS_TAXPAYER_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88455
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81950
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: INDUSTRY_MAIN_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88456
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81951
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TAX_DECLARATION_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88457
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81952
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: COMPANY_SIZE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88458
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81953
-              stepCounter: "188"
-            dataType: VARCHAR(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DECLARATION_REGIMEN_PIS_COFINS_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88459
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81954
-              stepCounter: "188"
-            dataType: NUMBER(15,2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CAPITAL_AMOUNT_VAL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88460
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81955
-              stepCounter: "188"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88461
-                    stepCounter: "228"
-                transform: case when "LFA1"."J_SC_CURRENCY" in ('DEM','FRF') then 'EUR' else "LFA1"."J_SC_CURRENCY" end
-          - columnReference:
-              columnCounter: 81956
-              stepCounter: "188"
-            dataType: VARCHAR(8)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: AGENCY_LOCATION_CODE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88462
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81957
-              stepCounter: "188"
-            dataType: VARCHAR(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PAYMENT_OFFICE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88463
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81958
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: VENDOR_IS_PPA_RELEVANT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88464
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81959
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PROCESSOR_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88465
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81960
-              stepCounter: "188"
-            dataType: VARCHAR(20)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SLAPREPR_PROCED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88466
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81961
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PSON1
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88467
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81962
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PSON2
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88468
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81963
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PSON3
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88469
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81964
-              stepCounter: "188"
-            dataType: VARCHAR(35)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: FIRST_NAME
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88470
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81965
-              stepCounter: "188"
-            dataType: VARCHAR(20)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PSOTL
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88471
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81966
-              stepCounter: "188"
-            dataType: VARCHAR(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HOUSE_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88472
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81967
-              stepCounter: "188"
-            dataType: VARCHAR(28)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STREET
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88473
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81968
-              stepCounter: "188"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: TRANSPORTATION_CHAIN_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88474
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81969
-              stepCounter: "188"
-            dataType: NUMBER(3,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: STAGING_TIME_IN_DAYS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88475
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81970
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SCHEDULING_PROCEDURE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88476
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81971
-              stepCounter: "188"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CD_RELEVANT_COLLECTIVE_NUMBERING
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88477
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81972
-              stepCounter: "188"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_DELETED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88479
-                    stepCounter: "228"
-                transform: ""
-          - columnReference:
-              columnCounter: 81973
-              stepCounter: "188"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: _FIVETRAN_SYNCED
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 88480
-                    stepCounter: "228"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases: {}
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: RAW_NEW
-                nodeName: LFA1
-            join:
-              joinCondition: |-
-                FROM {{ ref('RAW_NEW', 'LFA1') }} "LFA1"
-                WHERE "LFA1"."MANDT" in ({{ parameters.fltrMandt }})
-            name: VENDOR
-            noLinkRefs: []
-      name: VENDOR
-      overrideSQL: false
-      schema: ""
-      sqlType: "1"
-      type: sql
-    stepCounter: "188"
+fileVersion: 1
+id: "188"
+name: VENDOR
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STG
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81832"
+          stepCounter: "188"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_ROWID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88478"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81833"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: CLIENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88340"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81834"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: VENDOR_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88339"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81835"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: COUNTRY_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88341"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81836"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88342"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81837"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: NAME_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88343"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81838"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: NAME_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88344"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81839"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: NAME_4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88345"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81840"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88346"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81841"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: DISTRICT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88347"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81842"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PO_BOX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88348"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81843"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: P_O_BOX_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88349"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81844"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88350"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81845"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: REGION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88351"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81846"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: SORT_FIELD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88352"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81847"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: STREET_AND_HOUSE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88353"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81848"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88354"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81849"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        hashDetails: null
+        name: SEARCH_TERM_MATCHCODE_SEARCH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88355"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81850"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        hashDetails: null
+        name: MCOD2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88356"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81851"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        hashDetails: null
+        name: MCOD3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88357"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81852"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        hashDetails: null
+        name: TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88358"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81853"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        hashDetails: null
+        name: TRAIN_STATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88359"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81854"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(7)
+        description: ""
+        hashDetails: null
+        name: INT_LOCATION_NO_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88360"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81855"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: INT_LOCATION_NO_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88361"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81856"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: AUTHORIZATION_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88362"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81857"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: INDUSTRY_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88363"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81858"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CHECK_DIGIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88364"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81859"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(14)
+        description: ""
+        hashDetails: null
+        name: COMMUNICATION_LINE_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88365"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81860"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DME_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88366"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81861"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: INSTRUCTION_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88367"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81862"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_ON_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88368"
+                stepCounter: "228"
+            transform: case when "LFA1"."ERDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."ERDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81863"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88369"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81864"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(11)
+        description: ""
+        hashDetails: null
+        name: POR_SUBSCRIBER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88370"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81865"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: GROUP_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88371"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81866"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: VENDOR_ACCOUNT_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88372"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81867"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88373"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81868"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: ALTERNATIVE_PAYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88374"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81869"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CENTRAL_DELETION_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88375"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81870"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CENTRAL_POSTING_BLOCK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88376"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81871"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CENTRAL_PURCHASING_BLOCK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88377"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81872"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: LANGUAGE_KEY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88378"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81873"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88379"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81874"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(11)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88380"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81875"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: SALES_EQUALIZATN_TAX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88381"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81876"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: LIABLE_VAT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88382"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81877"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        hashDetails: null
+        name: TELEBOX_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88383"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81878"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        hashDetails: null
+        name: TELEPHONE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88384"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81879"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        hashDetails: null
+        name: SECOND_TELEPHONE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88385"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81880"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(31)
+        description: ""
+        hashDetails: null
+        name: FAX_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88386"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81881"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: TELETEX_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88387"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81882"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: TELEX_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88388"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81883"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: ONE_TIME_ACCOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88389"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81884"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PAYEE_IN_DOCUMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88390"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81885"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: TRADING_PARTNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88391"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81886"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: FISCAL_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88392"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81887"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        hashDetails: null
+        name: VAT_REGISTRATION_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88393"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81888"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: NATURAL_PERSON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88394"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81889"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: FUNCTION_THAT_WILL_BE_BLOCKED_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88395"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81890"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        hashDetails: null
+        name: PLACE_BIRTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88396"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81891"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: BIRTH_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88397"
+                stepCounter: "228"
+            transform: case when "LFA1"."GBDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."GBDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81892"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: SEX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88398"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81893"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(11)
+        description: ""
+        hashDetails: null
+        name: CREDIT_INFORMATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88399"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81894"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: LAST_REVIEW_EXTERNAL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88400"
+                stepCounter: "228"
+            transform: case when "LFA1"."REVDB" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."REVDB") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81895"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: VENDORS_QM_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88401"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81896"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: REFERENCE_ACCT_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88402"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81897"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: PO_BOX_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88403"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81898"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: PLANT_OWN_OR_EXTERNAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88404"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81899"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: VENDOR_SUB_RANGE_RELEVANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88405"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81900"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: INDICATOR_PLANT_LEVEL_RELEVANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88406"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81901"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: FACTORY_CALENDAR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88407"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81902"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: STATUS_TRANSFER_TO_NEXT_RELEASE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88408"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81903"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        hashDetails: null
+        name: TAX_JURISDICTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88409"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81904"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: PAYMENT_BLOCK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88410"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81905"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: STANDARD_CARRIER_ACCESS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88411"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81906"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: FORWARDING_AGENT_FREIGHT_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88412"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81907"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: TRANSPORTATION_ZONE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88413"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81908"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: ACCTS_ALT_PAYEE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88414"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81909"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: SERVICE_AGENT_PROCEDURE_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88415"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81910"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: TAX_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88416"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81911"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88417"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81912"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: REGISTERED_SOCIAL_INSURANCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88418"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81913"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: SOCIAL_INS_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88419"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81914"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88420"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81915"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88421"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81916"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(60)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88422"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81917"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAX_SPLIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88423"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81918"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TAX_BASE_IN_PERCENTAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88424"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81919"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: PROFESSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88425"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81920"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: STAT_GRP_SERVICE_AGENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88426"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81921"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: EXT_MANUFACTURER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88427"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81922"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(132)
+        description: ""
+        hashDetails: null
+        name: UNIFORM_RESOURCE_LOCATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88428"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81923"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: NAME_REPRESENTATIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88429"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81924"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: TYPE_BUSINESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88430"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81925"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        hashDetails: null
+        name: TYPE_INDUSTRY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88431"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81926"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CONFIRMATION_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88432"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81927"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CONFIRMATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88433"
+                stepCounter: "228"
+            transform: case when "LFA1"."UPDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."UPDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81928"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: LAST_CHANGE_CONFIRMATION_TIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88434"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81929"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CENTRAL_DEL_BLOCK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88435"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81930"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: VALIDITY_CERTIFICATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88436"
+                stepCounter: "228"
+            transform: case when "LFA1"."QSSYSDAT" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."QSSYSDAT") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81931"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: RELEVANT_POD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88437"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81932"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: TAX_OFFICE_RESPONSIBLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88438"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81933"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        hashDetails: null
+        name: TAX_NUMBER_AT_RESPONSIBLE_TAX_AUTHORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88439"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81934"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CARRIER_CONFIRMATION_IS_EXPECTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88440"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81935"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: MICRO_COMPANY_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88441"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81936"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: TERMS_LIABILITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88442"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81937"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        hashDetails: null
+        name: CRC_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88443"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81938"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: BUSINESS_PURPOSE_COMPLETED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88444"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81939"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(11)
+        description: ""
+        hashDetails: null
+        name: RG_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88445"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81940"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        hashDetails: null
+        name: ISSUED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88446"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81941"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88447"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81942"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: RG_ISSUING_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88448"
+                stepCounter: "228"
+            transform: case when "LFA1"."RGDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RGDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81943"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(11)
+        description: ""
+        hashDetails: null
+        name: RIC_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88449"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81944"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: FOREIGN_NATIONAL_REGISTRATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88450"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81945"
+          stepCounter: "188"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: RNE_ISSUING_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88451"
+                stepCounter: "228"
+            transform: case when "LFA1"."RNEDATE" in ('00000000', ' ') THEN NULL ELSE TO_DATE("LFA1"."RNEDATE") end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81946"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(7)
+        description: ""
+        hashDetails: null
+        name: CNAE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88452"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81947"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        hashDetails: null
+        name: LEGAL_NATURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88453"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81948"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CRT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88454"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81949"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: ICMS_TAXPAYER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88455"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81950"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: INDUSTRY_MAIN_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88456"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81951"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: TAX_DECLARATION_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88457"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81952"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: COMPANY_SIZE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88458"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81953"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(2)
+        description: ""
+        hashDetails: null
+        name: DECLARATION_REGIMEN_PIS_COFINS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88459"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81954"
+          stepCounter: "188"
+        config: {}
+        dataType: NUMBER(15,2)
+        description: ""
+        hashDetails: null
+        name: CAPITAL_AMOUNT_VAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88460"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81955"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88461"
+                stepCounter: "228"
+            transform: case when "LFA1"."J_SC_CURRENCY" in ('DEM','FRF') then 'EUR' else "LFA1"."J_SC_CURRENCY" end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81956"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(8)
+        description: ""
+        hashDetails: null
+        name: AGENCY_LOCATION_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88462"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81957"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(5)
+        description: ""
+        hashDetails: null
+        name: PAYMENT_OFFICE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88463"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81958"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: VENDOR_IS_PPA_RELEVANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88464"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81959"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: PROCESSOR_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88465"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81960"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        hashDetails: null
+        name: SLAPREPR_PROCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88466"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81961"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: PSON1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88467"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81962"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: PSON2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88468"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81963"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: PSON3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88469"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81964"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(35)
+        description: ""
+        hashDetails: null
+        name: FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88470"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81965"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        hashDetails: null
+        name: PSOTL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88471"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81966"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(6)
+        description: ""
+        hashDetails: null
+        name: HOUSE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88472"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81967"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(28)
+        description: ""
+        hashDetails: null
+        name: STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88473"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81968"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: TRANSPORTATION_CHAIN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88474"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81969"
+          stepCounter: "188"
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        hashDetails: null
+        name: STAGING_TIME_IN_DAYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88475"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81970"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: SCHEDULING_PROCEDURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88476"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81971"
+          stepCounter: "188"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: CD_RELEVANT_COLLECTIVE_NUMBERING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88477"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81972"
+          stepCounter: "188"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_DELETED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88479"
+                stepCounter: "228"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "81973"
+          stepCounter: "188"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: _FIVETRAN_SYNCED
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "88480"
+                stepCounter: "228"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: RAW_NEW
+            nodeName: LFA1
+        join:
+          joinCondition: |-
+            FROM {{ ref('RAW_NEW', 'LFA1') }} "LFA1"
+            WHERE "LFA1"."MANDT" in ({{ parameters.fltrMandt }})
+        name: VENDOR
+        noLinkRefs: []
+  name: VENDOR
+  overrideSQL: false
+  schema: ""
+  sqlType: "1"
+  type: sql
+  version: 1
+type: Node

@@ -1,154 +1,164 @@
-steps:
-  STG_MATERIAL-66:
-    operation:
-      config:
-        insertStrategy: UNION
-        postSQL: ""
-        preSQL: ""
-        selectDistinct: false
-        testsEnabled: true
-        truncateBefore: true
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: General Material Data
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: STG
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 11834
-              stepCounter: "66"
-            dataType: char(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_NUMBER
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: b9162eca-826b-4ff0-afb9-a000262eea7b
-                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-                transform: LTRIM("MATERIAL"."MATERIAL_ID",'0')
-          - columnReference:
-              columnCounter: 12076
-              stepCounter: "66"
-            dataType: char(40)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_DESCRIPTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 3ce4cf09-a56e-4dcc-bbc3-b6c98ff5bb71
-                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-                transform: ""
-          - columnReference:
-              columnCounter: 12077
-              stepCounter: "66"
-            dataType: VARCHAR(4)
-            description: ""
-            name: MATERIAL_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 94029c59-3126-4af8-b4af-8e9a48da259d
-                    stepCounter: e60374d2-0371-4d1d-bf90-0cb33306682e
-                transform: ""
-          - columnReference:
-              columnCounter: 12078
-              stepCounter: "66"
-            dataType: VARCHAR(25)
-            description: ""
-            name: MATERIAL_TYPE_DESCRIPTION
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 21c0d976-5aaf-47f3-958a-086ed92f9967
-                    stepCounter: e60374d2-0371-4d1d-bf90-0cb33306682e
-                transform: ""
-          - columnReference:
-              columnCounter: 11846
-              stepCounter: "66"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BASE_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 8babb788-a28e-4111-8eca-9396218d8da9
-                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-                transform: ""
-          - columnReference:
-              columnCounter: 11862
-              stepCounter: "66"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: GROSS_WEIGHT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 6d445789-e17e-4ecc-89b2-b6671fc8cab9
-                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-                transform: ""
-          - columnReference:
-              columnCounter: 11864
-              stepCounter: "66"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: WEIGHT_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 7c5e0540-d59e-46c3-9fea-c23e1fdbafce
-                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-                transform: ""
-          - columnReference:
-              columnCounter: 12079
-              stepCounter: "66"
-            dataType: char(18)
-            description: ""
-            name: MATERIAL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: b9162eca-826b-4ff0-afb9-a000262eea7b
-                    stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              MATERIAL: "200000047"
-              MATERIAL_TYPE: "65"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: STG
-                nodeName: MATERIAL_TYPE
-              - locationName: STG
-                nodeName: MATERIAL
-            join:
-              joinCondition: |-
-                FROM {{ ref('STG', 'MATERIAL') }} "MATERIAL"
-                LEFT OUTER JOIN {{ ref('STG', 'MATERIAL_TYPE') }} "MATERIAL_TYPE"
-                ON "MATERIAL"."MATERIAL_TYPE_ID" = "MATERIAL_TYPE"."MATERIAL_TYPE_ID"
-            name: STG_MATERIAL
-            noLinkRefs: []
-      name: STG_MATERIAL
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "66"
+fileVersion: 1
+id: "66"
+name: STG_MATERIAL
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: General Material Data
+  isMultisource: false
+  locationName: STG
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "11834"
+          stepCounter: "66"
+        config: {}
+        dataType: char(18)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9162eca-826b-4ff0-afb9-a000262eea7b
+                stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
+            transform: LTRIM("MATERIAL"."MATERIAL_ID",'0')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12076"
+          stepCounter: "66"
+        config: {}
+        dataType: char(40)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ce4cf09-a56e-4dcc-bbc3-b6c98ff5bb71
+                stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12077"
+          stepCounter: "66"
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: MATERIAL_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94029c59-3126-4af8-b4af-8e9a48da259d
+                stepCounter: e60374d2-0371-4d1d-bf90-0cb33306682e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12078"
+          stepCounter: "66"
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: MATERIAL_TYPE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 21c0d976-5aaf-47f3-958a-086ed92f9967
+                stepCounter: e60374d2-0371-4d1d-bf90-0cb33306682e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "11846"
+          stepCounter: "66"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: BASE_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8babb788-a28e-4111-8eca-9396218d8da9
+                stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "11862"
+          stepCounter: "66"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: GROSS_WEIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d445789-e17e-4ecc-89b2-b6671fc8cab9
+                stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "11864"
+          stepCounter: "66"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: WEIGHT_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c5e0540-d59e-46c3-9fea-c23e1fdbafce
+                stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "12079"
+          stepCounter: "66"
+        config: {}
+        dataType: char(18)
+        description: ""
+        name: MATERIAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9162eca-826b-4ff0-afb9-a000262eea7b
+                stepCounter: e88d1955-f895-45ff-b2fa-fcc23d49f4ad
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          MATERIAL: "200000047"
+          MATERIAL_TYPE: "65"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STG
+            nodeName: MATERIAL_TYPE
+          - locationName: STG
+            nodeName: MATERIAL
+        join:
+          joinCondition: |-
+            FROM {{ ref('STG', 'MATERIAL') }} "MATERIAL"
+            LEFT OUTER JOIN {{ ref('STG', 'MATERIAL_TYPE') }} "MATERIAL_TYPE"
+            ON "MATERIAL"."MATERIAL_TYPE_ID" = "MATERIAL_TYPE"."MATERIAL_TYPE_ID"
+        name: STG_MATERIAL
+        noLinkRefs: []
+  name: STG_MATERIAL
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

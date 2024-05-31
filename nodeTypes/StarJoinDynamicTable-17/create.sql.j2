@@ -1,0 +1,53 @@
+{# Dynamic Table Specific Options #}
+{%- if config.matType == 'dynamic table' %} 
+{% set dtLagNumber = config.lagSpecification.get('items') | map(attribute='lagNumber') | first %}
+{% set dtLagType = config.lagSpecification.get('items') | map(attribute='lagType') | first %}
+
+	{{ stage('Try Drop View') }}
+        {{dropTblView()}}
+
+
+
+    {{ stage('Create Dynamic Table') }}
+
+        CREATE OR REPLACE DYNAMIC TABLE {{ ref_no_link(node.location.name, node.name) }}
+            LAG = '{{ dtLagNumber }} {{ dtLagType }}'
+            WAREHOUSE = {{config.whName}}
+            {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+
+        AS
+        SELECT 
+        {%- for col in sources[0].columns -%}
+            {{ get_source_transform(col) }} AS "{{ col.name -}}"
+            {%- if not loop.last -%}, {%- endif %}
+        {% endfor %}
+    {{- sources[0].join }}
+
+{% endif %}
+
+{%- if config.matType == 'view' %} 
+
+	{{ stage('Try Drop Dynamic Table') }}
+        {{dropTblView()}}
+
+
+    {{ stage('Create Stage View') }}
+
+    CREATE OR REPLACE VIEW {{ ref_no_link(node.location.name, node.name) }}
+    (
+        {% for col in columns -%}
+            "{{ col.name }}"
+            {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+            {%- if not loop.last -%}, {%- endif %}
+        {% endfor -%}
+    )
+    {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+    AS
+        SELECT 
+        {%- for col in sources[0].columns -%}
+            {{ get_source_transform(col) }} AS "{{ col.name -}}"
+            {%- if not loop.last -%}, {%- endif %}
+        {% endfor %}
+    {{- sources[0].join }}
+
+{% endif %}
