@@ -1,99 +1,99 @@
-steps:
-  INC_KEYS_Sales_Order-121:
-    operation:
-      config:
-        insertStrategy: UNION
-        postSQL: ""
-        preSQL: ""
-        testsEnabled: true
-        truncateBefore: true
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: true
-      locationID: ""
-      locationName: TST
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 23698
-              stepCounter: "121"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 20826
-                    stepCounter: "110"
-                transform: ""
-              - columnReferences:
-                  - columnCounter: 22294
-                    stepCounter: "115"
-                transform: ""
-              - columnReferences:
-                  - columnCounter: 25973
-                    stepCounter: "131"
-                transform: ""
-              - columnReferences:
-                  - columnCounter: 21605
-                    stepCounter: "114"
-                transform: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              STG_INC_Sales_Document_Header_Status: "110"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: TST
-                nodeName: STG_INC_Sales_Document_Header_Status
-            join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }} "STG_INC_Sales_Document_Header_Status"
-            name: STG_INC_Sales_Document_Header_Status
-            noLinkRefs: []
-          - aliases:
-              STG_INC_Sales_Document_Header: "115"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: TST
-                nodeName: STG_INC_Sales_Document_Header
-            join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header') }} "STG_INC_Sales_Document_Header"
-            name: STG_INC_Sales_Document_Header
-            noLinkRefs: []
-          - aliases:
-              STG_INC_Sales_Document_Item: "131"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: TST
-                nodeName: STG_INC_Sales_Document_Item
-            join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item') }} "STG_INC_Sales_Document_Item"
-            name: STG_INC_Sales_Document_Item
-            noLinkRefs: []
-          - aliases:
-              STG_INC_Sales_Document_Item_Status: "114"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: TST
-                nodeName: STG_INC_Sales_Document_Item_Status
-            join:
-              joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item_Status') }} "STG_INC_Sales_Document_Item_Status"
-            name: STG_INC_Sales_Document_Item_Status
-            noLinkRefs: []
-      name: INC_KEYS_Sales_Order
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "121"
+fileVersion: 1
+id: "121"
+name: INC_KEYS_Sales_Order
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TST
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "23698"
+          stepCounter: "121"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "20826"
+                stepCounter: "110"
+            transform: ""
+          - columnReferences:
+              - columnCounter: "22294"
+                stepCounter: "115"
+            transform: ""
+          - columnReferences:
+              - columnCounter: "25973"
+                stepCounter: "131"
+            transform: ""
+          - columnReferences:
+              - columnCounter: "21605"
+                stepCounter: "114"
+            transform: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_INC_Sales_Document_Header_Status: "110"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TST
+            nodeName: STG_INC_Sales_Document_Header_Status
+        join:
+          joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header_Status') }} "STG_INC_Sales_Document_Header_Status"
+        name: STG_INC_Sales_Document_Header_Status
+        noLinkRefs: []
+      - aliases:
+          STG_INC_Sales_Document_Header: "115"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TST
+            nodeName: STG_INC_Sales_Document_Header
+        join:
+          joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Header') }} "STG_INC_Sales_Document_Header"
+        name: STG_INC_Sales_Document_Header
+        noLinkRefs: []
+      - aliases:
+          STG_INC_Sales_Document_Item: "131"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TST
+            nodeName: STG_INC_Sales_Document_Item
+        join:
+          joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item') }} "STG_INC_Sales_Document_Item"
+        name: STG_INC_Sales_Document_Item
+        noLinkRefs: []
+      - aliases:
+          STG_INC_Sales_Document_Item_Status: "114"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TST
+            nodeName: STG_INC_Sales_Document_Item_Status
+        join:
+          joinCondition: FROM {{ ref('TST', 'STG_INC_Sales_Document_Item_Status') }} "STG_INC_Sales_Document_Item_Status"
+        name: STG_INC_Sales_Document_Item_Status
+        noLinkRefs: []
+  name: INC_KEYS_Sales_Order
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,16 @@
+fileVersion: 1
+id: "1"
+macroString: |-
+  {%- macro get_source_transform1(col) -%}
+      {% if col.hashDetails %}
+          {{ hash(col.hashDetails.columns, algo=col.hashDetails.algorithm, datatype=col.dataType) }}
+      {% elif col.transform | trim != '' -%}
+          {{- col.transform -}}
+      {% elif col.sourceColumns[0].node and col.sourceColumns[0].node.name and col.sourceColumns[0].column and col.sourceColumns[0].column.name -%}
+          "{{- col.sourceColumns[0].node.name }}"."{{ col.sourceColumns[0].column.name -}}"
+      {%- else -%}
+          NULL
+      {% endif %}
+  {%- endmacro -%}
+name: macro
+type: Macro

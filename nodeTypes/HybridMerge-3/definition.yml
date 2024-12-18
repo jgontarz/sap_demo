@@ -1,0 +1,210 @@
+fileVersion: 1
+id: "3"
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |+
+    capitalized: Hybrid Merge
+    short: HM
+    tagColor: black
+    plural: Hybrid Merges
+
+    config:
+    - groupName: Stream Options
+      items:
+      - displayName: Append Only Stream
+        attributeName: appendOnly
+        type: toggleButton
+        default: true
+        isRequired: true
+
+      - displayName: Show Initial Rows
+        attributeName: initialRows
+        type: toggleButton
+        default: true
+        isRequired: true
+
+    - groupName: Target Loading Options
+      items:
+      - displayName: Table Key Column(s)
+        attributeName: tblKey
+        type: columnSelector
+        isRequired: true
+
+      - displayName: Row Update Timestamp Column
+        attributeName: tblChgTS
+        type: columnSelector
+        isRequired: true
+     
+    - groupName: Target Row DML Operations
+      items:
+      - displayName: Column that Identifies DML Operations
+        attributeName: dmlCol
+        type: columnSelector
+        isRequired: true
+
+      - displayName: Include Field for Update
+        attributeName: capUpdate
+        type: toggleButton
+        default: false
+        isRequired: false
+     
+      - displayName: Insert Value
+        attributeName: dmlInsert
+        type: textBox
+        default: I
+        isRequired: true
+     
+      - displayName: Update Value
+        attributeName: dmlUpdate
+        type: textBox
+        default: U
+        isRequired: true
+        enableIf: "{% if config.capUpdate == true %} true {% else %} false {% endif %}"
+     
+      - displayName: Delete Value
+        attributeName: dmlDelete
+        type: textBox
+        default: D
+        isRequired: true
+     
+    - groupName: Target Delete Options
+      items:
+      - displayName: Soft Delete
+        attributeName: deleleteOption
+        type: toggleButton
+        default: false
+        isRequired: false
+
+      - displayName: Retain Last Non-Deleted Values
+        attributeName: retainOption
+        type: toggleButton
+        default: false
+        isRequired: false
+     
+    - groupName: Target Clustering Options
+      items:
+      - displayName: Cluster Key
+        attributeName: clsKey
+        type: dropdownSelector
+        default: None
+        options:
+          - None
+          - Table Key
+          - Cluster Key from Source
+          - Primary Key from Source
+          - Row Update Timestamp
+          - Primary Key and Update Timestamp from Source
+          - Update Timestamp and Primary Key from Source
+          - Custom Cluster Columns
+          - Custom Cluster Key
+        isRequired: true
+
+      - displayName: Custom Cluster Columns
+        attributeName: clsKeyCol
+        type: columnSelector
+        isRequired: false
+        enableIf: "{% if config.clsKey == 'Custom Cluster Columns' %} true {% else %} false {% endif %}"
+     
+      - displayName: Custom Cluster Key (ex. col1, left(col2,3), coln)
+        attributeName: clsKeyCus
+        type: textBox
+        isRequired: false
+        enableIf: "{% if config.clsKey == 'Custom Cluster Key' %} true {% else %} false {% endif %}"
+     
+    - groupName: Sceduling Options
+      items:
+      - displayName: Sceduling Options
+        attributeName: schedulingMode
+        type: dropdownSelector
+        default: Warehouse Task
+        options:
+          - Warehouse Task
+          - Serverless Task
+        isRequired: true
+
+      - displayName: When Source Stream has Data Flag
+        attributeName: flagSrcStream
+        type: toggleButton
+        isRequired: true
+
+      - displayName: Select Warehouse on which to run task
+        attributeName: whName
+        type: textBox
+        default: '<WAREHOUSE_NAME>'
+        isRequired: false
+        enableIf: "{% if config.schedulingMode == 'Warehouse Task' %} true {% else %} false {% endif %}"
+
+      - displayName: Select initial serverless Warehouse size
+        attributeName: serverlessSize
+        type: dropdownSelector
+        default: 'MEDIUM'
+        options:
+          - XSMALL
+          - SMALL
+          - MEDIUM
+          - LARGE
+          - XLARGE
+          - XXLARGE
+        isRequired: false
+        enableIf: "{% if config.schedulingMode == 'Serverless Task' %} true {% else %} false {% endif %}"
+
+      - displayName: Task Schedule
+        attributeName: schedulePeriodOption
+        type: dropdownSelector
+        default: Minutes
+        options:
+          - Minutes
+          - CRON
+        isRequired: TRUE
+
+      - displayName: Enter task schedule using minutes
+        attributeName: schedulePeriod
+        type: textBox
+        default: '60'
+        isRequired: false
+        enableIf: "{% if config.schedulePeriodOption == 'Minutes' %} true {% else %} false {% endif %}"
+
+      - displayName: Enter task schedule using CRON
+        attributeName: scheduleCRON
+        type: textBox
+        default: '5 0-23 * * * America/Los_Angeles'
+        isRequired: false
+        enableIf: "{% if config.schedulePeriodOption == 'CRON' %} true {% else %} false {% endif %}"
+
+    - groupName: "Pre/Post SQL"
+      items: 
+      - displayName: Pre-SQL
+        attributeName: preSQL
+        type: textBox
+        syntax: sql
+        isRequired: false
+
+      - displayName: Post-SQL
+        attributeName: postSQL
+        type: textBox
+        syntax: sql
+        isRequired: false
+
+    systemColumns:
+    - displayName: 'HM_UPDATE_TIMESTAMP'
+      transform: ""
+      dataType: timestamp
+      placement: end
+      attributeName: hmUpdTs
+
+    - displayName: 'HM_ETL_TIMESTAMP'
+      transform: ""
+      dataType: timestamp
+      placement: end
+      attributeName: hmEtlTs
+
+    - displayName: 'HM_LAST_DML_OPERATION'
+      transform: ""
+      dataType: "{{ columns | selectattr('dmlCol', 'defined') | map(attribute='dataType') | first }}"
+      placement: end
+      attributeName: hmEtlTs
+
+name: Hybrid Merge
+type: NodeType

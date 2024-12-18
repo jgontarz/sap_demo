@@ -1,541 +1,574 @@
-steps:
-  FACT_SALESORDER-77:
-    operation:
-      config:
-        insertStrategy: UNION
-        postSQL: ""
-        preSQL: ""
-        selectDistinct: false
-        testsEnabled: true
-        truncateBefore: false
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: TST
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 13326
-              stepCounter: "77"
-            dataType: char(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_NUMBER
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 23698
-                    stepCounter: "121"
-                transform: trim("INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" , '0')
-          - columnReference:
-              columnCounter: 13197
-              stepCounter: "77"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12332
-                    stepCounter: "73"
-                transform: ""
-          - columnReference:
-              columnCounter: 13204
-              stepCounter: "77"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: OVERALL_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12339
-                    stepCounter: "73"
-                transform: ""
-          - columnReference:
-              columnCounter: 13285
-              stepCounter: "77"
-            dataType: VARCHAR(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ITEM_DELIVERY_STATUS
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12467
-                    stepCounter: "75"
-                transform: ""
-          - columnReference:
-              columnCounter: 13327
-              stepCounter: "77"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000004998
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13329
-              stepCounter: "77"
-            dataType: char(12)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: CREATED_BY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005000
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13332
-              stepCounter: "77"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DOCUMENT_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005003
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13333
-              stepCounter: "77"
-            dataType: char(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SD_DOCUMENT_CATEGORY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005004
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13335
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_TYPE_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005006
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13336
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_REASON_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005007
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13339
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DELIVERY_BLOCK_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005010
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13343
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_ORGANIZATION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005014
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13344
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DISTRIBUTION_CHANNEL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005015
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13345
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: DIVISION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005016
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13353
-              stepCounter: "77"
-            dataType: DATE
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REQUESTED_DELIVERY_DATE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005024
-                    stepCounter: "200000074"
-                transform: ""
-          - columnReference:
-              columnCounter: 13372
-              stepCounter: "77"
-            dataType: char(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 23698
-                    stepCounter: "121"
-                transform: ""
-          - columnReference:
-              columnCounter: 13487
-              stepCounter: "77"
-            dataType: char(6)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ITEM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005158
-                    stepCounter: "200000075"
-                transform: ltrim("Sales_Document_Item"."SALES_DOCUMENT_ITEM_ID"  , '0')
-          - columnReference:
-              columnCounter: 13488
-              stepCounter: "77"
-            dataType: char(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005159
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13492
-              stepCounter: "77"
-            dataType: char(9)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: MATERIAL_GROUP_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005163
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13494
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ITEM_CATEGORY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005165
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13500
-              stepCounter: "77"
-            dataType: char(2)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: REASON_REJECTION_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005171
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13501
-              stepCounter: "77"
-            dataType: char(18)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PRODUCT_HIERARCHY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005172
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13507
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: BASE_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005178
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13528
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NET_VALUE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005199
-                    stepCounter: "200000075"
-                transform: case when "Sales_Document_Header"."SD_DOCUMENT_CATEGORY" = 'C' then "Sales_Document_Item"."NET_VAL" else "Sales_Document_Item"."NET_VAL"  * -1 end
-          - columnReference:
-              columnCounter: 13529
-              stepCounter: "77"
-            dataType: char(5)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SD_DOCUMENT_CURRENCY_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005200
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13533
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: ORDER_QUANTITY
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005204
-                    stepCounter: "200000075"
-                transform: case when "Sales_Document_Header"."SD_DOCUMENT_CATEGORY"  = 'C' then "Sales_Document_Item"."ORDER_QUANTITY" else "Sales_Document_Item"."ORDER_QUANTITY"  * -1 end
-          - columnReference:
-              columnCounter: 13537
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005208
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13540
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: GROSS_WEIGHT
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005211
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13542
-              stepCounter: "77"
-            dataType: char(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: WEIGHT_UOM_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005213
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13553
-              stepCounter: "77"
-            dataType: char(4)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: PLANT_ID
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005224
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13577
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: NET_PRICE
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005248
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13580
-              stepCounter: "77"
-            dataType: char(1)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: RETURNS_ITEM
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005251
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13871
-              stepCounter: "77"
-            dataType: NUMBER(38,0)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HVR_IS_DELETED
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005542
-                    stepCounter: "200000075"
-                transform: ""
-          - columnReference:
-              columnCounter: 13872
-              stepCounter: "77"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HVR_CHANGE_TIME
-            nullable: true
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 2000005543
-                    stepCounter: "200000075"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              INC_KEYS_Sales_Order: "121"
-              Sales_Document_Header: "200000074"
-              Sales_Document_Header_Status: "73"
-              Sales_Document_Item: "200000075"
-              Sales_Document_Item_Status: "75"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: TST
-                nodeName: Sales_Document_Header_Status
-              - locationName: TST
-                nodeName: Sales_Document_Item_Status
-              - locationName: TST
-                nodeName: INC_KEYS_Sales_Order
-              - locationName: TST
-                nodeName: Sales_Document_Header
-              - locationName: TST
-                nodeName: Sales_Document_Item
-            join:
-              joinCondition: |-
-                FROM {{ ref('TST', 'INC_KEYS_Sales_Order') }} "INC_KEYS_Sales_Order"
-                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header') }} "Sales_Document_Header"
-                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Header"."SALES_DOCUMENT_ID"
-                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item') }} "Sales_Document_Item"
-                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Item"."SALES_DOCUMENT_ID"
-                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header_Status') }} "Sales_Document_Header_Status"
-                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Header_Status"."SALES_DOCUMENT_ID"
-                LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
-                ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Item_Status"."SALES_DOCUMENT_ID"
-                AND "Sales_Document_Item"."SALES_DOCUMENT_ITEM_ID" = "Sales_Document_Item_Status"."SD_ITEM_ID"
-                AND "Sales_Document_Header"."SD_DOCUMENT_CATEGORY" in ('C', 'H')
-            name: FACT_SALESORDER
-            noLinkRefs: []
-      name: FACT_SALESORDER
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "77"
+fileVersion: 1
+id: "77"
+name: FACT_SALESORDER
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TST
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13326"
+          stepCounter: "77"
+        config: {}
+        dataType: char(10)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_NUMBER
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "23698"
+                stepCounter: "121"
+            transform: trim("INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" , '0')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13197"
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12332"
+                stepCounter: "73"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13204"
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: OVERALL_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12339"
+                stepCounter: "73"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13285"
+          stepCounter: "77"
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: ITEM_DELIVERY_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12467"
+                stepCounter: "75"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13327"
+          stepCounter: "77"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000004998"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13329"
+          stepCounter: "77"
+        config: {}
+        dataType: char(12)
+        description: ""
+        hashDetails: null
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005000"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13332"
+          stepCounter: "77"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: DOCUMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005003"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13333"
+          stepCounter: "77"
+        config: {}
+        dataType: char(1)
+        description: ""
+        hashDetails: null
+        name: SD_DOCUMENT_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005004"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13335"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005006"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13336"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: ORDER_REASON_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005007"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13339"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: DELIVERY_BLOCK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005010"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13343"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: SALES_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005014"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13344"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: DISTRIBUTION_CHANNEL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005015"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13345"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: DIVISION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005016"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13353"
+          stepCounter: "77"
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: REQUESTED_DELIVERY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005024"
+                stepCounter: "200000074"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13372"
+          stepCounter: "77"
+        config: {}
+        dataType: char(10)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "23698"
+                stepCounter: "121"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13487"
+          stepCounter: "77"
+        config: {}
+        dataType: char(6)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005158"
+                stepCounter: "200000075"
+            transform: ltrim("Sales_Document_Item"."SALES_DOCUMENT_ITEM_ID"  , '0')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13488"
+          stepCounter: "77"
+        config: {}
+        dataType: char(18)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005159"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13492"
+          stepCounter: "77"
+        config: {}
+        dataType: char(9)
+        description: ""
+        hashDetails: null
+        name: MATERIAL_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005163"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13494"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ITEM_CATEGORY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005165"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13500"
+          stepCounter: "77"
+        config: {}
+        dataType: char(2)
+        description: ""
+        hashDetails: null
+        name: REASON_REJECTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005171"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13501"
+          stepCounter: "77"
+        config: {}
+        dataType: char(18)
+        description: ""
+        hashDetails: null
+        name: PRODUCT_HIERARCHY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005172"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13507"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: BASE_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005178"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13528"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: NET_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005199"
+                stepCounter: "200000075"
+            transform: case when "Sales_Document_Header"."SD_DOCUMENT_CATEGORY" = 'C' then "Sales_Document_Item"."NET_VAL" else "Sales_Document_Item"."NET_VAL"  * -1 end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13529"
+          stepCounter: "77"
+        config: {}
+        dataType: char(5)
+        description: ""
+        hashDetails: null
+        name: SD_DOCUMENT_CURRENCY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005200"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13533"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: ORDER_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005204"
+                stepCounter: "200000075"
+            transform: case when "Sales_Document_Header"."SD_DOCUMENT_CATEGORY"  = 'C' then "Sales_Document_Item"."ORDER_QUANTITY" else "Sales_Document_Item"."ORDER_QUANTITY"  * -1 end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13537"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: SALES_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005208"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13540"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: GROSS_WEIGHT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005211"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13542"
+          stepCounter: "77"
+        config: {}
+        dataType: char(3)
+        description: ""
+        hashDetails: null
+        name: WEIGHT_UOM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005213"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13553"
+          stepCounter: "77"
+        config: {}
+        dataType: char(4)
+        description: ""
+        hashDetails: null
+        name: PLANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005224"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13577"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: NET_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005248"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13580"
+          stepCounter: "77"
+        config: {}
+        dataType: char(1)
+        description: ""
+        hashDetails: null
+        name: RETURNS_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005251"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13871"
+          stepCounter: "77"
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: HVR_IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005542"
+                stepCounter: "200000075"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "13872"
+          stepCounter: "77"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: HVR_CHANGE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "2000005543"
+                stepCounter: "200000075"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          INC_KEYS_Sales_Order: "121"
+          Sales_Document_Header: "200000074"
+          Sales_Document_Header_Status: "73"
+          Sales_Document_Item: "200000075"
+          Sales_Document_Item_Status: "75"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TST
+            nodeName: Sales_Document_Header_Status
+          - locationName: TST
+            nodeName: Sales_Document_Item_Status
+          - locationName: TST
+            nodeName: INC_KEYS_Sales_Order
+          - locationName: TST
+            nodeName: Sales_Document_Header
+          - locationName: TST
+            nodeName: Sales_Document_Item
+        join:
+          joinCondition: |-
+            FROM {{ ref('TST', 'INC_KEYS_Sales_Order') }} "INC_KEYS_Sales_Order"
+            LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header') }} "Sales_Document_Header"
+            ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Header"."SALES_DOCUMENT_ID"
+            LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item') }} "Sales_Document_Item"
+            ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Item"."SALES_DOCUMENT_ID"
+            LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Header_Status') }} "Sales_Document_Header_Status"
+            ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Header_Status"."SALES_DOCUMENT_ID"
+            LEFT OUTER JOIN {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
+            ON "INC_KEYS_Sales_Order"."SALES_DOCUMENT_ID" = "Sales_Document_Item_Status"."SALES_DOCUMENT_ID"
+            AND "Sales_Document_Item"."SALES_DOCUMENT_ITEM_ID" = "Sales_Document_Item_Status"."SD_ITEM_ID"
+            AND "Sales_Document_Header"."SD_DOCUMENT_CATEGORY" in ('C', 'H')
+        name: FACT_SALESORDER
+        noLinkRefs: []
+  name: FACT_SALESORDER
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

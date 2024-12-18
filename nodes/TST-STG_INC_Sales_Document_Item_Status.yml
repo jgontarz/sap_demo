@@ -1,73 +1,74 @@
-steps:
-  STG_INC_Sales_Document_Item_Status-114:
-    operation:
-      config:
-        insertStrategy: INSERT
-        postSQL: ""
-        preSQL: ""
-        testsEnabled: true
-        truncateBefore: true
-      database: ""
-      dependencies: []
-      deployEnabled: true
-      description: ""
-      isDataVault: false
-      isMultisource: false
-      locationID: ""
-      locationName: TST
-      materializationType: table
-      metadata:
-        appliedNodeTests: []
-        columns:
-          - columnReference:
-              columnCounter: 21605
-              stepCounter: "114"
-            dataType: VARCHAR(10)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: SALES_DOCUMENT_ID
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12462
-                    stepCounter: "75"
-                transform: ""
-          - columnReference:
-              columnCounter: 21606
-              stepCounter: "114"
-            dataType: TIMESTAMP_TZ(3)
-            description: ""
-            hashColumns: []
-            hashDetails: null
-            name: HVR_CHANGE_TIME
-            nullable: false
-            sourceColumnReferences:
-              - columnReferences:
-                  - columnCounter: 12506
-                    stepCounter: "75"
-                transform: ""
-        cteString: ""
-        enabledColumnTestIDs: []
-        sourceMapping:
-          - aliases:
-              Sales_Document_Item_Status: "75"
-            customSQL:
-              customSQL: ""
-            dependencies:
-              - locationName: TST
-                nodeName: Sales_Document_Item_Status
-            join:
-              joinCondition: |-
-                FROM {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
-                where "Sales_Document_Item_Status"."HVR_CHANGE_TIME" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Item_Status') }} "LAST_LOAD" )
-            name: STG_INC_Sales_Document_Item_Status
-            noLinkRefs:
-              - locationName: TST
-                nodeName: STG_LOAD_TIME_Sales_Document_Item_Status
-      name: STG_INC_Sales_Document_Item_Status
-      overrideSQL: false
-      schema: ""
-      sqlType: Stage
-      type: sql
-    stepCounter: "114"
+fileVersion: 1
+id: "114"
+name: STG_INC_Sales_Document_Item_Status
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TST
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "21605"
+          stepCounter: "114"
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        hashDetails: null
+        name: SALES_DOCUMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12462"
+                stepCounter: "75"
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: "21606"
+          stepCounter: "114"
+        config: {}
+        dataType: TIMESTAMP_TZ(3)
+        description: ""
+        hashDetails: null
+        name: HVR_CHANGE_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "12506"
+                stepCounter: "75"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          Sales_Document_Item_Status: "75"
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TST
+            nodeName: Sales_Document_Item_Status
+        join:
+          joinCondition: |-
+            FROM {{ ref('TST', 'Sales_Document_Item_Status') }} "Sales_Document_Item_Status"
+            where "Sales_Document_Item_Status"."HVR_CHANGE_TIME" > (SELECT nvl(MAX("LAST_LOAD"."MAX_LOAD_CHANGE_TIME"),'1900-01-01'::timestamp_tz(3)) FROM {{ ref_no_link('TST', 'STG_LOAD_TIME_Sales_Document_Item_Status') }} "LAST_LOAD" )
+        name: STG_INC_Sales_Document_Item_Status
+        noLinkRefs:
+          - locationName: TST
+            nodeName: STG_LOAD_TIME_Sales_Document_Item_Status
+  name: STG_INC_Sales_Document_Item_Status
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
