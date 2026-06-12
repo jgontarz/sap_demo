@@ -3,7 +3,6 @@ id: "72"
 name: VBUK
 operation:
   database: ""
-  dataset: ""
   deployEnabled: true
   description: ""
   locationName: TST
@@ -1314,12 +1313,9 @@ operation:
         nullable: false
         primaryKey: false
         uniqueKey: false
-    join:
-      joinCondition: FROM {{ ref('RAW', 'VBUK') }}
   name: VBUK
   schema: ""
   sqlType: Source
-  table: VBUK
   type: sourceInput
   version: 1
 type: Node

@@ -3,7 +3,6 @@ id: "74"
 name: VBUP
 operation:
   database: ""
-  dataset: ""
   deployEnabled: true
   description: ""
   locationName: TST
@@ -714,12 +713,9 @@ operation:
         nullable: false
         primaryKey: false
         uniqueKey: false
-    join:
-      joinCondition: FROM {{ ref('RAW', 'VBUP') }}
   name: VBUP
   schema: ""
   sqlType: Source
-  table: VBUP
   type: sourceInput
   version: 1
 type: Node
